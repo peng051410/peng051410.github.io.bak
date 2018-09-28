@@ -1,0 +1,133 @@
+#+BEGIN_COMMENT
+.. title: 设计模式学习之策略模式
+.. slug: she-ji-mo-shi-xue-xi-zhi-ce-lue-mo-shi
+.. date: 2018-06-20 07:04:56 UTC+08:00
+.. tags: design pattern, java
+.. category: java
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+* 说明
+  :PROPERTIES:
+  :ID:       1F35F4B4-1981-4880-808D-FD4B457B30DB
+  :END:
+  策略模式是设计模式中使用频率很高的模式，主要的就是实现对行为的包装，达到结果的方式有多种，使用者可以选择任何一个方式来得到想要结果，在增加新的方式时更加的方便与灵活。它是为了适应算法的灵活性而产生的。
+* 策略模式实现
+  :PROPERTIES:
+  :ID:       F6C5FFEB-1164-429F-9C99-9A3E147CB3F6
+  :END:
+  以常用的购物为例，一般情况下购物分为浏览商品，下单，支付。在支付时消费者可以选择多种不同的支付方式，如支付宝、微信、京东支付、银联支付等。在支付中流程就可以使用到策略模式，网站为用户提供了这些支付方式可供选择，用户只需要选择自己喜欢的支付方式来进行充值就可以得到商品了。在一般情况下都会定义一个抽象类来定义支付的一些行为，如金额，商品简介等信息。实现的抽象类如以下定义：
+  #+BEGIN_SRC java
+  package cn.imcompany.pay;
+
+  /**
+   ,* Created by tomyli on 2018/6/20.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public interface Payment {
+
+      boolean pay(String param);
+
+  }
+  #+END_SRC
+  这样就定义了支付方式的行为，剩下的就由不同的支付方式来进行实现，比如支付宝支付、微信支付，示例代码如下：
+  #+BEGIN_SRC java
+  package cn.imcompany.pay;
+
+  /**
+   ,* Created by tomyli on 2018/6/20.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public class AliPay implements Payment {
+
+      @Override
+      public boolean pay(String param) {
+
+          System.out.println("AliPay");
+          return true;
+      }
+  }
+
+  public class WechatPay implements Payment {
+
+      @Override
+      public boolean pay(String param) {
+
+          System.out.println("WechatPay");
+          return true;
+      }
+  }
+  #+END_SRC
+  要是再增加一种支付方式则可以实现Payment接口进行实现就可以了，一般情况下会有一个维护支付方式的常量类，由它来维护可用的支付方式。这个常量类的简化代码如下：
+  #+BEGIN_SRC java
+  package cn.imcompany.pay;
+
+  /**
+   ,* Created by tomyli on 2018/6/20.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public enum PayType {
+
+      ALI_PAY(new AliPay()),
+      WECHAT_PAY(new WechatPay()),
+      JD_PAY(new JdPay()),
+      UNICOME_PAY(new UnicomePay()),
+      ;
+
+      private Payment payment;
+
+      PayType(Payment payment) {
+          this.payment = payment;
+      }
+
+      public Payment getPayment() {
+          return payment;
+      }
+  }
+  #+END_SRC
+  在常量类可以获取要支付的具体支付方式来进行支付。接下来进行一下测试：
+  #+BEGIN_SRC java
+  package cn.imcompany.pay;
+
+  /**
+   ,* Created by tomyli on 2018/6/20.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public class PayTest {
+
+      public static void main(String[] args) {
+
+          PayType.ALI_PAY.getPayment().pay("123");
+
+          PayType.valueOf(PayType.WECHAT_PAY.toString()).getPayment().pay("325");
+      }
+
+  }
+  #+END_SRC
+  上面的测试会输出
+  #+BEGIN_SRC java
+  AliPay
+  WechatPay
+  #+END_SRC
+  这样一个简单的策略模式就实现了。
+  策略模式的类图如下:
+  [[img-url:/images/strategy.png][策略模式]]
+* 策略设计模式总结
+  :PROPERTIES:
+  :ID:       16BB8D9F-AFFD-4584-A8AF-4FE7A9526414
+  :END:
+  策略模式是一种行为类型的设计模式，它封装了不同的行为，给使用者提供几种选择来实现结果。
+** 优点
+   :PROPERTIES:
+   :ID:       C88F8F41-AB48-473B-AD0E-37882FC3286A
+   :END:
+   1. 再增加新的支付方式只需要增加实现类即可，不需要修改现在支付方式的实现逻辑。符合开闭原则。
+   2. 在选择行为时避免了很多的if-else的判断。使代码更加清晰。
+   3. 策略模式提供了统一的管理行为的方式。
+** 缺点
+   :PROPERTIES:
+   :ID:       54C00A2D-6087-453A-AFF6-E52FCCE3692F
+   :END:
+   1. 无法一起使用多个策略类。
