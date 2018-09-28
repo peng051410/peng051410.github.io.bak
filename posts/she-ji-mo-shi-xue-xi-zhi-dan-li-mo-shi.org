@@ -1,0 +1,305 @@
+#+BEGIN_COMMENT
+.. title: 设计模式学习之单例模式
+.. slug: she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi
+.. date: 2018-06-05 16:36:08 UTC+08:00
+.. tags: design pattern, java
+.. category: java
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+* 特点
+  :PROPERTIES:
+  :ID:       5178CAAD-3EB4-4C23-8A31-1A8636932EA3
+  :END:
+  单例模式就是确保在系统中只在一个实例提供功能。单例有好几种写法，主要有饿汉式、懒汉式、静态方法内部类、注册式单例。
+* 饿汉式
+  :PROPERTIES:
+  :ID:       D8072892-769E-4CE2-A5C1-653E76608FA5
+  :END:
+  饿汉式单例就是在类定义时就已经将实例进行了初始化，在系统调用时可以直接返回不需要再实例化。示例代码如下：
+  #+BEGIN_SRC java
+  public class Hungry {
+
+      private Hungry() {
+      }
+
+      private static final Hungry INSTANCE = new Hungry();
+
+      public static Hungry getInstance() {
+          return INSTANCE;
+      }
+
+  }
+  #+END_SRC
+  饿汉式的优点是提前进行初始化，线程安全。缺点是在系统未调用的情况下占用了内存空间，是以空间换取时间的样例
+* 懒汉式
+  :PROPERTIES:
+  :ID:       ED1E6C8B-3D3A-486D-916B-76A252AEED07
+  :END:
+  懒汉式就是在使用才对对象实例进行初始化，达到了延迟加载的目的。示例代码如下：
+  #+BEGIN_SRC java
+  public class LazyOne {
+
+      private LazyOne() {
+      }
+
+      private static LazyOne instance = null;
+
+      public static LazyOne getInstance() {
+          if (instance == null) {
+              instance = new LazyOne();
+          }
+          return instance;
+      }
+  }
+  #+END_SRC
+  懒式式优化点使用时实例化，延迟加载。缺点是存在线程安全问题
+* 懒汉式（线程安全版本）
+  :PROPERTIES:
+  :ID:       5448AF33-6E0A-4EC7-BA2F-CA0A52F3D61A
+  :END:
+  上面的写法存在线程安全问题，最简单的修改方法是加上synchronized关键字，这样就解决了线程的安全问题。示例代码如下：
+  #+BEGIN_SRC java
+  public class LazyTwo {
+
+      private LazyTwo() {
+      }
+
+      private static LazyTwo instance = null;
+
+      public static synchronized LazyTwo getInstance() {
+          if (instance == null) {
+              instance = new LazyTwo();
+          }
+          return instance;
+      }
+  }
+  #+END_SRC
+  加了synchronized关键字解决了线程安全问题，但是程序的并发性能下降，因为在同一时间只能有一个线程进行工作。测试生成200万个实例的情况，不带关键字synchronized耗时7ms，而带synchroized的耗时49ms，相差7倍，加大生成实例的个数，这个时间差会更大，这个版本性能的测试代码如下：
+  #+BEGIN_SRC java
+  long start = System.currentTimeMillis();
+  int count = 2_000_000;
+  for (int i = 0; i < count; i++) {
+      LazyOne.getInstance();
+  }
+  System.out.println("LazyOne use: " + (System.currentTimeMillis() - start) + "ms");
+
+
+  long start2 = System.currentTimeMillis();
+  for (int i = 0; i < count; i++) {
+       LazyTwo.getInstance();
+  }
+  System.out.println("LazyTwo use: " + (System.currentTimeMillis() - start2) + "ms");
+  #+END_SRC
+* 注册式单例
+  :PROPERTIES:
+  :ID:       8568E20F-C765-432E-B067-7A56A5B65C44
+  :END:
+  注册式单例是Spring中使用的一种产生单例的方式，主要的思想就是将要产生的单例对象使用一样map进行存储。示例代码如下：
+  #+BEGIN_SRC java
+  private final static Map<String, Object> singletonMaps = new ConcurrentHashMap<>();
+
+  public static Object getBean(String beanName) {
+
+          if (null == beanName || "".equals(beanName)) {
+                  throw new RuntimeException("invalid beanName");
+          }
+
+          if (!singletonMaps.containsKey(beanName)) {
+
+                  try {
+                          synchronized (singletonMaps) {
+                                  Object o = Class.forName(beanName).newInstance();
+                                  singletonMaps.put(beanName, o);
+                                  return o;
+                          }
+                  } catch (Exception e) {
+                          e.printStackTrace();
+                  }
+          }
+          return singletonMaps.get(beanName);
+  }
+
+  #+END_SRC
+  Spring实际的生成单例bean的处理方式比这复杂很多。
+* 静态内部类方式
+  :PROPERTIES:
+  :ID:       1122404E-47A2-4105-99F4-B8897118C858
+  :END:
+  静态内部类就是在一个类的内部又声明了一个类，静态内部类生成单例的代码如下：
+  #+BEGIN_SRC java
+  public class LazyThree  {
+
+      private LazyThree() {
+      }
+
+      public static LazyThree getInstance() {
+          return InstanceHolder.LAZY;
+      }
+
+      private static class InstanceHolder {
+          private static final LazyThree LAZY = new LazyThree();
+      }
+  }
+  #+END_SRC
+  在类LazyThree的内部又声明了一个名为InstanceHolder的静态内部类，刚开始外部类初始化时内部类不会进行初始化，这样保留了懒加载的特性，只有在调用getInstance方法时内部类才初始化，JVM虚拟机内部的逻辑保证了在多线程情况静态内部类只给被初始化一次，这样也保证了线程的安全。但是JAVA提供我们程序员太多的方式来进行类的实例化，比如clone，反射，序列化。在这些情况下，我们的单例还是唯一的吗？
+* 打破单例之Clone方式
+  :PROPERTIES:
+  :ID:       61706974-D481-42C7-9D99-42F27C5072DA
+  :END:
+  在JAVA中所有对象都继承Object对象，实例对象实现Cloneable接口则可以进行clone，示例代码如下：
+  #+BEGIN_SRC java
+  @Override
+  public Object clone() throws CloneNotSupportedException {
+          return super.clone();
+  }
+  #+END_SRC
+  测试代码:
+  #+BEGIN_SRC java
+  LazyThree lazyThree = LazyThree.getInstance();
+  LazyThree clone = (LazyThree) lazyThree.clone();
+
+  System.out.println(lazyThree == clone);  //结果为false
+  #+END_SRC
+** 解决clone方式下产生单例不一致的问题
+   :PROPERTIES:
+   :ID:       040D171C-1E2F-48B0-9B91-6F71F694154E
+   :END:
+   实例了cloneable接口的单例对象生成的实例不相同，此时我们要做的就是重写clone方法，让其使用我们静态内部类生成的单例，示例代码如下：
+   #+BEGIN_SRC java
+   @Override
+   public Object clone() throws CloneNotSupportedException {
+           return getInstance();
+   }
+   #+END_SRC
+   这样我们重写了clone方式，生成的单例就是一样的了
+* 打破单例之反射方式
+  :PROPERTIES:
+  :ID:       0F5657E4-0FE0-4FB3-A3B4-D0DE0056E6E8
+  :END:
+  反射是JAVA的一个利器，利用反射可以实例化对象，调用方法，动态的创建对象，使用反射创建实例的代码如下：
+  #+BEGIN_SRC java
+  Constructor<LazyThree> constructor = LazyThree.class.getDeclaredConstructor(null);
+  constructor.setAccessible(true);
+  LazyThree lazyThreeReflect = constructor.newInstance(null);
+
+  LazyThree lazyThree = LazyThree.getInstance();
+  System.out.println(lazyThree == lazyThreeReflect);
+  #+END_SRC
+  生成的实例不是相同的，虽然我们的类已经把构造方法声明为了private，但是反射依然可以访问的到。
+** 解决反射产生单例不一致的问题
+   :PROPERTIES:
+   :ID:       E418A027-B1C0-4A7F-84F6-70424EF2EF81
+   :END:
+   为了防止这种事情的发生，我们需要在构造方法上对类初始化状态进行标识来阻止类的多次初始化。代码如下：
+   #+BEGIN_SRC java
+   private static boolean initial = false;
+
+   private LazyThree() {
+
+           synchronized (LazyThree.class) {
+                   if (!initial) {
+                           initial = true;
+                   } else {
+                           throw new RuntimeException("单例被侵犯");
+                   }
+           }
+   }
+   #+END_SRC
+   我们定义的一个静态变量initial来标识类有没有进行了初始化，并且不对外提供对initial变量的get与set方法。这样如实例已经初始化了，再次调用则抛出异常表明类已经被初始化了，这样就防止了使用反射方式来进行类的实例化了。
+* 打破单例之序列化反序列化
+  :PROPERTIES:
+  :ID:       19196A70-BD8B-4108-B605-2447200DD23A
+  :END:
+  JAVA中的对象是可以持久化到磁盘上的，使用的方式就是序列化与反序列化，主要是使用ObjectInputStream与ObjectOutPutStream来实现。代码如下：
+  #+BEGIN_SRC java
+  LazyThree lazyThree = LazyThree.getInstance();
+
+  File file = new File(LazyTest.class.getResource("").getPath() + "/serializable.txt");
+  FileOutputStream fps = new FileOutputStream(file);
+  ObjectOutputStream oos = new ObjectOutputStream(fps);
+  oos.writeObject(lazyThree);
+  oos.flush();
+  oos.close();
+
+  FileInputStream fis = new FileInputStream(file);
+  ObjectInputStream ois = new ObjectInputStream(fis);
+  LazyThree lazyThreeSerializable = (LazyThree) ois.readObject();
+  fis.close();
+  ois.close();
+
+  System.out.println(lazyThree == lazyThreeSerializable);
+  #+END_SRC
+  上面代码的结果为false，证明两个对象不相同
+** 解决序列化反序列化产生单例不一致的问题
+   :PROPERTIES:
+   :ID:       4D6F9830-5B71-41DA-95CF-B7AA929BDF42
+   :END:
+   解决的方法要的ObjectInputStream读入对象时来处理，我们需要在类中增加readResolve方法，在这个方法返回我们生成单例的方式。代码如下：
+   #+BEGIN_SRC java
+   private Object readResolve() {
+           return getInstance();
+   }
+   #+END_SRC
+   这样在读取对象信息时使用我们返回的实体对象就保证了对象的一致性。
+   单例模式的类图如下:
+   [[img-url:/images/singleton.png][单例模式]]
+* 总结
+  :PROPERTIES:
+  :ID:       F8E90568-3F86-454F-A84C-AB34B3024AB4
+  :END:
+  写一个单例不容易。
+  以下是完整的单例方式代码:
+  #+BEGIN_SRC java
+  package cn.imcompany.lazy;
+
+  import java.io.Serializable;
+
+  /**
+   ,* Created by tomyli on 2018/6/2.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public class LazyThree implements Cloneable, Serializable {
+
+      private static boolean initial = false;
+
+      private LazyThree() {
+
+          synchronized (LazyThree.class) {
+              if (!initial) {
+                  initial = true;
+              } else {
+                  throw new RuntimeException("单例被侵犯");
+              }
+          }
+      }
+
+      public static LazyThree getInstance() {
+          return InstanceHolder.LAZY;
+      }
+
+      private static class InstanceHolder {
+
+          private static final LazyThree LAZY = new LazyThree();
+      }
+
+      private Object readResolve() {
+          return getInstance();
+      }
+
+      // public static boolean isInintial() {
+      //     return inintial;
+      // }
+      //
+      // public static void setInintial(boolean inintial) {
+      //     LazyThree.inintial = inintial;
+      // }
+
+      @Override
+      public Object clone() throws CloneNotSupportedException {
+          return getInstance();
+      }
+  }
+  #+END_SRC

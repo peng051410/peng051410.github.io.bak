@@ -1,0 +1,150 @@
+#+BEGIN_COMMENT
+.. title: 设计模式学习之模板模式
+.. slug: she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi
+.. date: 2018-06-25 21:06:17 UTC+08:00
+.. tags: design pattern, java
+.. category: java
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+* 说明
+  :PROPERTIES:
+  :ID:       1D499B1D-BE98-4A3B-B9FA-BA4DEB4B4DB4
+  :END:
+  在一般实现处理用户支付订单时，通常都会在一个单独的回调项目中来处理用户的支付方式回调。一般情况下，回调的处理过程都是相似的，大体的步骤就是获取参数->验证参数->验证签名->验证支付状态（可选）->订单状态为成功增加用户的充值金额。具体的过程由于不同的支付方式不同而处理的不同。这种需求可以使用模板的模板模式来实现。
+* 模板设计模式实现
+  :PROPERTIES:
+  :ID:       D853C6D0-3137-4D2C-AE23-FC5BD4185FEE
+  :END:
+  模板模式就是由一个类来声明整个处理流程的步骤，具体的实现由各个实现类来进行实现。处理的流程不变，变是就是里面具体的实现。针对上面的支付回调，可以声明一个抽象类来声明具体的流程方法，代码如下：
+  #+BEGIN_SRC java
+  package cn.imcompany.callback;
+
+  import java.util.Map;
+
+  /**
+   ,* Created by tomyli on 2018/6/21.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public abstract class PayCallback {
+
+      public abstract Map<String, String> getParam();
+
+      public abstract boolean checkParam(Map<String, String> param);
+
+      public abstract boolean validSign();
+
+      /**
+       ,* 定义了一个钩子方法来让子类控制流程实现
+       ,* @return true：强制返回，false：不强制返回
+       ,*/
+      public boolean forceReturn() {
+
+          return false;
+      }
+
+      public String doService() {
+
+          Map<String, String> map = getParam();
+          if (!checkParam(map)) {
+              return "param fail";
+          }
+          if (!validSign()) {
+              return "sign fail";
+          }
+
+          if (!map.get("status").equals("success")) {
+              if (forceReturn()) {
+                  return "order fail";
+              }
+          }
+
+          return "success";
+      }
+  }
+  #+END_SRC
+  在上面的PayCallback类中声明了getParam(获取参数)，checkParam（验证参数），validSign（验证签名），验证支付状态四个步骤，具体的支付回调类要来实现这里声明的方法即可。下面是一个微信支付的回调类的代码实现：
+  #+BEGIN_SRC java
+  package cn.imcompany.callback;
+
+  import java.util.HashMap;
+  import java.util.Map;
+
+  /**
+   ,* Created by tomyli on 2018/6/21.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public class WechatPayCallback extends PayCallback {
+
+      @Override
+      public Map<String, String> getParam() {
+          Map<String, String> map = new HashMap<>();
+          map.put("status", "fail");
+          return map;
+      }
+
+      @Override
+      public boolean checkParam(Map<String, String> param) {
+          return true;
+      }
+
+      @Override
+      public boolean validSign() {
+          return true;
+      }
+
+      @Override
+      public boolean forceReturn() {
+
+          return true;
+      }
+
+  }
+  #+END_SRC
+  具体的微信回调类实现了PayCallback类声明的抽象方法，它返回的状态是状态失败，在这里面有一个forceReturn方法，可以处理是否在某一个流程进行强制的返回，在微信回调类里面是进行强制返回，下面看一下支付宝的回调类代码：
+  #+BEGIN_SRC java
+  package cn.imcompany.callback;
+
+  import java.util.HashMap;
+  import java.util.Map;
+
+  /**
+   ,* Created by tomyli on 2018/6/21.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public class AliPayCallback extends PayCallback {
+
+      @Override
+      public Map<String, String> getParam() {
+          Map<String, String> map = new HashMap<>();
+          map.put("status", "success");
+          return map;
+      }
+
+      @Override
+      public boolean checkParam(Map<String, String> param) {
+          return true;
+      }
+
+      @Override
+      public boolean validSign() {
+          return true;
+      }
+  }
+
+  #+END_SRC
+  对于支付宝，这里面的状态是成功，证明这一单处理成功，在支付宝回调这个类里面没有重写父类的forceReturn方法，这个方法子类可以根据需要来决定是否需要覆盖。这样父类给了子类可以控制父类流程的方法，这个方法一般叫做钩子方法，是留给子类来进行一些特殊处理的方法。子类实现这个方法就可以间接的控制父类中定义好的流程。比如在这里就可以控制遇到支付状态为失败的订单是否继续进行后续的操作。不进行了说明这一单也正确处理完成，返回给调用方正确的状态就可以了。
+** 模板模式实现的类图
+   :PROPERTIES:
+   :ID:       A4C31D79-7F92-431B-BD3D-CDA4FE8993D9
+   :END:
+   [[img-url:/images/template.png][模板模式]]
+* 模板模式总结
+  :PROPERTIES:
+  :ID:       CF8B6416-7D0E-4B0F-BC5A-8D5CB391DB93
+  :END:
+  1. 模板模式定义了一个具体的流程来实现功能，子类只需要实现相应定义的方法就可以达到最终的结果。增加另一种回调类也非常的容易，只需要实现父类的方法就可以了。符合开闭原则。
+  2. 父类可以提供子类进行流程控制的方法，这样可以实现子类的反向控制。
+
