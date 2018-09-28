@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html prefix="        og: http://ogp.me/ns# article: http://ogp.me/ns/article#     " vocab="http://ogp.me/ns" lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="把知识用起来最好的方法就是：减少关注方向，经常记录，定期思考，反复实践，不把信息当作知识，不把收藏当作学习，不把阅读当作思考，不把储存当作掌握。 不提炼总结、不应用学习、不深入思考、不实践反馈，就不会变成自己的能力。———warfalcon">
+<meta name="viewport" content="width=device-width">
+<title>I'm company (旧文章页 1) | I'm company</title>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="zh_cn" href="rss.xml">
+<link rel="canonical" href="http://blog.imcompany.cn/index-1.html">
+<link rel="prev" href="." type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5shiv-printshiv.min.js"></script><![endif]-->
+</head>
+<body>
+    <a href="#page-content" class="sr-only sr-only-focusable">跳到主内容</a>
+    <section class="social"><ul>
+<li><a href="index.html" title="Home"><i class="fa fa-home"></i></a></li>
+            <li><a href="archive.html" title="Archives"><i class="fa fa-folder-open"></i></a></li>
+            <li><a href="categories/index.html" title="Tags"><i class="fa fa-tags"></i></a></li>
+            <li><a href="rss.xml" title="RSS"><i class="fa fa-rss"></i></a></li>
+            <li><a href="https://getnikola.com" title="About me"><i class="fa fa-user"></i></a></li>
+            <li><a href="https://twitter.com/hougemeiga" title="My Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/peng051410" title="My Github"><i class="fab fa-github"></i></a></li>
+    
+    
+
+        </ul></section><section class="page-content"><div class="content" rel="main">
+            
+
+    
+
+
+    
+<div class="postindex">
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/" class="u-url">设计模式学习之原型模式</a></h1>
+        <div class="metadata">
+            <p class="dateline"><a href="posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2018-06-09T17:12:41+08:00" title="2018-06-09 17:12">2018-06-09 17:12</time></a></p>
+            <p class="byline author vcard"> <i class="fa fa-user"></i> <span class="byline-name fn" itemprop="author">
+                Tomyli
+            </span></p>
+                <p class="commentline"><i class="fa fa-comment"></i> 
+        
+    <a href="posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/#disqus_thread" data-disqus-identifier="cache/posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div id="outline-container-org3e1d30b" class="outline-2">
+<h2 id="org3e1d30b">
+<a id="ID-EE979F53-11A7-4FD2-B8F4-C48CE3D8F1B2"></a>特点</h2>
+<div class="outline-text-2" id="text-org3e1d30b">
+<p>
+原型设计模式就是系统中产生的每一个对象都不相同，通过原型来创建新的对象，原型模式属于创建型模式。
+</p>
+</div>
+</div>
+<div id="outline-container-orgeab8275" class="outline-2">
+<h2 id="orgeab8275">
+<a id="ID-CD7708C3-6021-485A-A24C-E6DD385F17BB"></a>实现方式</h2>
+<div class="outline-text-2" id="text-orgeab8275">
+<p>
+一般情况可以通过对象克隆的方式来根据一个对象创建出来多个对象，每个对象在内存占用的内存地址都不一样。在JAVA中克隆又分为浅克隆与深克隆。
+</p>
+</div>
+<div id="outline-container-org68c21d7" class="outline-3">
+<h3 id="org68c21d7">
+<a id="ID-5CD675BD-9485-4B23-A83F-4A32B167FC5A"></a>浅克隆</h3>
+<div class="outline-text-3" id="text-org68c21d7">
+<p>
+JAVA中是按值进行传递。实现克隆的方式就是实现Cloneable接口，这样就可以重写Object对象的clone方法来进行对象的克隆。代码如下：
+</p>
+<div class="highlight"><pre><span></span>   <span class="cm">/**</span>
+<span class="cm">    * Created by tomyli on 2018/5/30.</span>
+<span class="cm">    * Github: https://github.com/peng051410</span>
+<span class="cm">    */</span>
+   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Apple</span> <span class="kd">implements</span> <span class="n">Cloneable</span> <span class="o">{</span>
+
+       <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+       <span class="kd">public</span> <span class="kt">double</span> <span class="n">weight</span><span class="o">;</span>
+
+       <span class="nd">@Override</span>
+       <span class="kd">protected</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
+	   <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+       <span class="o">}</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+测试代码如下：
+</p>
+<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+       <span class="n">Apple</span> <span class="n">apple</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Apple</span><span class="o">();</span>
+       <span class="n">apple</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"apple"</span><span class="o">;</span>
+       <span class="n">apple</span><span class="o">.</span><span class="na">weight</span> <span class="o">=</span> <span class="mf">2.23</span><span class="o">;</span>
+
+       <span class="k">try</span> <span class="o">{</span>
+	   <span class="n">Apple</span> <span class="n">clone</span> <span class="o">=</span> <span class="o">(</span><span class="n">Apple</span><span class="o">)</span><span class="n">apple</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+	   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">clone</span> <span class="o">==</span> <span class="n">apple</span><span class="o">);</span>
+       <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+	   <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+       <span class="o">}</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+测试代码中clone与apple是两个完全不同的对象，这样就通过apple这个原型创建出来一个全新的对象。但是这里存在一个问题，现在Apple对象中只包含了值类型的成员变量，如果包含了其它对象会克隆也会成功吗？我们在Apple对象中增加一个Stone对象的集合，代码：
+</p>
+<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Apple</span> <span class="kd">implements</span> <span class="n">Cloneable</span> <span class="o">{</span>
+
+       <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+       <span class="kd">public</span> <span class="kt">double</span> <span class="n">weight</span><span class="o">;</span>
+       <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Stone</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">;</span> <span class="c1">//新增加的对象</span>
+
+       <span class="nd">@Override</span>
+       <span class="kd">protected</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
+	   <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+       <span class="o">}</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+这次再使用测试代码进行测试：
+</p>
+<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+       <span class="n">Apple</span> <span class="n">clone</span> <span class="o">=</span> <span class="o">(</span><span class="n">Apple</span><span class="o">)</span><span class="n">apple</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">clone</span> <span class="o">==</span> <span class="n">apple</span><span class="o">);</span>
+       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">clone</span><span class="o">.</span><span class="na">list</span> <span class="o">==</span> <span class="n">apple</span><span class="o">.</span><span class="na">list</span><span class="o">);</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+apple与clone依旧不相等，但是clone.list却与apple.list是相同的，这就没有达到我们的目的。在JAVA中对对象的拷贝其实拷贝的是内存地址，所以拷贝后两个list都指定了同一个内存地址。显然，浅克隆对只包含值类型的变量拷贝是正确的，而对包含对象的拷贝的处理是不符合预期的。
+</p>
+</div>
+</div>
+<div id="outline-container-orgd4d02ba" class="outline-3">
+<h3 id="orgd4d02ba">
+<a id="ID-AD59ED5A-E73D-4E99-966F-46E36C862F88"></a>深拷贝</h3>
+<div class="outline-text-3" id="text-orgd4d02ba">
+<p>
+深拷贝就是通过对JAVA对象的序列化来进行对象的完整拷贝，主要是通过ObjectInputStream与ObjectOutputStream两个流来实现对象的读取与写入。示例代码：
+</p>
+<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="n">tag</span><span class="o">;</span>
+   <span class="kd">public</span> <span class="n">Date</span> <span class="n">birthday</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="n">Tire</span> <span class="n">tire</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="n">Car</span> <span class="nf">deepCopy</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+
+   <span class="n">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
+   <span class="n">ObjectOutputStream</span> <span class="n">oos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">);</span>
+   <span class="n">oos</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+
+   <span class="n">ByteArrayInputStream</span> <span class="n">bais</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">());</span>
+   <span class="n">ObjectInputStream</span> <span class="n">ois</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span><span class="n">bais</span><span class="o">);</span>
+   <span class="n">Car</span> <span class="n">copy</span> <span class="o">=</span> <span class="o">(</span><span class="n">Car</span><span class="o">)</span> <span class="n">ois</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+   <span class="n">copy</span><span class="o">.</span><span class="na">birthday</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="o">();</span>
+   <span class="k">return</span> <span class="n">copy</span><span class="o">;</span>
+
+   <span class="o">}</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+在上面的代码中要确保每一辆车的出厂日期是唯一的，就要使用深拷贝来实现。要被克隆的对象需要实现Serializable接口。
+深拷贝原型模式的类图如下:
+<img src="images/prototype.png" alt="原型模式"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge200e97" class="outline-2">
+<h2 id="orge200e97">
+<a id="ID-85284B4D-FF5B-4206-99C8-FCE956BC3FEC"></a>应用场景</h2>
+<div class="outline-text-2" id="text-orge200e97">
+<p>
+系统中需要保存每个用户的信息，就要每个用户对应不同的实体对象。
+</p>
+</div>
+</div>
+<div id="outline-container-org2856704" class="outline-2">
+<h2 id="org2856704">
+<a id="ID-5B0363E3-2141-4714-B5F3-DD44CBE98738"></a>总结</h2>
+<div class="outline-text-2" id="text-org2856704">
+</div>
+<div id="outline-container-orgf02ef4f" class="outline-3">
+<h3 id="orgf02ef4f">
+<a id="ID-7941D48D-586D-4FD5-BC84-1C67136C8F05"></a>优点</h3>
+<div class="outline-text-3" id="text-orgf02ef4f">
+<p>
+原型设计模式可以进行快速的对象复制，可以很快的创建大的复杂的对象。
+</p>
+</div>
+</div>
+<div id="outline-container-org57a05bc" class="outline-3">
+<h3 id="org57a05bc">
+<a id="ID-EE1BEFBD-DD14-497F-8DEC-1A3DE329CD57"></a>缺点</h3>
+<div class="outline-text-3" id="text-org57a05bc">
+<p>
+创建对象的过程比较复杂，需要被克隆的对象要额外实现序列化接口。
+</p>
+</div>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi/" class="u-url">设计模式学习之单例模式</a></h1>
+        <div class="metadata">
+            <p class="dateline"><a href="posts/she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2018-06-05T16:36:08+08:00" title="2018-06-05 16:36">2018-06-05 16:36</time></a></p>
+            <p class="byline author vcard"> <i class="fa fa-user"></i> <span class="byline-name fn" itemprop="author">
+                Tomyli
+            </span></p>
+                <p class="commentline"><i class="fa fa-comment"></i> 
+        
+    <a href="posts/she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi/#disqus_thread" data-disqus-identifier="cache/posts/she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div id="outline-container-org736830f" class="outline-2">
+<h2 id="org736830f">
+<a id="ID-5178CAAD-3EB4-4C23-8A31-1A8636932EA3"></a>特点</h2>
+<div class="outline-text-2" id="text-org736830f">
+<p>
+单例模式就是确保在系统中只在一个实例提供功能。单例有好几种写法，主要有饿汉式、懒汉式、静态方法内部类、注册式单例。
+</p>
+</div>
+</div>
+<div id="outline-container-org028d48e" class="outline-2">
+<h2 id="org028d48e">
+<a id="ID-D8072892-769E-4CE2-A5C1-653E76608FA5"></a>饿汉式</h2>
+<div class="outline-text-2" id="text-org028d48e">
+<p>
+饿汉式单例就是在类定义时就已经将实例进行了初始化，在系统调用时可以直接返回不需要再实例化。示例代码如下：
+</p>
+<div class="highlight"><pre><span></span>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hungry</span> <span class="o">{</span>
+
+      <span class="kd">private</span> <span class="nf">Hungry</span><span class="o">()</span> <span class="o">{</span>
+      <span class="o">}</span>
+
+      <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Hungry</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Hungry</span><span class="o">();</span>
+
+      <span class="kd">public</span> <span class="kd">static</span> <span class="n">Hungry</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+	  <span class="k">return</span> <span class="n">INSTANCE</span><span class="o">;</span>
+      <span class="o">}</span>
+
+  <span class="o">}</span>
+</pre></div>
+<p>
+饿汉式的优点是提前进行初始化，线程安全。缺点是在系统未调用的情况下占用了内存空间，是以空间换取时间的样例
+</p>
+</div>
+</div>
+<div id="outline-container-org89855e4" class="outline-2">
+<h2 id="org89855e4">
+<a id="ID-ED1E6C8B-3D3A-486D-916B-76A252AEED07"></a>懒汉式</h2>
+<div class="outline-text-2" id="text-org89855e4">
+<p>
+懒汉式就是在使用才对对象实例进行初始化，达到了延迟加载的目的。示例代码如下：
+</p>
+<div class="highlight"><pre><span></span>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LazyOne</span> <span class="o">{</span>
+
+      <span class="kd">private</span> <span class="nf">LazyOne</span><span class="o">()</span> <span class="o">{</span>
+      <span class="o">}</span>
+
+      <span class="kd">private</span> <span class="kd">static</span> <span class="n">LazyOne</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+      <span class="kd">public</span> <span class="kd">static</span> <span class="n">LazyOne</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+	  <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+	      <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LazyOne</span><span class="o">();</span>
+	  <span class="o">}</span>
+	  <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</pre></div>
+<p>
+懒式式优化点使用时实例化，延迟加载。缺点是存在线程安全问题
+</p>
+</div>
+</div>
+<div id="outline-container-org9bc9ceb" class="outline-2">
+<h2 id="org9bc9ceb">
+<a id="ID-5448AF33-6E0A-4EC7-BA2F-CA0A52F3D61A"></a>懒汉式（线程安全版本）</h2>
+<div class="outline-text-2" id="text-org9bc9ceb">
+<p>
+上面的写法存在线程安全问题，最简单的修改方法是加上synchronized关键字，这样就解决了线程的安全问题。示例代码如下：
+</p>
+<div class="highlight"><pre><span></span>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LazyTwo</span> <span class="o">{</span>
+
+      <span class="kd">private</span> <span class="nf">LazyTwo</span><span class="o">()</span> <span class="o">{</span>
+      <span class="o">}</span>
+
+      <span class="kd">private</span> <span class="kd">static</span> <span class="n">LazyTwo</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+      <span class="kd">public</span> <span class="kd">static</span> <span class="kd">synchronized</span> <span class="n">LazyTwo</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+	  <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+	      <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LazyTwo</span><span class="o">();</span>
+	  <span class="o">}</span>
+	  <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</pre></div>
+<p>
+加了synchronized关键字解决了线程安全问题，但是程序的并发性能下降，因为在同一时间只能有一个线程进行工作。测试生成200万个实例的情况，不带关键字synchronized耗时7ms，而带synchroized的耗时49ms，相差7倍，加大生成实例的个数，这个时间差会更大，这个版本性能的测试代码如下：
+</p>
+<div class="highlight"><pre><span></span>  <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+  <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">2_000_000</span><span class="o">;</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">LazyOne</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LazyOne use: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">start</span><span class="o">)</span> <span class="o">+</span> <span class="s">"ms"</span><span class="o">);</span>
+
+
+  <span class="kt">long</span> <span class="n">start2</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+       <span class="n">LazyTwo</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LazyTwo use: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">start2</span><span class="o">)</span> <span class="o">+</span> <span class="s">"ms"</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+<div id="outline-container-org37a731d" class="outline-2">
+<h2 id="org37a731d">
+<a id="ID-8568E20F-C765-432E-B067-7A56A5B65C44"></a>注册式单例</h2>
+<div class="outline-text-2" id="text-org37a731d">
+<p>
+注册式单例是Spring中使用的一种产生单例的方式，主要的思想就是将要产生的单例对象使用一样map进行存储。示例代码如下：
+</p>
+<div class="highlight"><pre><span></span>  <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">singletonMaps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;();</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Object</span> <span class="nf">getBean</span><span class="o">(</span><span class="n">String</span> <span class="n">beanName</span><span class="o">)</span> <span class="o">{</span>
+
+	  <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">beanName</span> <span class="o">||</span> <span class="s">""</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">beanName</span><span class="o">))</span> <span class="o">{</span>
+		  <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="s">"invalid beanName"</span><span class="o">);</span>
+	  <span class="o">}</span>
+
+	  <span class="k">if</span> <span class="o">(!</span><span class="n">singletonMaps</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">beanName</span><span class="o">))</span> <span class="o">{</span>
+
+		  <span class="k">try</span> <span class="o">{</span>
+			  <span class="kd">synchronized</span> <span class="o">(</span><span class="n">singletonMaps</span><span class="o">)</span> <span class="o">{</span>
+				  <span class="n">Object</span> <span class="n">o</span> <span class="o">=</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="n">beanName</span><span class="o">).</span><span class="na">newInstance</span><span class="o">();</span>
+				  <span class="n">singletonMaps</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">beanName</span><span class="o">,</span> <span class="n">o</span><span class="o">);</span>
+				  <span class="k">return</span> <span class="n">o</span><span class="o">;</span>
+			  <span class="o">}</span>
+		  <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			  <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		  <span class="o">}</span>
+	  <span class="o">}</span>
+	  <span class="k">return</span> <span class="n">singletonMaps</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">beanName</span><span class="o">);</span>
+  <span class="o">}</span>
+</pre></div>
+<p>
+Spring实际的生成单例bean的处理方式比这复杂很多。
+</p>
+</div>
+</div>
+<div id="outline-container-org1ff7c9e" class="outline-2">
+<h2 id="org1ff7c9e">
+<a id="ID-1122404E-47A2-4105-99F4-B8897118C858"></a>静态内部类方式</h2>
+<div class="outline-text-2" id="text-org1ff7c9e">
+<p>
+静态内部类就是在一个类的内部又声明了一个类，静态内部类生成单例的代码如下：
+</p>
+<div class="highlight"><pre><span></span>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LazyThree</span>  <span class="o">{</span>
+
+      <span class="kd">private</span> <span class="nf">LazyThree</span><span class="o">()</span> <span class="o">{</span>
+      <span class="o">}</span>
+
+      <span class="kd">public</span> <span class="kd">static</span> <span class="n">LazyThree</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+	  <span class="k">return</span> <span class="n">InstanceHolder</span><span class="o">.</span><span class="na">LAZY</span><span class="o">;</span>
+      <span class="o">}</span>
+
+      <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">InstanceHolder</span> <span class="o">{</span>
+	  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">LazyThree</span> <span class="n">LAZY</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LazyThree</span><span class="o">();</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</pre></div>
+<p>
+在类LazyThree的内部又声明了一个名为InstanceHolder的静态内部类，刚开始外部类初始化时内部类不会进行初始化，这样保留了懒加载的特性，只有在调用getInstance方法时内部类才初始化，JVM虚拟机内部的逻辑保证了在多线程情况静态内部类只给被初始化一次，这样也保证了线程的安全。但是JAVA提供我们程序员太多的方式来进行类的实例化，比如clone，反射，序列化。在这些情况下，我们的单例还是唯一的吗？
+</p>
+</div>
+</div>
+<div id="outline-container-org3052e8e" class="outline-2">
+<h2 id="org3052e8e">
+<a id="ID-61706974-D481-42C7-9D99-42F27C5072DA"></a>打破单例之Clone方式</h2>
+<div class="outline-text-2" id="text-org3052e8e">
+<p>
+在JAVA中所有对象都继承Object对象，实例对象实现Cloneable接口则可以进行clone，示例代码如下：
+</p>
+<div class="highlight"><pre><span></span>  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
+	  <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+  <span class="o">}</span>
+</pre></div>
+<p>
+测试代码:
+</p>
+<div class="highlight"><pre><span></span>  <span class="n">LazyThree</span> <span class="n">lazyThree</span> <span class="o">=</span> <span class="n">LazyThree</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+  <span class="n">LazyThree</span> <span class="n">clone</span> <span class="o">=</span> <span class="o">(</span><span class="n">LazyThree</span><span class="o">)</span> <span class="n">lazyThree</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lazyThree</span> <span class="o">==</span> <span class="n">clone</span><span class="o">);</span>  <span class="c1">//结果为false</span>
+</pre></div>
+</div>
+<div id="outline-container-org7ba6909" class="outline-3">
+<h3 id="org7ba6909">
+<a id="ID-040D171C-1E2F-48B0-9B91-6F71F694154E"></a>解决clone方式下产生单例不一致的问题</h3>
+<div class="outline-text-3" id="text-org7ba6909">
+<p>
+实例了cloneable接口的单例对象生成的实例不相同，此时我们要做的就是重写clone方法，让其使用我们静态内部类生成的单例，示例代码如下：
+</p>
+<div class="highlight"><pre><span></span>   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
+	   <span class="k">return</span> <span class="n">getInstance</span><span class="o">();</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+这样我们重写了clone方式，生成的单例就是一样的了
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd961a6a" class="outline-2">
+<h2 id="orgd961a6a">
+<a id="ID-0F5657E4-0FE0-4FB3-A3B4-D0DE0056E6E8"></a>打破单例之反射方式</h2>
+<div class="outline-text-2" id="text-orgd961a6a">
+<p>
+反射是JAVA的一个利器，利用反射可以实例化对象，调用方法，动态的创建对象，使用反射创建实例的代码如下：
+</p>
+<div class="highlight"><pre><span></span>  <span class="n">Constructor</span><span class="o">&lt;</span><span class="n">LazyThree</span><span class="o">&gt;</span> <span class="n">constructor</span> <span class="o">=</span> <span class="n">LazyThree</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getDeclaredConstructor</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+  <span class="n">constructor</span><span class="o">.</span><span class="na">setAccessible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+  <span class="n">LazyThree</span> <span class="n">lazyThreeReflect</span> <span class="o">=</span> <span class="n">constructor</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+
+  <span class="n">LazyThree</span> <span class="n">lazyThree</span> <span class="o">=</span> <span class="n">LazyThree</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lazyThree</span> <span class="o">==</span> <span class="n">lazyThreeReflect</span><span class="o">);</span>
+</pre></div>
+<p>
+生成的实例不是相同的，虽然我们的类已经把构造方法声明为了private，但是反射依然可以访问的到。
+</p>
+</div>
+<div id="outline-container-orgb0c49f3" class="outline-3">
+<h3 id="orgb0c49f3">
+<a id="ID-E418A027-B1C0-4A7F-84F6-70424EF2EF81"></a>解决反射产生单例不一致的问题</h3>
+<div class="outline-text-3" id="text-orgb0c49f3">
+<p>
+为了防止这种事情的发生，我们需要在构造方法上对类初始化状态进行标识来阻止类的多次初始化。代码如下：
+</p>
+<div class="highlight"><pre><span></span>   <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="n">initial</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+   <span class="kd">private</span> <span class="nf">LazyThree</span><span class="o">()</span> <span class="o">{</span>
+
+	   <span class="kd">synchronized</span> <span class="o">(</span><span class="n">LazyThree</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+		   <span class="k">if</span> <span class="o">(!</span><span class="n">initial</span><span class="o">)</span> <span class="o">{</span>
+			   <span class="n">initial</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+		   <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+			   <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="s">"单例被侵犯"</span><span class="o">);</span>
+		   <span class="o">}</span>
+	   <span class="o">}</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+我们定义的一个静态变量initial来标识类有没有进行了初始化，并且不对外提供对initial变量的get与set方法。这样如实例已经初始化了，再次调用则抛出异常表明类已经被初始化了，这样就防止了使用反射方式来进行类的实例化了。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org97cb4c7" class="outline-2">
+<h2 id="org97cb4c7">
+<a id="ID-19196A70-BD8B-4108-B605-2447200DD23A"></a>打破单例之序列化反序列化</h2>
+<div class="outline-text-2" id="text-org97cb4c7">
+<p>
+JAVA中的对象是可以持久化到磁盘上的，使用的方式就是序列化与反序列化，主要是使用ObjectInputStream与ObjectOutPutStream来实现。代码如下：
+</p>
+<div class="highlight"><pre><span></span>  <span class="n">LazyThree</span> <span class="n">lazyThree</span> <span class="o">=</span> <span class="n">LazyThree</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+
+  <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">LazyTest</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getResource</span><span class="o">(</span><span class="s">""</span><span class="o">).</span><span class="na">getPath</span><span class="o">()</span> <span class="o">+</span> <span class="s">"/serializable.txt"</span><span class="o">);</span>
+  <span class="n">FileOutputStream</span> <span class="n">fps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+  <span class="n">ObjectOutputStream</span> <span class="n">oos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="n">fps</span><span class="o">);</span>
+  <span class="n">oos</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">lazyThree</span><span class="o">);</span>
+  <span class="n">oos</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+  <span class="n">oos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+  <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+  <span class="n">ObjectInputStream</span> <span class="n">ois</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span><span class="n">fis</span><span class="o">);</span>
+  <span class="n">LazyThree</span> <span class="n">lazyThreeSerializable</span> <span class="o">=</span> <span class="o">(</span><span class="n">LazyThree</span><span class="o">)</span> <span class="n">ois</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+  <span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+  <span class="n">ois</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lazyThree</span> <span class="o">==</span> <span class="n">lazyThreeSerializable</span><span class="o">);</span>
+</pre></div>
+<p>
+上面代码的结果为false，证明两个对象不相同
+</p>
+</div>
+<div id="outline-container-org38e702c" class="outline-3">
+<h3 id="org38e702c">
+<a id="ID-4D6F9830-5B71-41DA-95CF-B7AA929BDF42"></a>解决序列化反序列化产生单例不一致的问题</h3>
+<div class="outline-text-3" id="text-org38e702c">
+<p>
+解决的方法要的ObjectInputStream读入对象时来处理，我们需要在类中增加readResolve方法，在这个方法返回我们生成单例的方式。代码如下：
+</p>
+<div class="highlight"><pre><span></span>   <span class="kd">private</span> <span class="n">Object</span> <span class="nf">readResolve</span><span class="o">()</span> <span class="o">{</span>
+	   <span class="k">return</span> <span class="n">getInstance</span><span class="o">();</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+这样在读取对象信息时使用我们返回的实体对象就保证了对象的一致性。
+单例模式的类图如下:
+<img src="images/singleton.png" alt="单例模式"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-org26ffd54" class="outline-2">
+<h2 id="org26ffd54">
+<a id="ID-F8E90568-3F86-454F-A84C-AB34B3024AB4"></a>总结</h2>
+<div class="outline-text-2" id="text-org26ffd54">
+<p>
+写一个单例不容易。
+以下是完整的单例方式代码:
+</p>
+<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.lazy</span><span class="o">;</span>
+
+  <span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="o">;</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Created by tomyli on 2018/6/2.</span>
+<span class="cm">   * Github: https://github.com/peng051410</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LazyThree</span> <span class="kd">implements</span> <span class="n">Cloneable</span><span class="o">,</span> <span class="n">Serializable</span> <span class="o">{</span>
+
+      <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="n">initial</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+      <span class="kd">private</span> <span class="nf">LazyThree</span><span class="o">()</span> <span class="o">{</span>
+
+	  <span class="kd">synchronized</span> <span class="o">(</span><span class="n">LazyThree</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+	      <span class="k">if</span> <span class="o">(!</span><span class="n">initial</span><span class="o">)</span> <span class="o">{</span>
+		  <span class="n">initial</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+	      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		  <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="s">"单例被侵犯"</span><span class="o">);</span>
+	      <span class="o">}</span>
+	  <span class="o">}</span>
+      <span class="o">}</span>
+
+      <span class="kd">public</span> <span class="kd">static</span> <span class="n">LazyThree</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+	  <span class="k">return</span> <span class="n">InstanceHolder</span><span class="o">.</span><span class="na">LAZY</span><span class="o">;</span>
+      <span class="o">}</span>
+
+      <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">InstanceHolder</span> <span class="o">{</span>
+
+	  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">LazyThree</span> <span class="n">LAZY</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LazyThree</span><span class="o">();</span>
+      <span class="o">}</span>
+
+      <span class="kd">private</span> <span class="n">Object</span> <span class="nf">readResolve</span><span class="o">()</span> <span class="o">{</span>
+	  <span class="k">return</span> <span class="n">getInstance</span><span class="o">();</span>
+      <span class="o">}</span>
+
+      <span class="c1">// public static boolean isInintial() {</span>
+      <span class="c1">//     return inintial;</span>
+      <span class="c1">// }</span>
+      <span class="c1">//</span>
+      <span class="c1">// public static void setInintial(boolean inintial) {</span>
+      <span class="c1">//     LazyThree.inintial = inintial;</span>
+      <span class="c1">// }</span>
+
+      <span class="nd">@Override</span>
+      <span class="kd">public</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
+	  <span class="k">return</span> <span class="n">getInstance</span><span class="o">();</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</pre></div>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/chang-yong-de-ideacha-jian/" class="u-url">Idea中vim键的映射</a></h1>
+        <div class="metadata">
+            <p class="dateline"><a href="posts/chang-yong-de-ideacha-jian/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2018-05-14T14:48:33+08:00" title="2018-05-14 14:48">2018-05-14 14:48</time></a></p>
+            <p class="byline author vcard"> <i class="fa fa-user"></i> <span class="byline-name fn" itemprop="author">
+                Tomyli
+            </span></p>
+                <p class="commentline"><i class="fa fa-comment"></i> 
+        
+    <a href="posts/chang-yong-de-ideacha-jian/#disqus_thread" data-disqus-identifier="cache/posts/chang-yong-de-ideacha-jian.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>
+Idea中IdeaVim插件可以让我们在Idea中使用vi的按键来进行操作，但是原生的配置只带有一些基本的移动操作。需要在~/.ideavimrc文件中进行Idea的动作映射来发挥它们的最大力量。
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col class="org-left">
+<col class="org-left">
+</colgroup>
+<thead><tr>
+<th scope="col" class="org-left">Key</th>
+<th scope="col" class="org-left">Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="org-left">kj</td>
+<td class="org-left">&lt;Esc&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gt</td>
+<td class="org-left">VimBack</td>
+</tr>
+<tr>
+<td class="org-left">gT</td>
+<td class="org-left">VimForward</td>
+</tr>
+<tr>
+<td class="org-left">gd</td>
+<td class="org-left">GotoDeclaration&lt;cr&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gf</td>
+<td class="org-left">GotoTypeDeclaration&lt;cr&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gh</td>
+<td class="org-left">QuickJavaDoc&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gs</td>
+<td class="org-left">GotoSymbol&lt;cr&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gi</td>
+<td class="org-left">GotoImplementation&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gu</td>
+<td class="org-left">FindUsages&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gj</td>
+<td class="org-left">IntroduceVariable&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader w d</td>
+<td class="org-left">ActivateDatabaseToolWindow</td>
+</tr>
+<tr>
+<td class="org-left">leader '</td>
+<td class="org-left">ActivateTerminalToolWindow</td>
+</tr>
+<tr>
+<td class="org-left">leader w r</td>
+<td class="org-left">ActivateRedisServersToolWindow</td>
+</tr>
+<tr>
+<td class="org-left">leader w m</td>
+<td class="org-left">ActivateMavenProjectsToolWindow</td>
+</tr>
+<tr>
+<td class="org-left">leader w a</td>
+<td class="org-left">HideActiveWindow</td>
+</tr>
+<tr>
+<td class="org-left">leader w w</td>
+<td class="org-left">HideAllWindows</td>
+</tr>
+<tr>
+<td class="org-left">leader w p</td>
+<td class="org-left">ActivateProjectToolWindow&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader w s</td>
+<td class="org-left">ActivateStructureToolWindow&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader w v</td>
+<td class="org-left">ActivateVersionControlToolWindow&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader w h</td>
+<td class="org-left">&lt;c-w&gt;h  Go to left window</td>
+</tr>
+<tr>
+<td class="org-left">leader w l</td>
+<td class="org-left">&lt;c-w&gt;l  Go to right window</td>
+</tr>
+<tr>
+<td class="org-left">leader w k</td>
+<td class="org-left">&lt;c-w&gt;k  Go to window up</td>
+</tr>
+<tr>
+<td class="org-left">leader w j</td>
+<td class="org-left">&lt;c-w&gt;j  Go to window down</td>
+</tr>
+<tr>
+<td class="org-left">leader w V</td>
+<td class="org-left">&lt;c-w&gt;v  Split Window Vertically</td>
+</tr>
+<tr>
+<td class="org-left">leader w -</td>
+<td class="org-left">&lt;c-w&gt;s  Split Winodw Horizontally</td>
+</tr>
+<tr>
+<td class="org-left">leader w c</td>
+<td class="org-left">&lt;c-w&gt;c  Close current window</td>
+</tr>
+<tr>
+<td class="org-left">leader w o</td>
+<td class="org-left">&lt;c-w&gt;o  Close all window except current</td>
+</tr>
+<tr>
+<td class="org-left">leader &lt;Space&gt;</td>
+<td class="org-left">GotoAction&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader c c</td>
+<td class="org-left">GotoClass&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader c r</td>
+<td class="org-left">CopyReference&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader c p</td>
+<td class="org-left">CopyPaths&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader f f</td>
+<td class="org-left">GotoFile&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader f d</td>
+<td class="org-left">DashLauncherAction&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader b b</td>
+<td class="org-left">RecentFiles&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader b p</td>
+<td class="org-left">FileStructurePopup&lt;cr&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader b u</td>
+<td class="org-left">ReopenClosedTab&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader d d</td>
+<td class="org-left">Debug&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader d D</td>
+<td class="org-left">DebugClass&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader d j</td>
+<td class="org-left">JRebel</td>
+</tr>
+<tr>
+<td class="org-left">leader l l</td>
+<td class="org-left">EvaluateExpression&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader t t</td>
+<td class="org-left">ToggleLineBreakpoint&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader r r</td>
+<td class="org-left">Run&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader r R</td>
+<td class="org-left">RunClass&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader i m</td>
+<td class="org-left">ImplementMethods&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader e e</td>
+<td class="org-left">ShowErrorDescription&lt;cr&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader e n</td>
+<td class="org-left">GotoNextError&lt;cr&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader R</td>
+<td class="org-left">:source ~/.ideavimrc</td>
+</tr>
+<tr>
+<td class="org-left">leader g s</td>
+<td class="org-left">Vcs.QuickListPopupAction</td>
+</tr>
+<tr>
+<td class="org-left">leader r p</td>
+<td class="org-left">ReplaceInPath</td>
+</tr>
+<tr>
+<td class="org-left">zO</td>
+<td class="org-left">ExpandAllRegions&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">zo</td>
+<td class="org-left">ExpandRegion&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">zc</td>
+<td class="org-left">CollapseRegion&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">zC</td>
+<td class="org-left">CollapseAllRegions&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">fj</td>
+<td class="org-left">emacsIDEAs.AceJump&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">fw</td>
+<td class="org-left">emacsIDEAs.AceJumpWord&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">ff</td>
+<td class="org-left">CommentByLineComment&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">fb</td>
+<td class="org-left">CommentByBlockComment&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gd</td>
+<td class="org-left">GotoDeclaration&lt;cr&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gf</td>
+<td class="org-left">GotoTypeDeclaration&lt;cr&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gh</td>
+<td class="org-left">QuickJavaDoc&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gs</td>
+<td class="org-left">GotoSymbol&lt;cr&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gi</td>
+<td class="org-left">GotoImplementation&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gu</td>
+<td class="org-left">FindUsages&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">gj</td>
+<td class="org-left">IntroduceVariable&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">,,</td>
+<td class="org-left">ReformatCode&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">,r</td>
+<td class="org-left">RenameElement&lt;CR&gt;i</td>
+</tr>
+<tr>
+<td class="org-left">&lt;c-o&gt;</td>
+<td class="org-left">Back&lt;cr&gt;</td>
+</tr>
+<tr>
+<td class="org-left">&lt;c-i&gt;</td>
+<td class="org-left">Forward&lt;cr&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader R</td>
+<td class="org-left">reload ~/.ideavimrc&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader a l</td>
+<td class="org-left">:actionlist&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader g s</td>
+<td class="org-left">Vcs.QuickListPopupAction&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader s p</td>
+<td class="org-left">FindInPath&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">leader r p</td>
+<td class="org-left">ReplaceInPath&lt;CR&gt;</td>
+</tr>
+<tr>
+<td class="org-left">, c r</td>
+<td class="org-left">Revert change</td>
+</tr>
+<tr>
+<td class="org-left">, c t</td>
+<td class="org-left">Close other tab</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </article>
+</div>
+
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="." rel="prev">较新的文章</a>
+            </li>
+        </ul></nav><script>var disqus_shortname="tomyli";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2018         <a href="mailto:peng051410@gmail.comjoe@demo.site">Tomyli</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+            
+        </footer>
+</div>
+    </section><script src="assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("zh-cn");
+    fancydates(2, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

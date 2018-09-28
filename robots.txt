@@ -1,0 +1,4 @@
+Sitemap: http://blog.imcompany.cn/sitemapindex.xml
+
+User-Agent: *
+Host: blog.imcompany.cn

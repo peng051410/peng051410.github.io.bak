@@ -1,0 +1,309 @@
+#+BEGIN_COMMENT
+.. title: 设计模式学习之工厂模式
+.. slug: she-ji-mo-shi-xue-xi-zhi-gong-han-mo-shi
+.. date: 2018-06-12 21:33:40 UTC+08:00
+.. tags: design pattern, java
+.. category: java
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+* 说明
+  :PROPERTIES:
+  :ID:       A489BC67-1105-4C33-9727-7D7161A13BAC
+  :END:
+  工厂设计模式是23种设计模式中使用频率非常高的，属于创建型模式。主要特点是实现了实体创建与使用的分离，达到了解耦的目的。工厂设计模式一般分为简单工厂、工厂方法、抽象工厂。
+* 前提准备
+  :PROPERTIES:
+  :ID:       F033B640-6EEF-450F-8D8A-DC8B37F4BA15
+  :END:
+  4年一界世界杯即将到来，啤酒厂商又要大嫌一笔。我们先准备好要生产的啤酒实体。
+  #+BEGIN_SRC java
+  package cn.imcompany;
+
+  /**
+   ,* Created by tomyli on 2018/5/27.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public interface Beer {
+
+      String getName();
+  }
+
+  public class JinShiBai implements Beer {
+
+      @Override
+      public String getName() {
+          return "金士百";
+      }
+  }
+
+  public class QingDao implements Beer {
+
+      @Override
+      public String getName() {
+          return "青岛";
+      }
+  }
+
+  public class BaiWei implements Beer {
+
+      @Override
+      public String getName() {
+          return "百威";
+      }
+  }
+  #+END_SRC
+  在上面定义三种啤酒，它们都由抽象类Beer继承而来。下面使用简单工厂来给消费者提供啤酒。
+* 简单工厂
+  :PROPERTIES:
+  :ID:       79BAB320-4A93-4697-8782-D8B5D223C10F
+  :END:
+  消费者需要不同品类的啤酒，使用简单工厂来实现，代码如下：
+** 简单工厂生产啤酒
+   :PROPERTIES:
+   :ID:       2D775EDD-05B6-4105-8FAF-F2F217155C3D
+   :END:
+  #+BEGIN_SRC java
+  package cn.imcompany.simple;
+
+  import cn.imcompany.BaiWei;
+  import cn.imcompany.Beer;
+  import cn.imcompany.JinShiBai;
+  import cn.imcompany.QingDao;
+
+  /**
+   ,* 一个工厂什么都生产,根据传入的参数来返回不同的产品
+   ,* Created by tomyli on 2018/5/28.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public class SimpleFactory {
+
+      public static Beer getBeer(String name) {
+          if ("青岛".equals(name)) {
+              return new QingDao();
+          } else if ("百威".equals(name)) {
+              return new BaiWei();
+          } else if ("金士百".equals(name)) {
+              return new JinShiBai();
+          } else {
+              System.out.println("没有这种啤酒");
+              return null;
+          }
+      }
+
+  }
+  #+END_SRC
+  在上面的代码简单工厂会根据传入的啤酒名称来生产出不同的啤酒。下面来测试一下这个简单工厂
+  #+BEGIN_SRC java
+  package cn.imcompany.simple;
+
+  /**
+   ,* Created by tomyli on 2018/5/28.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public class SimpleFactoryTest {
+
+      public static void main(String[] args) {
+          System.out.println(SimpleFactory.getBeer("青岛"));
+      }
+
+  }
+  #+END_SRC
+  现在消费者可以喝到青岛牌子的啤酒了。简单工厂实现实体创建与使用的分离。由于简单工厂一般都会提供静态的获取实体的方法，所以它还会被称为静态工厂。
+** 简单工厂总结
+   :PROPERTIES:
+   :ID:       FF168DFF-3DFF-48EF-B90D-551D140C664C
+   :END:
+*** 优点：
+   :PROPERTIES:
+   :ID:       8FC12473-3775-4590-B649-CF6C7B1937AA
+   :END:
+   1. 简单工厂的实现非常简单，把原本由Beer来处理的创建工作给抽离出来，根据传入的参数来进行实体的创建。
+   2. 实体的创建完全交给简单工厂来处理，实体什么时候创建对使用者是无感知的。
+*** 缺点
+    :PROPERTIES:
+    :ID:       A7B3921B-C7B3-43D8-B21C-CA62A227DFE5
+    :END:
+    1. 如果要新增一款啤酒，则要修改工厂类，违反了设计模式中对扩展开放，对修改关闭的原则。
+    2. 使用需要记住要使用产品名称，如果传入错误则不会得到正确的结果。
+* 工厂方法
+  :PROPERTIES:
+  :ID:       0657E214-34BE-40BB-B34E-5AF2324240FE
+  :END:
+** 工厂方法生产啤酒
+   :PROPERTIES:
+   :ID:       71E14835-E5EF-4B6A-9218-31C060A30B12
+   :END:
+  为了解决简单工厂中的问题，我们引入工厂方法，使用工厂方法，则每一款啤酒对应的都会由一个特定的工厂来进行生产，这些工厂统一都继承自一个抽象的工厂，由这个抽象的工厂来定义要生产的产品规范。示例代码如下：
+  #+BEGIN_SRC java
+  /**
+   ,* 定义获取的功能，具体由实现类（具体的啤酒厂）来实现，做到创建与使用隔离
+   ,* Created by tomyli on 2018/5/28.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public abstract class FunctionFactory {
+
+      public abstract Beer getBeer();
+
+  }
+
+  public class BaiWeiFactory extends BeerFactory {
+
+      @Override
+      public Beer getBeer() {
+          return new BaiWei();
+      }
+  }
+
+  public class JinShiBaiFactory extends BeerFactory {
+
+      @Override
+      public Beer getBeer() {
+          return new JinShiBai();
+      }
+  }
+
+  public class QinDaoFactory extends BeerFactory {
+
+      @Override
+      public Beer getBeer() {
+          return new QingDao();
+      }
+  }
+  #+END_SRC
+  上面的代码展示了各种啤酒由不同工厂来生产的情况，每个工厂都继承自BeerFactory这个抽象类，它只定义了生产啤酒这个抽象方法，具体生产什么牌子的啤酒由各个具体工厂来处理。这样在用户使用时就可以指定要哪一家工厂生产的酒就可以了。
+  下面来测试这种工厂生产的啤酒。
+  #+BEGIN_SRC java
+  package cn.imcompany.function;
+
+  /**
+   ,* Created by tomyli on 2018/5/28.
+   ,* Github: https://github.com/peng051410
+   ,*/
+  public class FunctionFactoryTest {
+
+      public static void main(String[] args) {
+          BeerFactory jinShiBaiFactory = new JinShiBaiFactory();
+          System.out.println(jinShiBaiFactory.getBeer());
+      }
+
+  }
+  #+END_SRC
+  上面的代码指定了要用金士百工厂生产的啤酒，实例指向的永远是抽象工厂，这就是所谓的多态，这样我们可以面向抽象来进行编程，而不是面对具体的实现。灵活性与扩展性大大的增加了。
+** 工厂方法总结
+   :PROPERTIES:
+   :ID:       96E11C62-15DB-4782-9D2A-916DA3D6556B
+   :END:
+*** 优点
+    :PROPERTIES:
+    :ID:       EF3A557E-B095-497B-ABD8-F822D2C426F2
+    :END:
+    1. 使用者不用记住产品的名称了，只要知道要使用哪家的工厂生产的产品就可以了。
+    2. 如果再增加一种啤酒，可以直接增加一个工厂来进行生产，不用修改现有工厂的实现，实现了开闭原则。
+*** 缺点
+    :PROPERTIES:
+    :ID:       EAB1BCD7-9486-4310-83CC-441D6D5A7A3F
+    :END:
+    1. 类的数目增加了很多，会产生类的膨胀。
+    2. 增加一种产品不仅要增加具体的产品类，还要为之提供一个具体的工厂，复杂度增加。
+* 抽象工厂
+  :PROPERTIES:
+  :ID:       5C187197-56E5-4F7F-8723-4E4DA7B6D303
+  :END:
+  为了解决工厂方法中系统复杂的情况，我们引入抽象工厂，由抽象工厂来定义所要生产的啤酒类型，再由具体的工厂来对这些啤酒进行生产。由于生产的产品都有相似的特征，可以理解为生产一个产品族。
+** 抽象工厂生产啤酒
+   :PROPERTIES:
+   :ID:       6E10E898-B8F0-432E-B0BA-51301313D91F
+   :END:
+   #+BEGIN_SRC java
+   package cn.imcompany.abs;
+
+   import cn.imcompany.Beer;
+
+   /**
+    ,* Created by tomyli on 2018/5/28.
+    ,* Github: https://github.com/peng051410
+    ,*/
+   public interface AbstractBeerFactory {
+
+       Beer getQingDao();
+
+       Beer getBaiWei();
+
+       Beer getJinShiBai();
+
+   }
+
+   package cn.imcompany.abs;
+
+   import cn.imcompany.BaiWei;
+   import cn.imcompany.Beer;
+   import cn.imcompany.JinShiBai;
+   import cn.imcompany.QingDao;
+
+   /**
+    ,* Created by tomyli on 2018/5/28.
+    ,* Github: https://github.com/peng051410
+    ,*/
+   public class ConcreteBeerFactory implements AbstractBeerFactory {
+
+       @Override
+       public Beer getQingDao() {
+           return new QingDao();
+       }
+
+       @Override
+       public Beer getBaiWei() {
+           return new BaiWei();
+       }
+
+       @Override
+       public Beer getJinShiBai() {
+           return new JinShiBai();
+       }
+   }
+
+   #+END_SRC
+   这次把生产的三种啤酒都定义在一个抽象工厂中，再由一个具体的工厂来实现所要生产啤酒的功能。我们来测试一下
+   #+BEGIN_SRC java
+   package cn.imcompany.abs;
+
+   /**
+    ,* Created by tomyli on 2018/5/28.
+    ,* Github: https://github.com/peng051410
+    ,*/
+   public class AbstractFactoryTest {
+
+       public static void main(String[] args) {
+
+           AbstractBeerFactory beerFactory = new ConcreteBeerFactory();
+           System.out.println(beerFactory.getBaiWei());
+       }
+
+   }
+   #+END_SRC
+   在测试类中实例化一个具体的工厂，然后调用工厂中生产具体酒的方法就可以得到正确的商品，使用者无须记住多个工厂，只要一个工厂就可以满足需要。
+** 抽象工厂总结
+   :PROPERTIES:
+   :ID:       428207FB-8DE3-4F1F-B429-946F6DC17AFF
+   :END:
+*** 优点
+    :PROPERTIES:
+    :ID:       D904C553-3369-4082-BE4E-59126A570A5D
+    :END:
+    1. 类的数量精简了，当需要一个产品族来进行操作时，它可以保证客户端使用了同一产品族中的对象
+    2. 当需要新增加一种产品族时（换其它工厂来生产），无须修改系统，直接新建一个具体的工厂就可以实现。
+*** 缺点
+    :PROPERTIES:
+    :ID:       D7E23F6B-206A-4FF5-9F48-4D192E8956B3
+    :END:
+    1. 当需要增加新的产品类型时，需要修改最高的抽象工厂，这样具体的实现工厂也要进行修改，不符合开闭原则。
+  啤酒工厂的类图：
+  [[img-url:/images/factory.png][工厂模式]]
+* 工厂方法与抽象工厂对比
+  :PROPERTIES:
+  :ID:       A8902F00-18CE-4D7F-A412-A874795E0C48
+  :END:
+  上面说的工厂方法与抽象工厂理解时有些困难，它们主要的不同点就是工厂方法适合生产产品结构相同的单种产品，而抽象工厂适合生产多种产品结构的产品，如白酒，这是另一个产品结构，这种情况使用抽象工厂更恰当。

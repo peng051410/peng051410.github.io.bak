@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html prefix="        og: http://ogp.me/ns# article: http://ogp.me/ns/article#     " vocab="http://ogp.me/ns" lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>设计模式学习之原型模式 | I'm company</title>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="zh_cn" href="../../rss.xml">
+<link rel="canonical" href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/">
+<!--[if lt IE 9]><script src="../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><meta name="author" content="Tomyli">
+<link rel="prev" href="../she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi/" title="设计模式学习之单例模式" type="text/html">
+<link rel="next" href="../she-ji-mo-shi-xue-xi-zhi-gong-han-mo-shi/" title="设计模式学习之工厂模式" type="text/html">
+<meta property="og:site_name" content="I'm company">
+<meta property="og:title" content="设计模式学习之原型模式">
+<meta property="og:url" content="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/">
+<meta property="og:description" content="特点
+
+
+原型设计模式就是系统中产生的每一个对象都不相同，通过原型来创建新的对象，原型模式属于创建型模式。
+
+
+
+
+实现方式
+
+
+一般情况可以通过对象克隆的方式来根据一个对象创建出来多个对象，每个对象在内存占用的内存地址都不一样。在JAVA中克隆又分为浅克隆与深克隆。
+
+
+
+浅克隆
+
+
+JAVA中是按值进行传递。实现克隆的方式就是实现Cloneable接口，这样就可以重写Object对象的clon">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-06-09T17:12:41+08:00">
+<meta property="article:tag" content="design pattern">
+<meta property="article:tag" content="java">
+</head>
+<body>
+    <a href="#page-content" class="sr-only sr-only-focusable">跳到主内容</a>
+    <section class="social"><ul>
+<li><a href="../../index.html" title="Home"><i class="fa fa-home"></i></a></li>
+            <li><a href="../../archive.html" title="Archives"><i class="fa fa-folder-open"></i></a></li>
+            <li><a href="../../categories/index.html" title="Tags"><i class="fa fa-tags"></i></a></li>
+            <li><a href="../../rss.xml" title="RSS"><i class="fa fa-rss"></i></a></li>
+            <li><a href="https://getnikola.com" title="About me"><i class="fa fa-user"></i></a></li>
+            <li><a href="https://twitter.com/hougemeiga" title="My Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/peng051410" title="My Github"><i class="fab fa-github"></i></a></li>
+    
+    
+
+        </ul></section><section class="page-content"><div class="content" rel="main">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">设计模式学习之原型模式</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><a href="." rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2018-06-09T17:12:41+08:00" itemprop="datePublished" title="2018-06-09 17:12">2018-06-09 17:12</time></a></p>
+            <p class="byline author vcard"> <i class="fa fa-user"></i> <span class="byline-name fn" itemprop="author">
+                    Tomyli
+            </span></p>
+                <p class="commentline"><i class="far fa-comment"></i>
+        
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi.html">Comments</a>
+
+
+            
+        </p>
+<p class="sourceline"><a href="index.org" class="sourcelink"><i class="fa fa-file-code"></i> 资源</a></p>
+
+            
+
+            
+    <div class="tags">
+<h3 class="metadata-title">
+<i class="fa fa-tags"></i> 标签:</h3>
+        <ul itemprop="keywords" class="tags-ul">
+<li><a class="tag p-category" href="../../categories/design-pattern/" rel="tag">design pattern</a></li>
+            <li><a class="tag p-category" href="../../categories/java/" rel="tag">java</a></li>
+        </ul>
+</div>
+
+        </div>
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div id="outline-container-org3e1d30b" class="outline-2">
+<h2 id="org3e1d30b">
+<a id="ID-EE979F53-11A7-4FD2-B8F4-C48CE3D8F1B2"></a>特点</h2>
+<div class="outline-text-2" id="text-org3e1d30b">
+<p>
+原型设计模式就是系统中产生的每一个对象都不相同，通过原型来创建新的对象，原型模式属于创建型模式。
+</p>
+</div>
+</div>
+<div id="outline-container-orgeab8275" class="outline-2">
+<h2 id="orgeab8275">
+<a id="ID-CD7708C3-6021-485A-A24C-E6DD385F17BB"></a>实现方式</h2>
+<div class="outline-text-2" id="text-orgeab8275">
+<p>
+一般情况可以通过对象克隆的方式来根据一个对象创建出来多个对象，每个对象在内存占用的内存地址都不一样。在JAVA中克隆又分为浅克隆与深克隆。
+</p>
+</div>
+<div id="outline-container-org68c21d7" class="outline-3">
+<h3 id="org68c21d7">
+<a id="ID-5CD675BD-9485-4B23-A83F-4A32B167FC5A"></a>浅克隆</h3>
+<div class="outline-text-3" id="text-org68c21d7">
+<p>
+JAVA中是按值进行传递。实现克隆的方式就是实现Cloneable接口，这样就可以重写Object对象的clone方法来进行对象的克隆。代码如下：
+</p>
+<div class="highlight"><pre><span></span>   <span class="cm">/**</span>
+<span class="cm">    * Created by tomyli on 2018/5/30.</span>
+<span class="cm">    * Github: https://github.com/peng051410</span>
+<span class="cm">    */</span>
+   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Apple</span> <span class="kd">implements</span> <span class="n">Cloneable</span> <span class="o">{</span>
+
+       <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+       <span class="kd">public</span> <span class="kt">double</span> <span class="n">weight</span><span class="o">;</span>
+
+       <span class="nd">@Override</span>
+       <span class="kd">protected</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
+	   <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+       <span class="o">}</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+测试代码如下：
+</p>
+<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+       <span class="n">Apple</span> <span class="n">apple</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Apple</span><span class="o">();</span>
+       <span class="n">apple</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"apple"</span><span class="o">;</span>
+       <span class="n">apple</span><span class="o">.</span><span class="na">weight</span> <span class="o">=</span> <span class="mf">2.23</span><span class="o">;</span>
+
+       <span class="k">try</span> <span class="o">{</span>
+	   <span class="n">Apple</span> <span class="n">clone</span> <span class="o">=</span> <span class="o">(</span><span class="n">Apple</span><span class="o">)</span><span class="n">apple</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+	   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">clone</span> <span class="o">==</span> <span class="n">apple</span><span class="o">);</span>
+       <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+	   <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+       <span class="o">}</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+测试代码中clone与apple是两个完全不同的对象，这样就通过apple这个原型创建出来一个全新的对象。但是这里存在一个问题，现在Apple对象中只包含了值类型的成员变量，如果包含了其它对象会克隆也会成功吗？我们在Apple对象中增加一个Stone对象的集合，代码：
+</p>
+<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Apple</span> <span class="kd">implements</span> <span class="n">Cloneable</span> <span class="o">{</span>
+
+       <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+       <span class="kd">public</span> <span class="kt">double</span> <span class="n">weight</span><span class="o">;</span>
+       <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Stone</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">;</span> <span class="c1">//新增加的对象</span>
+
+       <span class="nd">@Override</span>
+       <span class="kd">protected</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
+	   <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+       <span class="o">}</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+这次再使用测试代码进行测试：
+</p>
+<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+       <span class="n">Apple</span> <span class="n">clone</span> <span class="o">=</span> <span class="o">(</span><span class="n">Apple</span><span class="o">)</span><span class="n">apple</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">clone</span> <span class="o">==</span> <span class="n">apple</span><span class="o">);</span>
+       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">clone</span><span class="o">.</span><span class="na">list</span> <span class="o">==</span> <span class="n">apple</span><span class="o">.</span><span class="na">list</span><span class="o">);</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+apple与clone依旧不相等，但是clone.list却与apple.list是相同的，这就没有达到我们的目的。在JAVA中对对象的拷贝其实拷贝的是内存地址，所以拷贝后两个list都指定了同一个内存地址。显然，浅克隆对只包含值类型的变量拷贝是正确的，而对包含对象的拷贝的处理是不符合预期的。
+</p>
+</div>
+</div>
+<div id="outline-container-orgd4d02ba" class="outline-3">
+<h3 id="orgd4d02ba">
+<a id="ID-AD59ED5A-E73D-4E99-966F-46E36C862F88"></a>深拷贝</h3>
+<div class="outline-text-3" id="text-orgd4d02ba">
+<p>
+深拷贝就是通过对JAVA对象的序列化来进行对象的完整拷贝，主要是通过ObjectInputStream与ObjectOutputStream两个流来实现对象的读取与写入。示例代码：
+</p>
+<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="n">tag</span><span class="o">;</span>
+   <span class="kd">public</span> <span class="n">Date</span> <span class="n">birthday</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="n">Tire</span> <span class="n">tire</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="n">Car</span> <span class="nf">deepCopy</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+
+   <span class="n">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
+   <span class="n">ObjectOutputStream</span> <span class="n">oos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">);</span>
+   <span class="n">oos</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+
+   <span class="n">ByteArrayInputStream</span> <span class="n">bais</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">());</span>
+   <span class="n">ObjectInputStream</span> <span class="n">ois</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span><span class="n">bais</span><span class="o">);</span>
+   <span class="n">Car</span> <span class="n">copy</span> <span class="o">=</span> <span class="o">(</span><span class="n">Car</span><span class="o">)</span> <span class="n">ois</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+   <span class="n">copy</span><span class="o">.</span><span class="na">birthday</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="o">();</span>
+   <span class="k">return</span> <span class="n">copy</span><span class="o">;</span>
+
+   <span class="o">}</span>
+   <span class="o">}</span>
+</pre></div>
+<p>
+在上面的代码中要确保每一辆车的出厂日期是唯一的，就要使用深拷贝来实现。要被克隆的对象需要实现Serializable接口。
+深拷贝原型模式的类图如下:
+<img src="../../images/prototype.png" alt="原型模式"></p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge200e97" class="outline-2">
+<h2 id="orge200e97">
+<a id="ID-85284B4D-FF5B-4206-99C8-FCE956BC3FEC"></a>应用场景</h2>
+<div class="outline-text-2" id="text-orge200e97">
+<p>
+系统中需要保存每个用户的信息，就要每个用户对应不同的实体对象。
+</p>
+</div>
+</div>
+<div id="outline-container-org2856704" class="outline-2">
+<h2 id="org2856704">
+<a id="ID-5B0363E3-2141-4714-B5F3-DD44CBE98738"></a>总结</h2>
+<div class="outline-text-2" id="text-org2856704">
+</div>
+<div id="outline-container-orgf02ef4f" class="outline-3">
+<h3 id="orgf02ef4f">
+<a id="ID-7941D48D-586D-4FD5-BC84-1C67136C8F05"></a>优点</h3>
+<div class="outline-text-3" id="text-orgf02ef4f">
+<p>
+原型设计模式可以进行快速的对象复制，可以很快的创建大的复杂的对象。
+</p>
+</div>
+</div>
+<div id="outline-container-org57a05bc" class="outline-3">
+<h3 id="org57a05bc">
+<a id="ID-EE1BEFBD-DD14-497F-8DEC-1A3DE329CD57"></a>缺点</h3>
+<div class="outline-text-3" id="text-org57a05bc">
+<p>
+创建对象的过程比较复杂，需要被克隆的对象要额外实现序列化接口。
+</p>
+</div>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi/" rel="prev" title="设计模式学习之单例模式">上一篇文章</a>
+            </li>
+            <li class="next">
+                <a href="../she-ji-mo-shi-xue-xi-zhi-gong-han-mo-shi/" rel="next" title="设计模式学习之工厂模式">下一篇文章</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>评论</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="tomyli",
+            disqus_url="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/",
+        disqus_title="\u8bbe\u8ba1\u6a21\u5f0f\u5b66\u4e60\u4e4b\u539f\u578b\u6a21\u5f0f",
+        disqus_identifier="cache/posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi.html",
+        disqus_config = function () {
+            this.language = "zh_cn";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="tomyli";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2018         <a href="mailto:peng051410@gmail.comjoe@demo.site">Tomyli</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+            
+        </footer>
+</div>
+    </section><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("zh-cn");
+    fancydates(2, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

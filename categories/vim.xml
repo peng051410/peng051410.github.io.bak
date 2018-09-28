@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company (关于文章 vim)</title><link>http://blog.imcompany.cn/</link><description></description><atom:link href="http://blog.imcompany.cn/categories/vim.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2018 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Fri, 28 Sep 2018 09:31:23 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Idea中vim键的映射</title><link>http://blog.imcompany.cn/posts/chang-yong-de-ideacha-jian/</link><dc:creator>Tomyli</dc:creator><description>&lt;p&gt;
+Idea中IdeaVim插件可以让我们在Idea中使用vi的按键来进行操作，但是原生的配置只带有一些基本的移动操作。需要在~/.ideavimrc文件中进行Idea的动作映射来发挥它们的最大力量。
+&lt;/p&gt;
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col class="org-left"&gt;
+
+&lt;col class="org-left"&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th scope="col" class="org-left"&gt;Key&lt;/th&gt;
+&lt;th scope="col" class="org-left"&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-left"&gt;kj&lt;/td&gt;
+&lt;td class="org-left"&gt;&amp;lt;Esc&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gt&lt;/td&gt;
+&lt;td class="org-left"&gt;VimBack&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gT&lt;/td&gt;
+&lt;td class="org-left"&gt;VimForward&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gd&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoDeclaration&amp;lt;cr&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gf&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoTypeDeclaration&amp;lt;cr&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gh&lt;/td&gt;
+&lt;td class="org-left"&gt;QuickJavaDoc&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gs&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoSymbol&amp;lt;cr&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gi&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoImplementation&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gu&lt;/td&gt;
+&lt;td class="org-left"&gt;FindUsages&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gj&lt;/td&gt;
+&lt;td class="org-left"&gt;IntroduceVariable&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w d&lt;/td&gt;
+&lt;td class="org-left"&gt;ActivateDatabaseToolWindow&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader '&lt;/td&gt;
+&lt;td class="org-left"&gt;ActivateTerminalToolWindow&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w r&lt;/td&gt;
+&lt;td class="org-left"&gt;ActivateRedisServersToolWindow&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w m&lt;/td&gt;
+&lt;td class="org-left"&gt;ActivateMavenProjectsToolWindow&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w a&lt;/td&gt;
+&lt;td class="org-left"&gt;HideActiveWindow&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w w&lt;/td&gt;
+&lt;td class="org-left"&gt;HideAllWindows&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w p&lt;/td&gt;
+&lt;td class="org-left"&gt;ActivateProjectToolWindow&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w s&lt;/td&gt;
+&lt;td class="org-left"&gt;ActivateStructureToolWindow&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w v&lt;/td&gt;
+&lt;td class="org-left"&gt;ActivateVersionControlToolWindow&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w h&lt;/td&gt;
+&lt;td class="org-left"&gt;&amp;lt;c-w&amp;gt;h  Go to left window&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w l&lt;/td&gt;
+&lt;td class="org-left"&gt;&amp;lt;c-w&amp;gt;l  Go to right window&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w k&lt;/td&gt;
+&lt;td class="org-left"&gt;&amp;lt;c-w&amp;gt;k  Go to window up&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w j&lt;/td&gt;
+&lt;td class="org-left"&gt;&amp;lt;c-w&amp;gt;j  Go to window down&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w V&lt;/td&gt;
+&lt;td class="org-left"&gt;&amp;lt;c-w&amp;gt;v  Split Window Vertically&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w -&lt;/td&gt;
+&lt;td class="org-left"&gt;&amp;lt;c-w&amp;gt;s  Split Winodw Horizontally&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w c&lt;/td&gt;
+&lt;td class="org-left"&gt;&amp;lt;c-w&amp;gt;c  Close current window&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader w o&lt;/td&gt;
+&lt;td class="org-left"&gt;&amp;lt;c-w&amp;gt;o  Close all window except current&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader &amp;lt;Space&amp;gt;&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoAction&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader c c&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoClass&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader c r&lt;/td&gt;
+&lt;td class="org-left"&gt;CopyReference&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader c p&lt;/td&gt;
+&lt;td class="org-left"&gt;CopyPaths&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader f f&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoFile&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader f d&lt;/td&gt;
+&lt;td class="org-left"&gt;DashLauncherAction&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader b b&lt;/td&gt;
+&lt;td class="org-left"&gt;RecentFiles&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader b p&lt;/td&gt;
+&lt;td class="org-left"&gt;FileStructurePopup&amp;lt;cr&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader b u&lt;/td&gt;
+&lt;td class="org-left"&gt;ReopenClosedTab&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader d d&lt;/td&gt;
+&lt;td class="org-left"&gt;Debug&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader d D&lt;/td&gt;
+&lt;td class="org-left"&gt;DebugClass&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader d j&lt;/td&gt;
+&lt;td class="org-left"&gt;JRebel&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader l l&lt;/td&gt;
+&lt;td class="org-left"&gt;EvaluateExpression&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader t t&lt;/td&gt;
+&lt;td class="org-left"&gt;ToggleLineBreakpoint&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader r r&lt;/td&gt;
+&lt;td class="org-left"&gt;Run&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader r R&lt;/td&gt;
+&lt;td class="org-left"&gt;RunClass&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader i m&lt;/td&gt;
+&lt;td class="org-left"&gt;ImplementMethods&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader e e&lt;/td&gt;
+&lt;td class="org-left"&gt;ShowErrorDescription&amp;lt;cr&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader e n&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoNextError&amp;lt;cr&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader R&lt;/td&gt;
+&lt;td class="org-left"&gt;:source ~/.ideavimrc&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader g s&lt;/td&gt;
+&lt;td class="org-left"&gt;Vcs.QuickListPopupAction&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader r p&lt;/td&gt;
+&lt;td class="org-left"&gt;ReplaceInPath&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;zO&lt;/td&gt;
+&lt;td class="org-left"&gt;ExpandAllRegions&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;zo&lt;/td&gt;
+&lt;td class="org-left"&gt;ExpandRegion&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;zc&lt;/td&gt;
+&lt;td class="org-left"&gt;CollapseRegion&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;zC&lt;/td&gt;
+&lt;td class="org-left"&gt;CollapseAllRegions&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;fj&lt;/td&gt;
+&lt;td class="org-left"&gt;emacsIDEAs.AceJump&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;fw&lt;/td&gt;
+&lt;td class="org-left"&gt;emacsIDEAs.AceJumpWord&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;ff&lt;/td&gt;
+&lt;td class="org-left"&gt;CommentByLineComment&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;fb&lt;/td&gt;
+&lt;td class="org-left"&gt;CommentByBlockComment&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gd&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoDeclaration&amp;lt;cr&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gf&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoTypeDeclaration&amp;lt;cr&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gh&lt;/td&gt;
+&lt;td class="org-left"&gt;QuickJavaDoc&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gs&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoSymbol&amp;lt;cr&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gi&lt;/td&gt;
+&lt;td class="org-left"&gt;GotoImplementation&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gu&lt;/td&gt;
+&lt;td class="org-left"&gt;FindUsages&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;gj&lt;/td&gt;
+&lt;td class="org-left"&gt;IntroduceVariable&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;,,&lt;/td&gt;
+&lt;td class="org-left"&gt;ReformatCode&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;,r&lt;/td&gt;
+&lt;td class="org-left"&gt;RenameElement&amp;lt;CR&amp;gt;i&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&amp;lt;c-o&amp;gt;&lt;/td&gt;
+&lt;td class="org-left"&gt;Back&amp;lt;cr&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&amp;lt;c-i&amp;gt;&lt;/td&gt;
+&lt;td class="org-left"&gt;Forward&amp;lt;cr&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader R&lt;/td&gt;
+&lt;td class="org-left"&gt;reload ~/.ideavimrc&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader a l&lt;/td&gt;
+&lt;td class="org-left"&gt;:actionlist&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader g s&lt;/td&gt;
+&lt;td class="org-left"&gt;Vcs.QuickListPopupAction&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader s p&lt;/td&gt;
+&lt;td class="org-left"&gt;FindInPath&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;leader r p&lt;/td&gt;
+&lt;td class="org-left"&gt;ReplaceInPath&amp;lt;CR&amp;gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;, c r&lt;/td&gt;
+&lt;td class="org-left"&gt;Revert change&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;, c t&lt;/td&gt;
+&lt;td class="org-left"&gt;Close other tab&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description><category>idea</category><category>vim</category><guid>http://blog.imcompany.cn/posts/chang-yong-de-ideacha-jian/</guid><pubDate>Mon, 14 May 2018 06:48:33 GMT</pubDate></item></channel></rss>
