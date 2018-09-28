@@ -13,126 +13,71 @@
   :PROPERTIES:
   :ID:       06FACFD5-9C4A-4549-8EED-7AEC3D77B480
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       9C3F13F5-0F89-472D-89DA-AA1A6FDDBF82
-   :END:
-   Toolbox是一个文件操作浏览的工具，它支持创建、查找文件的功能，还可以查询pdf文件，非常方便。Mac上的Finder使用确定不方便。[[https://www.alfredforum.com/topic/5166-copymove-to-and-alfred-browser-workflows/][这里]]有具体的使用方式。
+  Toolbox是一个文件操作浏览的工具，它支持创建、查找文件的功能，还可以查询pdf文件，非常方便。Mac上的Finder使用确定不方便。[[https://www.alfredforum.com/topic/5166-copymove-to-and-alfred-browser-workflows/][这里]]有具体的使用方式。
 * Alfred Keywords Help
   :PROPERTIES:
   :ID:       49717B74-5702-483B-9E17-33D57893ED79
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       AF2DD89D-740C-4622-94E3-444BED616409
-   :END:
    安装的workflow多了，记忆触发的keyword就比较困难，使用[[https://github.com/pochemuto/alfred-help-workflow][Keywords help]]这个插件可以显示出所有已经安装的workflow的触发key，还可以根据workflow进行查询。
 * Alfred Maestro
   :PROPERTIES:
   :ID:       784CA9EA-34BE-415E-B5F8-5122EE866885
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       ED4A027F-CF88-4D09-ADDB-9630411A115F
-   :END:
    操作Maestro的workflow，可以直接查找macro并执行。[[https://github.com/iansinnott/alfred-maestro][插件地址]]
 * Alfred My Mind
   :PROPERTIES:
   :ID:       A7DE7E80-197F-45B4-9C21-71CBB239224F
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       D2D98F0B-D8B3-4895-92F7-85CF3DC6451B
-   :END:
-   快速查询[[https://nikitavoloboev.xyz/][Nikita]]的githubpage内容的workflow，我在他的文章里面学到了很多。[[https://github.com/nikitavoloboev/alfred-my-mind#readme][插件地址]]
+  快速查询[[https://nikitavoloboev.xyz/][Nikita]]的githubpage内容的workflow，我在他的文章里面学到了很多。[[https://github.com/nikitavoloboev/alfred-my-mind#readme][插件地址]]
 * Awesome lists
   :PROPERTIES:
   :ID:       35B0B749-2CE5-4E3B-BF74-E19299CEB25C
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       3C1F7123-F5D6-4C14-AFFC-ADABC4D44518
-   :END:
-   快速查询Github上awesome列表的workflow，只为发现更多。[[https://github.com/nikitavoloboev/alfred-awesome-lists][插件地址]]，这个也是Nikita的作品。
+  快速查询Github上awesome列表的workflow，只为发现更多。[[https://github.com/nikitavoloboev/alfred-awesome-lists][插件地址]]，这个也是Nikita的作品。
 * Baidu Map
   :PROPERTIES:
   :ID:       8927BBDF-C1D1-46D2-B787-BED1476D08AB
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       2CA96F11-FCD7-4549-AD97-E862DA3E2A8D
-   :END:
    在alfred上使用百度地图。[[https://github.com/wofeiwo/alfred-baidu-map][插件地址]]
 * Birthday
   :PROPERTIES:
   :ID:       56143948-8358-4530-84DA-666BBA6B3F89
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       97107D15-6E02-4C9F-928A-22700609D462
-   :END:
    在alfred中显示你来到这个世界多长时间，让你珍惜每一分，每一秒。[[https://github.com/nikitavoloboev/small-workflows/tree/master/birthday#readme][插件地址]]
 * Calendar
   :PROPERTIES:
   :ID:       0249D0F7-6AEC-4B4D-98DA-F5BBFA612BE6
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       333C1CBD-BA88-4997-A928-183264866F48
-   :END:
    在alfred中显示出当月的日历信息。[[https://github.com/owenwater/alfred-cal][插件地址]]
 * Chromes Bookmarks
   :PROPERTIES:
   :ID:       BE3C62A7-8564-4B7B-97E1-464DC5ADD771
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       C0B7984B-582F-4408-BDDF-7286F1EBDCCB
-   :END:
    在aflred中搜索Chrome浏览器的书签，非常的好用。[[https://github.com/blainesch/alfred-chrome-bookmarks][插件地址]]
 * Common Search
   :PROPERTIES:
   :ID:       7A5576D5-6ECD-496B-B29D-3AB3632F6D3A
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       6C269BBB-091A-475E-AEF4-E9DF6F49EC6F
-   :END:
    国内常用网站的搜索，现在支持知乎、淘宝、掘金、github。[[https://github.com/MuYunyun/commonSearch][插件地址]]
 * Dash
   :PROPERTIES:
   :ID:       582CC0AD-7614-4FAA-8CD3-0DE84B380A50
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       E31709A9-DD42-4A3D-A9D6-64F6A69BFBB8
-   :END:
    在alfred中进行Dash的搜索，开发者必备。[[https://github.com/Kapeli/Dash-Alfred-Workflow][插件地址]]
 * Directory watches
   :PROPERTIES:
   :ID:       A11F5899-DB1E-4A8A-A65D-201AAA4A85A5
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       5E6FE591-83E1-46DF-93E8-464951AB7758
-   :END:
    本地目录文件查看，指定目录的搜索，回收站文件显示。
 * Emacs Workflow
   :PROPERTIES:
   :ID:       1D4EB2D4-0D51-442C-B754-0DD326A2A8DE
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       B1F87FD7-832F-4642-B8B1-125AB098A3E8
-   :END:
    在alfred中进行emacs的操作，比如打开文件等。[[https://www.alfredforum.com/topic/8444-emacs-workflow/][插件地址]]
 * Eudic
   :PROPERTIES:
   :ID:       CEDC7309-2013-47E4-A24F-44F174E45288
   :END:
-   :PROPERTIES:
-# #   :ID:       B1092B02-FD5B-42A7-B8AB-54170950D275
-#   :END:
 ** 插件说明
    :PROPERTIES:
    :ID:       BB1E1F7B-C8D8-4F95-93E4-97F03AB48241
@@ -147,10 +92,6 @@
    :ID:       70B62A05-407D-438E-BA65-EDCA996CFFE8
    :END:
    搜索本地的git文件夹，搜索到后可以使用指定软件进行打开，开发时很有用。[[https://github.com/deanishe/alfred-repos][插件地址]]
-* GitHub
-  :PROPERTIES:
-  :ID:       8A1D30CC-80E9-437C-A919-82903655213F
-  :END:
 ** 插件说明
    :PROPERTIES:
    :ID:       23BB0C6B-8928-419E-8D7F-1ED5F8EFFFA5
@@ -160,271 +101,148 @@
   :PROPERTIES:
   :ID:       81A1FCE3-1AE3-4DD8-847C-2B48289BE260
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       515DAD97-0847-4A22-9368-922FE169156F
-   :END:
    在alfred中快速查看Chrome的浏览历史。[[https://github.com/tupton/alfred-chrome-history][插件地址]]
 * Hammerspoon Workflow
   :PROPERTIES:
   :ID:       7BE62DC1-ADB6-4F06-B5F6-4C3C81882B08
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       C21A733D-1A41-4D31-84A1-23B02A7BAFE6
-   :END:
 * Homebrew & Cask for Alfred
   :PROPERTIES:
   :ID:       8DC01423-3721-4D91-8F6D-8FC3C67115CC
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       ED745051-07F4-4B4A-8357-70C79D73F2C1
-   :END:
    在alfred中进行mac软件的更新、查看、安装等。[[https://github.com/fniephaus/alfred-homebrew/][插件地址]]
 * iTerm Sessions
   :PROPERTIES:
   :ID:       10218152-446D-42E4-8D4E-CF3E7BA598F1
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       86A153F0-6A1E-45BF-A116-98D31D956D76
-   :END:
    在alfre中快速切换iterm中存在的session窗口。[[https://github.com/madvas/alfred-iterm-sessions][插件地址]]
 * Kill Process
   :PROPERTIES:
   :ID:       3426706F-953B-4464-869B-BFEB68EFBBA9
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       89CE8547-512A-4831-A2A5-D9FA48A7BC75
-   :END:
    在alfred中kill进程，有时候程序假死，使用这个很方便，不用再在苹果的菜单栏中点击好几下来操作了。[[https://github.com/nathangreenstein/alfred-process-killer][插件地址]]
 * Last changed files
   :PROPERTIES:
   :ID:       FE3BF159-26CC-4D02-95DC-E8AC3393B8C7
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       9FF5E13B-70C2-4E10-98C4-587C85BC92CF
-   :END:
    显示出当前系统最新修改的文件，对于系统有什么修改一目了然。
 * Launcher
   :PROPERTIES:
   :ID:       F7872C53-3F87-4A9E-A90D-E2701D343046
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       8E1639B9-DA18-49C5-9F7E-707EEF9D944E
-   :END:
    应用程序快速启动workflow，结束Karabiner使用。
 * Learn Anything
   :PROPERTIES:
   :ID:       433CC6A2-1555-4C17-98AD-27353548F7C0
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       D2714EDC-EBC2-4F4F-A559-58EE91A357FF
-   :END:
    Nivita的Learn Anything，只为学习更多。[[https://github.com/nikitavoloboev/alfred-learn-anything][插件地址]]
 * Linux Command
   :PROPERTIES:
   :ID:       60006CDE-E02A-4828-92E8-2ECDED8268CB
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       35127364-C5DF-4486-B703-AF0685D5DC3C
-   :END:
    Linux命令手册，快速查询linux命令。[[https://github.com/jaywcjlove/linux-command][插件地址]]
 * Mail.app Search
   :PROPERTIES:
   :ID:       929CF82B-8B2C-4C05-8E14-6EC004B29319
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       AF4BF23E-062F-4CD7-B3EB-B232C0EBEFB3
-   :END:
    快速搜索Mail.app中的邮件信息。可以根据邮件名，发送人，主题等进行搜索。[[http://www.packal.org/workflow/mailapp-search][插件地址]]
 * MyIP
   :PROPERTIES:
   :ID:       C0D62E25-FF33-49C1-82B0-1AD25978BA52
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       EFCFF9D2-E2B8-4EA2-9E68-967F617BE478
-   :END:
    快速的查询本机的ip，包括本地IP与外网IP。
 * NSC
   :PROPERTIES:
   :ID:       DA90B235-A56A-4360-94E9-00C1647DC319
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       7C3177A3-0779-4B68-8A74-29414A41F28A
-   :END:
    各种进制的转换，支持二进制、十进制、十六进制之间的快速转换。[[https://github.com/obstschale/NSC][插件地址]]
 * org-mode-capture
   :PROPERTIES:
   :ID:       9209A35D-3D61-45A9-B8BD-25538F35B8E2
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       E80B906F-4720-4FEB-BCB6-8352090D1FDE
-   :END:
    快速插入Org capture，可以快速的记录TODO事件。[[https://github.com/alexandergogl/alfred-org-mode-workflow][插件地址]]
 * Packal Search
   :PROPERTIES:
   :ID:       9E445427-E5CD-449B-BA91-61DFBEF26466
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       102DD10E-CB32-42A4-86C0-0C1B91EB5BC2
-   :END:
    Alfred workflow的快速搜索、更新。[[https://github.com/deanishe/alfred-packal-search][插件地址]]
 * Recent Documents / Apps
   :PROPERTIES:
   :ID:       36ECE447-1661-4B7A-93A3-2DA900A803D8
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       E5E0C638-2607-4148-B4D2-EB3EA5234BA0
-   :END:
    显示当前的文档信息，当前的app信息，当前app关联的文档信息。[[https://github.com/mpco/Alfred3-workflow-recent-documents][插件地址]]
 * Search Safari and Chrome Tabs
   :PROPERTIES:
   :ID:       A41488FA-B6F7-4ED7-B749-C221D0DEFA77
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       FDA4D997-032C-43E8-A1DF-8CB4B1720720
-   :END:
     搜索Chrome和Safari当前打开的tab页面，支持跳转到选择页面。[[http://www.packal.org/workflow/search-safari-and-chrome-tabs][插件地址]]
 * Searchio!
   :PROPERTIES:
-  :ID:       CF3A8DD1-A850-4571-9E72-E08FDF2523B4
-  :END:
-  :PROPERTIES:
   :ID:       496F6122-8863-4020-8C14-1E0DACC18462
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       6FDF3EF9-B75D-4F07-BB7B-3D8274397626
-   :END:
    支持google、youtuebe、wiki的fuzzy搜索，支持配置多种语言。[[https://github.com/deanishe/alfred-searchio][插件地址]]
 * SSH SecureCRT
   :PROPERTIES:
   :ID:       9A0BF988-2311-47D8-8CC6-48DCA22BD735
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       397F7B3C-5107-42A3-A0DD-8E8AA8123D1C
-   :END:
    在alfre快速连接SecureCRT的session。
 * StackOverflow
   :PROPERTIES:
   :ID:       B50A0847-AACE-48BB-BB84-1B728A8FD3D8
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       68BF96DA-BDE3-4D08-AA2C-CCAED8C49F33
-   :END:
    搜索stackoverflow上的指定问题。[[https://github.com/deanishe/alfred-stackoverflow][插件地址(deanishe)]] 
 * Swift Window Switcher
   :PROPERTIES:
   :ID:       8F1A51E6-77C2-488A-875E-D4933DF92B11
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       3AD29CB8-1765-42F0-91EA-7C6A98FA3F4F
-   :END:
    使用alfred来快速切换应用的窗口，还可以对safari的当前标签进行搜索。[[https://github.com/mandrigin/AlfredSwitchWindows][插件地址]]
 * SwitchHosts!
   :PROPERTIES:
   :ID:       5F9D7E27-626F-4AA4-9BD5-F6D6699F7E3D
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       F7EC7062-1029-4A17-8782-671DAC1EC534
-   :END:
    在alfred中快速本地host的配置，配合[[https://github.com/oldj/SwitchHosts][SwitchHosts]]来使用。[[http://www.packal.org/workflow/switchhosts][插件地址]]
 * Tldr
   :PROPERTIES:
   :ID:       1DDA64C3-16EA-4CAC-93F7-9F94F3CD7DE8
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       2D3CC7E1-B2D7-4D72-9859-E17706004508
-   :END:
    Tldr的alfred版本，快速查询命令。[[https://github.com/cs1707/tldr-alfred][插件地址]]
 * Uninstall with CleanMyMac X
   :PROPERTIES:
   :ID:       24331980-1F67-4F56-B2BC-611B5AD361AD
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       69FAE7A9-04F1-45AC-A464-E15F93B49A70
-   :END:
    使用CleanMyMac来快速卸载软件。[[http://www.packal.org/workflow/uninstall-cleanmymac-x][插件地址]]
 * VagrantUP
   :PROPERTIES:
   :ID:       4717273F-3FD0-41E2-8129-B54E49F59613
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       C4F85127-3562-4F95-9C0A-1B9F0FBED423
-   :END:
     控制vagrant的workflow，可以显示vagrant的环境，根据name，path进行过滤等。[[https://github.com/m1keil/alfred-vagrant-workflow][插件地址]]
 * VMWare Control
   :PROPERTIES:
   :ID:       E0A0B020-F936-44C5-B060-44FEE22DE9F5
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       33FD7141-2503-4828-97D8-EE8ECFBB28C7
-   :END:
    在alfred中控制vmware虚拟机。支持启动、停止、挂起、切换等操作。[[http://www.packal.org/workflow/vmware-control][插件地址]]
 * Web Searches
   :PROPERTIES:
   :ID:       23FA43C2-A45D-491D-9EC6-CF7E3A719F4F
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       6424AB35-6F01-46C6-A22A-EA8A1AE6ADAE
-   :END:
    通用的web搜索，支持reddit，google translate等网站搜索。[[https://github.com/nikitavoloboev/alfred-web-searches][插件地址]]
 * WeChat Plugin
   :PROPERTIES:
   :ID:       22EA63EA-EBCA-49D8-9880-41B39AC40AB6
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       D4D394E7-8D7D-4909-878C-B7DCC962D7BB
-   :END:
    在alfred中进行微信聊天，可以显示聊天记录，超级方便。[[https://github.com/TKkk-iOSer/WeChatPlugin-MacOS][插件地址]]
 * Wi-Fi
   :PROPERTIES:
   :ID:       72D51B8A-7C70-4E0D-9F7E-359464014DA2
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       3A26E0AC-5180-4B75-9366-247FC44104DA
-   :END:
    控制Mac的ip开关，新更新的版本增加了重启wifi的功能。[[https://github.com/ravelll/wifi-workflow][插件地址]]
 * Youdao Translate
   :PROPERTIES:
   :ID:       95EFB24B-5451-46BD-B668-7F76501EA079
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       C893DCA8-56A7-4E97-A676-B9737D17991B
-   :END:
    有道词典快速查询翻译，支持中英互译，发音，记录查询历史等功能。[[https://github.com/Rouwanzi/AlfredWorkflow_YoudaoTranslate][插件地址]]
 * Zapier for Alfred
   :PROPERTIES:
   :ID:       B66C2574-28E1-4B82-90D2-0BAAC9879BCD
   :END:
-** 插件说明
-   :PROPERTIES:
-   :ID:       587220EC-E6B9-41AB-ABA3-E85A1BBE2902
-   :END:
    在alfred中触发zapier流，目前还在尝试中。[[https://github.com/zapier/Zapier-for-Alfred/][插件地址]]
