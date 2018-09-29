@@ -106,6 +106,7 @@
   :PROPERTIES:
   :ID:       7BE62DC1-ADB6-4F06-B5F6-4C3C81882B08
   :END:
+  在alfred中调用hammerspon脚本的workflow。[[https://www.alfredforum.com/topic/5334-hammerspoon-workflow/][插件地址]]
 * Homebrew & Cask for Alfred
   :PROPERTIES:
   :ID:       8DC01423-3721-4D91-8F6D-8FC3C67115CC
