@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html prefix="        og: http://ogp.me/ns# article: http://ogp.me/ns/article#     " vocab="http://ogp.me/ns" lang="zh_cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>那些提高效率的命令行工具 | I'm company</title>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="zh_cn" href="../../rss.xml">
+<link rel="canonical" href="http://blog.imcompany.cn/posts/na-xie-ti-gao-xiao-lu-de-ming-ling-xing-gong-ju/">
+<!--[if lt IE 9]><script src="../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><meta name="author" content="Tomyli">
+<link rel="prev" href="../na-xie-ti-gao-xiao-lu-de-alfred-workflow/" title="那些提高效率的Alfred Workflow" type="text/html">
+<meta property="og:site_name" content="I'm company">
+<meta property="og:title" content="那些提高效率的命令行工具">
+<meta property="og:url" content="http://blog.imcompany.cn/posts/na-xie-ti-gao-xiao-lu-de-ming-ling-xing-gong-ju/">
+<meta property="og:description" content="Brew
+
+
+Mac软件包管理工具。用命令行命令来安装软件，仓库软件丰富。地址
+
+
+
+
+bat
+
+
+bat? No，高端cat，不费眼。地址
+
+
+
+
+wifi-password
+
+
+在命令行中显示当前连接wifi的密码，只支持mac。地址
+
+
+
+
+cowsay
+
+
+奶牛说： 地址
+
+
+
+
+coreutils
+
+
+使用Rust重写的gnuutils。地址
+
+
+
+
+direnv
+
+
+环境变量切换，可以">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-09-30T07:15:55+08:00">
+<meta property="article:tag" content="command">
+<meta property="article:tag" content="terminal">
+</head>
+<body>
+    <a href="#page-content" class="sr-only sr-only-focusable">跳到主内容</a>
+    <section class="social"><ul>
+<li><a href="../../index.html" title="Home"><i class="fa fa-home"></i></a></li>
+            <li><a href="../../archive.html" title="Archives"><i class="fa fa-folder-open"></i></a></li>
+            <li><a href="../../categories/index.html" title="Tags"><i class="fa fa-tags"></i></a></li>
+            <li><a href="../../rss.xml" title="RSS"><i class="fa fa-rss"></i></a></li>
+            <li><a href="https://getnikola.com" title="About me"><i class="fa fa-user"></i></a></li>
+            <li><a href="https://twitter.com/hougemeiga" title="My Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/peng051410" title="My Github"><i class="fab fa-github"></i></a></li>
+    
+    
+
+        </ul></section><section class="page-content"><div class="content" rel="main">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">那些提高效率的命令行工具</a></h1>
+
+        <div class="metadata">
+            <p class="dateline"><a href="." rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2018-09-30T07:15:55+08:00" itemprop="datePublished" title="2018-09-30 07:15">2018-09-30 07:15</time></a></p>
+            <p class="byline author vcard"> <i class="fa fa-user"></i> <span class="byline-name fn" itemprop="author">
+                    Tomyli
+            </span></p>
+                <p class="commentline"><i class="far fa-comment"></i>
+        
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/na-xie-ti-gao-xiao-lu-de-ming-ling-xing-gong-ju.html">Comments</a>
+
+
+            
+        </p>
+<p class="sourceline"><a href="index.org" class="sourcelink"><i class="fa fa-file-code"></i> 资源</a></p>
+
+            
+
+            
+    <div class="tags">
+<h3 class="metadata-title">
+<i class="fa fa-tags"></i> 标签:</h3>
+        <ul itemprop="keywords" class="tags-ul">
+<li><a class="tag p-category" href="../../categories/command/" rel="tag">command</a></li>
+            <li><a class="tag p-category" href="../../categories/terminal/" rel="tag">terminal</a></li>
+        </ul>
+</div>
+
+        </div>
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div id="outline-container-org70f442c" class="outline-2">
+<h2 id="org70f442c">
+<a id="ID-CE339CBF-93D7-4592-B7EB-E1BC98397C4C"></a>Brew</h2>
+<div class="outline-text-2" id="text-org70f442c">
+<p>
+Mac软件包管理工具。用命令行命令来安装软件，仓库软件丰富。<a href="https://github.com/Homebrew/brew">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org4f14c4f" class="outline-2">
+<h2 id="org4f14c4f">
+<a id="ID-E636FFF8-C689-45E3-87D1-9ADD6B27D3B0"></a>bat</h2>
+<div class="outline-text-2" id="text-org4f14c4f">
+<p>
+bat? No，高端cat，不费眼。<a href="https://github.com/sharkdp/bat">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org6ff0b1f" class="outline-2">
+<h2 id="org6ff0b1f">
+<a id="ID-892F4876-D417-43AB-8118-5940DB103515"></a>wifi-password</h2>
+<div class="outline-text-2" id="text-org6ff0b1f">
+<p>
+在命令行中显示当前连接wifi的密码，只支持mac。<a href="https://github.com/rauchg/wifi-password">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org8c20a80" class="outline-2">
+<h2 id="org8c20a80">
+<a id="ID-457800BC-6CDE-4005-958F-933854E9D5D8"></a>cowsay</h2>
+<div class="outline-text-2" id="text-org8c20a80">
+<p>
+奶牛说： <a href="https://github.com/piuccio/cowsay">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org7820fae" class="outline-2">
+<h2 id="org7820fae">
+<a id="ID-B7ED2FFB-63B2-4D7B-BFB6-94E4388CF28B"></a>coreutils</h2>
+<div class="outline-text-2" id="text-org7820fae">
+<p>
+使用Rust重写的gnuutils。<a href="https://github.com/uutils/coreutils">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org5e85da7" class="outline-2">
+<h2 id="org5e85da7">
+<a id="ID-284E458B-5294-4B43-973A-031E2B90DC03"></a>direnv</h2>
+<div class="outline-text-2" id="text-org5e85da7">
+<p>
+环境变量切换，可以指定在进入某一文件夹后的操作，比如输出一条欢迎语句，在退出文件夹后则卸载变量。 <a href="https://github.com/direnv/direnv">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org3fa26bf" class="outline-2">
+<h2 id="org3fa26bf">
+<a id="ID-B96E9C09-3FA8-4C54-9140-591F5004BFF8"></a>exa</h2>
+<div class="outline-text-2" id="text-org3fa26bf">
+<p>
+ls、tree的替代者，支持多种显示方式。<a href="https://github.com/ogham/exa">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org60f9cf2" class="outline-2">
+<h2 id="org60f9cf2">
+<a id="ID-045B653F-46E0-4E9C-8EC9-96AB3B7F4BDF"></a>duti</h2>
+<div class="outline-text-2" id="text-org60f9cf2">
+<p>
+mac默认软件打开程序配置。再也不用一个手动的点击设置了，可以脚本化。<a href="https://github.com/moretension/duti">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org09ade85" class="outline-2">
+<h2 id="org09ade85">
+<a id="ID-DA18E40F-C77E-473B-AB5D-F34B1728EB7C"></a>riggrep</h2>
+<div class="outline-text-2" id="text-org09ade85">
+<p>
+强大的find，查询速度更快。<a href="https://github.com/BurntSushi/ripgrep">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org0ee5109" class="outline-2">
+<h2 id="org0ee5109">
+<a id="ID-E3428E99-D026-4BEC-BE6D-FAFB1F03A320"></a>fortune</h2>
+<div class="outline-text-2" id="text-org0ee5109">
+<p>
+英文名言集合，可以使用<a href="https://github.com/ruanyf/fortunes">fortunes</a>进行扩展，对中文用户更友好。<a href="https://www.ibiblio.org/pub/linux/games/amusements/fortune/!INDEX.html">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org908d851" class="outline-2">
+<h2 id="org908d851">
+<a id="ID-F343ED2A-8E50-45D8-BAB3-086B1FDED407"></a>fzf</h2>
+<div class="outline-text-2" id="text-org908d851">
+<p>
+强大的交互式搜索，大大提高效率。<a href="https://github.com/junegunn/fzf">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org01ecf50" class="outline-2">
+<h2 id="org01ecf50">
+<a id="ID-8A4A987E-1FF1-4433-A221-10358A402EE2"></a>goku</h2>
+<div class="outline-text-2" id="text-org01ecf50">
+<p>
+改键神器Karabiner的配置管理器，更健康，更人性化。<a href="https://github.com/yqrashawn/GokuRakuJoudo">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org488a8b0" class="outline-2">
+<h2 id="org488a8b0">
+<a id="ID-435D802E-0FEB-49E9-95B6-FBF73D8F6480"></a>htop</h2>
+<div class="outline-text-2" id="text-org488a8b0">
+<p>
+交互式的top信息显示。<a href="https://hisham.hm/htop/">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org68af30b" class="outline-2">
+<h2 id="org68af30b">
+<a id="ID-36A0AC65-6061-4748-81D1-56FE6AC2C8E2"></a>imgcat</h2>
+<div class="outline-text-2" id="text-org68af30b">
+<p>
+命令行看图片。<a href="https://github.com/eddieantonio/imgcat">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org998bb75" class="outline-2">
+<h2 id="org998bb75">
+<a id="ID-DDCBBF4C-7A9A-4CF7-A98A-C83E8E9B1EF2"></a>jq</h2>
+<div class="outline-text-2" id="text-org998bb75">
+<p>
+json内容操作显示。 <a href="https://github.com/stedolan/jq">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org6e893a3" class="outline-2">
+<h2 id="org6e893a3">
+<a id="ID-0B18BE34-D298-411E-A0D0-BF9B755ED77A"></a>lnav</h2>
+<div class="outline-text-2" id="text-org6e893a3">
+<p>
+log file navigator，增加的日志查看，可以根据日志级别显示不到的日志信息。<a href="https://github.com/tstack/lnav">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgc9b77ef" class="outline-2">
+<h2 id="orgc9b77ef">
+<a id="ID-49365426-14C4-4FE6-8869-5BDFCB4BD5EB"></a>lolcat</h2>
+<div class="outline-text-2" id="text-orgc9b77ef">
+<p>
+命令内容多彩输出。<a href="https://github.com/busyloop/lolcat">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgfdbc659" class="outline-2">
+<h2 id="orgfdbc659">
+<a id="ID-031E215E-050B-4D76-85C6-9C179EA60B60"></a>m-cli</h2>
+<div class="outline-text-2" id="text-orgfdbc659">
+<p>
+Mac的瑞士军刀，支持各种mac组件的操作。<a href="https://github.com/rgcr/m-cli">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org276f3c5" class="outline-2">
+<h2 id="org276f3c5">
+<a id="ID-400B0F19-E033-4F66-BC33-EAAE3053B8D6"></a>mackup</h2>
+<div class="outline-text-2" id="text-org276f3c5">
+<p>
+Mac应用配置同步，支持多种存储方式。<a href="https://github.com/lra/mackup">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org5982d2d" class="outline-2">
+<h2 id="org5982d2d">
+<a id="ID-D0D383CC-D633-4506-9C94-45A2C4DDB92F"></a>mas</h2>
+<div class="outline-text-2" id="text-org5982d2d">
+<p>
+命令行安装apple store应用。<a href="https://github.com/mas-cli/mas">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org4907d5a" class="outline-2">
+<h2 id="org4907d5a">
+<a id="ID-8C0671D1-D9B6-4B83-8328-A55113AC2C0B"></a>mycli</h2>
+<div class="outline-text-2" id="text-org4907d5a">
+<p>
+命令行中的mysql客户端。<a href="https://github.com/dbcli/mycli">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org0bf205b" class="outline-2">
+<h2 id="org0bf205b">
+<a id="ID-36D26EB3-0D37-4A2B-AA53-EC09747C8A03"></a>ncdu</h2>
+<div class="outline-text-2" id="text-org0bf205b">
+<p>
+增强版本的du，机器空间使用查询。<a href="https://dev.yorhel.nl/ncdu">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org756ddbe" class="outline-2">
+<h2 id="org756ddbe">
+<a id="ID-CBF74A37-A9DD-41DF-BF93-D8449D6600C2"></a>nnn</h2>
+<div class="outline-text-2" id="text-org756ddbe">
+<p>
+命令行下的文件管理。<a href="https://github.com/jarun/nnn">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgb09edec" class="outline-2">
+<h2 id="orgb09edec">
+<a id="ID-10481A7B-DAEA-4F83-9B9D-DFAEE9D22EB5"></a>pandoc</h2>
+<div class="outline-text-2" id="text-orgb09edec">
+<p>
+文档转换，支持非常多的的格式转换。<a href="https://pandoc.org/">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org0f0820a" class="outline-2">
+<h2 id="org0f0820a">
+<a id="ID-12758977-1C21-4274-9177-C87D9A12582C"></a>pyenv</h2>
+<div class="outline-text-2" id="text-org0f0820a">
+<p>
+pythne版本管理工具。<a href="https://github.com/pyenv/pyenv">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orga5a0137" class="outline-2">
+<h2 id="orga5a0137">
+<a id="ID-EA4FE1C4-A27C-4922-AFCE-A5EF48437D99"></a>pyenv-virtualenv</h2>
+<div class="outline-text-2" id="text-orga5a0137">
+<p>
+pythne虚拟环境管理，管理pyenv配置的环境。<a href="https://github.com/pyenv/pyenv-virtualenv">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org0020a22" class="outline-2">
+<h2 id="org0020a22">
+<a id="ID-640B4BD7-256A-4A4E-B52D-6F2DE08EF4BD"></a>rtv</h2>
+<div class="outline-text-2" id="text-org0020a22">
+<p>
+命令行中浏览reddit。<a href="https://github.com/michael-lazar/rtv">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org6ef5dc6" class="outline-2">
+<h2 id="org6ef5dc6">
+<a id="ID-219BD748-1AC9-4A0B-AF55-13A5E16A70D4"></a>s-search</h2>
+<div class="outline-text-2" id="text-org6ef5dc6">
+<p>
+命令行下进行web搜索。<a href="https://github.com/zquestz/s">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orge038c11" class="outline-2">
+<h2 id="orge038c11">
+<a id="ID-1AB932FD-A2EE-412E-91AF-DC0D2D0E599C"></a>tmux</h2>
+<div class="outline-text-2" id="text-orge038c11">
+<p>
+终端多会话管理器。<a href="https://github.com/tmux/tmux">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org978f543" class="outline-2">
+<h2 id="org978f543">
+<a id="ID-B59FD501-ED68-4B1B-9FCB-13B3690E27B2"></a>tldr</h2>
+<div class="outline-text-2" id="text-org978f543">
+<p>
+命令快速查询。简单的man。<a href="https://tldr.sh/">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org4677dcc" class="outline-2">
+<h2 id="org4677dcc">
+<a id="ID-337F0A1C-2139-4064-9CA8-909E06D31C47"></a>w3m</h2>
+<div class="outline-text-2" id="text-org4677dcc">
+<p>
+终端浏览器，操作方便。<a href="http://w3m.sourceforge.net/">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orge0cfeda" class="outline-2">
+<h2 id="orge0cfeda">
+<a id="ID-801DAEBE-EB71-4495-8D39-C8B9C6C74ECB"></a>wrk</h2>
+<div class="outline-text-2" id="text-orge0cfeda">
+<p>
+系统性能测试工具。<a href="https://github.com/wg/wrk">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org849bdc0" class="outline-2">
+<h2 id="org849bdc0">
+<a id="ID-9B17D9B8-5534-42E6-9715-06733981FE05"></a>youtube-dl</h2>
+<div class="outline-text-2" id="text-org849bdc0">
+<p>
+youtube视频下载，也支持其它网站的视频下载。<a href="https://github.com/rg3/youtube-dl">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgb8ca4ec" class="outline-2">
+<h2 id="orgb8ca4ec">
+<a id="ID-D6898D38-3057-4ACC-8744-7B4458686511"></a>diffoscope</h2>
+<div class="outline-text-2" id="text-orgb8ca4ec">
+<p>
+文件，文件夹内容比较。<a href="https://diffoscope.org/">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org4e21b5d" class="outline-2">
+<h2 id="org4e21b5d">
+<a id="ID-AF383F0C-F1B3-417D-81AC-73B5D9FA3BC6"></a>speedtest</h2>
+<div class="outline-text-2" id="text-org4e21b5d">
+<p>
+cli 网络测速。<a href="https://github.com/sivel/speedtest-cli">地址</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orge919165" class="outline-2">
+<h2 id="orge919165">
+<a id="ID-35E710AF-85C1-489A-BF26-979495CEC059"></a>modd</h2>
+<div class="outline-text-2" id="text-orge919165">
+<p>
+文件变更监听响应，在文件变化时执行相应的配置动作。<a href="https://github.com/cortesi/modd">地址</a></p>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../na-xie-ti-gao-xiao-lu-de-alfred-workflow/" rel="prev" title="那些提高效率的Alfred Workflow">上一篇文章</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>评论</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="tomyli",
+            disqus_url="http://blog.imcompany.cn/posts/na-xie-ti-gao-xiao-lu-de-ming-ling-xing-gong-ju/",
+        disqus_title="\u90a3\u4e9b\u63d0\u9ad8\u6548\u7387\u7684\u547d\u4ee4\u884c\u5de5\u5177",
+        disqus_identifier="cache/posts/na-xie-ti-gao-xiao-lu-de-ming-ling-xing-gong-ju.html",
+        disqus_config = function () {
+            this.language = "zh_cn";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="tomyli";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2018         <a href="mailto:peng051410@gmail.comjoe@demo.site">Tomyli</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+            
+        </footer>
+</div>
+    </section><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("zh-cn");
+    fancydates(2, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

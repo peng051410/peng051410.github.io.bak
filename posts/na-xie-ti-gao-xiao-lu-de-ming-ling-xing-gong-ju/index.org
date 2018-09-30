@@ -1,0 +1,191 @@
+#+BEGIN_COMMENT
+.. title: 那些提高效率的命令行工具
+.. slug: na-xie-ti-gao-xiao-lu-de-ming-ling-xing-gong-ju
+.. date: 2018-09-30 07:15:55 UTC+08:00
+.. tags: terminal,command
+.. category: tools
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
+* Brew
+  :PROPERTIES:
+  :ID:       CE339CBF-93D7-4592-B7EB-E1BC98397C4C
+  :END:
+  Mac软件包管理工具。用命令行命令来安装软件，仓库软件丰富。[[https://github.com/Homebrew/brew][地址]]
+* bat
+  :PROPERTIES:
+  :ID:       E636FFF8-C689-45E3-87D1-9ADD6B27D3B0
+  :END:
+  bat? No，高端cat，不费眼。[[https://github.com/sharkdp/bat][地址]]
+* wifi-password
+  :PROPERTIES:
+  :ID:       892F4876-D417-43AB-8118-5940DB103515
+  :END:
+  在命令行中显示当前连接wifi的密码，只支持mac。[[https://github.com/rauchg/wifi-password][地址]]
+* cowsay
+  :PROPERTIES:
+  :ID:       457800BC-6CDE-4005-958F-933854E9D5D8
+  :END:
+  奶牛说： [[https://github.com/piuccio/cowsay][地址]]
+* coreutils
+  :PROPERTIES:
+  :ID:       B7ED2FFB-63B2-4D7B-BFB6-94E4388CF28B
+  :END:
+  使用Rust重写的gnuutils。[[https://github.com/uutils/coreutils][地址]]
+* direnv
+  :PROPERTIES:
+  :ID:       284E458B-5294-4B43-973A-031E2B90DC03
+  :END:
+  环境变量切换，可以指定在进入某一文件夹后的操作，比如输出一条欢迎语句，在退出文件夹后则卸载变量。 [[https://github.com/direnv/direnv][地址]]
+* exa
+  :PROPERTIES:
+  :ID:       B96E9C09-3FA8-4C54-9140-591F5004BFF8
+  :END:
+  ls、tree的替代者，支持多种显示方式。[[https://github.com/ogham/exa][地址]]
+* duti
+  :PROPERTIES:
+  :ID:       045B653F-46E0-4E9C-8EC9-96AB3B7F4BDF
+  :END:
+  mac默认软件打开程序配置。再也不用一个手动的点击设置了，可以脚本化。[[https://github.com/moretension/duti][地址]]
+* riggrep
+  :PROPERTIES:
+  :ID:       DA18E40F-C77E-473B-AB5D-F34B1728EB7C
+  :END:
+  强大的find，查询速度更快。[[https://github.com/BurntSushi/ripgrep][地址]]
+* fortune
+  :PROPERTIES:
+  :ID:       E3428E99-D026-4BEC-BE6D-FAFB1F03A320
+  :END:
+  英文名言集合，可以使用[[https://github.com/ruanyf/fortunes][fortunes]]进行扩展，对中文用户更友好。[[https://www.ibiblio.org/pub/linux/games/amusements/fortune/!INDEX.html][地址]]
+* fzf
+  :PROPERTIES:
+  :ID:       F343ED2A-8E50-45D8-BAB3-086B1FDED407
+  :END:
+  强大的交互式搜索，大大提高效率。[[https://github.com/junegunn/fzf][地址]]
+* goku
+  :PROPERTIES:
+  :ID:       8A4A987E-1FF1-4433-A221-10358A402EE2
+  :END:
+  改键神器Karabiner的配置管理器，更健康，更人性化。[[https://github.com/yqrashawn/GokuRakuJoudo][地址]]
+* htop
+  :PROPERTIES:
+  :ID:       435D802E-0FEB-49E9-95B6-FBF73D8F6480
+  :END:
+  交互式的top信息显示。[[https://hisham.hm/htop/][地址]]
+* imgcat
+  :PROPERTIES:
+  :ID:       36A0AC65-6061-4748-81D1-56FE6AC2C8E2
+  :END:
+  命令行看图片。[[https://github.com/eddieantonio/imgcat][地址]]
+* jq
+  :PROPERTIES:
+  :ID:       DDCBBF4C-7A9A-4CF7-A98A-C83E8E9B1EF2
+  :END:
+  json内容操作显示。 [[https://github.com/stedolan/jq][地址]]
+* lnav
+  :PROPERTIES:
+  :ID:       0B18BE34-D298-411E-A0D0-BF9B755ED77A
+  :END:
+  log file navigator，增加的日志查看，可以根据日志级别显示不到的日志信息。[[https://github.com/tstack/lnav][地址]]
+* lolcat
+  :PROPERTIES:
+  :ID:       49365426-14C4-4FE6-8869-5BDFCB4BD5EB
+  :END:
+  命令内容多彩输出。[[https://github.com/busyloop/lolcat][地址]]
+* m-cli
+  :PROPERTIES:
+  :ID:       031E215E-050B-4D76-85C6-9C179EA60B60
+  :END:
+  Mac的瑞士军刀，支持各种mac组件的操作。[[https://github.com/rgcr/m-cli][地址]]
+* mackup
+  :PROPERTIES:
+  :ID:       400B0F19-E033-4F66-BC33-EAAE3053B8D6
+  :END:
+  Mac应用配置同步，支持多种存储方式。[[https://github.com/lra/mackup][地址]]
+* mas
+  :PROPERTIES:
+  :ID:       D0D383CC-D633-4506-9C94-45A2C4DDB92F
+  :END:
+  命令行安装apple store应用。[[https://github.com/mas-cli/mas][地址]]
+* mycli
+  :PROPERTIES:
+  :ID:       8C0671D1-D9B6-4B83-8328-A55113AC2C0B
+  :END:
+  命令行中的mysql客户端。[[https://github.com/dbcli/mycli][地址]]
+* ncdu
+  :PROPERTIES:
+  :ID:       36D26EB3-0D37-4A2B-AA53-EC09747C8A03
+  :END:
+  增强版本的du，机器空间使用查询。[[https://dev.yorhel.nl/ncdu][地址]]
+* nnn
+  :PROPERTIES:
+  :ID:       CBF74A37-A9DD-41DF-BF93-D8449D6600C2
+  :END:
+  命令行下的文件管理。[[https://github.com/jarun/nnn][地址]]
+* pandoc
+  :PROPERTIES:
+  :ID:       10481A7B-DAEA-4F83-9B9D-DFAEE9D22EB5
+  :END:
+  文档转换，支持非常多的的格式转换。[[https://pandoc.org/][地址]]
+* pyenv
+  :PROPERTIES:
+  :ID:       12758977-1C21-4274-9177-C87D9A12582C
+  :END:
+  pythne版本管理工具。[[https://github.com/pyenv/pyenv][地址]]
+* pyenv-virtualenv
+  :PROPERTIES:
+  :ID:       EA4FE1C4-A27C-4922-AFCE-A5EF48437D99
+  :END:
+  pythne虚拟环境管理，管理pyenv配置的环境。[[https://github.com/pyenv/pyenv-virtualenv][地址]]
+* rtv
+  :PROPERTIES:
+  :ID:       640B4BD7-256A-4A4E-B52D-6F2DE08EF4BD
+  :END:
+  命令行中浏览reddit。[[https://github.com/michael-lazar/rtv][地址]]
+* s-search
+  :PROPERTIES:
+  :ID:       219BD748-1AC9-4A0B-AF55-13A5E16A70D4
+  :END:
+  命令行下进行web搜索。[[https://github.com/zquestz/s][地址]]
+* tmux
+  :PROPERTIES:
+  :ID:       1AB932FD-A2EE-412E-91AF-DC0D2D0E599C
+  :END:
+  终端多会话管理器。[[https://github.com/tmux/tmux][地址]]
+* tldr
+  :PROPERTIES:
+  :ID:       B59FD501-ED68-4B1B-9FCB-13B3690E27B2
+  :END:
+  命令快速查询。简单的man。[[https://tldr.sh/][地址]]
+* w3m
+  :PROPERTIES:
+  :ID:       337F0A1C-2139-4064-9CA8-909E06D31C47
+  :END:
+   终端浏览器，操作方便。[[http://w3m.sourceforge.net/][地址]]
+* wrk
+  :PROPERTIES:
+  :ID:       801DAEBE-EB71-4495-8D39-C8B9C6C74ECB
+  :END:
+  系统性能测试工具。[[https://github.com/wg/wrk][地址]]
+* youtube-dl
+  :PROPERTIES:
+  :ID:       9B17D9B8-5534-42E6-9715-06733981FE05
+  :END:
+  youtube视频下载，也支持其它网站的视频下载。[[https://github.com/rg3/youtube-dl][地址]]
+* diffoscope
+  :PROPERTIES:
+  :ID:       D6898D38-3057-4ACC-8744-7B4458686511
+  :END:
+  文件，文件夹内容比较。[[https://diffoscope.org/][地址]]
+* speedtest
+  :PROPERTIES:
+  :ID:       AF383F0C-F1B3-417D-81AC-73B5D9FA3BC6
+  :END:
+  cli 网络测速。[[https://github.com/sivel/speedtest-cli][地址]]
+* modd
+  :PROPERTIES:
+  :ID:       35E710AF-85C1-489A-BF26-979495CEC059
+  :END:
+  文件变更监听响应，在文件变化时执行相应的配置动作。[[https://github.com/cortesi/modd][地址]]

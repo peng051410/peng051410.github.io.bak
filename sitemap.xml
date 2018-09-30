@@ -15,11 +15,11 @@
  </url>
  <url>
   <loc>http://blog.imcompany.cn/archive.html</loc>
-  <lastmod>2018-09-28T09:39:00Z</lastmod>
+  <lastmod>2018-09-30T05:07:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/categories/</loc>
-  <lastmod>2018-09-28T09:39:00Z</lastmod>
+  <lastmod>2018-09-30T05:07:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/categories/alfred/</loc>
@@ -38,6 +38,10 @@
   <lastmod>2018-09-28T09:39:00Z</lastmod>
  </url>
  <url>
+  <loc>http://blog.imcompany.cn/categories/command/</loc>
+  <lastmod>2018-09-30T05:07:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://blog.imcompany.cn/categories/design-pattern/</loc>
   <lastmod>2018-09-28T09:39:00Z</lastmod>
  </url>
@@ -54,12 +58,16 @@
   <lastmod>2018-09-28T09:39:00Z</lastmod>
  </url>
  <url>
+  <loc>http://blog.imcompany.cn/categories/terminal/</loc>
+  <lastmod>2018-09-30T05:07:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://blog.imcompany.cn/categories/vim/</loc>
   <lastmod>2018-09-28T09:31:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/index-1.html</loc>
-  <lastmod>2018-09-28T09:39:00Z</lastmod>
+  <lastmod>2018-09-30T05:07:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/posts/chang-yong-de-ideacha-jian/</loc>
@@ -72,6 +80,10 @@
  <url>
   <loc>http://blog.imcompany.cn/posts/na-xie-ti-gao-xiao-lu-de-ideacha-jian/</loc>
   <lastmod>2018-09-28T09:39:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.imcompany.cn/posts/na-xie-ti-gao-xiao-lu-de-ming-ling-xing-gong-ju/</loc>
+  <lastmod>2018-09-30T05:07:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-ce-lue-mo-shi/</loc>

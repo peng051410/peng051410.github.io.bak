@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/alfred.xml</loc>
-  <lastmod>2018-09-28T12:27:00Z</lastmod>
+  <lastmod>2018-09-29T22:28:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/cat_java.xml</loc>
@@ -19,7 +19,11 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/cat_tools.xml</loc>
-  <lastmod>2018-09-28T12:27:00Z</lastmod>
+  <lastmod>2018-09-30T05:07:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.imcompany.cn/categories/command.xml</loc>
+  <lastmod>2018-09-30T05:07:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/design-pattern.xml</loc>
@@ -38,15 +42,19 @@
   <lastmod>2018-09-28T09:39:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://blog.imcompany.cn/categories/terminal.xml</loc>
+  <lastmod>2018-09-30T05:07:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://blog.imcompany.cn/categories/vim.xml</loc>
   <lastmod>2018-09-28T09:31:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/rss.xml</loc>
-  <lastmod>2018-09-28T12:27:00Z</lastmod>
+  <lastmod>2018-09-30T05:07:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/sitemap.xml</loc>
-  <lastmod>2018-09-28T12:27:00Z</lastmod>
+  <lastmod>2018-09-30T05:07:00Z</lastmod>
  </sitemap>
 </sitemapindex>
