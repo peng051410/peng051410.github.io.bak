@@ -140,7 +140,7 @@ NAVIGATION_LINKS = {
             ('/archive.html', 'Archives', 'fa fa-folder-open'),
             ('/categories/index.html', 'Tags', 'fa fa-tags'),
             ('/rss.xml', 'RSS', 'fa fa-rss'),
-            ('https://getnikola.com', 'About me', 'fa fa-user'),
+            ('https://about.me/tomyli', 'About me', 'fa fa-user'),
             ('https://twitter.com/hougemeiga', 'My Twitter', 'fab fa-twitter'),
             ('https://github.com/peng051410', 'My Github', 'fab fa-github'),
         )
