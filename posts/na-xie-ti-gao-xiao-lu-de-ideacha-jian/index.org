@@ -347,3 +347,13 @@
    :END:
    [[https://github.com/wrdv/testme-idea]]
   
+* Goto Stackoverflow
+  :PROPERTIES:
+  :ID:       EE2AC9B7-BE45-4C86-873A-111A63D6210E
+  :END:
+  在idea中选中文本在右键中进行基于stackoverflow网站的google搜索。[[https://github.com/gejun123456/IntellijGoToStackOverFlow]]
+* Show as
+  :PROPERTIES:
+  :ID:       F037AC6C-9307-41AE-B9FD-1D44B9345BEA
+  :END:
+  在调试时,显示一个"show as"的菜单显示变量值的格式化信息。[[https://plugins.jetbrains.com/plugin/7010-show-as--]]
