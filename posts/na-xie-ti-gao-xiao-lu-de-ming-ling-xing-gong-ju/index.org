@@ -19,11 +19,6 @@
   :ID:       E636FFF8-C689-45E3-87D1-9ADD6B27D3B0
   :END:
   bat? No，高端cat，不费眼。带颜色显示，支持git状态，自动分页。[[https://github.com/sharkdp/bat][地址]]
-* wifi-password
-  :PROPERTIES:
-  :ID:       892F4876-D417-43AB-8118-5940DB103515
-  :END:
-  在命令行中显示当前连接wifi的密码，只支持mac。[[https://github.com/rauchg/wifi-password][地址]]
 * cowsay
   :PROPERTIES:
   :ID:       457800BC-6CDE-4005-958F-933854E9D5D8
