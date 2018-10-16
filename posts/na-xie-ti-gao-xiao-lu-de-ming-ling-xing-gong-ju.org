@@ -48,7 +48,7 @@
   :PROPERTIES:
   :ID:       DA18E40F-C77E-473B-AB5D-F34B1728EB7C
   :END:
-  强大的find，查询速度更快。[[https://github.com/BurntSushi/ripgrep][地址]]
+  强大的find，查询速度更快，支持匹配结果的字符替换，支持定义输出颜色。[[https://github.com/BurntSushi/ripgrep][地址]]
 * fortune
   :PROPERTIES:
   :ID:       E3428E99-D026-4BEC-BE6D-FAFB1F03A320
