@@ -33,7 +33,7 @@
   :PROPERTIES:
   :ID:       284E458B-5294-4B43-973A-031E2B90DC03
   :END:
-  环境变量切换，可以指定在进入某一文件夹后的操作，比如输出一条欢迎语句，在退出文件夹后则卸载变量。 [[https://github.com/direnv/direnv][地址]]
+  环境变量切换，可以指定在进入某一文件夹后的操作，比如输出一条欢迎语句，在退出文件夹后则卸载变量（操作），它的[[https://github.com/direnv/direnv/blob/master/stdlib.sh%0A%0A][stdlib]]内置了一些功能来处理环境。 [[https://github.com/direnv/direnv][地址]]
 * exa
   :PROPERTIES:
   :ID:       B96E9C09-3FA8-4C54-9140-591F5004BFF8
