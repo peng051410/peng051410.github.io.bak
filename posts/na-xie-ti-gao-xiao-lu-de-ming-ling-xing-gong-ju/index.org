@@ -58,7 +58,7 @@
   :PROPERTIES:
   :ID:       F343ED2A-8E50-45D8-BAB3-086B1FDED407
   :END:
-  强大的交互式搜索，大大提高效率。[[https://github.com/junegunn/fzf][地址]]
+  强大的交互式搜索，大大提高效率，官网提供了很多实用的操作目录与git的命令。[[https://github.com/junegunn/fzf][地址]]
 * goku
   :PROPERTIES:
   :ID:       8A4A987E-1FF1-4433-A221-10358A402EE2
