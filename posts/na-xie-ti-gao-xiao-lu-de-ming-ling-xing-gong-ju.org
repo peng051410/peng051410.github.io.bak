@@ -68,7 +68,7 @@
   :PROPERTIES:
   :ID:       435D802E-0FEB-49E9-95B6-FBF73D8F6480
   :END:
-  交互式的top信息显示。[[https://hisham.hm/htop/][地址]]
+  交互式的top信息显示，支持配色。[[https://github.com/hishamhm/htop][地址]]
 * imgcat
   :PROPERTIES:
   :ID:       36A0AC65-6061-4748-81D1-56FE6AC2C8E2
