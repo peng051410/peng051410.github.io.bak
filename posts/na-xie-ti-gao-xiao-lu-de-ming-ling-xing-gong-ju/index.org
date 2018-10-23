@@ -78,7 +78,7 @@
   :PROPERTIES:
   :ID:       DDCBBF4C-7A9A-4CF7-A98A-C83E8E9B1EF2
   :END:
-  json内容操作显示。 [[https://github.com/stedolan/jq][地址]]
+  json内容操作显示。支持分离、过滤、转换元素，判断JSON元素节点是否存在等功能，内置了很多方便的函数。 [[https://github.com/stedolan/jq][地址]]
 * jenv
   :PROPERTIES:
   :ID:       C1368714-9AEA-427B-9C01-F049D6C86C32
