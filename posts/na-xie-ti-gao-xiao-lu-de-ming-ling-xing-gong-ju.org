@@ -73,7 +73,7 @@
   :PROPERTIES:
   :ID:       36A0AC65-6061-4748-81D1-56FE6AC2C8E2
   :END:
-  命令行看图片。[[https://github.com/eddieantonio/imgcat][地址]]
+  命令行看图片。可以控制显示的高度、宽度。[[https://github.com/eddieantonio/imgcat][地址]]
 * jq
   :PROPERTIES:
   :ID:       DDCBBF4C-7A9A-4CF7-A98A-C83E8E9B1EF2
