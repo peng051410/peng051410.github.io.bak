@@ -83,7 +83,7 @@
   :PROPERTIES:
   :ID:       C1368714-9AEA-427B-9C01-F049D6C86C32
   :END:
-  JDK版本管理命令行工具。[[https://www.jenv.be/][地址]]
+  JDK版本管理命令行工具，支持全局、当前目录、当前shell的jdk版本指定。还可以指定Java虚拟机指定的JVM参数。[[https://www.jenv.be/][地址]]
 * lnav
   :PROPERTIES:
   :ID:       0B18BE34-D298-411E-A0D0-BF9B755ED77A
