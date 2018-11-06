@@ -88,7 +88,7 @@
   :PROPERTIES:
   :ID:       0B18BE34-D298-411E-A0D0-BF9B755ED77A
   :END:
-  log file navigator，增加的日志查看，可以根据日志级别显示不到的日志信息。[[https://github.com/tstack/lnav][地址]]
+  log file navigator，增加的日志查看，可以根据日志级别显示不同颜色的日志信息。支持分页显示。[[https://github.com/tstack/lnav][地址]]
 * lolcat
   :PROPERTIES:
   :ID:       49365426-14C4-4FE6-8869-5BDFCB4BD5EB
