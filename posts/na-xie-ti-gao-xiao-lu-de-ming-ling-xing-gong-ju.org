@@ -93,7 +93,7 @@
   :PROPERTIES:
   :ID:       49365426-14C4-4FE6-8869-5BDFCB4BD5EB
   :END:
-  命令内容多彩输出。[[https://github.com/busyloop/lolcat][地址]]
+  命令、文件内容多彩输出。[[https://github.com/busyloop/lolcat][地址]]
 * m-cli
   :PROPERTIES:
   :ID:       031E215E-050B-4D76-85C6-9C179EA60B60
