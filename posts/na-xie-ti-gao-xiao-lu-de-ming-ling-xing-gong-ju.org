@@ -98,7 +98,7 @@
   :PROPERTIES:
   :ID:       031E215E-050B-4D76-85C6-9C179EA60B60
   :END:
-  Mac的瑞士军刀，支持各种mac组件的操作。[[https://github.com/rgcr/m-cli][地址]]
+  Mac的瑞士军刀，支持各种mac组件(Dock，蓝牙，WIFI，Finder)的操作。[[https://github.com/rgcr/m-cli][地址]]
 * mackup
   :PROPERTIES:
   :ID:       400B0F19-E033-4F66-BC33-EAAE3053B8D6
