@@ -103,7 +103,7 @@
   :PROPERTIES:
   :ID:       400B0F19-E033-4F66-BC33-EAAE3053B8D6
   :END:
-  Mac应用配置同步，支持多种存储方式。[[https://github.com/lra/mackup][地址]]
+  Mac应用配置同步，支持多种存储方式。支持自定义应用的同步配置。主要命令为backup，restore，uninstall。[[https://github.com/lra/mackup][地址]]
 * mas
   :PROPERTIES:
   :ID:       D0D383CC-D633-4506-9C94-45A2C4DDB92F
