@@ -262,6 +262,11 @@
    :ID:       F8250121-75E2-4026-8C70-F86ADC7B532F
    :END:
    [[https://github.com/mplushnikov/lombok-intellij-plugin]]
+* Missing In Actions
+  :PROPERTIES:
+  :ID:       44A4CF65-6EBD-40EA-839D-11688AA86B6A
+  :END:
+  [[https://github.com/vsch/MissingInActions][Missing In Actions]]，增强的action，带来了Idea Action缺少的增强动作，如移动语句自动缩进、剪切历史增强中等功能。
 * PlantUML
   :PROPERTIES:
   :ID:       3D44E02D-75D3-4F35-A811-6A71C969558B
