@@ -118,7 +118,7 @@
   :PROPERTIES:
   :ID:       36D26EB3-0D37-4A2B-AA53-EC09747C8A03
   :END:
-  增强版本的du，机器空间使用查询。[[https://dev.yorhel.nl/ncdu][地址]]
+  增强版本的du，机器空间使用查询，支持扫描结果导出与导入，支持多种排序方式。[[https://dev.yorhel.nl/ncdu][地址]]
 * nnn
   :PROPERTIES:
   :ID:       CBF74A37-A9DD-41DF-BF93-D8449D6600C2
@@ -153,7 +153,7 @@
   :PROPERTIES:
   :ID:       219BD748-1AC9-4A0B-AF55-13A5E16A70D4
   :END:
-  命令行下进行web搜索。[[https://github.com/zquestz/s][地址]]
+  命令行下进行web搜索。[[https://github.com/zquestz/s][地址]env LANG=C perl -e exit]
 * tmux
   :PROPERTIES:
   :ID:       1AB932FD-A2EE-412E-91AF-DC0D2D0E599C
