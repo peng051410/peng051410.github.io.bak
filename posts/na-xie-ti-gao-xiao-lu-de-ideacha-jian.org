@@ -164,7 +164,7 @@
    :ID:       766072E8-6980-4E0A-BBE0-DE08F42598E9
    :END:
    [[https://github.com/izhangzhihao/intellij-rainbow-brackets]]
-* RestfulTools
+* RestfulToolkit
   :PROPERTIES:
   :ID:       BDB0AC3F-0791-48E6-BA37-179AAE9AEC0F
   :END:
