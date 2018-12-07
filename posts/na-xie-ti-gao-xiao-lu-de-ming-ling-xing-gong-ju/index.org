@@ -119,11 +119,11 @@
   :ID:       36D26EB3-0D37-4A2B-AA53-EC09747C8A03
   :END:
   增强版本的du，机器空间使用查询，支持扫描结果导出与导入，支持多种排序方式。[[https://dev.yorhel.nl/ncdu][地址]]
-* nnn
+* Ranger
   :PROPERTIES:
   :ID:       CBF74A37-A9DD-41DF-BF93-D8449D6600C2
   :END:
-  命令行下的文件管理。[[https://github.com/jarun/nnn][地址]]
+  命令行下的文件管理，强大到没朋友。[[https://github.com/ranger/ranger][地址]]
 * pandoc
   :PROPERTIES:
   :ID:       10481A7B-DAEA-4F83-9B9D-DFAEE9D22EB5
