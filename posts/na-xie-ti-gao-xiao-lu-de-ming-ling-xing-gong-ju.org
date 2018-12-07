@@ -153,7 +153,7 @@
   :PROPERTIES:
   :ID:       219BD748-1AC9-4A0B-AF55-13A5E16A70D4
   :END:
-  命令行下进行web搜索。[[https://github.com/zquestz/s][地址]env LANG=C perl -e exit]
+  命令行下进行web搜索。[[https://github.com/zquestz/s][地址]]
 * tmux
   :PROPERTIES:
   :ID:       1AB932FD-A2EE-412E-91AF-DC0D2D0E599C
