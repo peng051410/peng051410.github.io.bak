@@ -143,7 +143,7 @@
   :PROPERTIES:
   :ID:       F7393C70-2950-47E4-8F1F-5980B4193A28
   :END:
-  增强的ping，显示的更友好。[[http://denilson.sa.nom.br/prettyping/][地址]]
+  增强的ping，图形化显示，可以轻松的看出ping的地址的网络状况。[[http://denilson.sa.nom.br/prettyping/][地址]]
 * rtv
   :PROPERTIES:
   :ID:       640B4BD7-256A-4A4E-B52D-6F2DE08EF4BD
