@@ -183,7 +183,7 @@
   :PROPERTIES:
   :ID:       D6898D38-3057-4ACC-8744-7B4458686511
   :END:
-  文件，文件夹内容比较。[[https://diffoscope.org/][地址]]
+  文件，文件夹内容比较。支持比较的文件格式非常丰富。[[https://diffoscope.org/][地址]]
 * speedtest
   :PROPERTIES:
   :ID:       AF383F0C-F1B3-417D-81AC-73B5D9FA3BC6
