@@ -178,7 +178,7 @@
   :PROPERTIES:
   :ID:       9B17D9B8-5534-42E6-9715-06733981FE05
   :END:
-  youtube视频下载，也支持其它网站的视频下载。[[https://github.com/rg3/youtube-dl][地址]]
+  youtube视频下载，也支持其它网站的视频下载。支持配置文件配置下载的选项。[[https://github.com/rg3/youtube-dl][地址]]
 * diffoscope
   :PROPERTIES:
   :ID:       D6898D38-3057-4ACC-8744-7B4458686511
