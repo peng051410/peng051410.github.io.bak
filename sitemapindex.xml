@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/alfred.xml</loc>
-  <lastmod>2018-09-29T22:28:00Z</lastmod>
+  <lastmod>2019-01-06T22:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/cat_java.xml</loc>
@@ -15,15 +15,15 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/cat_tool.xml</loc>
-  <lastmod>2018-09-28T09:39:00Z</lastmod>
+  <lastmod>2018-12-01T07:07:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/cat_tools.xml</loc>
-  <lastmod>2018-09-30T14:17:00Z</lastmod>
+  <lastmod>2019-01-06T22:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/command.xml</loc>
-  <lastmod>2018-09-30T14:17:00Z</lastmod>
+  <lastmod>2018-12-16T23:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/design-pattern.xml</loc>
@@ -31,7 +31,7 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/idea.xml</loc>
-  <lastmod>2018-09-28T09:39:00Z</lastmod>
+  <lastmod>2018-12-01T07:07:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/java.xml</loc>
@@ -39,11 +39,11 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/plugin.xml</loc>
-  <lastmod>2018-09-28T09:39:00Z</lastmod>
+  <lastmod>2018-12-01T07:07:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/terminal.xml</loc>
-  <lastmod>2018-09-30T14:17:00Z</lastmod>
+  <lastmod>2018-12-16T23:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/vim.xml</loc>
@@ -51,10 +51,10 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/rss.xml</loc>
-  <lastmod>2018-09-30T14:17:00Z</lastmod>
+  <lastmod>2019-01-06T22:52:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/sitemap.xml</loc>
-  <lastmod>2018-09-30T14:17:00Z</lastmod>
+  <lastmod>2019-01-06T22:52:00Z</lastmod>
  </sitemap>
 </sitemapindex>
