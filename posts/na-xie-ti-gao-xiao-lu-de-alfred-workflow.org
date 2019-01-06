@@ -207,6 +207,11 @@
   :ID:       5F9D7E27-626F-4AA4-9BD5-F6D6699F7E3D
   :END:
    在alfred中快速本地host的配置，配合[[https://github.com/oldj/SwitchHosts][SwitchHosts]]来使用。[[http://www.packal.org/workflow/switchhosts][插件地址]]
+* SnippetsLab
+  :PROPERTIES:
+  :ID:       1D102922-78C3-4CE5-9B2E-D6597475F93E
+  :END:
+  在alfred中快速查看SnippetsLab中的代码片断
 * Tldr
   :PROPERTIES:
   :ID:       1DDA64C3-16EA-4CAC-93F7-9F94F3CD7DE8
