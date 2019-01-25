@@ -174,6 +174,11 @@
   :ID:       801DAEBE-EB71-4495-8D39-C8B9C6C74ECB
   :END:
   系统性能测试工具。[[https://github.com/wg/wrk][地址]]
+* wd
+  :PROPERTIES:
+  :ID:       6BBA2805-4224-427E-AF9D-CBBB92E2AA9B
+  :END:
+  快速的cd到常用的目录，支持命令增加，查询功能。[[https://github.com/mfaerevaag/wd][地址]]
 * youtube-dl
   :PROPERTIES:
   :ID:       9B17D9B8-5534-42E6-9715-06733981FE05
