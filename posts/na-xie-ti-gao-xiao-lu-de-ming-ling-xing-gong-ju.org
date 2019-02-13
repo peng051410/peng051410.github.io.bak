@@ -39,6 +39,7 @@
   :ID:       B96E9C09-3FA8-4C54-9140-591F5004BFF8
   :END:
   ls、tree的替代者，支持多种显示方式，支持按指定条件排序显示。[[https://github.com/ogham/exa][地址]]
+{{{TEASER_END}}}
 * duti
   :PROPERTIES:
   :ID:       045B653F-46E0-4E9C-8EC9-96AB3B7F4BDF
