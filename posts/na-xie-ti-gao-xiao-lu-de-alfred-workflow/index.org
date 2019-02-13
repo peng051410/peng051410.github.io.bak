@@ -39,6 +39,7 @@
   :ID:       8927BBDF-C1D1-46D2-B787-BED1476D08AB
   :END:
    在alfred上使用百度地图。[[https://github.com/wofeiwo/alfred-baidu-map][插件地址]]
+{{{TEASER_END}}}
 * Birthday
   :PROPERTIES:
   :ID:       56143948-8358-4530-84DA-666BBA6B3F89

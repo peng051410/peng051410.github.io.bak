@@ -71,19 +71,19 @@
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div id="outline-container-orgefb8c57" class="outline-2">
-<h2 id="orgefb8c57">
+    <div id="outline-container-orgc5668ae" class="outline-2">
+<h2 id="orgc5668ae">
 <a id="ID-5106DED6-E60F-47AF-9FED-C24E5A9146D2"></a>说明</h2>
-<div class="outline-text-2" id="text-orgefb8c57">
+<div class="outline-text-2" id="text-orgc5668ae">
 <p>
 代理模式是设计模式中使用频率非常的高的模式，像日常生活中的房产中介、外卖平台都属于代理。代理模式就是在访问真正的业务之时不会直接与真正的业务进行调用，而是与一个与真正业务对象有着相同功能声明的代理来进行处理，但是最终的处理还是由真正的业务类来进行（决定），比如房产中介，他们会帮助找房者根据条件来对可选房屋进行筛选，但是最终订与不订的权利还是由找房者来决定。常见的代理有保护代理、虚拟代理、远程代理。
 </p>
 </div>
 </div>
-<div id="outline-container-org9d59544" class="outline-2">
-<h2 id="org9d59544">
+<div id="outline-container-orga88df16" class="outline-2">
+<h2 id="orga88df16">
 <a id="ID-8FA1D55F-C6F7-4666-9E13-0D33878BB72E"></a>代理模式</h2>
-<div class="outline-text-2" id="text-org9d59544">
+<div class="outline-text-2" id="text-orga88df16">
 <p>
 我们常用的后台系统一般会根据用户权限的不同对用户展示不同的业务菜单，拥有高权限的人会展示相对多的菜单进行操作，在这个过程中还要记录用户的操作日志，用户点了什么，执行了什么操作都需要进行记录，达到有据可查。在这个业务场景下，就可以使用代理模式进行实现。代理对象会持有一个真正业务对象的实例，在代理对象中还引用日志服务与权限服务，所有的请求都经过这个代理类来进行，这样就可以根据操作的用户的状态来进行相应的处理了。具体的代码实现如下：
 </p>
@@ -91,101 +91,22 @@
 <ul class="org-ul">
 <li>定义一个查询接口，在这里定义一个查询用户收的方法，如下:</li>
 </ul>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.proxy</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/28.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Search</span> <span class="o">{</span>
-
-      <span class="kt">void</span> <span class="nf">queryIncome</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">);</span>
-  <span class="o">}</span>
-</pre></div>
+zsh:1: command not found: pygmentize
 <ul class="org-ul">
 <li>再定义一个实现该接口的具体业务类：</li>
 </ul>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.proxy</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/28.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SearchService</span> <span class="kd">implements</span> <span class="n">Search</span> <span class="o">{</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">queryIncome</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="o">{</span>
-
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">username</span> <span class="o">+</span> <span class="s">"开始查询"</span><span class="o">);</span>
-
-	  <span class="k">try</span> <span class="o">{</span>
-	      <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
-	  <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-	      <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-	  <span class="o">}</span>
-
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">username</span> <span class="o">+</span> <span class="s">"查询完成"</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
+zsh:1: command not found: pygmentize
 <p>
 在上面代码中就实现了查询收入的方法，简单的打印了两行日志。
 </p>
 <ul class="org-ul">
 <li>由于在实现需要对权限进行控制并记录日志，则先把需要用来的权限类与日志类进行定义与实现。实现代码如下:</li>
 </ul>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.proxy</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/28.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Auth</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">valid</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="o">{</span>
-
-	  <span class="k">return</span> <span class="s">"admin"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">username</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-
-
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Logger</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">beforeLog</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"开始记录"</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"查询日志"</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterLog</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"结束记录"</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"查询日志"</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
+zsh:1: command not found: pygmentize
 <ul class="org-ul">
 <li>最后来进行代理类的实现，代理类通常也会实现查询接口，这样在调用者看来它与真正的业务类没有什么区别，实现代码如下：</li>
 </ul>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.proxy</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/28.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SearchProxy</span> <span class="kd">implements</span> <span class="n">Search</span> <span class="o">{</span>
-
-      <span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Logger</span><span class="o">();</span>
-      <span class="kd">private</span> <span class="n">Auth</span> <span class="n">auth</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Auth</span><span class="o">();</span>
-      <span class="kd">private</span> <span class="n">Search</span> <span class="n">search</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SearchService</span><span class="o">();</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">queryIncome</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="o">{</span>
-
-	  <span class="n">logger</span><span class="o">.</span><span class="na">beforeLog</span><span class="o">(</span><span class="n">username</span><span class="o">);</span>
-	  <span class="k">if</span> <span class="o">(</span><span class="n">auth</span><span class="o">.</span><span class="na">valid</span><span class="o">(</span><span class="n">username</span><span class="o">))</span> <span class="o">{</span>
-	      <span class="n">search</span><span class="o">.</span><span class="na">queryIncome</span><span class="o">(</span><span class="n">username</span><span class="o">);</span>
-	  <span class="o">}</span>
-	  <span class="n">logger</span><span class="o">.</span><span class="na">afterLog</span><span class="o">(</span><span class="n">username</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
+zsh:1: command not found: pygmentize
 <p>
 在上面的代理中，它维护了权限与日志这两个工具类的实例，还维护真正提供查询的业务类实例，在实现的查询收入接口中，先进行进入日志的记录，再验证用户的权限，验证通过则调用真正的业务类来查询收入，最后记录结束的日志，一次调用处理完成。
 上面实现的类图如下：
@@ -194,15 +115,15 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org081fad1" class="outline-2">
-<h2 id="org081fad1">
+<div id="outline-container-org74e4613" class="outline-2">
+<h2 id="org74e4613">
 <a id="ID-A325E1A4-121E-4085-B642-1C5E0357D188"></a>总结</h2>
-<div class="outline-text-2" id="text-org081fad1">
+<div class="outline-text-2" id="text-org74e4613">
 </div>
-<div id="outline-container-org5fb135f" class="outline-3">
-<h3 id="org5fb135f">
+<div id="outline-container-org8028ab7" class="outline-3">
+<h3 id="org8028ab7">
 <a id="ID-2442F02B-79E2-4793-A708-88BEC217A441"></a>优点</h3>
-<div class="outline-text-3" id="text-org5fb135f">
+<div class="outline-text-3" id="text-org8028ab7">
 <ol class="org-ol">
 <li>代理模式使得具体的业务方法在不想过多的暴露自己的情况更好的保护了具体业务，很好的隔离了调用者与被调用者，降低了系统的耦合性。</li>
 <li>对真正业务的修改对调用者是无感知的，它们只需要与代理打交道就可以，符合开闭原则。</li>
@@ -211,10 +132,10 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-orge434ba8" class="outline-3">
-<h3 id="orge434ba8">
+<div id="outline-container-orgc0014ac" class="outline-3">
+<h3 id="orgc0014ac">
 <a id="ID-E2C27CC5-1C83-4FE5-9305-3AC702D6CA9D"></a>缺点</h3>
-<div class="outline-text-3" id="text-orge434ba8">
+<div class="outline-text-3" id="text-orgc0014ac">
 <ol class="org-ol">
 <li>由于在中间增加了代理，多了一些额外的处理，对于处理速度会有一定的降低。</li>
 </ol>

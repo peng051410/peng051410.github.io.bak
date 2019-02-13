@@ -51,6 +51,7 @@
    :ID:       AA572D98-2A6F-47B3-88D2-B18E07DB7462
    :END:
    [[https://github.com/whunmr/emacsIDEAs]]
+{{{TEASER_END}}}
 * Custom Postfix Templates
   :PROPERTIES:
   :ID:       B969793C-24F1-4262-A1FB-854D3CDB255C
