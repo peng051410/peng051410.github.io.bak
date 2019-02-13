@@ -56,6 +56,7 @@
   }
   #+END_SRC
   懒式式优化点使用时实例化，延迟加载。缺点是存在线程安全问题
+{{{TEASER_END}}}
 * 懒汉式（线程安全版本）
   :PROPERTIES:
   :ID:       5448AF33-6E0A-4EC7-BA2F-CA0A52F3D61A

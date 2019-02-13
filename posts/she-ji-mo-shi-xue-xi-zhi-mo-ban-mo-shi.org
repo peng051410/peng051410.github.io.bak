@@ -65,7 +65,7 @@
       }
   }
   #+END_SRC
-  在上面的PayCallback类中声明了getParam(获取参数)，checkParam（验证参数），validSign（验证签名），验证支付状态四个步骤，具体的支付回调类要来实现这里声明的方法即可。下面是一个微信支付的回调类的代码实现：
+{{{TEASER_END}}} 在上面的PayCallback类中声明了getParam(获取参数)，checkParam（验证参数），validSign（验证签名），验证支付状态四个步骤，具体的支付回调类要来实现这里声明的方法即可。下面是一个微信支付的回调类的代码实现：
   #+BEGIN_SRC java
   package cn.imcompany.callback;
 
