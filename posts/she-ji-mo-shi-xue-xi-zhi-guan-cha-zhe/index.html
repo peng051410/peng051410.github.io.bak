@@ -79,19 +79,19 @@
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div id="outline-container-org1daf244" class="outline-2">
-<h2 id="org1daf244">
+    <div id="outline-container-org93b7fa3" class="outline-2">
+<h2 id="org93b7fa3">
 <a id="ID-8B1369E7-771F-4568-84A2-68681795C0D4"></a>说明</h2>
-<div class="outline-text-2" id="text-org1daf244">
+<div class="outline-text-2" id="text-org93b7fa3">
 <p>
 观察者模式在日常开发中使用频率也是非常高的，它建立了对象与对象之间的关系，一个对象的行为改变会通知到另一个对象，被通知的对象根据通知做出相应的处理动作。在观察者中分为目标对象（被观察者）、观察者。观察者模式是一种对象行为模式。
 </p>
 </div>
 </div>
-<div id="outline-container-orgc3eb745" class="outline-2">
-<h2 id="orgc3eb745">
+<div id="outline-container-org805bee6" class="outline-2">
+<h2 id="org805bee6">
 <a id="ID-DF91D356-308F-4653-B691-EEDBD8E73380"></a>观察者模式</h2>
-<div class="outline-text-2" id="text-orgc3eb745">
+<div class="outline-text-2" id="text-org805bee6">
 <p>
 现在很多人都购买股票，在市面上有很多的股票软件供广大股民使用。股票软件一般会在用户关注的股票有变动时发送消息来通知股民。在这里，某一支股票就是目标对象，广大股民与股票软件就是观察者，他们根据股票的行情变化来做出相应买入或者卖出操作。这一需求可以使用观察者模式进行实现。代码如下：
 </p>
@@ -151,6 +151,7 @@
       <span class="o">}</span>
   <span class="o">}</span>
 </pre></div>
+<!-- TEASER_END -->
 <p>
 具体的股民实现了喜与悲的方法，这样观察者已经准备就绪。下面来定义股票软件：
 </p>
@@ -251,25 +252,25 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org044d908" class="outline-2">
-<h2 id="org044d908">
+<div id="outline-container-orgcd67333" class="outline-2">
+<h2 id="orgcd67333">
 <a id="ID-50C04142-CF97-4997-BCDA-C650E6064FE8"></a>总结</h2>
-<div class="outline-text-2" id="text-org044d908">
+<div class="outline-text-2" id="text-orgcd67333">
 </div>
-<div id="outline-container-org6879d26" class="outline-3">
-<h3 id="org6879d26">
+<div id="outline-container-orgcd89c24" class="outline-3">
+<h3 id="orgcd89c24">
 <a id="ID-A9F3D255-D072-4E23-9940-D47A216D0CC3"></a>优点</h3>
-<div class="outline-text-3" id="text-org6879d26">
+<div class="outline-text-3" id="text-orgcd89c24">
 <ol class="org-ol">
 <li>观察者模式在观察者与目标对象之间建立了抽象的耦合，目标对象要维护观察者列表，而无须关心具体的观察者。可以更好的进行抽象。</li>
 <li>对目标对象增加观察者无须修改原代码，只需要调用现有的方法就可以，符合开闭原则。</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgdb259af" class="outline-3">
-<h3 id="orgdb259af">
+<div id="outline-container-org7d24e41" class="outline-3">
+<h3 id="org7d24e41">
 <a id="ID-EB1CEDE6-F922-4F8E-B967-B0759B18C007"></a>缺点</h3>
-<div class="outline-text-3" id="text-orgdb259af">
+<div class="outline-text-3" id="text-org7d24e41">
 <ol class="org-ol">
 <li>在观察者很多的时候，目标对象发生变化时会消耗很长的时间来通知观察者。</li>
 </ol>

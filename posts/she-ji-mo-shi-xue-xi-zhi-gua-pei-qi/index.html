@@ -76,19 +76,19 @@
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div id="outline-container-orge39c3ac" class="outline-2">
-<h2 id="orge39c3ac">
+    <div id="outline-container-org4337427" class="outline-2">
+<h2 id="org4337427">
 <a id="ID-EB4962BA-C631-4716-BC9D-20C978873C77"></a>说明</h2>
-<div class="outline-text-2" id="text-orge39c3ac">
+<div class="outline-text-2" id="text-org4337427">
 <p>
 在<a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi">前面</a>的文章中介绍了一些关于支付相关的功能，现在转向登录，在早些时期的系统登录就是用户使用用户名与密码进行注册，注册成功后就可以进行登录了。随着时代的发展，出现很多三方的平台，它们对外提供了获取平台用户信息的功能，例如微信、qq、微博等三方登录，在接入这些三方登录时都是遵循相应的规则，老的登录的方式需要保留，对接新的登录方式还想要使用老的登录服务，这样可以使用适配器模式来实现。
 </p>
 </div>
 </div>
-<div id="outline-container-org3157e06" class="outline-2">
-<h2 id="org3157e06">
+<div id="outline-container-orga7ceefc" class="outline-2">
+<h2 id="orga7ceefc">
 <a id="ID-1C175AD8-25AF-469B-82AD-6C10817DF235"></a>适配器模式</h2>
-<div class="outline-text-2" id="text-org3157e06">
+<div class="outline-text-2" id="text-orga7ceefc">
 <p>
 比如我们平常使用的转接头一样，就是一种适配器的模式。它使两个不相关的物体很好的关联在一起。对于要接入的新的登录方式，首先定义新的三方登录的接口，定义要使用的三方登录方式，如下代码示例：
 </p>
@@ -110,6 +110,7 @@
 <p>
 如上定义了微信、qq、微博三种登录方式，它们都是使用accessToken来进行认证，经用户同意后获取相应的用户的信息调用方使用。下面来进行具体的实现：
 </p>
+<!-- TEASER_END -->
 <div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.adapter</span><span class="o">;</span>
 
   <span class="cm">/**</span>
@@ -151,10 +152,10 @@
 </p>
 </div>
 </div>
-<div id="outline-container-orgeeb9fa6" class="outline-2">
-<h2 id="orgeeb9fa6">
+<div id="outline-container-org79a2f36" class="outline-2">
+<h2 id="org79a2f36">
 <a id="ID-EC4F06ED-28E5-4B9E-802F-B00E1BFCBE33"></a>缺省适配器</h2>
-<div class="outline-text-2" id="text-orgeeb9fa6">
+<div class="outline-text-2" id="text-org79a2f36">
 <p>
 上面的登录方法比较简单，如果要适配(实现一个接口)很多的业务方法，则对于实现方是一个困难，如果不想实现所有的方法可以定义一个抽象类来实现接口的大部分方法，再继承这个类选择需要实现覆盖的方法进行处理，这样就得到了一个缺省的适配的模式。对于用户状态一般有性别、是否是VIP等一些标识信息。下面定义了一个用户的基本标识类：
 </p>
@@ -240,10 +241,10 @@
 <img src="../../images/default-adapter.png" alt="缺省适配器"></p>
 </div>
 </div>
-<div id="outline-container-org22bee22" class="outline-2">
-<h2 id="org22bee22">
+<div id="outline-container-org892fafc" class="outline-2">
+<h2 id="org892fafc">
 <a id="ID-C3F52076-C0E2-46AD-99C4-E445F64DA8DE"></a>适配器总结</h2>
-<div class="outline-text-2" id="text-org22bee22">
+<div class="outline-text-2" id="text-org892fafc">
 <ol class="org-ol">
 <li>适配器模式可以使两个不相关的类进行关联适配。可以重用原代码而且不需要修改原代码。</li>
 <li>增加了类的利用性，代码都封装在了适配器类，可以增加适配者的复用性。</li>

@@ -50,19 +50,20 @@
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <div id="outline-container-org9251d14" class="outline-2">
-<h2 id="org9251d14">
+    <div>
+<div id="outline-container-org0fdac9b" class="outline-2">
+<h2 id="org0fdac9b">
 <a id="ID-A489BC67-1105-4C33-9727-7D7161A13BAC"></a>说明</h2>
-<div class="outline-text-2" id="text-org9251d14">
+<div class="outline-text-2" id="text-org0fdac9b">
 <p>
 工厂设计模式是23种设计模式中使用频率非常高的，属于创建型模式。主要特点是实现了实体创建与使用的分离，达到了解耦的目的。工厂设计模式一般分为简单工厂、工厂方法、抽象工厂。
 </p>
 </div>
 </div>
-<div id="outline-container-org0d8c8b6" class="outline-2">
-<h2 id="org0d8c8b6">
+<div id="outline-container-orgd3b5354" class="outline-2">
+<h2 id="orgd3b5354">
 <a id="ID-F033B640-6EEF-450F-8D8A-DC8B37F4BA15"></a>前提准备</h2>
-<div class="outline-text-2" id="text-org0d8c8b6">
+<div class="outline-text-2" id="text-orgd3b5354">
 <p>
 4年一界世界杯即将到来，啤酒厂商又要大嫌一笔。我们先准备好要生产的啤酒实体。
 </p>
@@ -104,315 +105,8 @@
 <p>
 在上面定义三种啤酒，它们都由抽象类Beer继承而来。下面使用简单工厂来给消费者提供啤酒。
 </p>
+<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-gong-han-mo-shi/">阅读更多…</a></p>
 </div>
-</div>
-<div id="outline-container-org0e475e1" class="outline-2">
-<h2 id="org0e475e1">
-<a id="ID-79BAB320-4A93-4697-8782-D8B5D223C10F"></a>简单工厂</h2>
-<div class="outline-text-2" id="text-org0e475e1">
-<p>
-消费者需要不同品类的啤酒，使用简单工厂来实现，代码如下：
-</p>
-</div>
-<div id="outline-container-orgf1269de" class="outline-3">
-<h3 id="orgf1269de">
-<a id="ID-2D775EDD-05B6-4105-8FAF-F2F217155C3D"></a>简单工厂生产啤酒</h3>
-<div class="outline-text-3" id="text-orgf1269de">
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.simple</span><span class="o">;</span>
-
-  <span class="kn">import</span> <span class="nn">cn.imcompany.BaiWei</span><span class="o">;</span>
-  <span class="kn">import</span> <span class="nn">cn.imcompany.Beer</span><span class="o">;</span>
-  <span class="kn">import</span> <span class="nn">cn.imcompany.JinShiBai</span><span class="o">;</span>
-  <span class="kn">import</span> <span class="nn">cn.imcompany.QingDao</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * 一个工厂什么都生产,根据传入的参数来返回不同的产品</span>
-<span class="cm">   * Created by tomyli on 2018/5/28.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleFactory</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="kd">static</span> <span class="n">Beer</span> <span class="nf">getBeer</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="k">if</span> <span class="o">(</span><span class="s">"青岛"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">))</span> <span class="o">{</span>
-	      <span class="k">return</span> <span class="k">new</span> <span class="n">QingDao</span><span class="o">();</span>
-	  <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="s">"百威"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">))</span> <span class="o">{</span>
-	      <span class="k">return</span> <span class="k">new</span> <span class="n">BaiWei</span><span class="o">();</span>
-	  <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="s">"金士百"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">))</span> <span class="o">{</span>
-	      <span class="k">return</span> <span class="k">new</span> <span class="n">JinShiBai</span><span class="o">();</span>
-	  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-	      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"没有这种啤酒"</span><span class="o">);</span>
-	      <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-	  <span class="o">}</span>
-      <span class="o">}</span>
-
-  <span class="o">}</span>
-</pre></div>
-<p>
-在上面的代码简单工厂会根据传入的啤酒名称来生产出不同的啤酒。下面来测试一下这个简单工厂
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.simple</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/5/28.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleFactoryTest</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">SimpleFactory</span><span class="o">.</span><span class="na">getBeer</span><span class="o">(</span><span class="s">"青岛"</span><span class="o">));</span>
-      <span class="o">}</span>
-
-  <span class="o">}</span>
-</pre></div>
-<p>
-现在消费者可以喝到青岛牌子的啤酒了。简单工厂实现实体创建与使用的分离。由于简单工厂一般都会提供静态的获取实体的方法，所以它还会被称为静态工厂。
-</p>
-</div>
-</div>
-<div id="outline-container-org0dec9f3" class="outline-3">
-<h3 id="org0dec9f3">
-<a id="ID-FF168DFF-3DFF-48EF-B90D-551D140C664C"></a>简单工厂总结</h3>
-<div class="outline-text-3" id="text-org0dec9f3">
-</div>
-<div id="outline-container-org85ce82c" class="outline-4">
-<h4 id="org85ce82c">
-<a id="ID-8FC12473-3775-4590-B649-CF6C7B1937AA"></a>优点：</h4>
-<div class="outline-text-4" id="text-org85ce82c">
-<ol class="org-ol">
-<li>简单工厂的实现非常简单，把原本由Beer来处理的创建工作给抽离出来，根据传入的参数来进行实体的创建。</li>
-<li>实体的创建完全交给简单工厂来处理，实体什么时候创建对使用者是无感知的。</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org18feaa7" class="outline-4">
-<h4 id="org18feaa7">
-<a id="ID-A7B3921B-C7B3-43D8-B21C-CA62A227DFE5"></a>缺点</h4>
-<div class="outline-text-4" id="text-org18feaa7">
-<ol class="org-ol">
-<li>如果要新增一款啤酒，则要修改工厂类，违反了设计模式中对扩展开放，对修改关闭的原则。</li>
-<li>使用需要记住要使用产品名称，如果传入错误则不会得到正确的结果。</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orge02e8d2" class="outline-2">
-<h2 id="orge02e8d2">
-<a id="ID-0657E214-34BE-40BB-B34E-5AF2324240FE"></a>工厂方法</h2>
-<div class="outline-text-2" id="text-orge02e8d2">
-</div>
-<div id="outline-container-org5799e54" class="outline-3">
-<h3 id="org5799e54">
-<a id="ID-71E14835-E5EF-4B6A-9218-31C060A30B12"></a>工厂方法生产啤酒</h3>
-<div class="outline-text-3" id="text-org5799e54">
-<p>
-为了解决简单工厂中的问题，我们引入工厂方法，使用工厂方法，则每一款啤酒对应的都会由一个特定的工厂来进行生产，这些工厂统一都继承自一个抽象的工厂，由这个抽象的工厂来定义要生产的产品规范。示例代码如下：
-</p>
-<div class="highlight"><pre><span></span>  <span class="cm">/**</span>
-<span class="cm">   * 定义获取的功能，具体由实现类（具体的啤酒厂）来实现，做到创建与使用隔离</span>
-<span class="cm">   * Created by tomyli on 2018/5/28.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">FunctionFactory</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Beer</span> <span class="nf">getBeer</span><span class="o">();</span>
-
-  <span class="o">}</span>
-
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">BaiWeiFactory</span> <span class="kd">extends</span> <span class="n">BeerFactory</span> <span class="o">{</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="n">Beer</span> <span class="nf">getBeer</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="k">new</span> <span class="n">BaiWei</span><span class="o">();</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">JinShiBaiFactory</span> <span class="kd">extends</span> <span class="n">BeerFactory</span> <span class="o">{</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="n">Beer</span> <span class="nf">getBeer</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="k">new</span> <span class="n">JinShiBai</span><span class="o">();</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">QinDaoFactory</span> <span class="kd">extends</span> <span class="n">BeerFactory</span> <span class="o">{</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="n">Beer</span> <span class="nf">getBeer</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="k">new</span> <span class="n">QingDao</span><span class="o">();</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-上面的代码展示了各种啤酒由不同工厂来生产的情况，每个工厂都继承自BeerFactory这个抽象类，它只定义了生产啤酒这个抽象方法，具体生产什么牌子的啤酒由各个具体工厂来处理。这样在用户使用时就可以指定要哪一家工厂生产的酒就可以了。
-下面来测试这种工厂生产的啤酒。
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.function</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/5/28.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">FunctionFactoryTest</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="n">BeerFactory</span> <span class="n">jinShiBaiFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JinShiBaiFactory</span><span class="o">();</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">jinShiBaiFactory</span><span class="o">.</span><span class="na">getBeer</span><span class="o">());</span>
-      <span class="o">}</span>
-
-  <span class="o">}</span>
-</pre></div>
-<p>
-上面的代码指定了要用金士百工厂生产的啤酒，实例指向的永远是抽象工厂，这就是所谓的多态，这样我们可以面向抽象来进行编程，而不是面对具体的实现。灵活性与扩展性大大的增加了。
-</p>
-</div>
-</div>
-<div id="outline-container-orga1d8c57" class="outline-3">
-<h3 id="orga1d8c57">
-<a id="ID-96E11C62-15DB-4782-9D2A-916DA3D6556B"></a>工厂方法总结</h3>
-<div class="outline-text-3" id="text-orga1d8c57">
-</div>
-<div id="outline-container-orgfe52618" class="outline-4">
-<h4 id="orgfe52618">
-<a id="ID-EF3A557E-B095-497B-ABD8-F822D2C426F2"></a>优点</h4>
-<div class="outline-text-4" id="text-orgfe52618">
-<ol class="org-ol">
-<li>使用者不用记住产品的名称了，只要知道要使用哪家的工厂生产的产品就可以了。</li>
-<li>如果再增加一种啤酒，可以直接增加一个工厂来进行生产，不用修改现有工厂的实现，实现了开闭原则。</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org4cbdf96" class="outline-4">
-<h4 id="org4cbdf96">
-<a id="ID-EAB1BCD7-9486-4310-83CC-441D6D5A7A3F"></a>缺点</h4>
-<div class="outline-text-4" id="text-org4cbdf96">
-<ol class="org-ol">
-<li>类的数目增加了很多，会产生类的膨胀。</li>
-<li>增加一种产品不仅要增加具体的产品类，还要为之提供一个具体的工厂，复杂度增加。</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgfece36c" class="outline-2">
-<h2 id="orgfece36c">
-<a id="ID-5C187197-56E5-4F7F-8723-4E4DA7B6D303"></a>抽象工厂</h2>
-<div class="outline-text-2" id="text-orgfece36c">
-<p>
-为了解决工厂方法中系统复杂的情况，我们引入抽象工厂，由抽象工厂来定义所要生产的啤酒类型，再由具体的工厂来对这些啤酒进行生产。由于生产的产品都有相似的特征，可以理解为生产一个产品族。
-</p>
-</div>
-<div id="outline-container-org8b2cfbd" class="outline-3">
-<h3 id="org8b2cfbd">
-<a id="ID-6E10E898-B8F0-432E-B0BA-51301313D91F"></a>抽象工厂生产啤酒</h3>
-<div class="outline-text-3" id="text-org8b2cfbd">
-<div class="highlight"><pre><span></span>   <span class="kn">package</span> <span class="nn">cn.imcompany.abs</span><span class="o">;</span>
-
-   <span class="kn">import</span> <span class="nn">cn.imcompany.Beer</span><span class="o">;</span>
-
-   <span class="cm">/**</span>
-<span class="cm">    * Created by tomyli on 2018/5/28.</span>
-<span class="cm">    * Github: https://github.com/peng051410</span>
-<span class="cm">    */</span>
-   <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">AbstractBeerFactory</span> <span class="o">{</span>
-
-       <span class="n">Beer</span> <span class="nf">getQingDao</span><span class="o">();</span>
-
-       <span class="n">Beer</span> <span class="nf">getBaiWei</span><span class="o">();</span>
-
-       <span class="n">Beer</span> <span class="nf">getJinShiBai</span><span class="o">();</span>
-
-   <span class="o">}</span>
-
-   <span class="kn">package</span> <span class="nn">cn.imcompany.abs</span><span class="o">;</span>
-
-   <span class="kn">import</span> <span class="nn">cn.imcompany.BaiWei</span><span class="o">;</span>
-   <span class="kn">import</span> <span class="nn">cn.imcompany.Beer</span><span class="o">;</span>
-   <span class="kn">import</span> <span class="nn">cn.imcompany.JinShiBai</span><span class="o">;</span>
-   <span class="kn">import</span> <span class="nn">cn.imcompany.QingDao</span><span class="o">;</span>
-
-   <span class="cm">/**</span>
-<span class="cm">    * Created by tomyli on 2018/5/28.</span>
-<span class="cm">    * Github: https://github.com/peng051410</span>
-<span class="cm">    */</span>
-   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteBeerFactory</span> <span class="kd">implements</span> <span class="n">AbstractBeerFactory</span> <span class="o">{</span>
-
-       <span class="nd">@Override</span>
-       <span class="kd">public</span> <span class="n">Beer</span> <span class="nf">getQingDao</span><span class="o">()</span> <span class="o">{</span>
-	   <span class="k">return</span> <span class="k">new</span> <span class="n">QingDao</span><span class="o">();</span>
-       <span class="o">}</span>
-
-       <span class="nd">@Override</span>
-       <span class="kd">public</span> <span class="n">Beer</span> <span class="nf">getBaiWei</span><span class="o">()</span> <span class="o">{</span>
-	   <span class="k">return</span> <span class="k">new</span> <span class="n">BaiWei</span><span class="o">();</span>
-       <span class="o">}</span>
-
-       <span class="nd">@Override</span>
-       <span class="kd">public</span> <span class="n">Beer</span> <span class="nf">getJinShiBai</span><span class="o">()</span> <span class="o">{</span>
-	   <span class="k">return</span> <span class="k">new</span> <span class="n">JinShiBai</span><span class="o">();</span>
-       <span class="o">}</span>
-   <span class="o">}</span>
-</pre></div>
-<p>
-这次把生产的三种啤酒都定义在一个抽象工厂中，再由一个具体的工厂来实现所要生产啤酒的功能。我们来测试一下
-</p>
-<div class="highlight"><pre><span></span>   <span class="kn">package</span> <span class="nn">cn.imcompany.abs</span><span class="o">;</span>
-
-   <span class="cm">/**</span>
-<span class="cm">    * Created by tomyli on 2018/5/28.</span>
-<span class="cm">    * Github: https://github.com/peng051410</span>
-<span class="cm">    */</span>
-   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">AbstractFactoryTest</span> <span class="o">{</span>
-
-       <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-	   <span class="n">AbstractBeerFactory</span> <span class="n">beerFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConcreteBeerFactory</span><span class="o">();</span>
-	   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">beerFactory</span><span class="o">.</span><span class="na">getBaiWei</span><span class="o">());</span>
-       <span class="o">}</span>
-
-   <span class="o">}</span>
-</pre></div>
-<p>
-在测试类中实例化一个具体的工厂，然后调用工厂中生产具体酒的方法就可以得到正确的商品，使用者无须记住多个工厂，只要一个工厂就可以满足需要。
-</p>
-</div>
-</div>
-<div id="outline-container-org44057f0" class="outline-3">
-<h3 id="org44057f0">
-<a id="ID-428207FB-8DE3-4F1F-B429-946F6DC17AFF"></a>抽象工厂总结</h3>
-<div class="outline-text-3" id="text-org44057f0">
-</div>
-<div id="outline-container-orga564f13" class="outline-4">
-<h4 id="orga564f13">
-<a id="ID-D904C553-3369-4082-BE4E-59126A570A5D"></a>优点</h4>
-<div class="outline-text-4" id="text-orga564f13">
-<ol class="org-ol">
-<li>类的数量精简了，当需要一个产品族来进行操作时，它可以保证客户端使用了同一产品族中的对象</li>
-<li>当需要新增加一种产品族时（换其它工厂来生产），无须修改系统，直接新建一个具体的工厂就可以实现。</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orgcb284e0" class="outline-4">
-<h4 id="orgcb284e0">
-<a id="ID-D7E23F6B-206A-4FF5-9F48-4D192E8956B3"></a>缺点</h4>
-<div class="outline-text-4" id="text-orgcb284e0">
-<ol class="org-ol">
-<li>当需要增加新的产品类型时，需要修改最高的抽象工厂，这样具体的实现工厂也要进行修改，不符合开闭原则。</li>
-</ol>
-<p>
-啤酒工厂的类图：
-<img src="images/factory.png" alt="工厂模式"></p>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-org65ea28d" class="outline-2">
-<h2 id="org65ea28d">
-<a id="ID-A8902F00-18CE-4D7F-A412-A874795E0C48"></a>工厂方法与抽象工厂对比</h2>
-<div class="outline-text-2" id="text-org65ea28d">
-<p>
-上面说的工厂方法与抽象工厂理解时有些困难，它们主要的不同点就是工厂方法适合生产产品结构相同的单种产品，而抽象工厂适合生产多种产品结构的产品，如白酒，这是另一个产品结构，这种情况使用抽象工厂更恰当。
-</p>
 </div>
 </div>
     </div>
@@ -430,27 +124,28 @@
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <div id="outline-container-org3e1d30b" class="outline-2">
-<h2 id="org3e1d30b">
+    <div>
+<div id="outline-container-orgeea2e4f" class="outline-2">
+<h2 id="orgeea2e4f">
 <a id="ID-EE979F53-11A7-4FD2-B8F4-C48CE3D8F1B2"></a>特点</h2>
-<div class="outline-text-2" id="text-org3e1d30b">
+<div class="outline-text-2" id="text-orgeea2e4f">
 <p>
 原型设计模式就是系统中产生的每一个对象都不相同，通过原型来创建新的对象，原型模式属于创建型模式。
 </p>
 </div>
 </div>
-<div id="outline-container-orgeab8275" class="outline-2">
-<h2 id="orgeab8275">
+<div id="outline-container-orge88c8b7" class="outline-2">
+<h2 id="orge88c8b7">
 <a id="ID-CD7708C3-6021-485A-A24C-E6DD385F17BB"></a>实现方式</h2>
-<div class="outline-text-2" id="text-orgeab8275">
+<div class="outline-text-2" id="text-orge88c8b7">
 <p>
 一般情况可以通过对象克隆的方式来根据一个对象创建出来多个对象，每个对象在内存占用的内存地址都不一样。在JAVA中克隆又分为浅克隆与深克隆。
 </p>
 </div>
-<div id="outline-container-org68c21d7" class="outline-3">
-<h3 id="org68c21d7">
+<div id="outline-container-org57905ea" class="outline-3">
+<h3 id="org57905ea">
 <a id="ID-5CD675BD-9485-4B23-A83F-4A32B167FC5A"></a>浅克隆</h3>
-<div class="outline-text-3" id="text-org68c21d7">
+<div class="outline-text-3" id="text-org57905ea">
 <p>
 JAVA中是按值进行传递。实现克隆的方式就是实现Cloneable接口，这样就可以重写Object对象的clone方法来进行对象的克隆。代码如下：
 </p>
@@ -469,118 +164,8 @@ JAVA中是按值进行传递。实现克隆的方式就是实现Cloneable接口�
        <span class="o">}</span>
    <span class="o">}</span>
 </pre></div>
-<p>
-测试代码如下：
-</p>
-<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-       <span class="n">Apple</span> <span class="n">apple</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Apple</span><span class="o">();</span>
-       <span class="n">apple</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">"apple"</span><span class="o">;</span>
-       <span class="n">apple</span><span class="o">.</span><span class="na">weight</span> <span class="o">=</span> <span class="mf">2.23</span><span class="o">;</span>
-
-       <span class="k">try</span> <span class="o">{</span>
-	   <span class="n">Apple</span> <span class="n">clone</span> <span class="o">=</span> <span class="o">(</span><span class="n">Apple</span><span class="o">)</span><span class="n">apple</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
-	   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">clone</span> <span class="o">==</span> <span class="n">apple</span><span class="o">);</span>
-       <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-	   <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-       <span class="o">}</span>
-   <span class="o">}</span>
-</pre></div>
-<p>
-测试代码中clone与apple是两个完全不同的对象，这样就通过apple这个原型创建出来一个全新的对象。但是这里存在一个问题，现在Apple对象中只包含了值类型的成员变量，如果包含了其它对象会克隆也会成功吗？我们在Apple对象中增加一个Stone对象的集合，代码：
-</p>
-<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Apple</span> <span class="kd">implements</span> <span class="n">Cloneable</span> <span class="o">{</span>
-
-       <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
-       <span class="kd">public</span> <span class="kt">double</span> <span class="n">weight</span><span class="o">;</span>
-       <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Stone</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">;</span> <span class="c1">//新增加的对象</span>
-
-       <span class="nd">@Override</span>
-       <span class="kd">protected</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
-	   <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
-       <span class="o">}</span>
-   <span class="o">}</span>
-</pre></div>
-<p>
-这次再使用测试代码进行测试：
-</p>
-<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-       <span class="n">Apple</span> <span class="n">clone</span> <span class="o">=</span> <span class="o">(</span><span class="n">Apple</span><span class="o">)</span><span class="n">apple</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
-       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">clone</span> <span class="o">==</span> <span class="n">apple</span><span class="o">);</span>
-       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">clone</span><span class="o">.</span><span class="na">list</span> <span class="o">==</span> <span class="n">apple</span><span class="o">.</span><span class="na">list</span><span class="o">);</span>
-   <span class="o">}</span>
-</pre></div>
-<p>
-apple与clone依旧不相等，但是clone.list却与apple.list是相同的，这就没有达到我们的目的。在JAVA中对对象的拷贝其实拷贝的是内存地址，所以拷贝后两个list都指定了同一个内存地址。显然，浅克隆对只包含值类型的变量拷贝是正确的，而对包含对象的拷贝的处理是不符合预期的。
-</p>
+<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/">阅读更多…</a></p>
 </div>
-</div>
-<div id="outline-container-orgd4d02ba" class="outline-3">
-<h3 id="orgd4d02ba">
-<a id="ID-AD59ED5A-E73D-4E99-966F-46E36C862F88"></a>深拷贝</h3>
-<div class="outline-text-3" id="text-orgd4d02ba">
-<p>
-深拷贝就是通过对JAVA对象的序列化来进行对象的完整拷贝，主要是通过ObjectInputStream与ObjectOutputStream两个流来实现对象的读取与写入。示例代码：
-</p>
-<div class="highlight"><pre><span></span>   <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
-
-   <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
-   <span class="kd">public</span> <span class="n">String</span> <span class="n">tag</span><span class="o">;</span>
-   <span class="kd">public</span> <span class="n">Date</span> <span class="n">birthday</span><span class="o">;</span>
-
-   <span class="kd">public</span> <span class="n">Tire</span> <span class="n">tire</span><span class="o">;</span>
-
-   <span class="kd">public</span> <span class="n">Car</span> <span class="nf">deepCopy</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-
-   <span class="n">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
-   <span class="n">ObjectOutputStream</span> <span class="n">oos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">);</span>
-   <span class="n">oos</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-
-   <span class="n">ByteArrayInputStream</span> <span class="n">bais</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">());</span>
-   <span class="n">ObjectInputStream</span> <span class="n">ois</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span><span class="n">bais</span><span class="o">);</span>
-   <span class="n">Car</span> <span class="n">copy</span> <span class="o">=</span> <span class="o">(</span><span class="n">Car</span><span class="o">)</span> <span class="n">ois</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
-   <span class="n">copy</span><span class="o">.</span><span class="na">birthday</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="o">();</span>
-   <span class="k">return</span> <span class="n">copy</span><span class="o">;</span>
-
-   <span class="o">}</span>
-   <span class="o">}</span>
-</pre></div>
-<p>
-在上面的代码中要确保每一辆车的出厂日期是唯一的，就要使用深拷贝来实现。要被克隆的对象需要实现Serializable接口。
-深拷贝原型模式的类图如下:
-<img src="images/prototype.png" alt="原型模式"></p>
-</div>
-</div>
-</div>
-<div id="outline-container-orge200e97" class="outline-2">
-<h2 id="orge200e97">
-<a id="ID-85284B4D-FF5B-4206-99C8-FCE956BC3FEC"></a>应用场景</h2>
-<div class="outline-text-2" id="text-orge200e97">
-<p>
-系统中需要保存每个用户的信息，就要每个用户对应不同的实体对象。
-</p>
-</div>
-</div>
-<div id="outline-container-org2856704" class="outline-2">
-<h2 id="org2856704">
-<a id="ID-5B0363E3-2141-4714-B5F3-DD44CBE98738"></a>总结</h2>
-<div class="outline-text-2" id="text-org2856704">
-</div>
-<div id="outline-container-orgf02ef4f" class="outline-3">
-<h3 id="orgf02ef4f">
-<a id="ID-7941D48D-586D-4FD5-BC84-1C67136C8F05"></a>优点</h3>
-<div class="outline-text-3" id="text-orgf02ef4f">
-<p>
-原型设计模式可以进行快速的对象复制，可以很快的创建大的复杂的对象。
-</p>
-</div>
-</div>
-<div id="outline-container-org57a05bc" class="outline-3">
-<h3 id="org57a05bc">
-<a id="ID-EE1BEFBD-DD14-497F-8DEC-1A3DE329CD57"></a>缺点</h3>
-<div class="outline-text-3" id="text-org57a05bc">
-<p>
-创建对象的过程比较复杂，需要被克隆的对象要额外实现序列化接口。
-</p>
 </div>
 </div>
 </div>
@@ -599,19 +184,20 @@ apple与clone依旧不相等，但是clone.list却与apple.list是相同的，�
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <div id="outline-container-org736830f" class="outline-2">
-<h2 id="org736830f">
+    <div>
+<div id="outline-container-orgb5624c8" class="outline-2">
+<h2 id="orgb5624c8">
 <a id="ID-5178CAAD-3EB4-4C23-8A31-1A8636932EA3"></a>特点</h2>
-<div class="outline-text-2" id="text-org736830f">
+<div class="outline-text-2" id="text-orgb5624c8">
 <p>
 单例模式就是确保在系统中只在一个实例提供功能。单例有好几种写法，主要有饿汉式、懒汉式、静态方法内部类、注册式单例。
 </p>
 </div>
 </div>
-<div id="outline-container-org028d48e" class="outline-2">
-<h2 id="org028d48e">
+<div id="outline-container-orge975261" class="outline-2">
+<h2 id="orge975261">
 <a id="ID-D8072892-769E-4CE2-A5C1-653E76608FA5"></a>饿汉式</h2>
-<div class="outline-text-2" id="text-org028d48e">
+<div class="outline-text-2" id="text-orge975261">
 <p>
 饿汉式单例就是在类定义时就已经将实例进行了初始化，在系统调用时可以直接返回不需要再实例化。示例代码如下：
 </p>
@@ -633,10 +219,10 @@ apple与clone依旧不相等，但是clone.list却与apple.list是相同的，�
 </p>
 </div>
 </div>
-<div id="outline-container-org89855e4" class="outline-2">
-<h2 id="org89855e4">
+<div id="outline-container-org45d2a09" class="outline-2">
+<h2 id="org45d2a09">
 <a id="ID-ED1E6C8B-3D3A-486D-916B-76A252AEED07"></a>懒汉式</h2>
-<div class="outline-text-2" id="text-org89855e4">
+<div class="outline-text-2" id="text-org45d2a09">
 <p>
 懒汉式就是在使用才对对象实例进行初始化，达到了延迟加载的目的。示例代码如下：
 </p>
@@ -658,297 +244,8 @@ apple与clone依旧不相等，但是clone.list却与apple.list是相同的，�
 <p>
 懒式式优化点使用时实例化，延迟加载。缺点是存在线程安全问题
 </p>
+<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi/">阅读更多…</a></p>
 </div>
-</div>
-<div id="outline-container-org9bc9ceb" class="outline-2">
-<h2 id="org9bc9ceb">
-<a id="ID-5448AF33-6E0A-4EC7-BA2F-CA0A52F3D61A"></a>懒汉式（线程安全版本）</h2>
-<div class="outline-text-2" id="text-org9bc9ceb">
-<p>
-上面的写法存在线程安全问题，最简单的修改方法是加上synchronized关键字，这样就解决了线程的安全问题。示例代码如下：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LazyTwo</span> <span class="o">{</span>
-
-      <span class="kd">private</span> <span class="nf">LazyTwo</span><span class="o">()</span> <span class="o">{</span>
-      <span class="o">}</span>
-
-      <span class="kd">private</span> <span class="kd">static</span> <span class="n">LazyTwo</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-
-      <span class="kd">public</span> <span class="kd">static</span> <span class="kd">synchronized</span> <span class="n">LazyTwo</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-	      <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LazyTwo</span><span class="o">();</span>
-	  <span class="o">}</span>
-	  <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-加了synchronized关键字解决了线程安全问题，但是程序的并发性能下降，因为在同一时间只能有一个线程进行工作。测试生成200万个实例的情况，不带关键字synchronized耗时7ms，而带synchroized的耗时49ms，相差7倍，加大生成实例的个数，这个时间差会更大，这个版本性能的测试代码如下：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
-  <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">2_000_000</span><span class="o">;</span>
-  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-      <span class="n">LazyOne</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-  <span class="o">}</span>
-  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LazyOne use: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">start</span><span class="o">)</span> <span class="o">+</span> <span class="s">"ms"</span><span class="o">);</span>
-
-
-  <span class="kt">long</span> <span class="n">start2</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
-  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-       <span class="n">LazyTwo</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-  <span class="o">}</span>
-  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"LazyTwo use: "</span> <span class="o">+</span> <span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">start2</span><span class="o">)</span> <span class="o">+</span> <span class="s">"ms"</span><span class="o">);</span>
-</pre></div>
-</div>
-</div>
-<div id="outline-container-org37a731d" class="outline-2">
-<h2 id="org37a731d">
-<a id="ID-8568E20F-C765-432E-B067-7A56A5B65C44"></a>注册式单例</h2>
-<div class="outline-text-2" id="text-org37a731d">
-<p>
-注册式单例是Spring中使用的一种产生单例的方式，主要的思想就是将要产生的单例对象使用一样map进行存储。示例代码如下：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">singletonMaps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;();</span>
-
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Object</span> <span class="nf">getBean</span><span class="o">(</span><span class="n">String</span> <span class="n">beanName</span><span class="o">)</span> <span class="o">{</span>
-
-	  <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">beanName</span> <span class="o">||</span> <span class="s">""</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">beanName</span><span class="o">))</span> <span class="o">{</span>
-		  <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="s">"invalid beanName"</span><span class="o">);</span>
-	  <span class="o">}</span>
-
-	  <span class="k">if</span> <span class="o">(!</span><span class="n">singletonMaps</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">beanName</span><span class="o">))</span> <span class="o">{</span>
-
-		  <span class="k">try</span> <span class="o">{</span>
-			  <span class="kd">synchronized</span> <span class="o">(</span><span class="n">singletonMaps</span><span class="o">)</span> <span class="o">{</span>
-				  <span class="n">Object</span> <span class="n">o</span> <span class="o">=</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="n">beanName</span><span class="o">).</span><span class="na">newInstance</span><span class="o">();</span>
-				  <span class="n">singletonMaps</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">beanName</span><span class="o">,</span> <span class="n">o</span><span class="o">);</span>
-				  <span class="k">return</span> <span class="n">o</span><span class="o">;</span>
-			  <span class="o">}</span>
-		  <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-			  <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-		  <span class="o">}</span>
-	  <span class="o">}</span>
-	  <span class="k">return</span> <span class="n">singletonMaps</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">beanName</span><span class="o">);</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-Spring实际的生成单例bean的处理方式比这复杂很多。
-</p>
-</div>
-</div>
-<div id="outline-container-org1ff7c9e" class="outline-2">
-<h2 id="org1ff7c9e">
-<a id="ID-1122404E-47A2-4105-99F4-B8897118C858"></a>静态内部类方式</h2>
-<div class="outline-text-2" id="text-org1ff7c9e">
-<p>
-静态内部类就是在一个类的内部又声明了一个类，静态内部类生成单例的代码如下：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LazyThree</span>  <span class="o">{</span>
-
-      <span class="kd">private</span> <span class="nf">LazyThree</span><span class="o">()</span> <span class="o">{</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="kd">static</span> <span class="n">LazyThree</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="n">InstanceHolder</span><span class="o">.</span><span class="na">LAZY</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">InstanceHolder</span> <span class="o">{</span>
-	  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">LazyThree</span> <span class="n">LAZY</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LazyThree</span><span class="o">();</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-在类LazyThree的内部又声明了一个名为InstanceHolder的静态内部类，刚开始外部类初始化时内部类不会进行初始化，这样保留了懒加载的特性，只有在调用getInstance方法时内部类才初始化，JVM虚拟机内部的逻辑保证了在多线程情况静态内部类只给被初始化一次，这样也保证了线程的安全。但是JAVA提供我们程序员太多的方式来进行类的实例化，比如clone，反射，序列化。在这些情况下，我们的单例还是唯一的吗？
-</p>
-</div>
-</div>
-<div id="outline-container-org3052e8e" class="outline-2">
-<h2 id="org3052e8e">
-<a id="ID-61706974-D481-42C7-9D99-42F27C5072DA"></a>打破单例之Clone方式</h2>
-<div class="outline-text-2" id="text-org3052e8e">
-<p>
-在JAVA中所有对象都继承Object对象，实例对象实现Cloneable接口则可以进行clone，示例代码如下：
-</p>
-<div class="highlight"><pre><span></span>  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-测试代码:
-</p>
-<div class="highlight"><pre><span></span>  <span class="n">LazyThree</span> <span class="n">lazyThree</span> <span class="o">=</span> <span class="n">LazyThree</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-  <span class="n">LazyThree</span> <span class="n">clone</span> <span class="o">=</span> <span class="o">(</span><span class="n">LazyThree</span><span class="o">)</span> <span class="n">lazyThree</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
-
-  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lazyThree</span> <span class="o">==</span> <span class="n">clone</span><span class="o">);</span>  <span class="c1">//结果为false</span>
-</pre></div>
-</div>
-<div id="outline-container-org7ba6909" class="outline-3">
-<h3 id="org7ba6909">
-<a id="ID-040D171C-1E2F-48B0-9B91-6F71F694154E"></a>解决clone方式下产生单例不一致的问题</h3>
-<div class="outline-text-3" id="text-org7ba6909">
-<p>
-实例了cloneable接口的单例对象生成的实例不相同，此时我们要做的就是重写clone方法，让其使用我们静态内部类生成的单例，示例代码如下：
-</p>
-<div class="highlight"><pre><span></span>   <span class="nd">@Override</span>
-   <span class="kd">public</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
-	   <span class="k">return</span> <span class="n">getInstance</span><span class="o">();</span>
-   <span class="o">}</span>
-</pre></div>
-<p>
-这样我们重写了clone方式，生成的单例就是一样的了
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd961a6a" class="outline-2">
-<h2 id="orgd961a6a">
-<a id="ID-0F5657E4-0FE0-4FB3-A3B4-D0DE0056E6E8"></a>打破单例之反射方式</h2>
-<div class="outline-text-2" id="text-orgd961a6a">
-<p>
-反射是JAVA的一个利器，利用反射可以实例化对象，调用方法，动态的创建对象，使用反射创建实例的代码如下：
-</p>
-<div class="highlight"><pre><span></span>  <span class="n">Constructor</span><span class="o">&lt;</span><span class="n">LazyThree</span><span class="o">&gt;</span> <span class="n">constructor</span> <span class="o">=</span> <span class="n">LazyThree</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getDeclaredConstructor</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
-  <span class="n">constructor</span><span class="o">.</span><span class="na">setAccessible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-  <span class="n">LazyThree</span> <span class="n">lazyThreeReflect</span> <span class="o">=</span> <span class="n">constructor</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
-
-  <span class="n">LazyThree</span> <span class="n">lazyThree</span> <span class="o">=</span> <span class="n">LazyThree</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lazyThree</span> <span class="o">==</span> <span class="n">lazyThreeReflect</span><span class="o">);</span>
-</pre></div>
-<p>
-生成的实例不是相同的，虽然我们的类已经把构造方法声明为了private，但是反射依然可以访问的到。
-</p>
-</div>
-<div id="outline-container-orgb0c49f3" class="outline-3">
-<h3 id="orgb0c49f3">
-<a id="ID-E418A027-B1C0-4A7F-84F6-70424EF2EF81"></a>解决反射产生单例不一致的问题</h3>
-<div class="outline-text-3" id="text-orgb0c49f3">
-<p>
-为了防止这种事情的发生，我们需要在构造方法上对类初始化状态进行标识来阻止类的多次初始化。代码如下：
-</p>
-<div class="highlight"><pre><span></span>   <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="n">initial</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-
-   <span class="kd">private</span> <span class="nf">LazyThree</span><span class="o">()</span> <span class="o">{</span>
-
-	   <span class="kd">synchronized</span> <span class="o">(</span><span class="n">LazyThree</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
-		   <span class="k">if</span> <span class="o">(!</span><span class="n">initial</span><span class="o">)</span> <span class="o">{</span>
-			   <span class="n">initial</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-		   <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-			   <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="s">"单例被侵犯"</span><span class="o">);</span>
-		   <span class="o">}</span>
-	   <span class="o">}</span>
-   <span class="o">}</span>
-</pre></div>
-<p>
-我们定义的一个静态变量initial来标识类有没有进行了初始化，并且不对外提供对initial变量的get与set方法。这样如实例已经初始化了，再次调用则抛出异常表明类已经被初始化了，这样就防止了使用反射方式来进行类的实例化了。
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-org97cb4c7" class="outline-2">
-<h2 id="org97cb4c7">
-<a id="ID-19196A70-BD8B-4108-B605-2447200DD23A"></a>打破单例之序列化反序列化</h2>
-<div class="outline-text-2" id="text-org97cb4c7">
-<p>
-JAVA中的对象是可以持久化到磁盘上的，使用的方式就是序列化与反序列化，主要是使用ObjectInputStream与ObjectOutPutStream来实现。代码如下：
-</p>
-<div class="highlight"><pre><span></span>  <span class="n">LazyThree</span> <span class="n">lazyThree</span> <span class="o">=</span> <span class="n">LazyThree</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-
-  <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">LazyTest</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getResource</span><span class="o">(</span><span class="s">""</span><span class="o">).</span><span class="na">getPath</span><span class="o">()</span> <span class="o">+</span> <span class="s">"/serializable.txt"</span><span class="o">);</span>
-  <span class="n">FileOutputStream</span> <span class="n">fps</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
-  <span class="n">ObjectOutputStream</span> <span class="n">oos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="n">fps</span><span class="o">);</span>
-  <span class="n">oos</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">lazyThree</span><span class="o">);</span>
-  <span class="n">oos</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
-  <span class="n">oos</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-
-  <span class="n">FileInputStream</span> <span class="n">fis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
-  <span class="n">ObjectInputStream</span> <span class="n">ois</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span><span class="n">fis</span><span class="o">);</span>
-  <span class="n">LazyThree</span> <span class="n">lazyThreeSerializable</span> <span class="o">=</span> <span class="o">(</span><span class="n">LazyThree</span><span class="o">)</span> <span class="n">ois</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
-  <span class="n">fis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-  <span class="n">ois</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-
-  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lazyThree</span> <span class="o">==</span> <span class="n">lazyThreeSerializable</span><span class="o">);</span>
-</pre></div>
-<p>
-上面代码的结果为false，证明两个对象不相同
-</p>
-</div>
-<div id="outline-container-org38e702c" class="outline-3">
-<h3 id="org38e702c">
-<a id="ID-4D6F9830-5B71-41DA-95CF-B7AA929BDF42"></a>解决序列化反序列化产生单例不一致的问题</h3>
-<div class="outline-text-3" id="text-org38e702c">
-<p>
-解决的方法要的ObjectInputStream读入对象时来处理，我们需要在类中增加readResolve方法，在这个方法返回我们生成单例的方式。代码如下：
-</p>
-<div class="highlight"><pre><span></span>   <span class="kd">private</span> <span class="n">Object</span> <span class="nf">readResolve</span><span class="o">()</span> <span class="o">{</span>
-	   <span class="k">return</span> <span class="n">getInstance</span><span class="o">();</span>
-   <span class="o">}</span>
-</pre></div>
-<p>
-这样在读取对象信息时使用我们返回的实体对象就保证了对象的一致性。
-单例模式的类图如下:
-<img src="images/singleton.png" alt="单例模式"></p>
-</div>
-</div>
-</div>
-<div id="outline-container-org26ffd54" class="outline-2">
-<h2 id="org26ffd54">
-<a id="ID-F8E90568-3F86-454F-A84C-AB34B3024AB4"></a>总结</h2>
-<div class="outline-text-2" id="text-org26ffd54">
-<p>
-写一个单例不容易。
-以下是完整的单例方式代码:
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.lazy</span><span class="o">;</span>
-
-  <span class="kn">import</span> <span class="nn">java.io.Serializable</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/2.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LazyThree</span> <span class="kd">implements</span> <span class="n">Cloneable</span><span class="o">,</span> <span class="n">Serializable</span> <span class="o">{</span>
-
-      <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="n">initial</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-
-      <span class="kd">private</span> <span class="nf">LazyThree</span><span class="o">()</span> <span class="o">{</span>
-
-	  <span class="kd">synchronized</span> <span class="o">(</span><span class="n">LazyThree</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
-	      <span class="k">if</span> <span class="o">(!</span><span class="n">initial</span><span class="o">)</span> <span class="o">{</span>
-		  <span class="n">initial</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-	      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-		  <span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="s">"单例被侵犯"</span><span class="o">);</span>
-	      <span class="o">}</span>
-	  <span class="o">}</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="kd">static</span> <span class="n">LazyThree</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="n">InstanceHolder</span><span class="o">.</span><span class="na">LAZY</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">InstanceHolder</span> <span class="o">{</span>
-
-	  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">LazyThree</span> <span class="n">LAZY</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LazyThree</span><span class="o">();</span>
-      <span class="o">}</span>
-
-      <span class="kd">private</span> <span class="n">Object</span> <span class="nf">readResolve</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="n">getInstance</span><span class="o">();</span>
-      <span class="o">}</span>
-
-      <span class="c1">// public static boolean isInintial() {</span>
-      <span class="c1">//     return inintial;</span>
-      <span class="c1">// }</span>
-      <span class="c1">//</span>
-      <span class="c1">// public static void setInintial(boolean inintial) {</span>
-      <span class="c1">//     LazyThree.inintial = inintial;</span>
-      <span class="c1">// }</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="n">getInstance</span><span class="o">();</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
 </div>
 </div>
     </div>

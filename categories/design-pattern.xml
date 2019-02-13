@@ -1,80 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company (关于文章 design pattern)</title><link>http://blog.imcompany.cn/</link><description></description><atom:link href="http://blog.imcompany.cn/categories/design-pattern.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Wed, 13 Feb 2019 08:09:11 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>设计模式学习之代理模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-dai-li-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-orgc5668ae" class="outline-2"&gt;
-&lt;h2 id="orgc5668ae"&gt;&lt;a id="ID-5106DED6-E60F-47AF-9FED-C24E5A9146D2"&gt;&lt;/a&gt;说明&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgc5668ae"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company (关于文章 design pattern)</title><link>http://blog.imcompany.cn/</link><description></description><atom:link href="http://blog.imcompany.cn/categories/design-pattern.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Wed, 13 Feb 2019 08:49:04 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>设计模式学习之代理模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-dai-li-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-orgdc44c49" class="outline-2"&gt;
+&lt;h2 id="orgdc44c49"&gt;&lt;a id="ID-5106DED6-E60F-47AF-9FED-C24E5A9146D2"&gt;&lt;/a&gt;说明&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgdc44c49"&gt;
 &lt;p&gt;
 代理模式是设计模式中使用频率非常的高的模式，像日常生活中的房产中介、外卖平台都属于代理。代理模式就是在访问真正的业务之时不会直接与真正的业务进行调用，而是与一个与真正业务对象有着相同功能声明的代理来进行处理，但是最终的处理还是由真正的业务类来进行（决定），比如房产中介，他们会帮助找房者根据条件来对可选房屋进行筛选，但是最终订与不订的权利还是由找房者来决定。常见的代理有保护代理、虚拟代理、远程代理。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orga88df16" class="outline-2"&gt;
-&lt;h2 id="orga88df16"&gt;&lt;a id="ID-8FA1D55F-C6F7-4666-9E13-0D33878BB72E"&gt;&lt;/a&gt;代理模式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orga88df16"&gt;
+&lt;div id="outline-container-org4c0aa76" class="outline-2"&gt;
+&lt;h2 id="org4c0aa76"&gt;&lt;a id="ID-8FA1D55F-C6F7-4666-9E13-0D33878BB72E"&gt;&lt;/a&gt;代理模式&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org4c0aa76"&gt;
 &lt;p&gt;
 我们常用的后台系统一般会根据用户权限的不同对用户展示不同的业务菜单，拥有高权限的人会展示相对多的菜单进行操作，在这个过程中还要记录用户的操作日志，用户点了什么，执行了什么操作都需要进行记录，达到有据可查。在这个业务场景下，就可以使用代理模式进行实现。代理对象会持有一个真正业务对象的实例，在代理对象中还引用日志服务与权限服务，所有的请求都经过这个代理类来进行，这样就可以根据操作的用户的状态来进行相应的处理了。具体的代码实现如下：
 &lt;/p&gt;
 
 &lt;ul class="org-ul"&gt;
-&lt;li&gt;定义一个查询接口，在这里定义一个查询用户收的方法，如下:&lt;/li&gt;
+&lt;li&gt;定义一个查询接口，在这里定义一个查询用户收入的方法，如下:&lt;/li&gt;
 &lt;/ul&gt;
-zsh:1: command not found: pygmentize
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;再定义一个实现该接口的具体业务类：&lt;/li&gt;
-&lt;/ul&gt;
-zsh:1: command not found: pygmentize
-&lt;p&gt;
-在上面代码中就实现了查询收入的方法，简单的打印了两行日志。
-&lt;/p&gt;
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;由于在实现需要对权限进行控制并记录日志，则先把需要用来的权限类与日志类进行定义与实现。实现代码如下:&lt;/li&gt;
-&lt;/ul&gt;
-zsh:1: command not found: pygmentize
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;最后来进行代理类的实现，代理类通常也会实现查询接口，这样在调用者看来它与真正的业务类没有什么区别，实现代码如下：&lt;/li&gt;
-&lt;/ul&gt;
-zsh:1: command not found: pygmentize
-&lt;p&gt;
-在上面的代理中，它维护了权限与日志这两个工具类的实例，还维护真正提供查询的业务类实例，在实现的查询收入接口中，先进行进入日志的记录，再验证用户的权限，验证通过则调用真正的业务类来查询收入，最后记录结束的日志，一次调用处理完成。
-上面实现的类图如下：
-&lt;img src="http://blog.imcompany.cn/images/proxy.png" alt="proxy"&gt;
-主要的核心都在代理类中，它对整个的流程进行全面的控制，对真正的业务方法进行了保护，只有满足条件的请求才可以被处理。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org74e4613" class="outline-2"&gt;
-&lt;h2 id="org74e4613"&gt;&lt;a id="ID-A325E1A4-121E-4085-B642-1C5E0357D188"&gt;&lt;/a&gt;总结&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org74e4613"&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org8028ab7" class="outline-3"&gt;
-&lt;h3 id="org8028ab7"&gt;&lt;a id="ID-2442F02B-79E2-4793-A708-88BEC217A441"&gt;&lt;/a&gt;优点&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org8028ab7"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;代理模式使得具体的业务方法在不想过多的暴露自己的情况更好的保护了具体业务，很好的隔离了调用者与被调用者，降低了系统的耦合性。&lt;/li&gt;
-&lt;li&gt;对真正业务的修改对调用者是无感知的，它们只需要与代理打交道就可以，符合开闭原则。&lt;/li&gt;
-&lt;li&gt;保护代理可以对访问进行细粒度的控制。&lt;/li&gt;
-&lt;li&gt;对于虚拟代理可以对于耗费资源的大对象进行一个简单代理，在用户使用再调用时真正的对象已经实例化完毕，给了用户更好的体验。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgc0014ac" class="outline-3"&gt;
-&lt;h3 id="orgc0014ac"&gt;&lt;a id="ID-E2C27CC5-1C83-4FE5-9305-3AC702D6CA9D"&gt;&lt;/a&gt;缺点&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgc0014ac"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;由于在中间增加了代理，多了一些额外的处理，对于处理速度会有一定的降低。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-dai-li-mo-shi/</guid><pubDate>Mon, 16 Jul 2018 13:08:28 GMT</pubDate></item><item><title>设计模式学习之委托模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-wei-tuo-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-org15f5104" class="outline-2"&gt;
-&lt;h2 id="org15f5104"&gt;&lt;a id="ID-AC010333-BEEE-4816-8429-F348912688BA"&gt;&lt;/a&gt;说明&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org15f5104"&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.proxy&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+  &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/28.&lt;/span&gt;
+&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
+&lt;span class="cm"&gt;   */&lt;/span&gt;
+  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;interface&lt;/span&gt; &lt;span class="nc"&gt;Search&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+      &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;queryIncome&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+  &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-dai-li-mo-shi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-dai-li-mo-shi/</guid><pubDate>Mon, 16 Jul 2018 13:08:28 GMT</pubDate></item><item><title>设计模式学习之委托模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-wei-tuo-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-orgf9c1c66" class="outline-2"&gt;
+&lt;h2 id="orgf9c1c66"&gt;&lt;a id="ID-AC010333-BEEE-4816-8429-F348912688BA"&gt;&lt;/a&gt;说明&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgf9c1c66"&gt;
 &lt;p&gt;
 委托模式不属于23种设计模式中，但是它在Spring框架中使用的很频繁，Spring的作用在Java的开发是非常大，所以需要学习一下委托模式。委托模式是指两个对象都有相同的方法与功能，比如A、B两个对象都有相同的方法，但是有调用A的method方法，A不会自己来处理而是直接调用了B的同名方法，由两个对象参与同一个请求，接受请求的对象将委托给另一个对象来处理。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgfe8f69f" class="outline-2"&gt;
-&lt;h2 id="orgfe8f69f"&gt;&lt;a id="ID-59ADDF7B-BDA4-4D49-9A44-C72DC76E95FE"&gt;&lt;/a&gt;委托模式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgfe8f69f"&gt;
+&lt;div id="outline-container-org3986a6a" class="outline-2"&gt;
+&lt;h2 id="org3986a6a"&gt;&lt;a id="ID-59ADDF7B-BDA4-4D49-9A44-C72DC76E95FE"&gt;&lt;/a&gt;委托模式&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org3986a6a"&gt;
 &lt;p&gt;
 在一般的公司中，都会分为老板、项目经理、开发人员结构，老板负责制定决策，分配给项目经理后，他不会自己来完成，而是把需要的功能进行分解，交给擅长的开发人员进行实现。虽然项目经理也可以完成，但是是他把这些事情委托给了多个开发人员来做，加快了完成任务的速度。就以这个需求来说，使用委托模式来进行实现:
 &lt;/p&gt;
@@ -100,171 +65,17 @@ zsh:1: command not found: pygmentize
 &lt;p&gt;
 上面代码中定义了抽象的人类接口，显示这个人的名字，拥有的技能，工作的状态情况，接下来实现需求中的每个人。
 &lt;/p&gt;
-
-&lt;p&gt;
-定义老板(BOSS):
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.delegate&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/27.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Boss&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;Member&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;showName&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"i am boss"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;showSkill&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"send commend"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;doWork&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-定义项目经理和员工:
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.delegate&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/27.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Leader&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;Member&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Member&lt;/span&gt; &lt;span class="n"&gt;developerA&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Member&lt;/span&gt; &lt;span class="n"&gt;developerB&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;setDeveloperA&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Member&lt;/span&gt; &lt;span class="n"&gt;developerA&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;developerA&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;developerA&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;setDeveloperB&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Member&lt;/span&gt; &lt;span class="n"&gt;developerB&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;developerB&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;developerB&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;showName&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"i am leader"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;showSkill&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="n"&gt;showName&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"i want to select member to doWork"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;doWork&lt;/span&gt;&lt;span class="o"&gt;(){&lt;/span&gt;
-	  &lt;span class="n"&gt;showSkill&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;developerA&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;doWork&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;developerB&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;doWork&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;DeveloperA&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;Member&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;showName&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"i am developer a"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;showSkill&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;showName&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"i can do login function"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;doWork&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;showSkill&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"start work login"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;DeveloperB&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;Member&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;showName&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"i am developer b"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;showSkill&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;showName&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"i can do pay function"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;doWork&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;showSkill&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"start do pay"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-在上面代码中，定义一个项目经理与两个开发，在项目经理中维护(管理)着对两个开发的引用。这样在项目经理的doWork中其实是调用开发者A与开发者B的doWork来都完成工作。接下来测试一下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.delegate&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/27.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;WorkTest&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="n"&gt;Boss&lt;/span&gt; &lt;span class="n"&gt;boss&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Boss&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;boss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;showName&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;boss&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;showSkill&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-	  &lt;span class="n"&gt;Leader&lt;/span&gt; &lt;span class="n"&gt;leader&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Leader&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;Member&lt;/span&gt; &lt;span class="n"&gt;memberA&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;DeveloperA&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;Member&lt;/span&gt; &lt;span class="n"&gt;memberB&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;DeveloperB&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-	  &lt;span class="n"&gt;leader&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setDeveloperA&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;memberA&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="n"&gt;leader&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setDeveloperB&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;memberB&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-
-	  &lt;span class="n"&gt;leader&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;doWork&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-BOSS下发了一个工作，由项目经理选择要真正来工作的人，最后调用了项目经理的doWork方法来实现需求，其实是DeveloperA与DeveloperB在真正的工作，对于BOSS而言，他不在乎谁在工作，他只要结果，结果导向嘛。。。苦了我们这帮程序员。
-&lt;/p&gt;
-
-&lt;p&gt;
-整体的类图结构:
-&lt;img src="http://blog.imcompany.cn/images/delegate.png" alt="委托模式"&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgdd80e58" class="outline-2"&gt;
-&lt;h2 id="orgdd80e58"&gt;&lt;a id="ID-E78E8A6B-D26C-4481-9629-38ABB83D57AE"&gt;&lt;/a&gt;总结&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgdd80e58"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;委托模式定义了实现功能的窗口，对于具体的实现由谁实现对于调用者是无感知的，对外提供方换了内部的实现对于调用方无影响。最大限度的实现了解耦&lt;/li&gt;
-&lt;li&gt;委托方的功能简单通用，可以在绝大情况下通用，在框架中使用非常适合，可以实现分层解耦&lt;/li&gt;
-&lt;li&gt;委托模式使用我们可以使用组合来代替继承&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-wei-tuo-mo-shi/</guid><pubDate>Sat, 07 Jul 2018 10:53:57 GMT</pubDate></item><item><title>设计模式学习之观察者</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-guan-cha-zhe/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-org1daf244" class="outline-2"&gt;
-&lt;h2 id="org1daf244"&gt;&lt;a id="ID-8B1369E7-771F-4568-84A2-68681795C0D4"&gt;&lt;/a&gt;说明&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org1daf244"&gt;
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-wei-tuo-mo-shi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-wei-tuo-mo-shi/</guid><pubDate>Sat, 07 Jul 2018 10:53:57 GMT</pubDate></item><item><title>设计模式学习之观察者</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-guan-cha-zhe/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org93b7fa3" class="outline-2"&gt;
+&lt;h2 id="org93b7fa3"&gt;&lt;a id="ID-8B1369E7-771F-4568-84A2-68681795C0D4"&gt;&lt;/a&gt;说明&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org93b7fa3"&gt;
 &lt;p&gt;
 观察者模式在日常开发中使用频率也是非常高的，它建立了对象与对象之间的关系，一个对象的行为改变会通知到另一个对象，被通知的对象根据通知做出相应的处理动作。在观察者中分为目标对象（被观察者）、观察者。观察者模式是一种对象行为模式。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgc3eb745" class="outline-2"&gt;
-&lt;h2 id="orgc3eb745"&gt;&lt;a id="ID-DF91D356-308F-4653-B691-EEDBD8E73380"&gt;&lt;/a&gt;观察者模式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgc3eb745"&gt;
+&lt;div id="outline-container-org805bee6" class="outline-2"&gt;
+&lt;h2 id="org805bee6"&gt;&lt;a id="ID-DF91D356-308F-4653-B691-EEDBD8E73380"&gt;&lt;/a&gt;观察者模式&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org805bee6"&gt;
 &lt;p&gt;
 现在很多人都购买股票，在市面上有很多的股票软件供广大股民使用。股票软件一般会在用户关注的股票有变动时发送消息来通知股民。在这里，某一支股票就是目标对象，广大股民与股票软件就是观察者，他们根据股票的行情变化来做出相应买入或者卖出操作。这一需求可以使用观察者模式进行实现。代码如下：
 &lt;/p&gt;
@@ -324,138 +135,17 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
       &lt;span class="o"&gt;}&lt;/span&gt;
   &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-具体的股民实现了喜与悲的方法，这样观察者已经准备就绪。下面来定义股票软件：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.observer.stock&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/23.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;interface&lt;/span&gt; &lt;span class="nc"&gt;StockSoft&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;goUp&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-      &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;goDown&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-上面定义了一个抽象的股票软件，它有两个方法，一个股票上涨，一个是股票下跌。接下来实现具体的股票软件
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.observer.stock&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.ArrayList&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.List&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/23.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConcreteStockSoft&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;StockSoft&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Buyer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;buyerList&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;ConcreteStockSoft&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;buyerList&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ArrayList&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;join&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Buyer&lt;/span&gt; &lt;span class="n"&gt;buyer&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;buyerList&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;add&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buyer&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;quit&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Buyer&lt;/span&gt; &lt;span class="n"&gt;buyer&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;buyerList&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;remove&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buyer&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;goUp&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;buyerList&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;forEach&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Buyer&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;happy&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;goDown&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;buyerList&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;forEach&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Buyer&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;sad&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-这是一个具体的股票软件，它持有一个购买指定股票的股民列表，还有股民加入与退出的方法，实现了股票上涨时的方法，在上涨时会通知股民，调用股民的happy方法，在股票下跌时调用股民的sad方法。接着做一下测试:
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.observer.stock&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/23.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;StockTest&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="n"&gt;ConcreteStockSoft&lt;/span&gt; &lt;span class="n"&gt;niuStock&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ConcreteStockSoft&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-	  &lt;span class="n"&gt;ConcrectBuyer&lt;/span&gt; &lt;span class="n"&gt;buyer1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;buyer2&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;buyer3&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-	  &lt;span class="n"&gt;buyer1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ConcrectBuyer&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;buyer1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setName&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"buyer1"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="n"&gt;buyer2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ConcrectBuyer&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;buyer2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setName&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"buyer2"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="n"&gt;buyer3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ConcrectBuyer&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;buyer3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setName&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"buyer3"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-
-	  &lt;span class="n"&gt;niuStock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;join&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buyer1&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="n"&gt;niuStock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;join&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buyer2&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="n"&gt;niuStock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;join&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buyer3&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-
-	  &lt;span class="n"&gt;niuStock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goUp&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-	  &lt;span class="n"&gt;niuStock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;quit&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buyer1&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="n"&gt;niuStock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goDown&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-在测试类中定义了三位购买股票的股民，股票软件把他们加入到维护的股民列表中，这时股票软件发现股票涨了，就调用goUp方法通知了列表中购买股票的股民们。接着股民1选择了卖出股票，则他在软件的维护列表中被移除，这时股票软件发现股票跌了，此时再一次通知持有股票的股民们，这时股民1已经收不到任何的通知，因为他已经不股票软件的通知列表中，此时只股民2与股民3在那悲伤中…
-&lt;/p&gt;
-
-&lt;p&gt;
-实现的观察者模式的类图：
-&lt;img src="http://blog.imcompany.cn/images/observer.png" alt="观察者模式-股票软件实现"&gt;
-表面上看股票软件与股民没有任何关系，但是在具体股票软件中维护了股民的列表(buyList)，这样可以在软件发现有变化时调用股民的方法来进行通知。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org044d908" class="outline-2"&gt;
-&lt;h2 id="org044d908"&gt;&lt;a id="ID-50C04142-CF97-4997-BCDA-C650E6064FE8"&gt;&lt;/a&gt;总结&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org044d908"&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org6879d26" class="outline-3"&gt;
-&lt;h3 id="org6879d26"&gt;&lt;a id="ID-A9F3D255-D072-4E23-9940-D47A216D0CC3"&gt;&lt;/a&gt;优点&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org6879d26"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;观察者模式在观察者与目标对象之间建立了抽象的耦合，目标对象要维护观察者列表，而无须关心具体的观察者。可以更好的进行抽象。&lt;/li&gt;
-&lt;li&gt;对目标对象增加观察者无须修改原代码，只需要调用现有的方法就可以，符合开闭原则。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgdb259af" class="outline-3"&gt;
-&lt;h3 id="orgdb259af"&gt;&lt;a id="ID-EB1CEDE6-F922-4F8E-B967-B0759B18C007"&gt;&lt;/a&gt;缺点&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgdb259af"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;在观察者很多的时候，目标对象发生变化时会消耗很长的时间来通知观察者。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-guan-cha-zhe/</guid><pubDate>Wed, 04 Jul 2018 12:31:41 GMT</pubDate></item><item><title>设计模式学习之装饰器</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-orge016d6c" class="outline-2"&gt;
-&lt;h2 id="orge016d6c"&gt;&lt;a id="ID-9F831376-652F-49A6-81C3-04B7B7D028F9"&gt;&lt;/a&gt;说明&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orge016d6c"&gt;
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-guan-cha-zhe/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-guan-cha-zhe/</guid><pubDate>Wed, 04 Jul 2018 12:31:41 GMT</pubDate></item><item><title>设计模式学习之装饰器</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-orgd7e278e" class="outline-2"&gt;
+&lt;h2 id="orgd7e278e"&gt;&lt;a id="ID-9F831376-652F-49A6-81C3-04B7B7D028F9"&gt;&lt;/a&gt;说明&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgd7e278e"&gt;
 &lt;p&gt;
 装饰器设计模式是使用比较频繁的设计模式，它在不改变原物体的情况对原物体实现了功能的增加，原物体还是一个可单独使用的个体。在JAVA的类库中应该会马上想到IO类，各种的InputStrem，OutputStrem。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgad65af2" class="outline-2"&gt;
-&lt;h2 id="orgad65af2"&gt;&lt;a id="ID-108171D7-868E-409F-986B-C1D1A9A60C82"&gt;&lt;/a&gt;装饰器模式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgad65af2"&gt;
+&lt;div id="outline-container-orgd51f8d3" class="outline-2"&gt;
+&lt;h2 id="orgd51f8d3"&gt;&lt;a id="ID-108171D7-868E-409F-986B-C1D1A9A60C82"&gt;&lt;/a&gt;装饰器模式&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgd51f8d3"&gt;
 &lt;p&gt;
 在用户登录的中过程，我们需要对用户输入的密码进行加密操作，在设计时会提供好多种加密的算法，例如简单的BASE64加密，复杂的如MD5、DSA加密。直接把用户的密码存入数据库是真的在耍流氓。在使用这些算法时，我们想灵活的使用，比如使用完简单加密还可以再进行一下MD5的加密。针对这样的需求，可以使用装饰器模式进行实现。大体思路如下：
 &lt;/p&gt;
@@ -482,164 +172,17 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
       &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
   &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;具体加密类，实现加密处理接口&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.decorator.encrypt&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/25.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConcreteEncryptor&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;Encryptor&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"base encrypt!"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;抽象加密装饰器&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.decorator.encrypt&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/25.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;abstract&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;EncryptDecorator&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;Encryptor&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Encryptor&lt;/span&gt; &lt;span class="n"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;EncryptDecorator&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Encryptor&lt;/span&gt; &lt;span class="n"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;encrypt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-上面的抽象装饰器实现的加密接口，在这个类中维护加密接口的实体，加密方法直接调用其维护实体的加密方法。
-&lt;/p&gt;
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;具体的装饰器实现类&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.decorator.encrypt&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/25.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ModEncryptDecorator&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;EncryptDecorator&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;ModEncryptDecorator&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Encryptor&lt;/span&gt; &lt;span class="n"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="kd"&gt;super&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="kd"&gt;super&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;modEncrypt&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;modEncrypt&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"取模加密！"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-
-
-  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.decorator.encrypt&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/25.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConverseEncryptDecorator&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;EncryptDecorator&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;ConverseEncryptDecorator&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Encryptor&lt;/span&gt; &lt;span class="n"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="kd"&gt;super&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="kd"&gt;super&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;converseEncrypt&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;converseEncrypt&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"逆向加密！"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-上面的代码定义了两个具体的装饰器实体，在这两个装饰器类中，加密方法中都调用了父类的加密方法，然后调用了自己实现的加密方法，这样在先前加密的基础上又进行了一次加密。达到了双重加密的效果。让我们来进行一下测试:
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.decorator.encrypt&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/25.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;EncryptDecoratorTest&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="n"&gt;Encryptor&lt;/span&gt; &lt;span class="n"&gt;encryptor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ConcreteEncryptor&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="c1"&gt;//进行一次简单加密&lt;/span&gt;
-	  &lt;span class="n"&gt;Encryptor&lt;/span&gt; &lt;span class="n"&gt;encryptDecorator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;SimpleEncryptDecorator&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encryptor&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="n"&gt;encryptDecorator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-	  &lt;span class="c1"&gt;//对上一次加密进行二次加密（反转加密）&lt;/span&gt;
-	  &lt;span class="n"&gt;ConverseEncryptDecorator&lt;/span&gt; &lt;span class="n"&gt;converseEncryptDecorator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ConverseEncryptDecorator&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encryptDecorator&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="n"&gt;converseEncryptDecorator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-在测试中先进行了一次简单的加密，又在第一次加密的基础上进行了二次加密，如果再想使用第三次加密，直接把二次加密的对象引用传入即可。这样可以形成很多种组合，可以满足很多加密的需求。
-上面的加密类的类图如下：
-&lt;img src="http://blog.imcompany.cn/images/decorator.png" alt="装饰器模式-加密"&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgaf28288" class="outline-2"&gt;
-&lt;h2 id="orgaf28288"&gt;&lt;a id="ID-47D0831C-C96E-455F-B8EE-85F4BFEA5661"&gt;&lt;/a&gt;总结&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgaf28288"&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org1de894d" class="outline-3"&gt;
-&lt;h3 id="org1de894d"&gt;&lt;a id="ID-534AE97F-EA50-4D4E-8763-553D50C3704D"&gt;&lt;/a&gt;优点&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org1de894d"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;针对抽象编程，装饰器可以使多个类的功能进行组合，比继承更加的灵活。&lt;/li&gt;
-&lt;li&gt;可以对一个对象进行多次的装饰，可以创造出具有强大功能的类。&lt;/li&gt;
-&lt;li&gt;具体的构建类与装饰器分隔，想要增加一个新功能时不需要修改原代码，符合开闭原则。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgfd8951a" class="outline-3"&gt;
-&lt;h3 id="orgfd8951a"&gt;&lt;a id="ID-03EB89C5-34F9-4A63-BA8E-97FEECD7BA8B"&gt;&lt;/a&gt;缺点&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgfd8951a"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;增加一个小的功能也需要增加一个类来实现，有些时候会有些浪费。&lt;/li&gt;
-&lt;li&gt;由于实现也多重装饰，在出现问题时对于定位问题要一层一层的来处理。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/</guid><pubDate>Mon, 02 Jul 2018 12:09:14 GMT</pubDate></item><item><title>设计模式学习之适配器</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-orge39c3ac" class="outline-2"&gt;
-&lt;h2 id="orge39c3ac"&gt;&lt;a id="ID-EB4962BA-C631-4716-BC9D-20C978873C77"&gt;&lt;/a&gt;说明&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orge39c3ac"&gt;
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/</guid><pubDate>Mon, 02 Jul 2018 12:09:14 GMT</pubDate></item><item><title>设计模式学习之适配器</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org4337427" class="outline-2"&gt;
+&lt;h2 id="org4337427"&gt;&lt;a id="ID-EB4962BA-C631-4716-BC9D-20C978873C77"&gt;&lt;/a&gt;说明&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org4337427"&gt;
 &lt;p&gt;
 在&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi"&gt;前面&lt;/a&gt;的文章中介绍了一些关于支付相关的功能，现在转向登录，在早些时期的系统登录就是用户使用用户名与密码进行注册，注册成功后就可以进行登录了。随着时代的发展，出现很多三方的平台，它们对外提供了获取平台用户信息的功能，例如微信、qq、微博等三方登录，在接入这些三方登录时都是遵循相应的规则，老的登录的方式需要保留，对接新的登录方式还想要使用老的登录服务，这样可以使用适配器模式来实现。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org3157e06" class="outline-2"&gt;
-&lt;h2 id="org3157e06"&gt;&lt;a id="ID-1C175AD8-25AF-469B-82AD-6C10817DF235"&gt;&lt;/a&gt;适配器模式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org3157e06"&gt;
+&lt;div id="outline-container-orga7ceefc" class="outline-2"&gt;
+&lt;h2 id="orga7ceefc"&gt;&lt;a id="ID-1C175AD8-25AF-469B-82AD-6C10817DF235"&gt;&lt;/a&gt;适配器模式&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orga7ceefc"&gt;
 &lt;p&gt;
 比如我们平常使用的转接头一样，就是一种适配器的模式。它使两个不相关的物体很好的关联在一起。对于要接入的新的登录方式，首先定义新的三方登录的接口，定义要使用的三方登录方式，如下代码示例：
 &lt;/p&gt;
@@ -661,155 +204,17 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
 &lt;p&gt;
 如上定义了微信、qq、微博三种登录方式，它们都是使用accessToken来进行认证，经用户同意后获取相应的用户的信息调用方使用。下面来进行具体的实现：
 &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.adapter&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/22.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ThirdLoginAdapter&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;ThirdLogin&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="n"&gt;LoginService&lt;/span&gt; &lt;span class="n"&gt;loginService&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;ThirdLoginAdapter&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;loginService&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;LoginService&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;wechatLogin&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;accessToken&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"微信获取用户信息"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="n"&gt;loginService&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;login&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;accessToken&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;qqLogin&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;accessToken&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"qq获取用户信息"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="n"&gt;loginService&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;login&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;accessToken&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;sinaLogin&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;accessToken&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"微博获取用户信息"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="n"&gt;loginService&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;login&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;accessToken&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-在上面的实现，并没有重新写登录的逻辑，除了要调用三方平台的代码，登录的功能是直接使用老的登录服务实现的。在这个实现类中引用了老的服务，然后使用其已经非常成熟的功能来完成登录的操作。这样以最少的代码达到了新的需求也使老的服务可以正常运行。免去了很多测试的功能点。这种适配器叫做对象适配器。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgeeb9fa6" class="outline-2"&gt;
-&lt;h2 id="orgeeb9fa6"&gt;&lt;a id="ID-EC4F06ED-28E5-4B9E-802F-B00E1BFCBE33"&gt;&lt;/a&gt;缺省适配器&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgeeb9fa6"&gt;
-&lt;p&gt;
-上面的登录方法比较简单，如果要适配(实现一个接口)很多的业务方法，则对于实现方是一个困难，如果不想实现所有的方法可以定义一个抽象类来实现接口的大部分方法，再继承这个类选择需要实现覆盖的方法进行处理，这样就得到了一个缺省的适配的模式。对于用户状态一般有性别、是否是VIP等一些标识信息。下面定义了一个用户的基本标识类：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.adapter.def&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/22.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;interface&lt;/span&gt; &lt;span class="nc"&gt;IMemberService&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;saveMember&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-      &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;getMember&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-      &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;isGirl&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-      &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;isBoy&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-      &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;isVip&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-对于实现类来不想一下子都实现，因为有些标识可以是默认的，比加默认情况是用户都不是VIP用户，面向男士的应用则默认isBoy返回true。这样可以先定义一个抽象来进行一些基本的实现。
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.adapter.def&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/22.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;abstract&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;AbstractMemberService&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;IMemberService&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;abstract&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;saveMember&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;abstract&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;getMember&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;isGirl&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;isBoy&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;isVip&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-接下来真正类只需要继承这个抽象类来重写一些特定的方法就可以了
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.adapter.def&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/22.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MemberService&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;AbstractMemberService&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;saveMember&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"saveMember"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;getMember&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"getMember"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-在上面的代码中，MemberService只需要重写saveMember和getMember方法就可以了，其它的三个方法在父类中有了默认的设置，这减少了子类实现方法的数目。缺省适配器属于类适配器，缺省适配器的结构图如下：
-&lt;/p&gt;
-
-&lt;p&gt;
-&lt;img src="http://blog.imcompany.cn/images/default-adapter.png" alt="缺省适配器"&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org22bee22" class="outline-2"&gt;
-&lt;h2 id="org22bee22"&gt;&lt;a id="ID-C3F52076-C0E2-46AD-99C4-E445F64DA8DE"&gt;&lt;/a&gt;适配器总结&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org22bee22"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;适配器模式可以使两个不相关的类进行关联适配。可以重用原代码而且不需要修改原代码。&lt;/li&gt;
-&lt;li&gt;增加了类的利用性，代码都封装在了适配器类，可以增加适配者的复用性。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/</guid><pubDate>Tue, 26 Jun 2018 13:30:17 GMT</pubDate></item><item><title>设计模式学习之模板模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-org6fd85e4" class="outline-2"&gt;
-&lt;h2 id="org6fd85e4"&gt;&lt;a id="ID-1D499B1D-BE98-4A3B-B9FA-BA4DEB4B4DB4"&gt;&lt;/a&gt;说明&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org6fd85e4"&gt;
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/</guid><pubDate>Tue, 26 Jun 2018 13:30:17 GMT</pubDate></item><item><title>设计模式学习之模板模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org0a17cd2" class="outline-2"&gt;
+&lt;h2 id="org0a17cd2"&gt;&lt;a id="ID-1D499B1D-BE98-4A3B-B9FA-BA4DEB4B4DB4"&gt;&lt;/a&gt;说明&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org0a17cd2"&gt;
 &lt;p&gt;
 在一般实现处理用户支付订单时，通常都会在一个单独的回调项目中来处理用户的支付方式回调。一般情况下，回调的处理过程都是相似的，大体的步骤就是获取参数-&amp;gt;验证参数-&amp;gt;验证签名-&amp;gt;验证支付状态（可选）-&amp;gt;订单状态为成功增加用户的充值金额。具体的过程由于不同的支付方式不同而处理的不同。这种需求可以使用模板的模板模式来实现。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orge971991" class="outline-2"&gt;
-&lt;h2 id="orge971991"&gt;&lt;a id="ID-D853C6D0-3137-4D2C-AE23-FC5BD4185FEE"&gt;&lt;/a&gt;模板设计模式实现&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orge971991"&gt;
+&lt;div id="outline-container-org748f8b4" class="outline-2"&gt;
+&lt;h2 id="org748f8b4"&gt;&lt;a id="ID-D853C6D0-3137-4D2C-AE23-FC5BD4185FEE"&gt;&lt;/a&gt;模板设计模式实现&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org748f8b4"&gt;
 &lt;p&gt;
 模板模式就是由一个类来声明整个处理流程的步骤，具体的实现由各个实现类来进行实现。处理的流程不变，变是就是里面具体的实现。针对上面的支付回调，可以声明一个抽象类来声明具体的流程方法，代码如下：
 &lt;/p&gt;
@@ -858,109 +263,17 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
       &lt;span class="o"&gt;}&lt;/span&gt;
   &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-在上面的PayCallback类中声明了getParam(获取参数)，checkParam（验证参数），validSign（验证签名），验证支付状态四个步骤，具体的支付回调类要来实现这里声明的方法即可。下面是一个微信支付的回调类的代码实现：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.callback&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.HashMap&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.Map&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/21.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;WechatPayCallback&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;PayCallback&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;getParam&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"status"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"fail"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;checkParam&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;param&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;validSign&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;forceReturn&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-具体的微信回调类实现了PayCallback类声明的抽象方法，它返回的状态是状态失败，在这里面有一个forceReturn方法，可以处理是否在某一个流程进行强制的返回，在微信回调类里面是进行强制返回，下面看一下支付宝的回调类代码：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.callback&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.HashMap&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.Map&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/21.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;AliPayCallback&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;PayCallback&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;getParam&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"status"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"success"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;checkParam&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;param&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;validSign&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-对于支付宝，这里面的状态是成功，证明这一单处理成功，在支付宝回调这个类里面没有重写父类的forceReturn方法，这个方法子类可以根据需要来决定是否需要覆盖。这样父类给了子类可以控制父类流程的方法，这个方法一般叫做钩子方法，是留给子类来进行一些特殊处理的方法。子类实现这个方法就可以间接的控制父类中定义好的流程。比如在这里就可以控制遇到支付状态为失败的订单是否继续进行后续的操作。不进行了说明这一单也正确处理完成，返回给调用方正确的状态就可以了。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org1ea6406" class="outline-3"&gt;
-&lt;h3 id="org1ea6406"&gt;&lt;a id="ID-A4C31D79-7F92-431B-BD3D-CDA4FE8993D9"&gt;&lt;/a&gt;模板模式实现的类图&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org1ea6406"&gt;
-&lt;p&gt;
-&lt;img src="http://blog.imcompany.cn/images/template.png" alt="模板模式"&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgb544947" class="outline-2"&gt;
-&lt;h2 id="orgb544947"&gt;&lt;a id="ID-CF8B6416-7D0E-4B0F-BC5A-8D5CB391DB93"&gt;&lt;/a&gt;模板模式总结&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgb544947"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;模板模式定义了一个具体的流程来实现功能，子类只需要实现相应定义的方法就可以达到最终的结果。增加另一种回调类也非常的容易，只需要实现父类的方法就可以了。符合开闭原则。&lt;/li&gt;
-&lt;li&gt;父类可以提供子类进行流程控制的方法，这样可以实现子类的反向控制。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/</guid><pubDate>Mon, 25 Jun 2018 13:06:17 GMT</pubDate></item><item><title>设计模式学习之策略模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-ce-lue-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-org59a3137" class="outline-2"&gt;
-&lt;h2 id="org59a3137"&gt;&lt;a id="ID-1F35F4B4-1981-4880-808D-FD4B457B30DB"&gt;&lt;/a&gt;说明&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org59a3137"&gt;
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/</guid><pubDate>Mon, 25 Jun 2018 13:06:17 GMT</pubDate></item><item><title>设计模式学习之策略模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-ce-lue-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-orgb3ce1c7" class="outline-2"&gt;
+&lt;h2 id="orgb3ce1c7"&gt;&lt;a id="ID-1F35F4B4-1981-4880-808D-FD4B457B30DB"&gt;&lt;/a&gt;说明&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgb3ce1c7"&gt;
 &lt;p&gt;
 策略模式是设计模式中使用频率很高的模式，主要的就是实现对行为的包装，达到结果的方式有多种，使用者可以选择任何一个方式来得到想要结果，在增加新的方式时更加的方便与灵活。它是为了适应算法的灵活性而产生的。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org9ef7473" class="outline-2"&gt;
-&lt;h2 id="org9ef7473"&gt;&lt;a id="ID-F6C5FFEB-1164-429F-9C99-9A3E147CB3F6"&gt;&lt;/a&gt;策略模式实现&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org9ef7473"&gt;
+&lt;div id="outline-container-orgde226aa" class="outline-2"&gt;
+&lt;h2 id="orgde226aa"&gt;&lt;a id="ID-F6C5FFEB-1164-429F-9C99-9A3E147CB3F6"&gt;&lt;/a&gt;策略模式实现&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgde226aa"&gt;
 &lt;p&gt;
 以常用的购物为例，一般情况下购物分为浏览商品，下单，支付。在支付时消费者可以选择多种不同的支付方式，如支付宝、微信、京东支付、银联支付等。在支付中流程就可以使用到策略模式，网站为用户提供了这些支付方式可供选择，用户只需要选择自己喜欢的支付方式来进行充值就可以得到商品了。在一般情况下都会定义一个抽象类来定义支付的一些行为，如金额，商品简介等信息。实现的抽象类如以下定义：
 &lt;/p&gt;
@@ -1005,103 +318,17 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
       &lt;span class="o"&gt;}&lt;/span&gt;
   &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-要是再增加一种支付方式则可以实现Payment接口进行实现就可以了，一般情况下会有一个维护支付方式的常量类，由它来维护可用的支付方式。这个常量类的简化代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.pay&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/20.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;PayType&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="n"&gt;ALI_PAY&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;AliPay&lt;/span&gt;&lt;span class="o"&gt;()),&lt;/span&gt;
-      &lt;span class="n"&gt;WECHAT_PAY&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;WechatPay&lt;/span&gt;&lt;span class="o"&gt;()),&lt;/span&gt;
-      &lt;span class="n"&gt;JD_PAY&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;JdPay&lt;/span&gt;&lt;span class="o"&gt;()),&lt;/span&gt;
-      &lt;span class="n"&gt;UNICOME_PAY&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;UnicomePay&lt;/span&gt;&lt;span class="o"&gt;()),&lt;/span&gt;
-      &lt;span class="o"&gt;;&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Payment&lt;/span&gt; &lt;span class="n"&gt;payment&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-      &lt;span class="n"&gt;PayType&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Payment&lt;/span&gt; &lt;span class="n"&gt;payment&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;payment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;payment&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Payment&lt;/span&gt; &lt;span class="nf"&gt;getPayment&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;payment&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-在常量类可以获取要支付的具体支付方式来进行支付。接下来进行一下测试：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.pay&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/20.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;PayTest&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="n"&gt;PayType&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;ALI_PAY&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getPayment&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="na"&gt;pay&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"123"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-
-	  &lt;span class="n"&gt;PayType&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;valueOf&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PayType&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;WECHAT_PAY&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;toString&lt;/span&gt;&lt;span class="o"&gt;()).&lt;/span&gt;&lt;span class="na"&gt;getPayment&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="na"&gt;pay&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"325"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-上面的测试会输出
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;AliPay&lt;/span&gt;
-  &lt;span class="n"&gt;WechatPay&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-这样一个简单的策略模式就实现了。
-策略模式的类图如下:
-&lt;img src="http://blog.imcompany.cn/images/strategy.png" alt="策略模式"&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org842d45e" class="outline-2"&gt;
-&lt;h2 id="org842d45e"&gt;&lt;a id="ID-16BB8D9F-AFFD-4584-A8AF-4FE7A9526414"&gt;&lt;/a&gt;策略设计模式总结&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org842d45e"&gt;
-&lt;p&gt;
-策略模式是一种行为类型的设计模式，它封装了不同的行为，给使用者提供几种选择来实现结果。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org1bbc203" class="outline-3"&gt;
-&lt;h3 id="org1bbc203"&gt;&lt;a id="ID-C88F8F41-AB48-473B-AD0E-37882FC3286A"&gt;&lt;/a&gt;优点&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org1bbc203"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;再增加新的支付方式只需要增加实现类即可，不需要修改现在支付方式的实现逻辑。符合开闭原则。&lt;/li&gt;
-&lt;li&gt;在选择行为时避免了很多的if-else的判断。使代码更加清晰。&lt;/li&gt;
-&lt;li&gt;策略模式提供了统一的管理行为的方式。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orge633fa4" class="outline-3"&gt;
-&lt;h3 id="orge633fa4"&gt;&lt;a id="ID-54C00A2D-6087-453A-AFF6-E52FCCE3692F"&gt;&lt;/a&gt;缺点&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orge633fa4"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;无法一起使用多个策略类。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-ce-lue-mo-shi/</guid><pubDate>Tue, 19 Jun 2018 23:04:56 GMT</pubDate></item><item><title>设计模式学习之工厂模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gong-han-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-org9251d14" class="outline-2"&gt;
-&lt;h2 id="org9251d14"&gt;&lt;a id="ID-A489BC67-1105-4C33-9727-7D7161A13BAC"&gt;&lt;/a&gt;说明&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org9251d14"&gt;
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-ce-lue-mo-shi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-ce-lue-mo-shi/</guid><pubDate>Tue, 19 Jun 2018 23:04:56 GMT</pubDate></item><item><title>设计模式学习之工厂模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gong-han-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org0fdac9b" class="outline-2"&gt;
+&lt;h2 id="org0fdac9b"&gt;&lt;a id="ID-A489BC67-1105-4C33-9727-7D7161A13BAC"&gt;&lt;/a&gt;说明&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org0fdac9b"&gt;
 &lt;p&gt;
 工厂设计模式是23种设计模式中使用频率非常高的，属于创建型模式。主要特点是实现了实体创建与使用的分离，达到了解耦的目的。工厂设计模式一般分为简单工厂、工厂方法、抽象工厂。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org0d8c8b6" class="outline-2"&gt;
-&lt;h2 id="org0d8c8b6"&gt;&lt;a id="ID-F033B640-6EEF-450F-8D8A-DC8B37F4BA15"&gt;&lt;/a&gt;前提准备&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org0d8c8b6"&gt;
+&lt;div id="outline-container-orgd3b5354" class="outline-2"&gt;
+&lt;h2 id="orgd3b5354"&gt;&lt;a id="ID-F033B640-6EEF-450F-8D8A-DC8B37F4BA15"&gt;&lt;/a&gt;前提准备&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgd3b5354"&gt;
 &lt;p&gt;
 4年一界世界杯即将到来，啤酒厂商又要大嫌一笔。我们先准备好要生产的啤酒实体。
 &lt;/p&gt;
@@ -1143,319 +370,24 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
 &lt;p&gt;
 在上面定义三种啤酒，它们都由抽象类Beer继承而来。下面使用简单工厂来给消费者提供啤酒。
 &lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org0e475e1" class="outline-2"&gt;
-&lt;h2 id="org0e475e1"&gt;&lt;a id="ID-79BAB320-4A93-4697-8782-D8B5D223C10F"&gt;&lt;/a&gt;简单工厂&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org0e475e1"&gt;
-&lt;p&gt;
-消费者需要不同品类的啤酒，使用简单工厂来实现，代码如下：
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgf1269de" class="outline-3"&gt;
-&lt;h3 id="orgf1269de"&gt;&lt;a id="ID-2D775EDD-05B6-4105-8FAF-F2F217155C3D"&gt;&lt;/a&gt;简单工厂生产啤酒&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgf1269de"&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.simple&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.BaiWei&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.Beer&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.JinShiBai&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.QingDao&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * 一个工厂什么都生产,根据传入的参数来返回不同的产品&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/5/28.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;SimpleFactory&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;Beer&lt;/span&gt; &lt;span class="nf"&gt;getBeer&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"青岛"&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;equals&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;QingDao&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"百威"&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;equals&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;BaiWei&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"金士百"&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;equals&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;JinShiBai&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	      &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"没有这种啤酒"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-	  &lt;span class="o"&gt;}&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-在上面的代码简单工厂会根据传入的啤酒名称来生产出不同的啤酒。下面来测试一下这个简单工厂
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.simple&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/5/28.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;SimpleFactoryTest&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;SimpleFactory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getBeer&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"青岛"&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-现在消费者可以喝到青岛牌子的啤酒了。简单工厂实现实体创建与使用的分离。由于简单工厂一般都会提供静态的获取实体的方法，所以它还会被称为静态工厂。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org0dec9f3" class="outline-3"&gt;
-&lt;h3 id="org0dec9f3"&gt;&lt;a id="ID-FF168DFF-3DFF-48EF-B90D-551D140C664C"&gt;&lt;/a&gt;简单工厂总结&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org0dec9f3"&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org85ce82c" class="outline-4"&gt;
-&lt;h4 id="org85ce82c"&gt;&lt;a id="ID-8FC12473-3775-4590-B649-CF6C7B1937AA"&gt;&lt;/a&gt;优点：&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-org85ce82c"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;简单工厂的实现非常简单，把原本由Beer来处理的创建工作给抽离出来，根据传入的参数来进行实体的创建。&lt;/li&gt;
-&lt;li&gt;实体的创建完全交给简单工厂来处理，实体什么时候创建对使用者是无感知的。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org18feaa7" class="outline-4"&gt;
-&lt;h4 id="org18feaa7"&gt;&lt;a id="ID-A7B3921B-C7B3-43D8-B21C-CA62A227DFE5"&gt;&lt;/a&gt;缺点&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-org18feaa7"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;如果要新增一款啤酒，则要修改工厂类，违反了设计模式中对扩展开放，对修改关闭的原则。&lt;/li&gt;
-&lt;li&gt;使用需要记住要使用产品名称，如果传入错误则不会得到正确的结果。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orge02e8d2" class="outline-2"&gt;
-&lt;h2 id="orge02e8d2"&gt;&lt;a id="ID-0657E214-34BE-40BB-B34E-5AF2324240FE"&gt;&lt;/a&gt;工厂方法&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orge02e8d2"&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org5799e54" class="outline-3"&gt;
-&lt;h3 id="org5799e54"&gt;&lt;a id="ID-71E14835-E5EF-4B6A-9218-31C060A30B12"&gt;&lt;/a&gt;工厂方法生产啤酒&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org5799e54"&gt;
-&lt;p&gt;
-为了解决简单工厂中的问题，我们引入工厂方法，使用工厂方法，则每一款啤酒对应的都会由一个特定的工厂来进行生产，这些工厂统一都继承自一个抽象的工厂，由这个抽象的工厂来定义要生产的产品规范。示例代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * 定义获取的功能，具体由实现类（具体的啤酒厂）来实现，做到创建与使用隔离&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/5/28.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;abstract&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;FunctionFactory&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;abstract&lt;/span&gt; &lt;span class="n"&gt;Beer&lt;/span&gt; &lt;span class="nf"&gt;getBeer&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-  &lt;span class="o"&gt;}&lt;/span&gt;
-
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;BaiWeiFactory&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;BeerFactory&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Beer&lt;/span&gt; &lt;span class="nf"&gt;getBeer&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;BaiWei&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;JinShiBaiFactory&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;BeerFactory&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Beer&lt;/span&gt; &lt;span class="nf"&gt;getBeer&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;JinShiBai&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;QinDaoFactory&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;BeerFactory&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Beer&lt;/span&gt; &lt;span class="nf"&gt;getBeer&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;QingDao&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-上面的代码展示了各种啤酒由不同工厂来生产的情况，每个工厂都继承自BeerFactory这个抽象类，它只定义了生产啤酒这个抽象方法，具体生产什么牌子的啤酒由各个具体工厂来处理。这样在用户使用时就可以指定要哪一家工厂生产的酒就可以了。
-下面来测试这种工厂生产的啤酒。
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.function&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/5/28.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;FunctionFactoryTest&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="n"&gt;BeerFactory&lt;/span&gt; &lt;span class="n"&gt;jinShiBaiFactory&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;JinShiBaiFactory&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jinShiBaiFactory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getBeer&lt;/span&gt;&lt;span class="o"&gt;());&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-上面的代码指定了要用金士百工厂生产的啤酒，实例指向的永远是抽象工厂，这就是所谓的多态，这样我们可以面向抽象来进行编程，而不是面对具体的实现。灵活性与扩展性大大的增加了。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orga1d8c57" class="outline-3"&gt;
-&lt;h3 id="orga1d8c57"&gt;&lt;a id="ID-96E11C62-15DB-4782-9D2A-916DA3D6556B"&gt;&lt;/a&gt;工厂方法总结&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orga1d8c57"&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgfe52618" class="outline-4"&gt;
-&lt;h4 id="orgfe52618"&gt;&lt;a id="ID-EF3A557E-B095-497B-ABD8-F822D2C426F2"&gt;&lt;/a&gt;优点&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-orgfe52618"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;使用者不用记住产品的名称了，只要知道要使用哪家的工厂生产的产品就可以了。&lt;/li&gt;
-&lt;li&gt;如果再增加一种啤酒，可以直接增加一个工厂来进行生产，不用修改现有工厂的实现，实现了开闭原则。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org4cbdf96" class="outline-4"&gt;
-&lt;h4 id="org4cbdf96"&gt;&lt;a id="ID-EAB1BCD7-9486-4310-83CC-441D6D5A7A3F"&gt;&lt;/a&gt;缺点&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-org4cbdf96"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;类的数目增加了很多，会产生类的膨胀。&lt;/li&gt;
-&lt;li&gt;增加一种产品不仅要增加具体的产品类，还要为之提供一个具体的工厂，复杂度增加。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgfece36c" class="outline-2"&gt;
-&lt;h2 id="orgfece36c"&gt;&lt;a id="ID-5C187197-56E5-4F7F-8723-4E4DA7B6D303"&gt;&lt;/a&gt;抽象工厂&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgfece36c"&gt;
-&lt;p&gt;
-为了解决工厂方法中系统复杂的情况，我们引入抽象工厂，由抽象工厂来定义所要生产的啤酒类型，再由具体的工厂来对这些啤酒进行生产。由于生产的产品都有相似的特征，可以理解为生产一个产品族。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org8b2cfbd" class="outline-3"&gt;
-&lt;h3 id="org8b2cfbd"&gt;&lt;a id="ID-6E10E898-B8F0-432E-B0BA-51301313D91F"&gt;&lt;/a&gt;抽象工厂生产啤酒&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org8b2cfbd"&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.abs&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-   &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.Beer&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-   &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;    * Created by tomyli on 2018/5/28.&lt;/span&gt;
-&lt;span class="cm"&gt;    * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;    */&lt;/span&gt;
-   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;interface&lt;/span&gt; &lt;span class="nc"&gt;AbstractBeerFactory&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-       &lt;span class="n"&gt;Beer&lt;/span&gt; &lt;span class="nf"&gt;getQingDao&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-       &lt;span class="n"&gt;Beer&lt;/span&gt; &lt;span class="nf"&gt;getBaiWei&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-       &lt;span class="n"&gt;Beer&lt;/span&gt; &lt;span class="nf"&gt;getJinShiBai&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-   &lt;span class="o"&gt;}&lt;/span&gt;
-
-   &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.abs&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-   &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.BaiWei&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-   &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.Beer&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-   &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.JinShiBai&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-   &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.QingDao&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-   &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;    * Created by tomyli on 2018/5/28.&lt;/span&gt;
-&lt;span class="cm"&gt;    * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;    */&lt;/span&gt;
-   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ConcreteBeerFactory&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;AbstractBeerFactory&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-       &lt;span class="nd"&gt;@Override&lt;/span&gt;
-       &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Beer&lt;/span&gt; &lt;span class="nf"&gt;getQingDao&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;QingDao&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-       &lt;span class="o"&gt;}&lt;/span&gt;
-
-       &lt;span class="nd"&gt;@Override&lt;/span&gt;
-       &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Beer&lt;/span&gt; &lt;span class="nf"&gt;getBaiWei&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;BaiWei&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-       &lt;span class="o"&gt;}&lt;/span&gt;
-
-       &lt;span class="nd"&gt;@Override&lt;/span&gt;
-       &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Beer&lt;/span&gt; &lt;span class="nf"&gt;getJinShiBai&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;JinShiBai&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-       &lt;span class="o"&gt;}&lt;/span&gt;
-   &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-这次把生产的三种啤酒都定义在一个抽象工厂中，再由一个具体的工厂来实现所要生产啤酒的功能。我们来测试一下
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.abs&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-   &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;    * Created by tomyli on 2018/5/28.&lt;/span&gt;
-&lt;span class="cm"&gt;    * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;    */&lt;/span&gt;
-   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;AbstractFactoryTest&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-       &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	   &lt;span class="n"&gt;AbstractBeerFactory&lt;/span&gt; &lt;span class="n"&gt;beerFactory&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ConcreteBeerFactory&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	   &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;beerFactory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getBaiWei&lt;/span&gt;&lt;span class="o"&gt;());&lt;/span&gt;
-       &lt;span class="o"&gt;}&lt;/span&gt;
-
-   &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-在测试类中实例化一个具体的工厂，然后调用工厂中生产具体酒的方法就可以得到正确的商品，使用者无须记住多个工厂，只要一个工厂就可以满足需要。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org44057f0" class="outline-3"&gt;
-&lt;h3 id="org44057f0"&gt;&lt;a id="ID-428207FB-8DE3-4F1F-B429-946F6DC17AFF"&gt;&lt;/a&gt;抽象工厂总结&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org44057f0"&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orga564f13" class="outline-4"&gt;
-&lt;h4 id="orga564f13"&gt;&lt;a id="ID-D904C553-3369-4082-BE4E-59126A570A5D"&gt;&lt;/a&gt;优点&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-orga564f13"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;类的数量精简了，当需要一个产品族来进行操作时，它可以保证客户端使用了同一产品族中的对象&lt;/li&gt;
-&lt;li&gt;当需要新增加一种产品族时（换其它工厂来生产），无须修改系统，直接新建一个具体的工厂就可以实现。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgcb284e0" class="outline-4"&gt;
-&lt;h4 id="orgcb284e0"&gt;&lt;a id="ID-D7E23F6B-206A-4FF5-9F48-4D192E8956B3"&gt;&lt;/a&gt;缺点&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-orgcb284e0"&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;当需要增加新的产品类型时，需要修改最高的抽象工厂，这样具体的实现工厂也要进行修改，不符合开闭原则。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;
-啤酒工厂的类图：
-&lt;img src="http://blog.imcompany.cn/images/factory.png" alt="工厂模式"&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org65ea28d" class="outline-2"&gt;
-&lt;h2 id="org65ea28d"&gt;&lt;a id="ID-A8902F00-18CE-4D7F-A412-A874795E0C48"&gt;&lt;/a&gt;工厂方法与抽象工厂对比&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org65ea28d"&gt;
-&lt;p&gt;
-上面说的工厂方法与抽象工厂理解时有些困难，它们主要的不同点就是工厂方法适合生产产品结构相同的单种产品，而抽象工厂适合生产多种产品结构的产品，如白酒，这是另一个产品结构，这种情况使用抽象工厂更恰当。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gong-han-mo-shi/</guid><pubDate>Tue, 12 Jun 2018 13:33:40 GMT</pubDate></item><item><title>设计模式学习之原型模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-org3e1d30b" class="outline-2"&gt;
-&lt;h2 id="org3e1d30b"&gt;&lt;a id="ID-EE979F53-11A7-4FD2-B8F4-C48CE3D8F1B2"&gt;&lt;/a&gt;特点&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org3e1d30b"&gt;
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gong-han-mo-shi/"&gt;阅读更多…&lt;/a&gt; (剩余 2 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gong-han-mo-shi/</guid><pubDate>Tue, 12 Jun 2018 13:33:40 GMT</pubDate></item><item><title>设计模式学习之原型模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-orgeea2e4f" class="outline-2"&gt;
+&lt;h2 id="orgeea2e4f"&gt;&lt;a id="ID-EE979F53-11A7-4FD2-B8F4-C48CE3D8F1B2"&gt;&lt;/a&gt;特点&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgeea2e4f"&gt;
 &lt;p&gt;
 原型设计模式就是系统中产生的每一个对象都不相同，通过原型来创建新的对象，原型模式属于创建型模式。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgeab8275" class="outline-2"&gt;
-&lt;h2 id="orgeab8275"&gt;&lt;a id="ID-CD7708C3-6021-485A-A24C-E6DD385F17BB"&gt;&lt;/a&gt;实现方式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgeab8275"&gt;
+&lt;div id="outline-container-orge88c8b7" class="outline-2"&gt;
+&lt;h2 id="orge88c8b7"&gt;&lt;a id="ID-CD7708C3-6021-485A-A24C-E6DD385F17BB"&gt;&lt;/a&gt;实现方式&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orge88c8b7"&gt;
 &lt;p&gt;
 一般情况可以通过对象克隆的方式来根据一个对象创建出来多个对象，每个对象在内存占用的内存地址都不一样。在JAVA中克隆又分为浅克隆与深克隆。
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org68c21d7" class="outline-3"&gt;
-&lt;h3 id="org68c21d7"&gt;&lt;a id="ID-5CD675BD-9485-4B23-A83F-4A32B167FC5A"&gt;&lt;/a&gt;浅克隆&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org68c21d7"&gt;
+&lt;div id="outline-container-org57905ea" class="outline-3"&gt;
+&lt;h3 id="org57905ea"&gt;&lt;a id="ID-5CD675BD-9485-4B23-A83F-4A32B167FC5A"&gt;&lt;/a&gt;浅克隆&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org57905ea"&gt;
 &lt;p&gt;
 JAVA中是按值进行传递。实现克隆的方式就是实现Cloneable接口，这样就可以重写Object对象的clone方法来进行对象的克隆。代码如下：
 &lt;/p&gt;
@@ -1474,127 +406,17 @@ JAVA中是按值进行传递。实现克隆的方式就是实现Cloneable接口�
        &lt;span class="o"&gt;}&lt;/span&gt;
    &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-测试代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="kd"&gt;throws&lt;/span&gt; &lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-       &lt;span class="n"&gt;Apple&lt;/span&gt; &lt;span class="n"&gt;apple&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Apple&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-       &lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"apple"&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-       &lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;weight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;2.23&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-       &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	   &lt;span class="n"&gt;Apple&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Apple&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;clone&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	   &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-       &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	   &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;printStackTrace&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-       &lt;span class="o"&gt;}&lt;/span&gt;
-   &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-测试代码中clone与apple是两个完全不同的对象，这样就通过apple这个原型创建出来一个全新的对象。但是这里存在一个问题，现在Apple对象中只包含了值类型的成员变量，如果包含了其它对象会克隆也会成功吗？我们在Apple对象中增加一个Stone对象的集合，代码：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Apple&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;Cloneable&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-       &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-       &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;weight&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-       &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Stone&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//新增加的对象&lt;/span&gt;
-
-       &lt;span class="nd"&gt;@Override&lt;/span&gt;
-       &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="nf"&gt;clone&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="kd"&gt;throws&lt;/span&gt; &lt;span class="n"&gt;CloneNotSupportedException&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kd"&gt;super&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;clone&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-       &lt;span class="o"&gt;}&lt;/span&gt;
-   &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-这次再使用测试代码进行测试：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="kd"&gt;throws&lt;/span&gt; &lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-       &lt;span class="n"&gt;Apple&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Apple&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;clone&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-       &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-       &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;clone&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;list&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;apple&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;list&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-   &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-apple与clone依旧不相等，但是clone.list却与apple.list是相同的，这就没有达到我们的目的。在JAVA中对对象的拷贝其实拷贝的是内存地址，所以拷贝后两个list都指定了同一个内存地址。显然，浅克隆对只包含值类型的变量拷贝是正确的，而对包含对象的拷贝的处理是不符合预期的。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgd4d02ba" class="outline-3"&gt;
-&lt;h3 id="orgd4d02ba"&gt;&lt;a id="ID-AD59ED5A-E73D-4E99-966F-46E36C862F88"&gt;&lt;/a&gt;深拷贝&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgd4d02ba"&gt;
-&lt;p&gt;
-深拷贝就是通过对JAVA对象的序列化来进行对象的完整拷贝，主要是通过ObjectInputStream与ObjectOutputStream两个流来实现对象的读取与写入。示例代码：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Car&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;Serializable&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;tag&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Date&lt;/span&gt; &lt;span class="n"&gt;birthday&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Tire&lt;/span&gt; &lt;span class="n"&gt;tire&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Car&lt;/span&gt; &lt;span class="nf"&gt;deepCopy&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="kd"&gt;throws&lt;/span&gt; &lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-   &lt;span class="n"&gt;ByteArrayOutputStream&lt;/span&gt; &lt;span class="n"&gt;baos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ByteArrayOutputStream&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-   &lt;span class="n"&gt;ObjectOutputStream&lt;/span&gt; &lt;span class="n"&gt;oos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ObjectOutputStream&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;baos&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-   &lt;span class="n"&gt;oos&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;writeObject&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-
-   &lt;span class="n"&gt;ByteArrayInputStream&lt;/span&gt; &lt;span class="n"&gt;bais&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ByteArrayInputStream&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;baos&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;toByteArray&lt;/span&gt;&lt;span class="o"&gt;());&lt;/span&gt;
-   &lt;span class="n"&gt;ObjectInputStream&lt;/span&gt; &lt;span class="n"&gt;ois&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ObjectInputStream&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bais&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-   &lt;span class="n"&gt;Car&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Car&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;ois&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;readObject&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-   &lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;birthday&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-   &lt;span class="o"&gt;}&lt;/span&gt;
-   &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-在上面的代码中要确保每一辆车的出厂日期是唯一的，就要使用深拷贝来实现。要被克隆的对象需要实现Serializable接口。
-深拷贝原型模式的类图如下:
-&lt;img src="http://blog.imcompany.cn/images/prototype.png" alt="原型模式"&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orge200e97" class="outline-2"&gt;
-&lt;h2 id="orge200e97"&gt;&lt;a id="ID-85284B4D-FF5B-4206-99C8-FCE956BC3FEC"&gt;&lt;/a&gt;应用场景&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orge200e97"&gt;
-&lt;p&gt;
-系统中需要保存每个用户的信息，就要每个用户对应不同的实体对象。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org2856704" class="outline-2"&gt;
-&lt;h2 id="org2856704"&gt;&lt;a id="ID-5B0363E3-2141-4714-B5F3-DD44CBE98738"&gt;&lt;/a&gt;总结&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org2856704"&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgf02ef4f" class="outline-3"&gt;
-&lt;h3 id="orgf02ef4f"&gt;&lt;a id="ID-7941D48D-586D-4FD5-BC84-1C67136C8F05"&gt;&lt;/a&gt;优点&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgf02ef4f"&gt;
-&lt;p&gt;
-原型设计模式可以进行快速的对象复制，可以很快的创建大的复杂的对象。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org57a05bc" class="outline-3"&gt;
-&lt;h3 id="org57a05bc"&gt;&lt;a id="ID-EE1BEFBD-DD14-497F-8DEC-1A3DE329CD57"&gt;&lt;/a&gt;缺点&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org57a05bc"&gt;
-&lt;p&gt;
-创建对象的过程比较复杂，需要被克隆的对象要额外实现序列化接口。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/</guid><pubDate>Sat, 09 Jun 2018 09:12:41 GMT</pubDate></item><item><title>设计模式学习之单例模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-org736830f" class="outline-2"&gt;
-&lt;h2 id="org736830f"&gt;&lt;a id="ID-5178CAAD-3EB4-4C23-8A31-1A8636932EA3"&gt;&lt;/a&gt;特点&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org736830f"&gt;
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-yuan-xing-mo-shi/</guid><pubDate>Sat, 09 Jun 2018 09:12:41 GMT</pubDate></item><item><title>设计模式学习之单例模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-orgb5624c8" class="outline-2"&gt;
+&lt;h2 id="orgb5624c8"&gt;&lt;a id="ID-5178CAAD-3EB4-4C23-8A31-1A8636932EA3"&gt;&lt;/a&gt;特点&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgb5624c8"&gt;
 &lt;p&gt;
 单例模式就是确保在系统中只在一个实例提供功能。单例有好几种写法，主要有饿汉式、懒汉式、静态方法内部类、注册式单例。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org028d48e" class="outline-2"&gt;
-&lt;h2 id="org028d48e"&gt;&lt;a id="ID-D8072892-769E-4CE2-A5C1-653E76608FA5"&gt;&lt;/a&gt;饿汉式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org028d48e"&gt;
+&lt;div id="outline-container-orge975261" class="outline-2"&gt;
+&lt;h2 id="orge975261"&gt;&lt;a id="ID-D8072892-769E-4CE2-A5C1-653E76608FA5"&gt;&lt;/a&gt;饿汉式&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orge975261"&gt;
 &lt;p&gt;
 饿汉式单例就是在类定义时就已经将实例进行了初始化，在系统调用时可以直接返回不需要再实例化。示例代码如下：
 &lt;/p&gt;
@@ -1616,9 +438,9 @@ apple与clone依旧不相等，但是clone.list却与apple.list是相同的，�
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org89855e4" class="outline-2"&gt;
-&lt;h2 id="org89855e4"&gt;&lt;a id="ID-ED1E6C8B-3D3A-486D-916B-76A252AEED07"&gt;&lt;/a&gt;懒汉式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org89855e4"&gt;
+&lt;div id="outline-container-org45d2a09" class="outline-2"&gt;
+&lt;h2 id="org45d2a09"&gt;&lt;a id="ID-ED1E6C8B-3D3A-486D-916B-76A252AEED07"&gt;&lt;/a&gt;懒汉式&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org45d2a09"&gt;
 &lt;p&gt;
 懒汉式就是在使用才对对象实例进行初始化，达到了延迟加载的目的。示例代码如下：
 &lt;/p&gt;
@@ -1640,287 +462,4 @@ apple与clone依旧不相等，但是clone.list却与apple.list是相同的，�
 &lt;p&gt;
 懒式式优化点使用时实例化，延迟加载。缺点是存在线程安全问题
 &lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org9bc9ceb" class="outline-2"&gt;
-&lt;h2 id="org9bc9ceb"&gt;&lt;a id="ID-5448AF33-6E0A-4EC7-BA2F-CA0A52F3D61A"&gt;&lt;/a&gt;懒汉式（线程安全版本）&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org9bc9ceb"&gt;
-&lt;p&gt;
-上面的写法存在线程安全问题，最简单的修改方法是加上synchronized关键字，这样就解决了线程的安全问题。示例代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;LazyTwo&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;LazyTwo&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;LazyTwo&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;synchronized&lt;/span&gt; &lt;span class="n"&gt;LazyTwo&lt;/span&gt; &lt;span class="nf"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	      &lt;span class="n"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;LazyTwo&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="o"&gt;}&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-加了synchronized关键字解决了线程安全问题，但是程序的并发性能下降，因为在同一时间只能有一个线程进行工作。测试生成200万个实例的情况，不带关键字synchronized耗时7ms，而带synchroized的耗时49ms，相差7倍，加大生成实例的个数，这个时间差会更大，这个版本性能的测试代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;currentTimeMillis&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2_000_000&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-      &lt;span class="n"&gt;LazyOne&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"LazyOne use: "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;currentTimeMillis&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;"ms"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-
-
-  &lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="n"&gt;start2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;currentTimeMillis&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-       &lt;span class="n"&gt;LazyTwo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"LazyTwo use: "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;currentTimeMillis&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;start2&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;"ms"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org37a731d" class="outline-2"&gt;
-&lt;h2 id="org37a731d"&gt;&lt;a id="ID-8568E20F-C765-432E-B067-7A56A5B65C44"&gt;&lt;/a&gt;注册式单例&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org37a731d"&gt;
-&lt;p&gt;
-注册式单例是Spring中使用的一种产生单例的方式，主要的思想就是将要产生的单例对象使用一样map进行存储。示例代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;singletonMaps&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ConcurrentHashMap&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="nf"&gt;getBean&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;beanName&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;null&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;beanName&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s"&gt;""&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;equals&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;beanName&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-		  &lt;span class="k"&gt;throw&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;RuntimeException&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"invalid beanName"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	  &lt;span class="o"&gt;}&lt;/span&gt;
-
-	  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(!&lt;/span&gt;&lt;span class="n"&gt;singletonMaps&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;containsKey&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;beanName&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-		  &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-			  &lt;span class="kd"&gt;synchronized&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;singletonMaps&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-				  &lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Class&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;forName&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;beanName&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;newInstance&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-				  &lt;span class="n"&gt;singletonMaps&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;beanName&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-				  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-			  &lt;span class="o"&gt;}&lt;/span&gt;
-		  &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-			  &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;printStackTrace&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-		  &lt;span class="o"&gt;}&lt;/span&gt;
-	  &lt;span class="o"&gt;}&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;singletonMaps&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;get&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;beanName&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-Spring实际的生成单例bean的处理方式比这复杂很多。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org1ff7c9e" class="outline-2"&gt;
-&lt;h2 id="org1ff7c9e"&gt;&lt;a id="ID-1122404E-47A2-4105-99F4-B8897118C858"&gt;&lt;/a&gt;静态内部类方式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org1ff7c9e"&gt;
-&lt;p&gt;
-静态内部类就是在一个类的内部又声明了一个类，静态内部类生成单例的代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;LazyThree&lt;/span&gt;  &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;LazyThree&lt;/span&gt; &lt;span class="nf"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;InstanceHolder&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAZY&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;InstanceHolder&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;LazyThree&lt;/span&gt; &lt;span class="n"&gt;LAZY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-在类LazyThree的内部又声明了一个名为InstanceHolder的静态内部类，刚开始外部类初始化时内部类不会进行初始化，这样保留了懒加载的特性，只有在调用getInstance方法时内部类才初始化，JVM虚拟机内部的逻辑保证了在多线程情况静态内部类只给被初始化一次，这样也保证了线程的安全。但是JAVA提供我们程序员太多的方式来进行类的实例化，比如clone，反射，序列化。在这些情况下，我们的单例还是唯一的吗？
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org3052e8e" class="outline-2"&gt;
-&lt;h2 id="org3052e8e"&gt;&lt;a id="ID-61706974-D481-42C7-9D99-42F27C5072DA"&gt;&lt;/a&gt;打破单例之Clone方式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org3052e8e"&gt;
-&lt;p&gt;
-在JAVA中所有对象都继承Object对象，实例对象实现Cloneable接口则可以进行clone，示例代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="nd"&gt;@Override&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="nf"&gt;clone&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="kd"&gt;throws&lt;/span&gt; &lt;span class="n"&gt;CloneNotSupportedException&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kd"&gt;super&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;clone&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-测试代码:
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;LazyThree&lt;/span&gt; &lt;span class="n"&gt;lazyThree&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="n"&gt;LazyThree&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;lazyThree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;clone&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lazyThree&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;  &lt;span class="c1"&gt;//结果为false&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org7ba6909" class="outline-3"&gt;
-&lt;h3 id="org7ba6909"&gt;&lt;a id="ID-040D171C-1E2F-48B0-9B91-6F71F694154E"&gt;&lt;/a&gt;解决clone方式下产生单例不一致的问题&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org7ba6909"&gt;
-&lt;p&gt;
-实例了cloneable接口的单例对象生成的实例不相同，此时我们要做的就是重写clone方法，让其使用我们静态内部类生成的单例，示例代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="nd"&gt;@Override&lt;/span&gt;
-   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="nf"&gt;clone&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="kd"&gt;throws&lt;/span&gt; &lt;span class="n"&gt;CloneNotSupportedException&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-   &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-这样我们重写了clone方式，生成的单例就是一样的了
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgd961a6a" class="outline-2"&gt;
-&lt;h2 id="orgd961a6a"&gt;&lt;a id="ID-0F5657E4-0FE0-4FB3-A3B4-D0DE0056E6E8"&gt;&lt;/a&gt;打破单例之反射方式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgd961a6a"&gt;
-&lt;p&gt;
-反射是JAVA的一个利器，利用反射可以实例化对象，调用方法，动态的创建对象，使用反射创建实例的代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;Constructor&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;constructor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getDeclaredConstructor&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setAccessible&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;LazyThree&lt;/span&gt; &lt;span class="n"&gt;lazyThreeReflect&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;newInstance&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-
-  &lt;span class="n"&gt;LazyThree&lt;/span&gt; &lt;span class="n"&gt;lazyThree&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lazyThree&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;lazyThreeReflect&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-生成的实例不是相同的，虽然我们的类已经把构造方法声明为了private，但是反射依然可以访问的到。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgb0c49f3" class="outline-3"&gt;
-&lt;h3 id="orgb0c49f3"&gt;&lt;a id="ID-E418A027-B1C0-4A7F-84F6-70424EF2EF81"&gt;&lt;/a&gt;解决反射产生单例不一致的问题&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgb0c49f3"&gt;
-&lt;p&gt;
-为了防止这种事情的发生，我们需要在构造方法上对类初始化状态进行标识来阻止类的多次初始化。代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="n"&gt;initial&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-   &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	   &lt;span class="kd"&gt;synchronized&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-		   &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(!&lt;/span&gt;&lt;span class="n"&gt;initial&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-			   &lt;span class="n"&gt;initial&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-		   &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-			   &lt;span class="k"&gt;throw&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;RuntimeException&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"单例被侵犯"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-		   &lt;span class="o"&gt;}&lt;/span&gt;
-	   &lt;span class="o"&gt;}&lt;/span&gt;
-   &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-我们定义的一个静态变量initial来标识类有没有进行了初始化，并且不对外提供对initial变量的get与set方法。这样如实例已经初始化了，再次调用则抛出异常表明类已经被初始化了，这样就防止了使用反射方式来进行类的实例化了。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org97cb4c7" class="outline-2"&gt;
-&lt;h2 id="org97cb4c7"&gt;&lt;a id="ID-19196A70-BD8B-4108-B605-2447200DD23A"&gt;&lt;/a&gt;打破单例之序列化反序列化&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org97cb4c7"&gt;
-&lt;p&gt;
-JAVA中的对象是可以持久化到磁盘上的，使用的方式就是序列化与反序列化，主要是使用ObjectInputStream与ObjectOutPutStream来实现。代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="n"&gt;LazyThree&lt;/span&gt; &lt;span class="n"&gt;lazyThree&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-  &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LazyTest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getResource&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;""&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;getPath&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;"/serializable.txt"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;FileOutputStream&lt;/span&gt; &lt;span class="n"&gt;fps&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;FileOutputStream&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;ObjectOutputStream&lt;/span&gt; &lt;span class="n"&gt;oos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ObjectOutputStream&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fps&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;oos&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;writeObject&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lazyThree&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;oos&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;flush&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="n"&gt;oos&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;close&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-  &lt;span class="n"&gt;FileInputStream&lt;/span&gt; &lt;span class="n"&gt;fis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;FileInputStream&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;ObjectInputStream&lt;/span&gt; &lt;span class="n"&gt;ois&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ObjectInputStream&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fis&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;LazyThree&lt;/span&gt; &lt;span class="n"&gt;lazyThreeSerializable&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;ois&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;readObject&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="n"&gt;fis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;close&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="n"&gt;ois&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;close&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-  &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lazyThree&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;lazyThreeSerializable&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-上面代码的结果为false，证明两个对象不相同
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org38e702c" class="outline-3"&gt;
-&lt;h3 id="org38e702c"&gt;&lt;a id="ID-4D6F9830-5B71-41DA-95CF-B7AA929BDF42"&gt;&lt;/a&gt;解决序列化反序列化产生单例不一致的问题&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org38e702c"&gt;
-&lt;p&gt;
-解决的方法要的ObjectInputStream读入对象时来处理，我们需要在类中增加readResolve方法，在这个方法返回我们生成单例的方式。代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="nf"&gt;readResolve&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-   &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-这样在读取对象信息时使用我们返回的实体对象就保证了对象的一致性。
-单例模式的类图如下:
-&lt;img src="http://blog.imcompany.cn/images/singleton.png" alt="单例模式"&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org26ffd54" class="outline-2"&gt;
-&lt;h2 id="org26ffd54"&gt;&lt;a id="ID-F8E90568-3F86-454F-A84C-AB34B3024AB4"&gt;&lt;/a&gt;总结&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org26ffd54"&gt;
-&lt;p&gt;
-写一个单例不容易。
-以下是完整的单例方式代码:
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.lazy&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.io.Serializable&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/2.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;LazyThree&lt;/span&gt; &lt;span class="kd"&gt;implements&lt;/span&gt; &lt;span class="n"&gt;Cloneable&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Serializable&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="n"&gt;initial&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="kd"&gt;synchronized&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(!&lt;/span&gt;&lt;span class="n"&gt;initial&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-		  &lt;span class="n"&gt;initial&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-	      &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-		  &lt;span class="k"&gt;throw&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;RuntimeException&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"单例被侵犯"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-	      &lt;span class="o"&gt;}&lt;/span&gt;
-	  &lt;span class="o"&gt;}&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="n"&gt;LazyThree&lt;/span&gt; &lt;span class="nf"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;InstanceHolder&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAZY&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;InstanceHolder&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;LazyThree&lt;/span&gt; &lt;span class="n"&gt;LAZY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;LazyThree&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="nf"&gt;readResolve&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="c1"&gt;// public static boolean isInintial() {&lt;/span&gt;
-      &lt;span class="c1"&gt;//     return inintial;&lt;/span&gt;
-      &lt;span class="c1"&gt;// }&lt;/span&gt;
-      &lt;span class="c1"&gt;//&lt;/span&gt;
-      &lt;span class="c1"&gt;// public static void setInintial(boolean inintial) {&lt;/span&gt;
-      &lt;span class="c1"&gt;//     LazyThree.inintial = inintial;&lt;/span&gt;
-      &lt;span class="c1"&gt;// }&lt;/span&gt;
-
-      &lt;span class="nd"&gt;@Override&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Object&lt;/span&gt; &lt;span class="nf"&gt;clone&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="kd"&gt;throws&lt;/span&gt; &lt;span class="n"&gt;CloneNotSupportedException&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;getInstance&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi/</guid><pubDate>Tue, 05 Jun 2018 08:36:08 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi/"&gt;阅读更多…&lt;/a&gt; (剩余 2 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-dan-li-mo-shi/</guid><pubDate>Tue, 05 Jun 2018 08:36:08 GMT</pubDate></item></channel></rss>

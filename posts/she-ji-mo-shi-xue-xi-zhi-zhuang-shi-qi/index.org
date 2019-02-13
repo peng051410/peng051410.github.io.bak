@@ -37,6 +37,7 @@
       void encrypt();
   }
   #+END_SRC
+{{{TEASER_END}}}
   - 具体加密类，实现加密处理接口
   #+BEGIN_SRC java
   package cn.imcompany.decorator.encrypt;

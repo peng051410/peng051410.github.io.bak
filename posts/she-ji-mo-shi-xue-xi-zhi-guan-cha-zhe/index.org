@@ -73,6 +73,7 @@
       }
   }
   #+END_SRC
+{{{TEASER_END}}}
   具体的股民实现了喜与悲的方法，这样观察者已经准备就绪。下面来定义股票软件：
   #+BEGIN_SRC java
   package cn.imcompany.observer.stock;

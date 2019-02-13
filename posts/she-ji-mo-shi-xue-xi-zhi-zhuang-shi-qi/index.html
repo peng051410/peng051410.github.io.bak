@@ -79,19 +79,19 @@
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div id="outline-container-orge016d6c" class="outline-2">
-<h2 id="orge016d6c">
+    <div id="outline-container-orgd7e278e" class="outline-2">
+<h2 id="orgd7e278e">
 <a id="ID-9F831376-652F-49A6-81C3-04B7B7D028F9"></a>说明</h2>
-<div class="outline-text-2" id="text-orge016d6c">
+<div class="outline-text-2" id="text-orgd7e278e">
 <p>
 装饰器设计模式是使用比较频繁的设计模式，它在不改变原物体的情况对原物体实现了功能的增加，原物体还是一个可单独使用的个体。在JAVA的类库中应该会马上想到IO类，各种的InputStrem，OutputStrem。
 </p>
 </div>
 </div>
-<div id="outline-container-orgad65af2" class="outline-2">
-<h2 id="orgad65af2">
+<div id="outline-container-orgd51f8d3" class="outline-2">
+<h2 id="orgd51f8d3">
 <a id="ID-108171D7-868E-409F-986B-C1D1A9A60C82"></a>装饰器模式</h2>
-<div class="outline-text-2" id="text-orgad65af2">
+<div class="outline-text-2" id="text-orgd51f8d3">
 <p>
 在用户登录的中过程，我们需要对用户输入的密码进行加密操作，在设计时会提供好多种加密的算法，例如简单的BASE64加密，复杂的如MD5、DSA加密。直接把用户的密码存入数据库是真的在耍流氓。在使用这些算法时，我们想灵活的使用，比如使用完简单加密还可以再进行一下MD5的加密。针对这样的需求，可以使用装饰器模式进行实现。大体思路如下：
 </p>
@@ -118,6 +118,7 @@
       <span class="kt">void</span> <span class="nf">encrypt</span><span class="o">();</span>
   <span class="o">}</span>
 </pre></div>
+<!-- TEASER_END -->
 <ul class="org-ul">
 <li>具体加密类，实现加密处理接口</li>
 </ul>
@@ -241,15 +242,15 @@
 <img src="../../images/decorator.png" alt="装饰器模式-加密"></p>
 </div>
 </div>
-<div id="outline-container-orgaf28288" class="outline-2">
-<h2 id="orgaf28288">
+<div id="outline-container-orgc387740" class="outline-2">
+<h2 id="orgc387740">
 <a id="ID-47D0831C-C96E-455F-B8EE-85F4BFEA5661"></a>总结</h2>
-<div class="outline-text-2" id="text-orgaf28288">
+<div class="outline-text-2" id="text-orgc387740">
 </div>
-<div id="outline-container-org1de894d" class="outline-3">
-<h3 id="org1de894d">
+<div id="outline-container-orgeab9e6a" class="outline-3">
+<h3 id="orgeab9e6a">
 <a id="ID-534AE97F-EA50-4D4E-8763-553D50C3704D"></a>优点</h3>
-<div class="outline-text-3" id="text-org1de894d">
+<div class="outline-text-3" id="text-orgeab9e6a">
 <ol class="org-ol">
 <li>针对抽象编程，装饰器可以使多个类的功能进行组合，比继承更加的灵活。</li>
 <li>可以对一个对象进行多次的装饰，可以创造出具有强大功能的类。</li>
@@ -257,10 +258,10 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-orgfd8951a" class="outline-3">
-<h3 id="orgfd8951a">
+<div id="outline-container-org4fb3a39" class="outline-3">
+<h3 id="org4fb3a39">
 <a id="ID-03EB89C5-34F9-4A63-BA8E-97FEECD7BA8B"></a>缺点</h3>
-<div class="outline-text-3" id="text-orgfd8951a">
+<div class="outline-text-3" id="text-org4fb3a39">
 <ol class="org-ol">
 <li>增加一个小的功能也需要增加一个类来实现，有些时候会有些浪费。</li>
 <li>由于实现也多重装饰，在出现问题时对于定位问题要一层一层的来处理。</li>

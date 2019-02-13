@@ -84,19 +84,19 @@
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div id="outline-container-org9251d14" class="outline-2">
-<h2 id="org9251d14">
+    <div id="outline-container-org0fdac9b" class="outline-2">
+<h2 id="org0fdac9b">
 <a id="ID-A489BC67-1105-4C33-9727-7D7161A13BAC"></a>说明</h2>
-<div class="outline-text-2" id="text-org9251d14">
+<div class="outline-text-2" id="text-org0fdac9b">
 <p>
 工厂设计模式是23种设计模式中使用频率非常高的，属于创建型模式。主要特点是实现了实体创建与使用的分离，达到了解耦的目的。工厂设计模式一般分为简单工厂、工厂方法、抽象工厂。
 </p>
 </div>
 </div>
-<div id="outline-container-org0d8c8b6" class="outline-2">
-<h2 id="org0d8c8b6">
+<div id="outline-container-orgd3b5354" class="outline-2">
+<h2 id="orgd3b5354">
 <a id="ID-F033B640-6EEF-450F-8D8A-DC8B37F4BA15"></a>前提准备</h2>
-<div class="outline-text-2" id="text-org0d8c8b6">
+<div class="outline-text-2" id="text-orgd3b5354">
 <p>
 4年一界世界杯即将到来，啤酒厂商又要大嫌一笔。我们先准备好要生产的啤酒实体。
 </p>
@@ -138,20 +138,21 @@
 <p>
 在上面定义三种啤酒，它们都由抽象类Beer继承而来。下面使用简单工厂来给消费者提供啤酒。
 </p>
+<!-- TEASER_END -->
 </div>
 </div>
-<div id="outline-container-org0e475e1" class="outline-2">
-<h2 id="org0e475e1">
+<div id="outline-container-org695c746" class="outline-2">
+<h2 id="org695c746">
 <a id="ID-79BAB320-4A93-4697-8782-D8B5D223C10F"></a>简单工厂</h2>
-<div class="outline-text-2" id="text-org0e475e1">
+<div class="outline-text-2" id="text-org695c746">
 <p>
 消费者需要不同品类的啤酒，使用简单工厂来实现，代码如下：
 </p>
 </div>
-<div id="outline-container-orgf1269de" class="outline-3">
-<h3 id="orgf1269de">
+<div id="outline-container-org198a1bc" class="outline-3">
+<h3 id="org198a1bc">
 <a id="ID-2D775EDD-05B6-4105-8FAF-F2F217155C3D"></a>简单工厂生产啤酒</h3>
-<div class="outline-text-3" id="text-orgf1269de">
+<div class="outline-text-3" id="text-org198a1bc">
 <div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.simple</span><span class="o">;</span>
 
   <span class="kn">import</span> <span class="nn">cn.imcompany.BaiWei</span><span class="o">;</span>
@@ -203,25 +204,25 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org0dec9f3" class="outline-3">
-<h3 id="org0dec9f3">
+<div id="outline-container-org782aa95" class="outline-3">
+<h3 id="org782aa95">
 <a id="ID-FF168DFF-3DFF-48EF-B90D-551D140C664C"></a>简单工厂总结</h3>
-<div class="outline-text-3" id="text-org0dec9f3">
+<div class="outline-text-3" id="text-org782aa95">
 </div>
-<div id="outline-container-org85ce82c" class="outline-4">
-<h4 id="org85ce82c">
+<div id="outline-container-org7e5982c" class="outline-4">
+<h4 id="org7e5982c">
 <a id="ID-8FC12473-3775-4590-B649-CF6C7B1937AA"></a>优点：</h4>
-<div class="outline-text-4" id="text-org85ce82c">
+<div class="outline-text-4" id="text-org7e5982c">
 <ol class="org-ol">
 <li>简单工厂的实现非常简单，把原本由Beer来处理的创建工作给抽离出来，根据传入的参数来进行实体的创建。</li>
 <li>实体的创建完全交给简单工厂来处理，实体什么时候创建对使用者是无感知的。</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org18feaa7" class="outline-4">
-<h4 id="org18feaa7">
+<div id="outline-container-org9315349" class="outline-4">
+<h4 id="org9315349">
 <a id="ID-A7B3921B-C7B3-43D8-B21C-CA62A227DFE5"></a>缺点</h4>
-<div class="outline-text-4" id="text-org18feaa7">
+<div class="outline-text-4" id="text-org9315349">
 <ol class="org-ol">
 <li>如果要新增一款啤酒，则要修改工厂类，违反了设计模式中对扩展开放，对修改关闭的原则。</li>
 <li>使用需要记住要使用产品名称，如果传入错误则不会得到正确的结果。</li>
@@ -230,15 +231,15 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orge02e8d2" class="outline-2">
-<h2 id="orge02e8d2">
+<div id="outline-container-orgb30e320" class="outline-2">
+<h2 id="orgb30e320">
 <a id="ID-0657E214-34BE-40BB-B34E-5AF2324240FE"></a>工厂方法</h2>
-<div class="outline-text-2" id="text-orge02e8d2">
+<div class="outline-text-2" id="text-orgb30e320">
 </div>
-<div id="outline-container-org5799e54" class="outline-3">
-<h3 id="org5799e54">
+<div id="outline-container-orgc03ac3b" class="outline-3">
+<h3 id="orgc03ac3b">
 <a id="ID-71E14835-E5EF-4B6A-9218-31C060A30B12"></a>工厂方法生产啤酒</h3>
-<div class="outline-text-3" id="text-org5799e54">
+<div class="outline-text-3" id="text-orgc03ac3b">
 <p>
 为了解决简单工厂中的问题，我们引入工厂方法，使用工厂方法，则每一款啤酒对应的都会由一个特定的工厂来进行生产，这些工厂统一都继承自一个抽象的工厂，由这个抽象的工厂来定义要生产的产品规范。示例代码如下：
 </p>
@@ -301,25 +302,25 @@
 </p>
 </div>
 </div>
-<div id="outline-container-orga1d8c57" class="outline-3">
-<h3 id="orga1d8c57">
+<div id="outline-container-org7cc36d1" class="outline-3">
+<h3 id="org7cc36d1">
 <a id="ID-96E11C62-15DB-4782-9D2A-916DA3D6556B"></a>工厂方法总结</h3>
-<div class="outline-text-3" id="text-orga1d8c57">
+<div class="outline-text-3" id="text-org7cc36d1">
 </div>
-<div id="outline-container-orgfe52618" class="outline-4">
-<h4 id="orgfe52618">
+<div id="outline-container-org4c07b53" class="outline-4">
+<h4 id="org4c07b53">
 <a id="ID-EF3A557E-B095-497B-ABD8-F822D2C426F2"></a>优点</h4>
-<div class="outline-text-4" id="text-orgfe52618">
+<div class="outline-text-4" id="text-org4c07b53">
 <ol class="org-ol">
 <li>使用者不用记住产品的名称了，只要知道要使用哪家的工厂生产的产品就可以了。</li>
 <li>如果再增加一种啤酒，可以直接增加一个工厂来进行生产，不用修改现有工厂的实现，实现了开闭原则。</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org4cbdf96" class="outline-4">
-<h4 id="org4cbdf96">
+<div id="outline-container-orgbc6ac06" class="outline-4">
+<h4 id="orgbc6ac06">
 <a id="ID-EAB1BCD7-9486-4310-83CC-441D6D5A7A3F"></a>缺点</h4>
-<div class="outline-text-4" id="text-org4cbdf96">
+<div class="outline-text-4" id="text-orgbc6ac06">
 <ol class="org-ol">
 <li>类的数目增加了很多，会产生类的膨胀。</li>
 <li>增加一种产品不仅要增加具体的产品类，还要为之提供一个具体的工厂，复杂度增加。</li>
@@ -328,18 +329,18 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgfece36c" class="outline-2">
-<h2 id="orgfece36c">
+<div id="outline-container-orga7bd7d5" class="outline-2">
+<h2 id="orga7bd7d5">
 <a id="ID-5C187197-56E5-4F7F-8723-4E4DA7B6D303"></a>抽象工厂</h2>
-<div class="outline-text-2" id="text-orgfece36c">
+<div class="outline-text-2" id="text-orga7bd7d5">
 <p>
 为了解决工厂方法中系统复杂的情况，我们引入抽象工厂，由抽象工厂来定义所要生产的啤酒类型，再由具体的工厂来对这些啤酒进行生产。由于生产的产品都有相似的特征，可以理解为生产一个产品族。
 </p>
 </div>
-<div id="outline-container-org8b2cfbd" class="outline-3">
-<h3 id="org8b2cfbd">
+<div id="outline-container-org0902192" class="outline-3">
+<h3 id="org0902192">
 <a id="ID-6E10E898-B8F0-432E-B0BA-51301313D91F"></a>抽象工厂生产啤酒</h3>
-<div class="outline-text-3" id="text-org8b2cfbd">
+<div class="outline-text-3" id="text-org0902192">
 <div class="highlight"><pre><span></span>   <span class="kn">package</span> <span class="nn">cn.imcompany.abs</span><span class="o">;</span>
 
    <span class="kn">import</span> <span class="nn">cn.imcompany.Beer</span><span class="o">;</span>
@@ -411,25 +412,25 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org44057f0" class="outline-3">
-<h3 id="org44057f0">
+<div id="outline-container-org92fa605" class="outline-3">
+<h3 id="org92fa605">
 <a id="ID-428207FB-8DE3-4F1F-B429-946F6DC17AFF"></a>抽象工厂总结</h3>
-<div class="outline-text-3" id="text-org44057f0">
+<div class="outline-text-3" id="text-org92fa605">
 </div>
-<div id="outline-container-orga564f13" class="outline-4">
-<h4 id="orga564f13">
+<div id="outline-container-org11114e7" class="outline-4">
+<h4 id="org11114e7">
 <a id="ID-D904C553-3369-4082-BE4E-59126A570A5D"></a>优点</h4>
-<div class="outline-text-4" id="text-orga564f13">
+<div class="outline-text-4" id="text-org11114e7">
 <ol class="org-ol">
 <li>类的数量精简了，当需要一个产品族来进行操作时，它可以保证客户端使用了同一产品族中的对象</li>
 <li>当需要新增加一种产品族时（换其它工厂来生产），无须修改系统，直接新建一个具体的工厂就可以实现。</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgcb284e0" class="outline-4">
-<h4 id="orgcb284e0">
+<div id="outline-container-org71f6cd3" class="outline-4">
+<h4 id="org71f6cd3">
 <a id="ID-D7E23F6B-206A-4FF5-9F48-4D192E8956B3"></a>缺点</h4>
-<div class="outline-text-4" id="text-orgcb284e0">
+<div class="outline-text-4" id="text-org71f6cd3">
 <ol class="org-ol">
 <li>当需要增加新的产品类型时，需要修改最高的抽象工厂，这样具体的实现工厂也要进行修改，不符合开闭原则。</li>
 </ol>
@@ -440,10 +441,10 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org65ea28d" class="outline-2">
-<h2 id="org65ea28d">
+<div id="outline-container-org84b225c" class="outline-2">
+<h2 id="org84b225c">
 <a id="ID-A8902F00-18CE-4D7F-A412-A874795E0C48"></a>工厂方法与抽象工厂对比</h2>
-<div class="outline-text-2" id="text-org65ea28d">
+<div class="outline-text-2" id="text-org84b225c">
 <p>
 上面说的工厂方法与抽象工厂理解时有些困难，它们主要的不同点就是工厂方法适合生产产品结构相同的单种产品，而抽象工厂适合生产多种产品结构的产品，如白酒，这是另一个产品结构，这种情况使用抽象工厂更恰当。
 </p>

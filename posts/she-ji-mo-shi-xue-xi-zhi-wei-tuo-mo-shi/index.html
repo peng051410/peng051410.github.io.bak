@@ -79,19 +79,19 @@
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div id="outline-container-org15f5104" class="outline-2">
-<h2 id="org15f5104">
+    <div id="outline-container-orgf9c1c66" class="outline-2">
+<h2 id="orgf9c1c66">
 <a id="ID-AC010333-BEEE-4816-8429-F348912688BA"></a>说明</h2>
-<div class="outline-text-2" id="text-org15f5104">
+<div class="outline-text-2" id="text-orgf9c1c66">
 <p>
 委托模式不属于23种设计模式中，但是它在Spring框架中使用的很频繁，Spring的作用在Java的开发是非常大，所以需要学习一下委托模式。委托模式是指两个对象都有相同的方法与功能，比如A、B两个对象都有相同的方法，但是有调用A的method方法，A不会自己来处理而是直接调用了B的同名方法，由两个对象参与同一个请求，接受请求的对象将委托给另一个对象来处理。
 </p>
 </div>
 </div>
-<div id="outline-container-orgfe8f69f" class="outline-2">
-<h2 id="orgfe8f69f">
+<div id="outline-container-org3986a6a" class="outline-2">
+<h2 id="org3986a6a">
 <a id="ID-59ADDF7B-BDA4-4D49-9A44-C72DC76E95FE"></a>委托模式</h2>
-<div class="outline-text-2" id="text-orgfe8f69f">
+<div class="outline-text-2" id="text-org3986a6a">
 <p>
 在一般的公司中，都会分为老板、项目经理、开发人员结构，老板负责制定决策，分配给项目经理后，他不会自己来完成，而是把需要的功能进行分解，交给擅长的开发人员进行实现。虽然项目经理也可以完成，但是是他把这些事情委托给了多个开发人员来做，加快了完成任务的速度。就以这个需求来说，使用委托模式来进行实现:
 </p>
@@ -117,6 +117,7 @@
 <p>
 上面代码中定义了抽象的人类接口，显示这个人的名字，拥有的技能，工作的状态情况，接下来实现需求中的每个人。
 </p>
+<!-- TEASER_END -->
 
 <p>
 定义老板(BOSS):
@@ -261,10 +262,10 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
 <img src="../../images/delegate.png" alt="委托模式"></p>
 </div>
 </div>
-<div id="outline-container-orgdd80e58" class="outline-2">
-<h2 id="orgdd80e58">
+<div id="outline-container-org42899a5" class="outline-2">
+<h2 id="org42899a5">
 <a id="ID-E78E8A6B-D26C-4481-9629-38ABB83D57AE"></a>总结</h2>
-<div class="outline-text-2" id="text-orgdd80e58">
+<div class="outline-text-2" id="text-org42899a5">
 <ol class="org-ol">
 <li>委托模式定义了实现功能的窗口，对于具体的实现由谁实现对于调用者是无感知的，对外提供方换了内部的实现对于调用方无影响。最大限度的实现了解耦</li>
 <li>委托方的功能简单通用，可以在绝大情况下通用，在框架中使用非常适合，可以实现分层解耦</li>

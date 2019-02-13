@@ -86,27 +86,27 @@ JAVA中是按值进行传递。实现克隆的方式就是实现Cloneable接口�
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div id="outline-container-org3e1d30b" class="outline-2">
-<h2 id="org3e1d30b">
+    <div id="outline-container-orgeea2e4f" class="outline-2">
+<h2 id="orgeea2e4f">
 <a id="ID-EE979F53-11A7-4FD2-B8F4-C48CE3D8F1B2"></a>特点</h2>
-<div class="outline-text-2" id="text-org3e1d30b">
+<div class="outline-text-2" id="text-orgeea2e4f">
 <p>
 原型设计模式就是系统中产生的每一个对象都不相同，通过原型来创建新的对象，原型模式属于创建型模式。
 </p>
 </div>
 </div>
-<div id="outline-container-orgeab8275" class="outline-2">
-<h2 id="orgeab8275">
+<div id="outline-container-orge88c8b7" class="outline-2">
+<h2 id="orge88c8b7">
 <a id="ID-CD7708C3-6021-485A-A24C-E6DD385F17BB"></a>实现方式</h2>
-<div class="outline-text-2" id="text-orgeab8275">
+<div class="outline-text-2" id="text-orge88c8b7">
 <p>
 一般情况可以通过对象克隆的方式来根据一个对象创建出来多个对象，每个对象在内存占用的内存地址都不一样。在JAVA中克隆又分为浅克隆与深克隆。
 </p>
 </div>
-<div id="outline-container-org68c21d7" class="outline-3">
-<h3 id="org68c21d7">
+<div id="outline-container-org57905ea" class="outline-3">
+<h3 id="org57905ea">
 <a id="ID-5CD675BD-9485-4B23-A83F-4A32B167FC5A"></a>浅克隆</h3>
-<div class="outline-text-3" id="text-org68c21d7">
+<div class="outline-text-3" id="text-org57905ea">
 <p>
 JAVA中是按值进行传递。实现克隆的方式就是实现Cloneable接口，这样就可以重写Object对象的clone方法来进行对象的克隆。代码如下：
 </p>
@@ -125,6 +125,7 @@ JAVA中是按值进行传递。实现克隆的方式就是实现Cloneable接口�
        <span class="o">}</span>
    <span class="o">}</span>
 </pre></div>
+<!-- TEASER_END -->
 <p>
 测试代码如下：
 </p>
@@ -170,10 +171,10 @@ apple与clone依旧不相等，但是clone.list却与apple.list是相同的，�
 </p>
 </div>
 </div>
-<div id="outline-container-orgd4d02ba" class="outline-3">
-<h3 id="orgd4d02ba">
+<div id="outline-container-org64795f0" class="outline-3">
+<h3 id="org64795f0">
 <a id="ID-AD59ED5A-E73D-4E99-966F-46E36C862F88"></a>深拷贝</h3>
-<div class="outline-text-3" id="text-orgd4d02ba">
+<div class="outline-text-3" id="text-org64795f0">
 <p>
 深拷贝就是通过对JAVA对象的序列化来进行对象的完整拷贝，主要是通过ObjectInputStream与ObjectOutputStream两个流来实现对象的读取与写入。示例代码：
 </p>
@@ -207,33 +208,33 @@ apple与clone依旧不相等，但是clone.list却与apple.list是相同的，�
 </div>
 </div>
 </div>
-<div id="outline-container-orge200e97" class="outline-2">
-<h2 id="orge200e97">
+<div id="outline-container-org670631f" class="outline-2">
+<h2 id="org670631f">
 <a id="ID-85284B4D-FF5B-4206-99C8-FCE956BC3FEC"></a>应用场景</h2>
-<div class="outline-text-2" id="text-orge200e97">
+<div class="outline-text-2" id="text-org670631f">
 <p>
 系统中需要保存每个用户的信息，就要每个用户对应不同的实体对象。
 </p>
 </div>
 </div>
-<div id="outline-container-org2856704" class="outline-2">
-<h2 id="org2856704">
+<div id="outline-container-org1763cb9" class="outline-2">
+<h2 id="org1763cb9">
 <a id="ID-5B0363E3-2141-4714-B5F3-DD44CBE98738"></a>总结</h2>
-<div class="outline-text-2" id="text-org2856704">
+<div class="outline-text-2" id="text-org1763cb9">
 </div>
-<div id="outline-container-orgf02ef4f" class="outline-3">
-<h3 id="orgf02ef4f">
+<div id="outline-container-orgac075d5" class="outline-3">
+<h3 id="orgac075d5">
 <a id="ID-7941D48D-586D-4FD5-BC84-1C67136C8F05"></a>优点</h3>
-<div class="outline-text-3" id="text-orgf02ef4f">
+<div class="outline-text-3" id="text-orgac075d5">
 <p>
 原型设计模式可以进行快速的对象复制，可以很快的创建大的复杂的对象。
 </p>
 </div>
 </div>
-<div id="outline-container-org57a05bc" class="outline-3">
-<h3 id="org57a05bc">
+<div id="outline-container-org9fd2ab5" class="outline-3">
+<h3 id="org9fd2ab5">
 <a id="ID-EE1BEFBD-DD14-497F-8DEC-1A3DE329CD57"></a>缺点</h3>
-<div class="outline-text-3" id="text-org57a05bc">
+<div class="outline-text-3" id="text-org9fd2ab5">
 <p>
 创建对象的过程比较复杂，需要被克隆的对象要额外实现序列化接口。
 </p>

@@ -86,19 +86,19 @@
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div id="outline-container-org736830f" class="outline-2">
-<h2 id="org736830f">
+    <div id="outline-container-orgb5624c8" class="outline-2">
+<h2 id="orgb5624c8">
 <a id="ID-5178CAAD-3EB4-4C23-8A31-1A8636932EA3"></a>特点</h2>
-<div class="outline-text-2" id="text-org736830f">
+<div class="outline-text-2" id="text-orgb5624c8">
 <p>
 单例模式就是确保在系统中只在一个实例提供功能。单例有好几种写法，主要有饿汉式、懒汉式、静态方法内部类、注册式单例。
 </p>
 </div>
 </div>
-<div id="outline-container-org028d48e" class="outline-2">
-<h2 id="org028d48e">
+<div id="outline-container-orge975261" class="outline-2">
+<h2 id="orge975261">
 <a id="ID-D8072892-769E-4CE2-A5C1-653E76608FA5"></a>饿汉式</h2>
-<div class="outline-text-2" id="text-org028d48e">
+<div class="outline-text-2" id="text-orge975261">
 <p>
 饿汉式单例就是在类定义时就已经将实例进行了初始化，在系统调用时可以直接返回不需要再实例化。示例代码如下：
 </p>
@@ -120,10 +120,10 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org89855e4" class="outline-2">
-<h2 id="org89855e4">
+<div id="outline-container-org45d2a09" class="outline-2">
+<h2 id="org45d2a09">
 <a id="ID-ED1E6C8B-3D3A-486D-916B-76A252AEED07"></a>懒汉式</h2>
-<div class="outline-text-2" id="text-org89855e4">
+<div class="outline-text-2" id="text-org45d2a09">
 <p>
 懒汉式就是在使用才对对象实例进行初始化，达到了延迟加载的目的。示例代码如下：
 </p>
@@ -145,12 +145,13 @@
 <p>
 懒式式优化点使用时实例化，延迟加载。缺点是存在线程安全问题
 </p>
+<!-- TEASER_END -->
 </div>
 </div>
-<div id="outline-container-org9bc9ceb" class="outline-2">
-<h2 id="org9bc9ceb">
+<div id="outline-container-org3928e46" class="outline-2">
+<h2 id="org3928e46">
 <a id="ID-5448AF33-6E0A-4EC7-BA2F-CA0A52F3D61A"></a>懒汉式（线程安全版本）</h2>
-<div class="outline-text-2" id="text-org9bc9ceb">
+<div class="outline-text-2" id="text-org3928e46">
 <p>
 上面的写法存在线程安全问题，最简单的修改方法是加上synchronized关键字，这样就解决了线程的安全问题。示例代码如下：
 </p>
@@ -188,10 +189,10 @@
 </pre></div>
 </div>
 </div>
-<div id="outline-container-org37a731d" class="outline-2">
-<h2 id="org37a731d">
+<div id="outline-container-org0f8d522" class="outline-2">
+<h2 id="org0f8d522">
 <a id="ID-8568E20F-C765-432E-B067-7A56A5B65C44"></a>注册式单例</h2>
-<div class="outline-text-2" id="text-org37a731d">
+<div class="outline-text-2" id="text-org0f8d522">
 <p>
 注册式单例是Spring中使用的一种产生单例的方式，主要的思想就是将要产生的单例对象使用一样map进行存储。示例代码如下：
 </p>
@@ -223,10 +224,10 @@ Spring实际的生成单例bean的处理方式比这复杂很多。
 </p>
 </div>
 </div>
-<div id="outline-container-org1ff7c9e" class="outline-2">
-<h2 id="org1ff7c9e">
+<div id="outline-container-org3ac2847" class="outline-2">
+<h2 id="org3ac2847">
 <a id="ID-1122404E-47A2-4105-99F4-B8897118C858"></a>静态内部类方式</h2>
-<div class="outline-text-2" id="text-org1ff7c9e">
+<div class="outline-text-2" id="text-org3ac2847">
 <p>
 静态内部类就是在一个类的内部又声明了一个类，静态内部类生成单例的代码如下：
 </p>
@@ -249,10 +250,10 @@ Spring实际的生成单例bean的处理方式比这复杂很多。
 </p>
 </div>
 </div>
-<div id="outline-container-org3052e8e" class="outline-2">
-<h2 id="org3052e8e">
+<div id="outline-container-org49bcfe1" class="outline-2">
+<h2 id="org49bcfe1">
 <a id="ID-61706974-D481-42C7-9D99-42F27C5072DA"></a>打破单例之Clone方式</h2>
-<div class="outline-text-2" id="text-org3052e8e">
+<div class="outline-text-2" id="text-org49bcfe1">
 <p>
 在JAVA中所有对象都继承Object对象，实例对象实现Cloneable接口则可以进行clone，示例代码如下：
 </p>
@@ -270,10 +271,10 @@ Spring实际的生成单例bean的处理方式比这复杂很多。
   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">lazyThree</span> <span class="o">==</span> <span class="n">clone</span><span class="o">);</span>  <span class="c1">//结果为false</span>
 </pre></div>
 </div>
-<div id="outline-container-org7ba6909" class="outline-3">
-<h3 id="org7ba6909">
+<div id="outline-container-orgd7b7106" class="outline-3">
+<h3 id="orgd7b7106">
 <a id="ID-040D171C-1E2F-48B0-9B91-6F71F694154E"></a>解决clone方式下产生单例不一致的问题</h3>
-<div class="outline-text-3" id="text-org7ba6909">
+<div class="outline-text-3" id="text-orgd7b7106">
 <p>
 实例了cloneable接口的单例对象生成的实例不相同，此时我们要做的就是重写clone方法，让其使用我们静态内部类生成的单例，示例代码如下：
 </p>
@@ -288,10 +289,10 @@ Spring实际的生成单例bean的处理方式比这复杂很多。
 </div>
 </div>
 </div>
-<div id="outline-container-orgd961a6a" class="outline-2">
-<h2 id="orgd961a6a">
+<div id="outline-container-org5a9e414" class="outline-2">
+<h2 id="org5a9e414">
 <a id="ID-0F5657E4-0FE0-4FB3-A3B4-D0DE0056E6E8"></a>打破单例之反射方式</h2>
-<div class="outline-text-2" id="text-orgd961a6a">
+<div class="outline-text-2" id="text-org5a9e414">
 <p>
 反射是JAVA的一个利器，利用反射可以实例化对象，调用方法，动态的创建对象，使用反射创建实例的代码如下：
 </p>
@@ -306,10 +307,10 @@ Spring实际的生成单例bean的处理方式比这复杂很多。
 生成的实例不是相同的，虽然我们的类已经把构造方法声明为了private，但是反射依然可以访问的到。
 </p>
 </div>
-<div id="outline-container-orgb0c49f3" class="outline-3">
-<h3 id="orgb0c49f3">
+<div id="outline-container-orga64a245" class="outline-3">
+<h3 id="orga64a245">
 <a id="ID-E418A027-B1C0-4A7F-84F6-70424EF2EF81"></a>解决反射产生单例不一致的问题</h3>
-<div class="outline-text-3" id="text-orgb0c49f3">
+<div class="outline-text-3" id="text-orga64a245">
 <p>
 为了防止这种事情的发生，我们需要在构造方法上对类初始化状态进行标识来阻止类的多次初始化。代码如下：
 </p>
@@ -332,10 +333,10 @@ Spring实际的生成单例bean的处理方式比这复杂很多。
 </div>
 </div>
 </div>
-<div id="outline-container-org97cb4c7" class="outline-2">
-<h2 id="org97cb4c7">
+<div id="outline-container-orgf42baaf" class="outline-2">
+<h2 id="orgf42baaf">
 <a id="ID-19196A70-BD8B-4108-B605-2447200DD23A"></a>打破单例之序列化反序列化</h2>
-<div class="outline-text-2" id="text-org97cb4c7">
+<div class="outline-text-2" id="text-orgf42baaf">
 <p>
 JAVA中的对象是可以持久化到磁盘上的，使用的方式就是序列化与反序列化，主要是使用ObjectInputStream与ObjectOutPutStream来实现。代码如下：
 </p>
@@ -360,10 +361,10 @@ JAVA中的对象是可以持久化到磁盘上的，使用的方式就是序列�
 上面代码的结果为false，证明两个对象不相同
 </p>
 </div>
-<div id="outline-container-org38e702c" class="outline-3">
-<h3 id="org38e702c">
+<div id="outline-container-orgf2b1192" class="outline-3">
+<h3 id="orgf2b1192">
 <a id="ID-4D6F9830-5B71-41DA-95CF-B7AA929BDF42"></a>解决序列化反序列化产生单例不一致的问题</h3>
-<div class="outline-text-3" id="text-org38e702c">
+<div class="outline-text-3" id="text-orgf2b1192">
 <p>
 解决的方法要的ObjectInputStream读入对象时来处理，我们需要在类中增加readResolve方法，在这个方法返回我们生成单例的方式。代码如下：
 </p>
@@ -378,10 +379,10 @@ JAVA中的对象是可以持久化到磁盘上的，使用的方式就是序列�
 </div>
 </div>
 </div>
-<div id="outline-container-org26ffd54" class="outline-2">
-<h2 id="org26ffd54">
+<div id="outline-container-orgb816bca" class="outline-2">
+<h2 id="orgb816bca">
 <a id="ID-F8E90568-3F86-454F-A84C-AB34B3024AB4"></a>总结</h2>
-<div class="outline-text-2" id="text-org26ffd54">
+<div class="outline-text-2" id="text-orgb816bca">
 <p>
 写一个单例不容易。
 以下是完整的单例方式代码:

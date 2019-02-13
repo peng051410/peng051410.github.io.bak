@@ -79,19 +79,19 @@
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div id="outline-container-org6fd85e4" class="outline-2">
-<h2 id="org6fd85e4">
+    <div id="outline-container-org0a17cd2" class="outline-2">
+<h2 id="org0a17cd2">
 <a id="ID-1D499B1D-BE98-4A3B-B9FA-BA4DEB4B4DB4"></a>说明</h2>
-<div class="outline-text-2" id="text-org6fd85e4">
+<div class="outline-text-2" id="text-org0a17cd2">
 <p>
 在一般实现处理用户支付订单时，通常都会在一个单独的回调项目中来处理用户的支付方式回调。一般情况下，回调的处理过程都是相似的，大体的步骤就是获取参数-&gt;验证参数-&gt;验证签名-&gt;验证支付状态（可选）-&gt;订单状态为成功增加用户的充值金额。具体的过程由于不同的支付方式不同而处理的不同。这种需求可以使用模板的模板模式来实现。
 </p>
 </div>
 </div>
-<div id="outline-container-orge971991" class="outline-2">
-<h2 id="orge971991">
+<div id="outline-container-org748f8b4" class="outline-2">
+<h2 id="org748f8b4">
 <a id="ID-D853C6D0-3137-4D2C-AE23-FC5BD4185FEE"></a>模板设计模式实现</h2>
-<div class="outline-text-2" id="text-orge971991">
+<div class="outline-text-2" id="text-org748f8b4">
 <p>
 模板模式就是由一个类来声明整个处理流程的步骤，具体的实现由各个实现类来进行实现。处理的流程不变，变是就是里面具体的实现。针对上面的支付回调，可以声明一个抽象类来声明具体的流程方法，代码如下：
 </p>
@@ -140,9 +140,7 @@
       <span class="o">}</span>
   <span class="o">}</span>
 </pre></div>
-<p>
-在上面的PayCallback类中声明了getParam(获取参数)，checkParam（验证参数），validSign（验证签名），验证支付状态四个步骤，具体的支付回调类要来实现这里声明的方法即可。下面是一个微信支付的回调类的代码实现：
-</p>
+<!-- TEASER_END --> 在上面的PayCallback类中声明了getParam(获取参数)，checkParam（验证参数），validSign（验证签名），验证支付状态四个步骤，具体的支付回调类要来实现这里声明的方法即可。下面是一个微信支付的回调类的代码实现：
 <div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.callback</span><span class="o">;</span>
 
   <span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
@@ -215,19 +213,19 @@
 对于支付宝，这里面的状态是成功，证明这一单处理成功，在支付宝回调这个类里面没有重写父类的forceReturn方法，这个方法子类可以根据需要来决定是否需要覆盖。这样父类给了子类可以控制父类流程的方法，这个方法一般叫做钩子方法，是留给子类来进行一些特殊处理的方法。子类实现这个方法就可以间接的控制父类中定义好的流程。比如在这里就可以控制遇到支付状态为失败的订单是否继续进行后续的操作。不进行了说明这一单也正确处理完成，返回给调用方正确的状态就可以了。
 </p>
 </div>
-<div id="outline-container-org1ea6406" class="outline-3">
-<h3 id="org1ea6406">
+<div id="outline-container-org3576948" class="outline-3">
+<h3 id="org3576948">
 <a id="ID-A4C31D79-7F92-431B-BD3D-CDA4FE8993D9"></a>模板模式实现的类图</h3>
-<div class="outline-text-3" id="text-org1ea6406">
+<div class="outline-text-3" id="text-org3576948">
 <p>
 <img src="../../images/template.png" alt="模板模式"></p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb544947" class="outline-2">
-<h2 id="orgb544947">
+<div id="outline-container-orga6dcceb" class="outline-2">
+<h2 id="orga6dcceb">
 <a id="ID-CF8B6416-7D0E-4B0F-BC5A-8D5CB391DB93"></a>模板模式总结</h2>
-<div class="outline-text-2" id="text-orgb544947">
+<div class="outline-text-2" id="text-orga6dcceb">
 <ol class="org-ol">
 <li>模板模式定义了一个具体的流程来实现功能，子类只需要实现相应定义的方法就可以达到最终的结果。增加另一种回调类也非常的容易，只需要实现父类的方法就可以了。符合开闭原则。</li>
 <li>父类可以提供子类进行流程控制的方法，这样可以实现子类的反向控制。</li>

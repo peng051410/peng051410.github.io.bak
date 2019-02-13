@@ -284,74 +284,40 @@ ignore文件忽略，支持绝大多数的开发语言，支持直接导航到�
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <div id="outline-container-orgc5668ae" class="outline-2">
-<h2 id="orgc5668ae">
+    <div>
+<div id="outline-container-orgdc44c49" class="outline-2">
+<h2 id="orgdc44c49">
 <a id="ID-5106DED6-E60F-47AF-9FED-C24E5A9146D2"></a>说明</h2>
-<div class="outline-text-2" id="text-orgc5668ae">
+<div class="outline-text-2" id="text-orgdc44c49">
 <p>
 代理模式是设计模式中使用频率非常的高的模式，像日常生活中的房产中介、外卖平台都属于代理。代理模式就是在访问真正的业务之时不会直接与真正的业务进行调用，而是与一个与真正业务对象有着相同功能声明的代理来进行处理，但是最终的处理还是由真正的业务类来进行（决定），比如房产中介，他们会帮助找房者根据条件来对可选房屋进行筛选，但是最终订与不订的权利还是由找房者来决定。常见的代理有保护代理、虚拟代理、远程代理。
 </p>
 </div>
 </div>
-<div id="outline-container-orga88df16" class="outline-2">
-<h2 id="orga88df16">
+<div id="outline-container-org4c0aa76" class="outline-2">
+<h2 id="org4c0aa76">
 <a id="ID-8FA1D55F-C6F7-4666-9E13-0D33878BB72E"></a>代理模式</h2>
-<div class="outline-text-2" id="text-orga88df16">
+<div class="outline-text-2" id="text-org4c0aa76">
 <p>
 我们常用的后台系统一般会根据用户权限的不同对用户展示不同的业务菜单，拥有高权限的人会展示相对多的菜单进行操作，在这个过程中还要记录用户的操作日志，用户点了什么，执行了什么操作都需要进行记录，达到有据可查。在这个业务场景下，就可以使用代理模式进行实现。代理对象会持有一个真正业务对象的实例，在代理对象中还引用日志服务与权限服务，所有的请求都经过这个代理类来进行，这样就可以根据操作的用户的状态来进行相应的处理了。具体的代码实现如下：
 </p>
 
 <ul class="org-ul">
-<li>定义一个查询接口，在这里定义一个查询用户收的方法，如下:</li>
+<li>定义一个查询接口，在这里定义一个查询用户收入的方法，如下:</li>
 </ul>
-zsh:1: command not found: pygmentize
-<ul class="org-ul">
-<li>再定义一个实现该接口的具体业务类：</li>
-</ul>
-zsh:1: command not found: pygmentize
-<p>
-在上面代码中就实现了查询收入的方法，简单的打印了两行日志。
-</p>
-<ul class="org-ul">
-<li>由于在实现需要对权限进行控制并记录日志，则先把需要用来的权限类与日志类进行定义与实现。实现代码如下:</li>
-</ul>
-zsh:1: command not found: pygmentize
-<ul class="org-ul">
-<li>最后来进行代理类的实现，代理类通常也会实现查询接口，这样在调用者看来它与真正的业务类没有什么区别，实现代码如下：</li>
-</ul>
-zsh:1: command not found: pygmentize
-<p>
-在上面的代理中，它维护了权限与日志这两个工具类的实例，还维护真正提供查询的业务类实例，在实现的查询收入接口中，先进行进入日志的记录，再验证用户的权限，验证通过则调用真正的业务类来查询收入，最后记录结束的日志，一次调用处理完成。
-上面实现的类图如下：
-<img src="images/proxy.png" alt="proxy">
-主要的核心都在代理类中，它对整个的流程进行全面的控制，对真正的业务方法进行了保护，只有满足条件的请求才可以被处理。
-</p>
-</div>
-</div>
-<div id="outline-container-org74e4613" class="outline-2">
-<h2 id="org74e4613">
-<a id="ID-A325E1A4-121E-4085-B642-1C5E0357D188"></a>总结</h2>
-<div class="outline-text-2" id="text-org74e4613">
-</div>
-<div id="outline-container-org8028ab7" class="outline-3">
-<h3 id="org8028ab7">
-<a id="ID-2442F02B-79E2-4793-A708-88BEC217A441"></a>优点</h3>
-<div class="outline-text-3" id="text-org8028ab7">
-<ol class="org-ol">
-<li>代理模式使得具体的业务方法在不想过多的暴露自己的情况更好的保护了具体业务，很好的隔离了调用者与被调用者，降低了系统的耦合性。</li>
-<li>对真正业务的修改对调用者是无感知的，它们只需要与代理打交道就可以，符合开闭原则。</li>
-<li>保护代理可以对访问进行细粒度的控制。</li>
-<li>对于虚拟代理可以对于耗费资源的大对象进行一个简单代理，在用户使用再调用时真正的对象已经实例化完毕，给了用户更好的体验。</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orgc0014ac" class="outline-3">
-<h3 id="orgc0014ac">
-<a id="ID-E2C27CC5-1C83-4FE5-9305-3AC702D6CA9D"></a>缺点</h3>
-<div class="outline-text-3" id="text-orgc0014ac">
-<ol class="org-ol">
-<li>由于在中间增加了代理，多了一些额外的处理，对于处理速度会有一定的降低。</li>
-</ol>
+<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.proxy</span><span class="o">;</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Created by tomyli on 2018/6/28.</span>
+<span class="cm">   * Github: https://github.com/peng051410</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Search</span> <span class="o">{</span>
+
+      <span class="kt">void</span> <span class="nf">queryIncome</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">);</span>
+  <span class="o">}</span>
+</pre></div>
+
+<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-dai-li-mo-shi/">阅读更多…</a></p>
 </div>
 </div>
 </div>
@@ -370,19 +336,20 @@ zsh:1: command not found: pygmentize
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <div id="outline-container-org15f5104" class="outline-2">
-<h2 id="org15f5104">
+    <div>
+<div id="outline-container-orgf9c1c66" class="outline-2">
+<h2 id="orgf9c1c66">
 <a id="ID-AC010333-BEEE-4816-8429-F348912688BA"></a>说明</h2>
-<div class="outline-text-2" id="text-org15f5104">
+<div class="outline-text-2" id="text-orgf9c1c66">
 <p>
 委托模式不属于23种设计模式中，但是它在Spring框架中使用的很频繁，Spring的作用在Java的开发是非常大，所以需要学习一下委托模式。委托模式是指两个对象都有相同的方法与功能，比如A、B两个对象都有相同的方法，但是有调用A的method方法，A不会自己来处理而是直接调用了B的同名方法，由两个对象参与同一个请求，接受请求的对象将委托给另一个对象来处理。
 </p>
 </div>
 </div>
-<div id="outline-container-orgfe8f69f" class="outline-2">
-<h2 id="orgfe8f69f">
+<div id="outline-container-org3986a6a" class="outline-2">
+<h2 id="org3986a6a">
 <a id="ID-59ADDF7B-BDA4-4D49-9A44-C72DC76E95FE"></a>委托模式</h2>
-<div class="outline-text-2" id="text-orgfe8f69f">
+<div class="outline-text-2" id="text-org3986a6a">
 <p>
 在一般的公司中，都会分为老板、项目经理、开发人员结构，老板负责制定决策，分配给项目经理后，他不会自己来完成，而是把需要的功能进行分解，交给擅长的开发人员进行实现。虽然项目经理也可以完成，但是是他把这些事情委托给了多个开发人员来做，加快了完成任务的速度。就以这个需求来说，使用委托模式来进行实现:
 </p>
@@ -408,159 +375,8 @@ zsh:1: command not found: pygmentize
 <p>
 上面代码中定义了抽象的人类接口，显示这个人的名字，拥有的技能，工作的状态情况，接下来实现需求中的每个人。
 </p>
-
-<p>
-定义老板(BOSS):
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.delegate</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/27.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Boss</span> <span class="kd">implements</span> <span class="n">Member</span> <span class="o">{</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showName</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i am boss"</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showSkill</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"send commend"</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doWork</span><span class="o">()</span> <span class="o">{</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-定义项目经理和员工:
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.delegate</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/27.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Leader</span> <span class="kd">implements</span> <span class="n">Member</span> <span class="o">{</span>
-
-      <span class="kd">private</span> <span class="n">Member</span> <span class="n">developerA</span><span class="o">;</span>
-      <span class="kd">private</span> <span class="n">Member</span> <span class="n">developerB</span><span class="o">;</span>
-
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDeveloperA</span><span class="o">(</span><span class="n">Member</span> <span class="n">developerA</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="k">this</span><span class="o">.</span><span class="na">developerA</span> <span class="o">=</span> <span class="n">developerA</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDeveloperB</span><span class="o">(</span><span class="n">Member</span> <span class="n">developerB</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="k">this</span><span class="o">.</span><span class="na">developerB</span> <span class="o">=</span> <span class="n">developerB</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showName</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i am leader"</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showSkill</span><span class="o">()</span> <span class="o">{</span>
-
-	  <span class="n">showName</span><span class="o">();</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i want to select member to doWork"</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doWork</span><span class="o">(){</span>
-	  <span class="n">showSkill</span><span class="o">();</span>
-	  <span class="n">developerA</span><span class="o">.</span><span class="na">doWork</span><span class="o">();</span>
-	  <span class="n">developerB</span><span class="o">.</span><span class="na">doWork</span><span class="o">();</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">DeveloperA</span> <span class="kd">implements</span> <span class="n">Member</span> <span class="o">{</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showName</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i am developer a"</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showSkill</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">showName</span><span class="o">();</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i can do login function"</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doWork</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">showSkill</span><span class="o">();</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"start work login"</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">DeveloperB</span> <span class="kd">implements</span> <span class="n">Member</span> <span class="o">{</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showName</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i am developer b"</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showSkill</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">showName</span><span class="o">();</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i can do pay function"</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doWork</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">showSkill</span><span class="o">();</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"start do pay"</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-在上面代码中，定义一个项目经理与两个开发，在项目经理中维护(管理)着对两个开发的引用。这样在项目经理的doWork中其实是调用开发者A与开发者B的doWork来都完成工作。接下来测试一下：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.delegate</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/27.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">WorkTest</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-	  <span class="n">Boss</span> <span class="n">boss</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Boss</span><span class="o">();</span>
-	  <span class="n">boss</span><span class="o">.</span><span class="na">showName</span><span class="o">();</span>
-	  <span class="n">boss</span><span class="o">.</span><span class="na">showSkill</span><span class="o">();</span>
-
-	  <span class="n">Leader</span> <span class="n">leader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Leader</span><span class="o">();</span>
-	  <span class="n">Member</span> <span class="n">memberA</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DeveloperA</span><span class="o">();</span>
-	  <span class="n">Member</span> <span class="n">memberB</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DeveloperB</span><span class="o">();</span>
-
-	  <span class="n">leader</span><span class="o">.</span><span class="na">setDeveloperA</span><span class="o">(</span><span class="n">memberA</span><span class="o">);</span>
-	  <span class="n">leader</span><span class="o">.</span><span class="na">setDeveloperB</span><span class="o">(</span><span class="n">memberB</span><span class="o">);</span>
-
-	  <span class="n">leader</span><span class="o">.</span><span class="na">doWork</span><span class="o">();</span>
-
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-BOSS下发了一个工作，由项目经理选择要真正来工作的人，最后调用了项目经理的doWork方法来实现需求，其实是DeveloperA与DeveloperB在真正的工作，对于BOSS而言，他不在乎谁在工作，他只要结果，结果导向嘛。。。苦了我们这帮程序员。
-</p>
-
-<p>
-整体的类图结构:
-<img src="images/delegate.png" alt="委托模式"></p>
+<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-wei-tuo-mo-shi/">阅读更多…</a></p>
 </div>
-</div>
-<div id="outline-container-orgdd80e58" class="outline-2">
-<h2 id="orgdd80e58">
-<a id="ID-E78E8A6B-D26C-4481-9629-38ABB83D57AE"></a>总结</h2>
-<div class="outline-text-2" id="text-orgdd80e58">
-<ol class="org-ol">
-<li>委托模式定义了实现功能的窗口，对于具体的实现由谁实现对于调用者是无感知的，对外提供方换了内部的实现对于调用方无影响。最大限度的实现了解耦</li>
-<li>委托方的功能简单通用，可以在绝大情况下通用，在框架中使用非常适合，可以实现分层解耦</li>
-<li>委托模式使用我们可以使用组合来代替继承</li>
-</ol>
 </div>
 </div>
     </div>
@@ -578,19 +394,20 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <div id="outline-container-org1daf244" class="outline-2">
-<h2 id="org1daf244">
+    <div>
+<div id="outline-container-org93b7fa3" class="outline-2">
+<h2 id="org93b7fa3">
 <a id="ID-8B1369E7-771F-4568-84A2-68681795C0D4"></a>说明</h2>
-<div class="outline-text-2" id="text-org1daf244">
+<div class="outline-text-2" id="text-org93b7fa3">
 <p>
 观察者模式在日常开发中使用频率也是非常高的，它建立了对象与对象之间的关系，一个对象的行为改变会通知到另一个对象，被通知的对象根据通知做出相应的处理动作。在观察者中分为目标对象（被观察者）、观察者。观察者模式是一种对象行为模式。
 </p>
 </div>
 </div>
-<div id="outline-container-orgc3eb745" class="outline-2">
-<h2 id="orgc3eb745">
+<div id="outline-container-org805bee6" class="outline-2">
+<h2 id="org805bee6">
 <a id="ID-DF91D356-308F-4653-B691-EEDBD8E73380"></a>观察者模式</h2>
-<div class="outline-text-2" id="text-orgc3eb745">
+<div class="outline-text-2" id="text-org805bee6">
 <p>
 现在很多人都购买股票，在市面上有很多的股票软件供广大股民使用。股票软件一般会在用户关注的股票有变动时发送消息来通知股民。在这里，某一支股票就是目标对象，广大股民与股票软件就是观察者，他们根据股票的行情变化来做出相应买入或者卖出操作。这一需求可以使用观察者模式进行实现。代码如下：
 </p>
@@ -650,128 +467,7 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
       <span class="o">}</span>
   <span class="o">}</span>
 </pre></div>
-<p>
-具体的股民实现了喜与悲的方法，这样观察者已经准备就绪。下面来定义股票软件：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.observer.stock</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/23.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">StockSoft</span> <span class="o">{</span>
-
-      <span class="kt">void</span> <span class="nf">goUp</span><span class="o">();</span>
-
-      <span class="kt">void</span> <span class="nf">goDown</span><span class="o">();</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-上面定义了一个抽象的股票软件，它有两个方法，一个股票上涨，一个是股票下跌。接下来实现具体的股票软件
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.observer.stock</span><span class="o">;</span>
-
-  <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-  <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/23.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteStockSoft</span> <span class="kd">implements</span> <span class="n">StockSoft</span> <span class="o">{</span>
-
-      <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Buyer</span><span class="o">&gt;</span> <span class="n">buyerList</span><span class="o">;</span>
-
-      <span class="kd">public</span> <span class="nf">ConcreteStockSoft</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">this</span><span class="o">.</span><span class="na">buyerList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">join</span><span class="o">(</span><span class="n">Buyer</span> <span class="n">buyer</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="n">buyerList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">buyer</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">quit</span><span class="o">(</span><span class="n">Buyer</span> <span class="n">buyer</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="n">buyerList</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">buyer</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">goUp</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">buyerList</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">Buyer</span><span class="o">::</span><span class="n">happy</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">goDown</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">buyerList</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">Buyer</span><span class="o">::</span><span class="n">sad</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-这是一个具体的股票软件，它持有一个购买指定股票的股民列表，还有股民加入与退出的方法，实现了股票上涨时的方法，在上涨时会通知股民，调用股民的happy方法，在股票下跌时调用股民的sad方法。接着做一下测试:
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.observer.stock</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/23.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">StockTest</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-	  <span class="n">ConcreteStockSoft</span> <span class="n">niuStock</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConcreteStockSoft</span><span class="o">();</span>
-
-	  <span class="n">ConcrectBuyer</span> <span class="n">buyer1</span><span class="o">,</span> <span class="n">buyer2</span><span class="o">,</span> <span class="n">buyer3</span><span class="o">;</span>
-	  <span class="n">buyer1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConcrectBuyer</span><span class="o">();</span>
-	  <span class="n">buyer1</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"buyer1"</span><span class="o">);</span>
-	  <span class="n">buyer2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConcrectBuyer</span><span class="o">();</span>
-	  <span class="n">buyer2</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"buyer2"</span><span class="o">);</span>
-	  <span class="n">buyer3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConcrectBuyer</span><span class="o">();</span>
-	  <span class="n">buyer3</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"buyer3"</span><span class="o">);</span>
-
-	  <span class="n">niuStock</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">buyer1</span><span class="o">);</span>
-	  <span class="n">niuStock</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">buyer2</span><span class="o">);</span>
-	  <span class="n">niuStock</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">buyer3</span><span class="o">);</span>
-
-	  <span class="n">niuStock</span><span class="o">.</span><span class="na">goUp</span><span class="o">();</span>
-
-	  <span class="n">niuStock</span><span class="o">.</span><span class="na">quit</span><span class="o">(</span><span class="n">buyer1</span><span class="o">);</span>
-	  <span class="n">niuStock</span><span class="o">.</span><span class="na">goDown</span><span class="o">();</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-在测试类中定义了三位购买股票的股民，股票软件把他们加入到维护的股民列表中，这时股票软件发现股票涨了，就调用goUp方法通知了列表中购买股票的股民们。接着股民1选择了卖出股票，则他在软件的维护列表中被移除，这时股票软件发现股票跌了，此时再一次通知持有股票的股民们，这时股民1已经收不到任何的通知，因为他已经不股票软件的通知列表中，此时只股民2与股民3在那悲伤中…
-</p>
-
-<p>
-实现的观察者模式的类图：
-<img src="images/observer.png" alt="观察者模式-股票软件实现">
-表面上看股票软件与股民没有任何关系，但是在具体股票软件中维护了股民的列表(buyList)，这样可以在软件发现有变化时调用股民的方法来进行通知。
-</p>
-</div>
-</div>
-<div id="outline-container-org044d908" class="outline-2">
-<h2 id="org044d908">
-<a id="ID-50C04142-CF97-4997-BCDA-C650E6064FE8"></a>总结</h2>
-<div class="outline-text-2" id="text-org044d908">
-</div>
-<div id="outline-container-org6879d26" class="outline-3">
-<h3 id="org6879d26">
-<a id="ID-A9F3D255-D072-4E23-9940-D47A216D0CC3"></a>优点</h3>
-<div class="outline-text-3" id="text-org6879d26">
-<ol class="org-ol">
-<li>观察者模式在观察者与目标对象之间建立了抽象的耦合，目标对象要维护观察者列表，而无须关心具体的观察者。可以更好的进行抽象。</li>
-<li>对目标对象增加观察者无须修改原代码，只需要调用现有的方法就可以，符合开闭原则。</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orgdb259af" class="outline-3">
-<h3 id="orgdb259af">
-<a id="ID-EB1CEDE6-F922-4F8E-B967-B0759B18C007"></a>缺点</h3>
-<div class="outline-text-3" id="text-orgdb259af">
-<ol class="org-ol">
-<li>在观察者很多的时候，目标对象发生变化时会消耗很长的时间来通知观察者。</li>
-</ol>
+<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-guan-cha-zhe/">阅读更多…</a></p>
 </div>
 </div>
 </div>
@@ -790,19 +486,20 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <div id="outline-container-orge016d6c" class="outline-2">
-<h2 id="orge016d6c">
+    <div>
+<div id="outline-container-orgd7e278e" class="outline-2">
+<h2 id="orgd7e278e">
 <a id="ID-9F831376-652F-49A6-81C3-04B7B7D028F9"></a>说明</h2>
-<div class="outline-text-2" id="text-orge016d6c">
+<div class="outline-text-2" id="text-orgd7e278e">
 <p>
 装饰器设计模式是使用比较频繁的设计模式，它在不改变原物体的情况对原物体实现了功能的增加，原物体还是一个可单独使用的个体。在JAVA的类库中应该会马上想到IO类，各种的InputStrem，OutputStrem。
 </p>
 </div>
 </div>
-<div id="outline-container-orgad65af2" class="outline-2">
-<h2 id="orgad65af2">
+<div id="outline-container-orgd51f8d3" class="outline-2">
+<h2 id="orgd51f8d3">
 <a id="ID-108171D7-868E-409F-986B-C1D1A9A60C82"></a>装饰器模式</h2>
-<div class="outline-text-2" id="text-orgad65af2">
+<div class="outline-text-2" id="text-orgd51f8d3">
 <p>
 在用户登录的中过程，我们需要对用户输入的密码进行加密操作，在设计时会提供好多种加密的算法，例如简单的BASE64加密，复杂的如MD5、DSA加密。直接把用户的密码存入数据库是真的在耍流氓。在使用这些算法时，我们想灵活的使用，比如使用完简单加密还可以再进行一下MD5的加密。针对这样的需求，可以使用装饰器模式进行实现。大体思路如下：
 </p>
@@ -829,153 +526,7 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
       <span class="kt">void</span> <span class="nf">encrypt</span><span class="o">();</span>
   <span class="o">}</span>
 </pre></div>
-<ul class="org-ul">
-<li>具体加密类，实现加密处理接口</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.decorator.encrypt</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/25.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConcreteEncryptor</span> <span class="kd">implements</span> <span class="n">Encryptor</span> <span class="o">{</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">encrypt</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"base encrypt!"</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<ul class="org-ul">
-<li>抽象加密装饰器</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.decorator.encrypt</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/25.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">EncryptDecorator</span> <span class="kd">implements</span> <span class="n">Encryptor</span> <span class="o">{</span>
-
-      <span class="kd">private</span> <span class="n">Encryptor</span> <span class="n">encrypt</span><span class="o">;</span>
-
-      <span class="kd">public</span> <span class="nf">EncryptDecorator</span><span class="o">(</span><span class="n">Encryptor</span> <span class="n">encrypt</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="k">this</span><span class="o">.</span><span class="na">encrypt</span> <span class="o">=</span> <span class="n">encrypt</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">encrypt</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">encrypt</span><span class="o">.</span><span class="na">encrypt</span><span class="o">();</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-上面的抽象装饰器实现的加密接口，在这个类中维护加密接口的实体，加密方法直接调用其维护实体的加密方法。
-</p>
-<ul class="org-ul">
-<li>具体的装饰器实现类</li>
-</ul>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.decorator.encrypt</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/25.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ModEncryptDecorator</span> <span class="kd">extends</span> <span class="n">EncryptDecorator</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="nf">ModEncryptDecorator</span><span class="o">(</span><span class="n">Encryptor</span> <span class="n">encrypt</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="kd">super</span><span class="o">(</span><span class="n">encrypt</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">encrypt</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="kd">super</span><span class="o">.</span><span class="na">encrypt</span><span class="o">();</span>
-	  <span class="n">modEncrypt</span><span class="o">();</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">modEncrypt</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"取模加密！"</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-
-
-  <span class="kn">package</span> <span class="nn">cn.imcompany.decorator.encrypt</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/25.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConverseEncryptDecorator</span> <span class="kd">extends</span> <span class="n">EncryptDecorator</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="nf">ConverseEncryptDecorator</span><span class="o">(</span><span class="n">Encryptor</span> <span class="n">encrypt</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="kd">super</span><span class="o">(</span><span class="n">encrypt</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">encrypt</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="kd">super</span><span class="o">.</span><span class="na">encrypt</span><span class="o">();</span>
-	  <span class="n">converseEncrypt</span><span class="o">();</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">converseEncrypt</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"逆向加密！"</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-上面的代码定义了两个具体的装饰器实体，在这两个装饰器类中，加密方法中都调用了父类的加密方法，然后调用了自己实现的加密方法，这样在先前加密的基础上又进行了一次加密。达到了双重加密的效果。让我们来进行一下测试:
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.decorator.encrypt</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/25.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">EncryptDecoratorTest</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-	  <span class="n">Encryptor</span> <span class="n">encryptor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConcreteEncryptor</span><span class="o">();</span>
-	  <span class="c1">//进行一次简单加密</span>
-	  <span class="n">Encryptor</span> <span class="n">encryptDecorator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleEncryptDecorator</span><span class="o">(</span><span class="n">encryptor</span><span class="o">);</span>
-	  <span class="n">encryptDecorator</span><span class="o">.</span><span class="na">encrypt</span><span class="o">();</span>
-
-	  <span class="c1">//对上一次加密进行二次加密（反转加密）</span>
-	  <span class="n">ConverseEncryptDecorator</span> <span class="n">converseEncryptDecorator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConverseEncryptDecorator</span><span class="o">(</span><span class="n">encryptDecorator</span><span class="o">);</span>
-	  <span class="n">converseEncryptDecorator</span><span class="o">.</span><span class="na">encrypt</span><span class="o">();</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-在测试中先进行了一次简单的加密，又在第一次加密的基础上进行了二次加密，如果再想使用第三次加密，直接把二次加密的对象引用传入即可。这样可以形成很多种组合，可以满足很多加密的需求。
-上面的加密类的类图如下：
-<img src="images/decorator.png" alt="装饰器模式-加密"></p>
-</div>
-</div>
-<div id="outline-container-orgaf28288" class="outline-2">
-<h2 id="orgaf28288">
-<a id="ID-47D0831C-C96E-455F-B8EE-85F4BFEA5661"></a>总结</h2>
-<div class="outline-text-2" id="text-orgaf28288">
-</div>
-<div id="outline-container-org1de894d" class="outline-3">
-<h3 id="org1de894d">
-<a id="ID-534AE97F-EA50-4D4E-8763-553D50C3704D"></a>优点</h3>
-<div class="outline-text-3" id="text-org1de894d">
-<ol class="org-ol">
-<li>针对抽象编程，装饰器可以使多个类的功能进行组合，比继承更加的灵活。</li>
-<li>可以对一个对象进行多次的装饰，可以创造出具有强大功能的类。</li>
-<li>具体的构建类与装饰器分隔，想要增加一个新功能时不需要修改原代码，符合开闭原则。</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orgfd8951a" class="outline-3">
-<h3 id="orgfd8951a">
-<a id="ID-03EB89C5-34F9-4A63-BA8E-97FEECD7BA8B"></a>缺点</h3>
-<div class="outline-text-3" id="text-orgfd8951a">
-<ol class="org-ol">
-<li>增加一个小的功能也需要增加一个类来实现，有些时候会有些浪费。</li>
-<li>由于实现也多重装饰，在出现问题时对于定位问题要一层一层的来处理。</li>
-</ol>
+<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/">阅读更多…</a></p>
 </div>
 </div>
 </div>
@@ -994,19 +545,20 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <div id="outline-container-orge39c3ac" class="outline-2">
-<h2 id="orge39c3ac">
+    <div>
+<div id="outline-container-org4337427" class="outline-2">
+<h2 id="org4337427">
 <a id="ID-EB4962BA-C631-4716-BC9D-20C978873C77"></a>说明</h2>
-<div class="outline-text-2" id="text-orge39c3ac">
+<div class="outline-text-2" id="text-org4337427">
 <p>
 在<a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi">前面</a>的文章中介绍了一些关于支付相关的功能，现在转向登录，在早些时期的系统登录就是用户使用用户名与密码进行注册，注册成功后就可以进行登录了。随着时代的发展，出现很多三方的平台，它们对外提供了获取平台用户信息的功能，例如微信、qq、微博等三方登录，在接入这些三方登录时都是遵循相应的规则，老的登录的方式需要保留，对接新的登录方式还想要使用老的登录服务，这样可以使用适配器模式来实现。
 </p>
 </div>
 </div>
-<div id="outline-container-org3157e06" class="outline-2">
-<h2 id="org3157e06">
+<div id="outline-container-orga7ceefc" class="outline-2">
+<h2 id="orga7ceefc">
 <a id="ID-1C175AD8-25AF-469B-82AD-6C10817DF235"></a>适配器模式</h2>
-<div class="outline-text-2" id="text-org3157e06">
+<div class="outline-text-2" id="text-orga7ceefc">
 <p>
 比如我们平常使用的转接头一样，就是一种适配器的模式。它使两个不相关的物体很好的关联在一起。对于要接入的新的登录方式，首先定义新的三方登录的接口，定义要使用的三方登录方式，如下代码示例：
 </p>
@@ -1028,144 +580,8 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
 <p>
 如上定义了微信、qq、微博三种登录方式，它们都是使用accessToken来进行认证，经用户同意后获取相应的用户的信息调用方使用。下面来进行具体的实现：
 </p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.adapter</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/22.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThirdLoginAdapter</span> <span class="kd">implements</span> <span class="n">ThirdLogin</span> <span class="o">{</span>
-
-      <span class="kd">private</span> <span class="n">LoginService</span> <span class="n">loginService</span><span class="o">;</span>
-
-      <span class="kd">public</span> <span class="nf">ThirdLoginAdapter</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">this</span><span class="o">.</span><span class="na">loginService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LoginService</span><span class="o">();</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">wechatLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">accessToken</span><span class="o">)</span> <span class="o">{</span>
-
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"微信获取用户信息"</span><span class="o">);</span>
-	  <span class="n">loginService</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="n">accessToken</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">qqLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">accessToken</span><span class="o">)</span> <span class="o">{</span>
-
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"qq获取用户信息"</span><span class="o">);</span>
-	  <span class="n">loginService</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="n">accessToken</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sinaLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">accessToken</span><span class="o">)</span> <span class="o">{</span>
-
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"微博获取用户信息"</span><span class="o">);</span>
-	  <span class="n">loginService</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="n">accessToken</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-在上面的实现，并没有重新写登录的逻辑，除了要调用三方平台的代码，登录的功能是直接使用老的登录服务实现的。在这个实现类中引用了老的服务，然后使用其已经非常成熟的功能来完成登录的操作。这样以最少的代码达到了新的需求也使老的服务可以正常运行。免去了很多测试的功能点。这种适配器叫做对象适配器。
-</p>
+<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/">阅读更多…</a></p>
 </div>
-</div>
-<div id="outline-container-orgeeb9fa6" class="outline-2">
-<h2 id="orgeeb9fa6">
-<a id="ID-EC4F06ED-28E5-4B9E-802F-B00E1BFCBE33"></a>缺省适配器</h2>
-<div class="outline-text-2" id="text-orgeeb9fa6">
-<p>
-上面的登录方法比较简单，如果要适配(实现一个接口)很多的业务方法，则对于实现方是一个困难，如果不想实现所有的方法可以定义一个抽象类来实现接口的大部分方法，再继承这个类选择需要实现覆盖的方法进行处理，这样就得到了一个缺省的适配的模式。对于用户状态一般有性别、是否是VIP等一些标识信息。下面定义了一个用户的基本标识类：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.adapter.def</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/22.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IMemberService</span> <span class="o">{</span>
-
-      <span class="kt">void</span> <span class="nf">saveMember</span><span class="o">();</span>
-
-      <span class="kt">void</span> <span class="nf">getMember</span><span class="o">();</span>
-
-      <span class="kt">boolean</span> <span class="nf">isGirl</span><span class="o">();</span>
-
-      <span class="kt">boolean</span> <span class="nf">isBoy</span><span class="o">();</span>
-
-      <span class="kt">boolean</span> <span class="nf">isVip</span><span class="o">();</span>
-
-  <span class="o">}</span>
-</pre></div>
-<p>
-对于实现类来不想一下子都实现，因为有些标识可以是默认的，比加默认情况是用户都不是VIP用户，面向男士的应用则默认isBoy返回true。这样可以先定义一个抽象来进行一些基本的实现。
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.adapter.def</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/22.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AbstractMemberService</span> <span class="kd">implements</span> <span class="n">IMemberService</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">saveMember</span><span class="o">();</span>
-
-      <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">getMember</span><span class="o">();</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isGirl</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isBoy</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isVip</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-      <span class="o">}</span>
-
-  <span class="o">}</span>
-</pre></div>
-<p>
-接下来真正类只需要继承这个抽象类来重写一些特定的方法就可以了
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.adapter.def</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/22.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MemberService</span> <span class="kd">extends</span> <span class="n">AbstractMemberService</span> <span class="o">{</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">saveMember</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"saveMember"</span><span class="o">);</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getMember</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"getMember"</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-在上面的代码中，MemberService只需要重写saveMember和getMember方法就可以了，其它的三个方法在父类中有了默认的设置，这减少了子类实现方法的数目。缺省适配器属于类适配器，缺省适配器的结构图如下：
-</p>
-
-<p>
-<img src="images/default-adapter.png" alt="缺省适配器"></p>
-</div>
-</div>
-<div id="outline-container-org22bee22" class="outline-2">
-<h2 id="org22bee22">
-<a id="ID-C3F52076-C0E2-46AD-99C4-E445F64DA8DE"></a>适配器总结</h2>
-<div class="outline-text-2" id="text-org22bee22">
-<ol class="org-ol">
-<li>适配器模式可以使两个不相关的类进行关联适配。可以重用原代码而且不需要修改原代码。</li>
-<li>增加了类的利用性，代码都封装在了适配器类，可以增加适配者的复用性。</li>
-</ol>
 </div>
 </div>
     </div>
@@ -1183,19 +599,20 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <div id="outline-container-org6fd85e4" class="outline-2">
-<h2 id="org6fd85e4">
+    <div>
+<div id="outline-container-org0a17cd2" class="outline-2">
+<h2 id="org0a17cd2">
 <a id="ID-1D499B1D-BE98-4A3B-B9FA-BA4DEB4B4DB4"></a>说明</h2>
-<div class="outline-text-2" id="text-org6fd85e4">
+<div class="outline-text-2" id="text-org0a17cd2">
 <p>
 在一般实现处理用户支付订单时，通常都会在一个单独的回调项目中来处理用户的支付方式回调。一般情况下，回调的处理过程都是相似的，大体的步骤就是获取参数-&gt;验证参数-&gt;验证签名-&gt;验证支付状态（可选）-&gt;订单状态为成功增加用户的充值金额。具体的过程由于不同的支付方式不同而处理的不同。这种需求可以使用模板的模板模式来实现。
 </p>
 </div>
 </div>
-<div id="outline-container-orge971991" class="outline-2">
-<h2 id="orge971991">
+<div id="outline-container-org748f8b4" class="outline-2">
+<h2 id="org748f8b4">
 <a id="ID-D853C6D0-3137-4D2C-AE23-FC5BD4185FEE"></a>模板设计模式实现</h2>
-<div class="outline-text-2" id="text-orge971991">
+<div class="outline-text-2" id="text-org748f8b4">
 <p>
 模板模式就是由一个类来声明整个处理流程的步骤，具体的实现由各个实现类来进行实现。处理的流程不变，变是就是里面具体的实现。针对上面的支付回调，可以声明一个抽象类来声明具体的流程方法，代码如下：
 </p>
@@ -1244,98 +661,8 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
       <span class="o">}</span>
   <span class="o">}</span>
 </pre></div>
-<p>
-在上面的PayCallback类中声明了getParam(获取参数)，checkParam（验证参数），validSign（验证签名），验证支付状态四个步骤，具体的支付回调类要来实现这里声明的方法即可。下面是一个微信支付的回调类的代码实现：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.callback</span><span class="o">;</span>
-
-  <span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-  <span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/21.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">WechatPayCallback</span> <span class="kd">extends</span> <span class="n">PayCallback</span> <span class="o">{</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">getParam</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-	  <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"status"</span><span class="o">,</span> <span class="s">"fail"</span><span class="o">);</span>
-	  <span class="k">return</span> <span class="n">map</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">checkParam</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">validSign</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">forceReturn</span><span class="o">()</span> <span class="o">{</span>
-
-	  <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-      <span class="o">}</span>
-
-  <span class="o">}</span>
-</pre></div>
-<p>
-具体的微信回调类实现了PayCallback类声明的抽象方法，它返回的状态是状态失败，在这里面有一个forceReturn方法，可以处理是否在某一个流程进行强制的返回，在微信回调类里面是进行强制返回，下面看一下支付宝的回调类代码：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.callback</span><span class="o">;</span>
-
-  <span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
-  <span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/21.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">AliPayCallback</span> <span class="kd">extends</span> <span class="n">PayCallback</span> <span class="o">{</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">getParam</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-	  <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"status"</span><span class="o">,</span> <span class="s">"success"</span><span class="o">);</span>
-	  <span class="k">return</span> <span class="n">map</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">checkParam</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="nd">@Override</span>
-      <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">validSign</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-对于支付宝，这里面的状态是成功，证明这一单处理成功，在支付宝回调这个类里面没有重写父类的forceReturn方法，这个方法子类可以根据需要来决定是否需要覆盖。这样父类给了子类可以控制父类流程的方法，这个方法一般叫做钩子方法，是留给子类来进行一些特殊处理的方法。子类实现这个方法就可以间接的控制父类中定义好的流程。比如在这里就可以控制遇到支付状态为失败的订单是否继续进行后续的操作。不进行了说明这一单也正确处理完成，返回给调用方正确的状态就可以了。
-</p>
+<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/">阅读更多…</a></p>
 </div>
-<div id="outline-container-org1ea6406" class="outline-3">
-<h3 id="org1ea6406">
-<a id="ID-A4C31D79-7F92-431B-BD3D-CDA4FE8993D9"></a>模板模式实现的类图</h3>
-<div class="outline-text-3" id="text-org1ea6406">
-<p>
-<img src="images/template.png" alt="模板模式"></p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb544947" class="outline-2">
-<h2 id="orgb544947">
-<a id="ID-CF8B6416-7D0E-4B0F-BC5A-8D5CB391DB93"></a>模板模式总结</h2>
-<div class="outline-text-2" id="text-orgb544947">
-<ol class="org-ol">
-<li>模板模式定义了一个具体的流程来实现功能，子类只需要实现相应定义的方法就可以达到最终的结果。增加另一种回调类也非常的容易，只需要实现父类的方法就可以了。符合开闭原则。</li>
-<li>父类可以提供子类进行流程控制的方法，这样可以实现子类的反向控制。</li>
-</ol>
 </div>
 </div>
     </div>
@@ -1353,19 +680,20 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <div id="outline-container-org59a3137" class="outline-2">
-<h2 id="org59a3137">
+    <div>
+<div id="outline-container-orgb3ce1c7" class="outline-2">
+<h2 id="orgb3ce1c7">
 <a id="ID-1F35F4B4-1981-4880-808D-FD4B457B30DB"></a>说明</h2>
-<div class="outline-text-2" id="text-org59a3137">
+<div class="outline-text-2" id="text-orgb3ce1c7">
 <p>
 策略模式是设计模式中使用频率很高的模式，主要的就是实现对行为的包装，达到结果的方式有多种，使用者可以选择任何一个方式来得到想要结果，在增加新的方式时更加的方便与灵活。它是为了适应算法的灵活性而产生的。
 </p>
 </div>
 </div>
-<div id="outline-container-org9ef7473" class="outline-2">
-<h2 id="org9ef7473">
+<div id="outline-container-orgde226aa" class="outline-2">
+<h2 id="orgde226aa">
 <a id="ID-F6C5FFEB-1164-429F-9C99-9A3E147CB3F6"></a>策略模式实现</h2>
-<div class="outline-text-2" id="text-org9ef7473">
+<div class="outline-text-2" id="text-orgde226aa">
 <p>
 以常用的购物为例，一般情况下购物分为浏览商品，下单，支付。在支付时消费者可以选择多种不同的支付方式，如支付宝、微信、京东支付、银联支付等。在支付中流程就可以使用到策略模式，网站为用户提供了这些支付方式可供选择，用户只需要选择自己喜欢的支付方式来进行充值就可以得到商品了。在一般情况下都会定义一个抽象类来定义支付的一些行为，如金额，商品简介等信息。实现的抽象类如以下定义：
 </p>
@@ -1410,92 +738,7 @@ BOSS下发了一个工作，由项目经理选择要真正来工作的人，最�
       <span class="o">}</span>
   <span class="o">}</span>
 </pre></div>
-<p>
-要是再增加一种支付方式则可以实现Payment接口进行实现就可以了，一般情况下会有一个维护支付方式的常量类，由它来维护可用的支付方式。这个常量类的简化代码如下：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.pay</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/20.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">enum</span> <span class="n">PayType</span> <span class="o">{</span>
-
-      <span class="n">ALI_PAY</span><span class="o">(</span><span class="k">new</span> <span class="n">AliPay</span><span class="o">()),</span>
-      <span class="n">WECHAT_PAY</span><span class="o">(</span><span class="k">new</span> <span class="n">WechatPay</span><span class="o">()),</span>
-      <span class="n">JD_PAY</span><span class="o">(</span><span class="k">new</span> <span class="n">JdPay</span><span class="o">()),</span>
-      <span class="n">UNICOME_PAY</span><span class="o">(</span><span class="k">new</span> <span class="n">UnicomePay</span><span class="o">()),</span>
-      <span class="o">;</span>
-
-      <span class="kd">private</span> <span class="n">Payment</span> <span class="n">payment</span><span class="o">;</span>
-
-      <span class="n">PayType</span><span class="o">(</span><span class="n">Payment</span> <span class="n">payment</span><span class="o">)</span> <span class="o">{</span>
-	  <span class="k">this</span><span class="o">.</span><span class="na">payment</span> <span class="o">=</span> <span class="n">payment</span><span class="o">;</span>
-      <span class="o">}</span>
-
-      <span class="kd">public</span> <span class="n">Payment</span> <span class="nf">getPayment</span><span class="o">()</span> <span class="o">{</span>
-	  <span class="k">return</span> <span class="n">payment</span><span class="o">;</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-在常量类可以获取要支付的具体支付方式来进行支付。接下来进行一下测试：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.pay</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/20.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PayTest</span> <span class="o">{</span>
-
-      <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-	  <span class="n">PayType</span><span class="o">.</span><span class="na">ALI_PAY</span><span class="o">.</span><span class="na">getPayment</span><span class="o">().</span><span class="na">pay</span><span class="o">(</span><span class="s">"123"</span><span class="o">);</span>
-
-	  <span class="n">PayType</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">PayType</span><span class="o">.</span><span class="na">WECHAT_PAY</span><span class="o">.</span><span class="na">toString</span><span class="o">()).</span><span class="na">getPayment</span><span class="o">().</span><span class="na">pay</span><span class="o">(</span><span class="s">"325"</span><span class="o">);</span>
-      <span class="o">}</span>
-
-  <span class="o">}</span>
-</pre></div>
-<p>
-上面的测试会输出
-</p>
-<div class="highlight"><pre><span></span>  <span class="n">AliPay</span>
-  <span class="n">WechatPay</span>
-</pre></div>
-<p>
-这样一个简单的策略模式就实现了。
-策略模式的类图如下:
-<img src="images/strategy.png" alt="策略模式"></p>
-</div>
-</div>
-<div id="outline-container-org842d45e" class="outline-2">
-<h2 id="org842d45e">
-<a id="ID-16BB8D9F-AFFD-4584-A8AF-4FE7A9526414"></a>策略设计模式总结</h2>
-<div class="outline-text-2" id="text-org842d45e">
-<p>
-策略模式是一种行为类型的设计模式，它封装了不同的行为，给使用者提供几种选择来实现结果。
-</p>
-</div>
-<div id="outline-container-org1bbc203" class="outline-3">
-<h3 id="org1bbc203">
-<a id="ID-C88F8F41-AB48-473B-AD0E-37882FC3286A"></a>优点</h3>
-<div class="outline-text-3" id="text-org1bbc203">
-<ol class="org-ol">
-<li>再增加新的支付方式只需要增加实现类即可，不需要修改现在支付方式的实现逻辑。符合开闭原则。</li>
-<li>在选择行为时避免了很多的if-else的判断。使代码更加清晰。</li>
-<li>策略模式提供了统一的管理行为的方式。</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orge633fa4" class="outline-3">
-<h3 id="orge633fa4">
-<a id="ID-54C00A2D-6087-453A-AFF6-E52FCCE3692F"></a>缺点</h3>
-<div class="outline-text-3" id="text-orge633fa4">
-<ol class="org-ol">
-<li>无法一起使用多个策略类。</li>
-</ol>
+<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-ce-lue-mo-shi/">阅读更多…</a></p>
 </div>
 </div>
 </div>

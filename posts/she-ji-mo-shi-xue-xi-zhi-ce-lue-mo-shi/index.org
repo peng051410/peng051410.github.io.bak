@@ -60,6 +60,7 @@
       }
   }
   #+END_SRC
+{{{TEASER_END}}}
   要是再增加一种支付方式则可以实现Payment接口进行实现就可以了，一般情况下会有一个维护支付方式的常量类，由它来维护可用的支付方式。这个常量类的简化代码如下：
   #+BEGIN_SRC java
   package cn.imcompany.pay;

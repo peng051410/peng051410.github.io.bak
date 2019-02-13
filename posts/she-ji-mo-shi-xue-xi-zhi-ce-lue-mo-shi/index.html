@@ -79,19 +79,19 @@
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div id="outline-container-org59a3137" class="outline-2">
-<h2 id="org59a3137">
+    <div id="outline-container-orgb3ce1c7" class="outline-2">
+<h2 id="orgb3ce1c7">
 <a id="ID-1F35F4B4-1981-4880-808D-FD4B457B30DB"></a>说明</h2>
-<div class="outline-text-2" id="text-org59a3137">
+<div class="outline-text-2" id="text-orgb3ce1c7">
 <p>
 策略模式是设计模式中使用频率很高的模式，主要的就是实现对行为的包装，达到结果的方式有多种，使用者可以选择任何一个方式来得到想要结果，在增加新的方式时更加的方便与灵活。它是为了适应算法的灵活性而产生的。
 </p>
 </div>
 </div>
-<div id="outline-container-org9ef7473" class="outline-2">
-<h2 id="org9ef7473">
+<div id="outline-container-orgde226aa" class="outline-2">
+<h2 id="orgde226aa">
 <a id="ID-F6C5FFEB-1164-429F-9C99-9A3E147CB3F6"></a>策略模式实现</h2>
-<div class="outline-text-2" id="text-org9ef7473">
+<div class="outline-text-2" id="text-orgde226aa">
 <p>
 以常用的购物为例，一般情况下购物分为浏览商品，下单，支付。在支付时消费者可以选择多种不同的支付方式，如支付宝、微信、京东支付、银联支付等。在支付中流程就可以使用到策略模式，网站为用户提供了这些支付方式可供选择，用户只需要选择自己喜欢的支付方式来进行充值就可以得到商品了。在一般情况下都会定义一个抽象类来定义支付的一些行为，如金额，商品简介等信息。实现的抽象类如以下定义：
 </p>
@@ -136,6 +136,7 @@
       <span class="o">}</span>
   <span class="o">}</span>
 </pre></div>
+<!-- TEASER_END -->
 <p>
 要是再增加一种支付方式则可以实现Payment接口进行实现就可以了，一般情况下会有一个维护支付方式的常量类，由它来维护可用的支付方式。这个常量类的简化代码如下：
 </p>
@@ -196,18 +197,18 @@
 <img src="../../images/strategy.png" alt="策略模式"></p>
 </div>
 </div>
-<div id="outline-container-org842d45e" class="outline-2">
-<h2 id="org842d45e">
+<div id="outline-container-orge3b5be5" class="outline-2">
+<h2 id="orge3b5be5">
 <a id="ID-16BB8D9F-AFFD-4584-A8AF-4FE7A9526414"></a>策略设计模式总结</h2>
-<div class="outline-text-2" id="text-org842d45e">
+<div class="outline-text-2" id="text-orge3b5be5">
 <p>
 策略模式是一种行为类型的设计模式，它封装了不同的行为，给使用者提供几种选择来实现结果。
 </p>
 </div>
-<div id="outline-container-org1bbc203" class="outline-3">
-<h3 id="org1bbc203">
+<div id="outline-container-org4dd0b43" class="outline-3">
+<h3 id="org4dd0b43">
 <a id="ID-C88F8F41-AB48-473B-AD0E-37882FC3286A"></a>优点</h3>
-<div class="outline-text-3" id="text-org1bbc203">
+<div class="outline-text-3" id="text-org4dd0b43">
 <ol class="org-ol">
 <li>再增加新的支付方式只需要增加实现类即可，不需要修改现在支付方式的实现逻辑。符合开闭原则。</li>
 <li>在选择行为时避免了很多的if-else的判断。使代码更加清晰。</li>
@@ -215,10 +216,10 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-orge633fa4" class="outline-3">
-<h3 id="orge633fa4">
+<div id="outline-container-orgcda6128" class="outline-3">
+<h3 id="orgcda6128">
 <a id="ID-54C00A2D-6087-453A-AFF6-E52FCCE3692F"></a>缺点</h3>
-<div class="outline-text-3" id="text-orge633fa4">
+<div class="outline-text-3" id="text-orgcda6128">
 <ol class="org-ol">
 <li>无法一起使用多个策略类。</li>
 </ol>

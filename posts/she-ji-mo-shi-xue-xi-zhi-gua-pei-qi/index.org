@@ -36,6 +36,7 @@
   }
   #+END_SRC
   如上定义了微信、qq、微博三种登录方式，它们都是使用accessToken来进行认证，经用户同意后获取相应的用户的信息调用方使用。下面来进行具体的实现：
+{{{TEASER_END}}}
   #+BEGIN_SRC java
   package cn.imcompany.adapter;
 
