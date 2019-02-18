@@ -165,6 +165,11 @@
   :ID:       B59FD501-ED68-4B1B-9FCB-13B3690E27B2
   :END:
   命令快速查询。简单的man。[[https://tldr.sh/][地址]]
+* Terminal Notify
+  :PROPERTIES:
+  :ID:       9FBF5C3A-9846-4239-8769-F1E4921FC9C4
+  :END:
+  命令行操作mac显示通知，支持图标显示与点击后操作（如打开网址，执行命令）等。[[https://github.com/julienXX/terminal-notifier][地址]]
 * w3m
   :PROPERTIES:
   :ID:       337F0A1C-2139-4064-9CA8-909E06D31C47
