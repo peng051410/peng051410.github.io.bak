@@ -94,7 +94,7 @@
    :ID:       07FFBC99-11D2-48B3-872E-26192C98E0D8
    :END:
    [[https://plugins.jetbrains.com/plugin/7160-camelcase]]
-* codehelper
+* Codehelper
   :PROPERTIES:
   :ID:       E41C2EB4-6736-474C-9D8E-B37CD3C91F38
   :END:
@@ -207,6 +207,20 @@
    :ID:       F9E78623-439D-4951-B113-AA49CB5E4DAF
    :END:
    [[http://andrepdo.github.io/findbugs-idea/]]
+* GitToolBox
+  :PROPERTIES:
+  :ID:       67E132D4-8C71-445B-97AC-AD1F6AD0D788
+  :END:
+** 插件说明
+   :PROPERTIES:
+   :ID:       97345BEA-E8CB-41F9-818B-40E607356EFD
+   :END:
+   对原有idea中内置的git插件的补充，可以在状态栏显示当前光标所在行的修改者
+** 插件地址
+   :PROPERTIES:
+   :ID:       FBBDD582-6866-4656-BFB6-D8ED3417757E
+   :END:
+   [[https://github.com/zielu/GitToolBox][https://github.com/zielu/GitToolBox]]
 * JSON Viewer
   :PROPERTIES:
   :ID:       71C062FA-7106-4556-AD1B-7A5E2727F556
