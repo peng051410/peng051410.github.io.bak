@@ -221,6 +221,20 @@
    :ID:       FBBDD582-6866-4656-BFB6-D8ED3417757E
    :END:
    [[https://github.com/zielu/GitToolBox][https://github.com/zielu/GitToolBox]]
+* Hidpi
+  :PROPERTIES:
+  :ID:       8A9949A0-F0E0-4CBA-A82C-E1F9EAD13900
+  :END:
+** 插件说明
+   :PROPERTIES:
+   :ID:       FA51B455-4C66-456C-B972-90385966E812
+   :END:
+   根据idea所在的监控器的分辨率来使用指定的idea配置，比加在分辨率高的显示器使用字号大的配置。
+** 插件地址
+   :PROPERTIES:
+   :ID:       EC57B85B-2E47-4097-A122-250007379365
+   :END:
+   [[https://github.com/mskonovalov/intellij-hidpi-profiles][https://github.com/mskonovalov/intellij-hidpi-profiles]]
 * JSON Viewer
   :PROPERTIES:
   :ID:       71C062FA-7106-4556-AD1B-7A5E2727F556
