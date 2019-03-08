@@ -1,0 +1,108 @@
+#+BEGIN_COMMENT
+.. title: 那些高效的Chrome插件
+.. slug: na-xie-gao-xiao-de-chromecha-jian
+.. date: 2019-03-08 07:48:34 UTC+08:00
+.. tags: chrome
+.. category: tools
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
+
+* 1Password extension
+  :PROPERTIES:
+  :ID:       75DEB1B9-2A8B-4898-9299-A396BA55D60E
+  :END:
+  密码管理工具1Password的Chrome插件。[[https://chrome.google.com/webstore/detail/1password-extension-deskt/aomjjhallfgjeglblehebfpbcfeobpgk][插件地址]]
+* Auto Refresh
+  :PROPERTIES:
+  :ID:       9FDF142D-76CB-437D-B96B-7108FFD600DB
+  :END:
+  自动刷新网页的插件，支持设置刷新时间间隔。[[https://chrome.google.com/webstore/detail/auto-refresh/ifooldnmmcmlbdennkpdnlnbgbmfalko][插件地址]]
+* Awesome Autocomplete for GitHub
+  :PROPERTIES:
+  :ID:       C84AB622-3FCE-4BBD-B18F-461CEFCB4D06
+  :END:
+  在浏览器中为Github增强搜索功能。[[https://github.com/algolia/github-awesome-autocomplete][插件地址]]
+* BetterTweetDeck
+  :PROPERTIES:
+  :ID:       AAE04661-3333-4F76-81E1-3EC9DE6C9E8B
+  :END:
+  TweetDeck功能增强，如支持表情，只看某人的tweets，[[https://better.tw/][插件地址]]
+* Clutter Free - Prevent duplicate tabs
+  :PROPERTIES:
+  :ID:       A62C0EE7-0545-4C42-B5FB-0881A5C1C7EE
+  :END:
+  防止打开相同的tab页面。[[https://chrome.google.com/webstore/detail/clutter-free-prevent-dupl/iipjdmnoigaobkamfhnojmglcdbnfaaf][插件地址]]
+* Dualsub
+  :PROPERTIES:
+  :ID:       F12E1F66-E124-49BC-99F9-3AFC6AEE6E2E
+  :END:
+  让Youtube同时显示两种语言的字幕。[[https://github.com/muzuiget/dualsub-supports][插件地址]]
+* GitHub Hovercard
+  :PROPERTIES:
+  :ID:       69CA8C7F-48D5-47C9-968B-8954056D969D
+  :END:
+  鼠标Hover时更全面显示Github上个人与仓库的信息。[[https://github.com/Justineo/github-hovercard][插件地址]]
+* Insight.io for Github
+  :PROPERTIES:
+  :ID:       C2970635-9CA2-4AD5-B8B8-E001173C956C
+  :END:
+  为Github添加类似IDE的功能，高效的代码浏览工具。[[https://github.com/apps/insight-io-code-review][插件地址]]
+* JSON-handle
+  :PROPERTIES:
+  :ID:       74CCE923-58A5-4A82-B468-AC32417B3C81
+  :END:
+  对浏览器请求返回的json数据进行美化，更利于阅读。[[https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahffihkfnj][插件地址]]
+* Org Capture
+  :PROPERTIES:
+  :ID:       A36FAB7B-80C0-466C-B3D1-7F20F6C59D61
+  :END:
+  Org Capture的Chrome插件，支持Capture网页链接与选中文字，配合Emacs使用。[[https://github.com/sprig/org-capture-extension][插件地址]]
+* MAMA-HD
+  :PROPERTIES:
+  :ID:       D9225E21-23AE-4441-9967-87ABA9B7A39B
+  :END:
+  解决在看视频网站时Mac发热的问题。[[https://github.com/nareix/mama-hd][插件地址]]
+* Proxy SwitchyOmega
+  :PROPERTIES:
+  :ID:       9C010452-B9BD-4ED1-BDA4-137F2FF8993B
+  :END:
+  网页代理切换，支持定义多种模式。[[https://github.com/FelisCatus/SwitchyOmega][插件地址]]
+* Surfingkeys
+  :PROPERTIES:
+  :ID:       C8DFB669-64A7-47A3-B5CA-F21669D2D0B0
+  :END:
+  严重推荐，VIM键盘模拟，自定义程度非常高。[[https://github.com/brookhong/Surfingkeys][插件地址]]
+* Tampermonkey
+  :PROPERTIES:
+  :ID:       7C72C6F6-62C2-4F3E-A362-7E18EDBFAFCF
+  :END:
+  用户自定义脚本管理器。[[https://github.com/Tampermonkey/tampermonkey][插件地址]]
+* YAAW for Chrome
+  :PROPERTIES:
+  :ID:       01785D18-79B0-4381-9206-513880AEFD9F
+  :END:
+  使用YAAW处理Chrome的下载请求。[[https://github.com/acgotaku/YAAW-for-Chrome][插件地址]]
+* 扩展管理器
+  :PROPERTIES:
+  :ID:       D3A9B057-0878-4358-9A5C-2E93204B798B
+  :END:
+  Chrome扩展管理器，快速开启、禁用，模式快速切换。[[https://chrome.google.com/webstore/detail/extension-manager/gjldcdngmdknpinoemndlidpcabkggco][插件地址]]
+* 沙拉查词-聚合词典划词翻译
+  :PROPERTIES:
+  :ID:       ED6AFD5C-D35A-4036-99C3-97E55B123FF2
+  :END:
+  更人性化的划词扩展。[[https://github.com/crimx/ext-saladict][插件地址]]
+* 简悦 - SimpRead
+  :PROPERTIES:
+  :ID:       8C9861DA-030F-4451-8429-550FD763C2C3
+  :END:
+  沉浸式阅读首选，支持大多数的网站。[[https://github.com/Kenshin/simpread][插件地址]]
+* 掘金
+  :PROPERTIES:
+  :ID:       000398B3-32C5-4E17-97AC-D76C984A47DD
+  :END:
+  开发必备，每天看看IT界发生了啥。[[https://chrome.google.com/webstore/detail/%E6%8E%98%E9%87%91/lecdifefmmfjnjjinhaennhdlmcaeeeb][插件地址]]
+
