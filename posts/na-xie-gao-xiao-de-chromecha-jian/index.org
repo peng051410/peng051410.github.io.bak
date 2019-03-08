@@ -54,7 +54,7 @@
   :PROPERTIES:
   :ID:       74CCE923-58A5-4A82-B468-AC32417B3C81
   :END:
-  对浏览器请求返回的json数据进行美化，更利于阅读。[[https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahffihkfnj][插件地址]]
+  JSON数据处理插件。[[https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahffihkfnj][插件地址]]
 * Org Capture
   :PROPERTIES:
   :ID:       A36FAB7B-80C0-466C-B3D1-7F20F6C59D61
