@@ -55,6 +55,11 @@
   :ID:       74CCE923-58A5-4A82-B468-AC32417B3C81
   :END:
   JSON数据处理插件。[[https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahffihkfnj][插件地址]]
+* JSON Viewer Awesome
+  :PROPERTIES:
+  :ID:       6C659E40-8998-429A-A874-D71605059184
+  :END:
+  JSON数据美化，漂亮的不行不行的。[[https://chrome.google.com/webstore/detail/json-viewer-awesome/iemadiahhbebdklepanmkjenfdebfpfe/related][插件地址]]
 * Org Capture
   :PROPERTIES:
   :ID:       A36FAB7B-80C0-466C-B3D1-7F20F6C59D61
