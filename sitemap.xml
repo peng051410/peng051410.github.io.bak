@@ -7,19 +7,23 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://blog.imcompany.cn/</loc>
-  <lastmod>2018-09-28T12:18:00Z</lastmod>
+  <lastmod>2019-03-08T08:05:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/2018/</loc>
   <lastmod>2018-09-28T09:31:00Z</lastmod>
  </url>
  <url>
+  <loc>http://blog.imcompany.cn/2019/</loc>
+  <lastmod>2019-03-08T08:05:00Z</lastmod>
+ </url>
+ <url>
   <loc>http://blog.imcompany.cn/archive.html</loc>
-  <lastmod>2019-02-13T08:12:00Z</lastmod>
+  <lastmod>2019-03-08T08:05:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/categories/</loc>
-  <lastmod>2018-09-30T05:07:00Z</lastmod>
+  <lastmod>2019-03-08T08:05:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/categories/alfred/</loc>
@@ -36,6 +40,10 @@
  <url>
   <loc>http://blog.imcompany.cn/categories/cat_tools/</loc>
   <lastmod>2018-09-28T09:39:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.imcompany.cn/categories/chrome/</loc>
+  <lastmod>2019-03-08T08:05:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/categories/command/</loc>
@@ -67,11 +75,15 @@
  </url>
  <url>
   <loc>http://blog.imcompany.cn/index-1.html</loc>
-  <lastmod>2019-02-13T08:49:00Z</lastmod>
+  <lastmod>2019-03-08T08:05:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/posts/chang-yong-de-ideacha-jian/</loc>
   <lastmod>2018-09-28T09:31:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.imcompany.cn/posts/na-xie-gao-xiao-de-chromecha-jian/</loc>
+  <lastmod>2019-03-08T08:05:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/posts/na-xie-ti-gao-xiao-lu-de-alfred-workflow/</loc>

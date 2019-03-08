@@ -15,15 +15,19 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/cat_tool.xml</loc>
-  <lastmod>2019-02-13T08:06:00Z</lastmod>
+  <lastmod>2019-03-07T09:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/cat_tools.xml</loc>
-  <lastmod>2019-02-13T08:04:00Z</lastmod>
+  <lastmod>2019-03-08T08:05:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://blog.imcompany.cn/categories/chrome.xml</loc>
+  <lastmod>2019-03-08T08:05:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/command.xml</loc>
-  <lastmod>2019-02-13T08:03:00Z</lastmod>
+  <lastmod>2019-02-18T10:07:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/design-pattern.xml</loc>
@@ -31,7 +35,7 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/idea.xml</loc>
-  <lastmod>2019-02-13T08:06:00Z</lastmod>
+  <lastmod>2019-03-07T09:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/java.xml</loc>
@@ -39,11 +43,11 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/plugin.xml</loc>
-  <lastmod>2019-02-13T08:06:00Z</lastmod>
+  <lastmod>2019-03-07T09:39:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/terminal.xml</loc>
-  <lastmod>2019-02-13T08:03:00Z</lastmod>
+  <lastmod>2019-02-18T10:07:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/categories/vim.xml</loc>
@@ -51,10 +55,10 @@
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/rss.xml</loc>
-  <lastmod>2019-02-13T08:49:00Z</lastmod>
+  <lastmod>2019-03-08T08:05:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://blog.imcompany.cn/sitemap.xml</loc>
-  <lastmod>2019-02-13T08:49:00Z</lastmod>
+  <lastmod>2019-03-08T08:05:00Z</lastmod>
  </sitemap>
 </sitemapindex>
