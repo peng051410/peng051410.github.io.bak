@@ -205,3 +205,18 @@
   :ID:       35E710AF-85C1-489A-BF26-979495CEC059
   :END:
   文件变更监听响应，在文件变化时执行相应的配置动作。[[https://github.com/cortesi/modd][地址]]
+* gron
+  :PROPERTIES:
+  :ID:       5E701FA4-CB5F-4054-A5F1-C93DD672C01E
+  :END:
+  将JSON文本转换为离散的赋值语句，以便查找。[[https://github.com/tomnomnom/gron][地址]]
+* PathPicker
+  :PROPERTIES:
+  :ID:       0CF29C5F-906A-45EC-ABBA-BB4B9B5B1DC7
+  :END:
+  [[https://github.com/facebook/PathPicker][地址]]
+* Peco
+  :PROPERTIES:
+  :ID:       47ABE7B7-8496-4AE3-BC42-F150C5B682EC
+  :END:
+  [[https://github.com/peco/peco][地址]]
