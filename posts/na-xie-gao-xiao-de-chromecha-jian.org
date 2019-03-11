@@ -30,6 +30,11 @@
   :ID:       AAE04661-3333-4F76-81E1-3EC9DE6C9E8B
   :END:
   TweetDeck功能增强，如支持表情，只看某人的tweets，[[https://better.tw/][插件地址]]
+* Chrono下载管理器
+  :PROPERTIES:
+  :ID:       3C001101-6DD6-4DC6-8D1E-C9DF88810525
+  :END:
+  功能全面的chrome下载管理器，满足你的一切需求。[[https://chrome.google.com/webstore/detail/chrono-download-manager/mciiogijehkdemklbdcbfkefimifhecn][插件地址]]
 * Clutter Free - Prevent duplicate tabs
   :PROPERTIES:
   :ID:       A62C0EE7-0545-4C42-B5FB-0881A5C1C7EE
@@ -75,6 +80,11 @@
   :ID:       9C010452-B9BD-4ED1-BDA4-137F2FF8993B
   :END:
   网页代理切换，支持定义多种模式。[[https://github.com/FelisCatus/SwitchyOmega][插件地址]]
+* Sourcegraph
+  :PROPERTIES:
+  :ID:       B00DE0D2-A945-498C-8483-3185CE511A71
+  :END:
+  在线浏览Github的源码，支持一些语言的语义跳转。[[https://chrome.google.com/webstore/detail/sourcegraph/dgjhfomjieaadpoljlnidmbgkdffpack][插件地址]]
 * Surfingkeys
   :PROPERTIES:
   :ID:       C8DFB669-64A7-47A3-B5CA-F21669D2D0B0
