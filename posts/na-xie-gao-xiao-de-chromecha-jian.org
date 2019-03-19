@@ -55,6 +55,7 @@
   :ID:       C2970635-9CA2-4AD5-B8B8-E001173C956C
   :END:
   为Github添加类似IDE的功能，高效的代码浏览工具。[[https://github.com/apps/insight-io-code-review][插件地址]]
+{{{TEASER_END}}}
 * JSON-handle
   :PROPERTIES:
   :ID:       74CCE923-58A5-4A82-B468-AC32417B3C81
