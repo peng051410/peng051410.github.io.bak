@@ -121,4 +121,9 @@
   :ID:       000398B3-32C5-4E17-97AC-D76C984A47DD
   :END:
   开发必备，每天看看IT界发生了啥。[[https://chrome.google.com/webstore/detail/%E6%8E%98%E9%87%91/lecdifefmmfjnjjinhaennhdlmcaeeeb][插件地址]]
+* Github History
+  :PROPERTIES:
+  :ID:       D36506C9-6FF7-4EA2-82C0-D5AFC25E711B
+  :END:
+  方便的查看github上文件的修改历史。安装Cli工具可以查看本地文件修改历史。[[https://github.com/pomber/git-history][插件地址]]
 
