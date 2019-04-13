@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company (关于文章 tars)</title><link>http://blog.imcompany.cn/</link><description></description><atom:link href="http://blog.imcompany.cn/categories/tars.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Sat, 13 Apr 2019 03:42:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>TARS-打卡第一天</title><link>http://blog.imcompany.cn/posts/tars-001/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org4d3f57f" class="outline-2"&gt;
+&lt;h2 id="org4d3f57f"&gt;&lt;a id="ID-ED356ECB-A713-4045-AA06-606C9E7BFD88"&gt;&lt;/a&gt;Algorithm&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org4d3f57f"&gt;
+&lt;p&gt;
+LeetCode 第一题
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orge48f2bd" class="outline-3"&gt;
+&lt;h3 id="orge48f2bd"&gt;&lt;a id="ID-56B2A637-7784-4AE4-AFEA-A3443C3F8A62"&gt;&lt;/a&gt;题目描述&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orge48f2bd"&gt;
+&lt;p&gt;
+给一个int数组，返回数组中两个数字相加的和是目标 数的下标。可以假设每个输入只有一个解决方案，并且不能使用同一个元素两次。
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orga9e0eb7" class="outline-4"&gt;
+&lt;h4 id="orga9e0eb7"&gt;&lt;a id="ID-CF6801D2-991B-42B7-AEEC-C76F486BA10C"&gt;&lt;/a&gt;Example&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-orga9e0eb7"&gt;
+&lt;p&gt;
+&lt;code&gt;给出nums = [2, 7, 11, 15], 目标数为9，则返回[0, 1]&lt;/code&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orga26b6bb" class="outline-3"&gt;
+&lt;h3 id="orga26b6bb"&gt;&lt;a id="ID-1A075300-4237-4889-9BF8-1A93C9DA1B00"&gt;&lt;/a&gt;题目解答&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orga26b6bb"&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.*&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Solution&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+       &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="nf"&gt;twoSum&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;nums&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+	   &lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+	   &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;nums&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;length&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;++)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+	       &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;nums&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;];&lt;/span&gt;
+	       &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;containsKey&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;second&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+		   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;[]{&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;get&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;second&lt;/span&gt;&lt;span class="o"&gt;),&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;};&lt;/span&gt;
+	       &lt;span class="o"&gt;}&lt;/span&gt;
+	       &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nums&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;],&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+	   &lt;span class="o"&gt;}&lt;/span&gt;
+	   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;[]{};&lt;/span&gt;
+       &lt;span class="o"&gt;}&lt;/span&gt;
+   &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+相比两次循环的方式，这种处理的时间复杂度为O(n), 空间复杂度也为O(n).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org02ef6ac" class="outline-2"&gt;
+&lt;h2 id="org02ef6ac"&gt;&lt;a id="ID-AFC77C08-2DBF-41B6-AE18-261A0F5395BE"&gt;&lt;/a&gt;Review&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org02ef6ac"&gt;
+&lt;p&gt;
+&lt;a href="https://medium.com/google-cloud/production-guideline-9d5d10c8f1e"&gt;Google Cloud Production Guideline&lt;/a&gt;，本文主要是针对Google的Colud平台事故进行了线上发布的总结指导（检查列表）。详细如下：
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgccb1f9c" class="outline-3"&gt;
+&lt;h3 id="orgccb1f9c"&gt;&lt;a id="ID-65BD7547-BF8F-41C3-A521-EABE9883F3C4"&gt;&lt;/a&gt;设计与开发&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgccb1f9c"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;有可再生的构建系统，构建系统不能被外部的服务访问并且不能被一个外部的系统中断&lt;/li&gt;
+&lt;li&gt;记录服务所信赖外部服务的可用性期望&lt;/li&gt;
+&lt;li&gt;通过不信赖单个全局资源来避免单点故障，当资源不可用时，资源复制或者设置适当的回退（例如硬编码值）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org8d8685c" class="outline-3"&gt;
+&lt;h3 id="org8d8685c"&gt;&lt;a id="ID-1BDB64B0-6A6C-4D92-878A-0A032B062330"&gt;&lt;/a&gt;配置管理&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org8d8685c"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;静态的，小的和非加密配置可以是命令行标识。使用配置传送服务来完成其它任务&lt;/li&gt;
+&lt;li&gt;在配置系统不可用时，动态系统需要有一个可合理回退&lt;/li&gt;
+&lt;li&gt;开发环境的配置不应该从生产环境继承。这样可能导致从开发环境访问生产服务，并可能导致隐私问题和数据泄漏。&lt;/li&gt;
+&lt;li&gt;记录可以动态配置的内容，并且说明当服务传送服务不可达时的回退行为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/tars-001/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>tars</category><guid>http://blog.imcompany.cn/posts/tars-001/</guid><pubDate>Wed, 10 Apr 2019 23:36:51 GMT</pubDate></item></channel></rss>

@@ -1,5 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company</title><link>http://blog.imcompany.cn/</link><description>把知识用起来最好的方法就是：减少关注方向，经常记录，定期思考，反复实践，不把信息当作知识，不把收藏当作学习，不把阅读当作思考，不把储存当作掌握。 不提炼总结、不应用学习、不深入思考、不实践反馈，就不会变成自己的能力。———warfalcon</description><atom:link href="http://blog.imcompany.cn/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Fri, 22 Mar 2019 05:59:17 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>那些高效的Chrome插件</title><link>http://blog.imcompany.cn/posts/na-xie-gao-xiao-de-chromecha-jian/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-orgb9d8452" class="outline-2"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company</title><link>http://blog.imcompany.cn/</link><description>把知识用起来最好的方法就是：减少关注方向，经常记录，定期思考，反复实践，不把信息当作知识，不把收藏当作学习，不把阅读当作思考，不把储存当作掌握。 不提炼总结、不应用学习、不深入思考、不实践反馈，就不会变成自己的能力。———warfalcon</description><atom:link href="http://blog.imcompany.cn/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Sat, 13 Apr 2019 03:42:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>TARS-打卡第一天</title><link>http://blog.imcompany.cn/posts/tars-001/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org4d3f57f" class="outline-2"&gt;
+&lt;h2 id="org4d3f57f"&gt;&lt;a id="ID-ED356ECB-A713-4045-AA06-606C9E7BFD88"&gt;&lt;/a&gt;Algorithm&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org4d3f57f"&gt;
+&lt;p&gt;
+LeetCode 第一题
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orge48f2bd" class="outline-3"&gt;
+&lt;h3 id="orge48f2bd"&gt;&lt;a id="ID-56B2A637-7784-4AE4-AFEA-A3443C3F8A62"&gt;&lt;/a&gt;题目描述&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orge48f2bd"&gt;
+&lt;p&gt;
+给一个int数组，返回数组中两个数字相加的和是目标 数的下标。可以假设每个输入只有一个解决方案，并且不能使用同一个元素两次。
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orga9e0eb7" class="outline-4"&gt;
+&lt;h4 id="orga9e0eb7"&gt;&lt;a id="ID-CF6801D2-991B-42B7-AEEC-C76F486BA10C"&gt;&lt;/a&gt;Example&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-orga9e0eb7"&gt;
+&lt;p&gt;
+&lt;code&gt;给出nums = [2, 7, 11, 15], 目标数为9，则返回[0, 1]&lt;/code&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orga26b6bb" class="outline-3"&gt;
+&lt;h3 id="orga26b6bb"&gt;&lt;a id="ID-1A075300-4237-4889-9BF8-1A93C9DA1B00"&gt;&lt;/a&gt;题目解答&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orga26b6bb"&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.*&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+   &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Solution&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+       &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="nf"&gt;twoSum&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;nums&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+	   &lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+	   &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;nums&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;length&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;++)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+	       &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;nums&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;];&lt;/span&gt;
+	       &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;containsKey&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;second&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+		   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;[]{&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;get&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;second&lt;/span&gt;&lt;span class="o"&gt;),&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;};&lt;/span&gt;
+	       &lt;span class="o"&gt;}&lt;/span&gt;
+	       &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;put&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nums&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;],&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+	   &lt;span class="o"&gt;}&lt;/span&gt;
+	   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;[]{};&lt;/span&gt;
+       &lt;span class="o"&gt;}&lt;/span&gt;
+   &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+相比两次循环的方式，这种处理的时间复杂度为O(n), 空间复杂度也为O(n).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org02ef6ac" class="outline-2"&gt;
+&lt;h2 id="org02ef6ac"&gt;&lt;a id="ID-AFC77C08-2DBF-41B6-AE18-261A0F5395BE"&gt;&lt;/a&gt;Review&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org02ef6ac"&gt;
+&lt;p&gt;
+&lt;a href="https://medium.com/google-cloud/production-guideline-9d5d10c8f1e"&gt;Google Cloud Production Guideline&lt;/a&gt;，本文主要是针对Google的Colud平台事故进行了线上发布的总结指导（检查列表）。详细如下：
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgccb1f9c" class="outline-3"&gt;
+&lt;h3 id="orgccb1f9c"&gt;&lt;a id="ID-65BD7547-BF8F-41C3-A521-EABE9883F3C4"&gt;&lt;/a&gt;设计与开发&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgccb1f9c"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;有可再生的构建系统，构建系统不能被外部的服务访问并且不能被一个外部的系统中断&lt;/li&gt;
+&lt;li&gt;记录服务所信赖外部服务的可用性期望&lt;/li&gt;
+&lt;li&gt;通过不信赖单个全局资源来避免单点故障，当资源不可用时，资源复制或者设置适当的回退（例如硬编码值）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org8d8685c" class="outline-3"&gt;
+&lt;h3 id="org8d8685c"&gt;&lt;a id="ID-1BDB64B0-6A6C-4D92-878A-0A032B062330"&gt;&lt;/a&gt;配置管理&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org8d8685c"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;静态的，小的和非加密配置可以是命令行标识。使用配置传送服务来完成其它任务&lt;/li&gt;
+&lt;li&gt;在配置系统不可用时，动态系统需要有一个可合理回退&lt;/li&gt;
+&lt;li&gt;开发环境的配置不应该从生产环境继承。这样可能导致从开发环境访问生产服务，并可能导致隐私问题和数据泄漏。&lt;/li&gt;
+&lt;li&gt;记录可以动态配置的内容，并且说明当服务传送服务不可达时的回退行为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/tars-001/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>tars</category><guid>http://blog.imcompany.cn/posts/tars-001/</guid><pubDate>Wed, 10 Apr 2019 23:36:51 GMT</pubDate></item><item><title>那些高效的Chrome插件</title><link>http://blog.imcompany.cn/posts/na-xie-gao-xiao-de-chromecha-jian/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-orgb9d8452" class="outline-2"&gt;
 &lt;h2 id="orgb9d8452"&gt;&lt;a id="ID-75DEB1B9-2A8B-4898-9299-A396BA55D60E"&gt;&lt;/a&gt;1Password extension&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-orgb9d8452"&gt;
 &lt;p&gt;
@@ -426,63 +501,4 @@ ignore文件忽略，支持绝大多数的开发语言，支持直接导航到�
 &lt;p&gt;
 如上定义了微信、qq、微博三种登录方式，它们都是使用accessToken来进行认证，经用户同意后获取相应的用户的信息调用方使用。下面来进行具体的实现：
 &lt;/p&gt;
-&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/</guid><pubDate>Tue, 26 Jun 2018 13:30:17 GMT</pubDate></item><item><title>设计模式学习之模板模式</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org0a17cd2" class="outline-2"&gt;
-&lt;h2 id="org0a17cd2"&gt;&lt;a id="ID-1D499B1D-BE98-4A3B-B9FA-BA4DEB4B4DB4"&gt;&lt;/a&gt;说明&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org0a17cd2"&gt;
-&lt;p&gt;
-在一般实现处理用户支付订单时，通常都会在一个单独的回调项目中来处理用户的支付方式回调。一般情况下，回调的处理过程都是相似的，大体的步骤就是获取参数-&amp;gt;验证参数-&amp;gt;验证签名-&amp;gt;验证支付状态（可选）-&amp;gt;订单状态为成功增加用户的充值金额。具体的过程由于不同的支付方式不同而处理的不同。这种需求可以使用模板的模板模式来实现。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org748f8b4" class="outline-2"&gt;
-&lt;h2 id="org748f8b4"&gt;&lt;a id="ID-D853C6D0-3137-4D2C-AE23-FC5BD4185FEE"&gt;&lt;/a&gt;模板设计模式实现&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org748f8b4"&gt;
-&lt;p&gt;
-模板模式就是由一个类来声明整个处理流程的步骤，具体的实现由各个实现类来进行实现。处理的流程不变，变是就是里面具体的实现。针对上面的支付回调，可以声明一个抽象类来声明具体的流程方法，代码如下：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.callback&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.Map&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/21.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;abstract&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;PayCallback&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;abstract&lt;/span&gt; &lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;getParam&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;abstract&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;checkParam&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;param&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;abstract&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;validSign&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-
-      &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;       * 定义了一个钩子方法来让子类控制流程实现&lt;/span&gt;
-&lt;span class="cm"&gt;       * @return true：强制返回，false：不强制返回&lt;/span&gt;
-&lt;span class="cm"&gt;       */&lt;/span&gt;
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;forceReturn&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-
-      &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="nf"&gt;doService&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-	  &lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;getParam&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-	  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(!&lt;/span&gt;&lt;span class="n"&gt;checkParam&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;"param fail"&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-	  &lt;span class="o"&gt;}&lt;/span&gt;
-	  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(!&lt;/span&gt;&lt;span class="n"&gt;validSign&lt;/span&gt;&lt;span class="o"&gt;())&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;"sign fail"&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-	  &lt;span class="o"&gt;}&lt;/span&gt;
-
-	  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(!&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;get&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"status"&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;equals&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"success"&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-	      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;forceReturn&lt;/span&gt;&lt;span class="o"&gt;())&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-		  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;"order fail"&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-	      &lt;span class="o"&gt;}&lt;/span&gt;
-	  &lt;span class="o"&gt;}&lt;/span&gt;
-
-	  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;"success"&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;}&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/</guid><pubDate>Mon, 25 Jun 2018 13:06:17 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/</guid><pubDate>Tue, 26 Jun 2018 13:30:17 GMT</pubDate></item></channel></rss>
