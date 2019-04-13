@@ -1,0 +1,124 @@
+#+BEGIN_COMMENT
+.. title: TARS-打卡第一天
+.. slug: tars-001
+.. date: 2019-04-11 07:36:51 UTC+08:00
+.. tags: tars
+.. category: tars
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
+
+* Algorithm
+  :PROPERTIES:
+  :ID:       ED356ECB-A713-4045-AA06-606C9E7BFD88
+  :END:
+  LeetCode 第一题
+** 题目描述
+   :PROPERTIES:
+   :ID:       56B2A637-7784-4AE4-AFEA-A3443C3F8A62
+   :END:
+   给一个int数组，返回数组中两个数字相加的和是目标 数的下标。可以假设每个输入只有一个解决方案，并且不能使用同一个元素两次。
+
+*** Example
+    :PROPERTIES:
+    :ID:       CF6801D2-991B-42B7-AEEC-C76F486BA10C
+    :END:
+   ~给出nums = [2, 7, 11, 15], 目标数为9，则返回[0, 1]~
+** 题目解答
+   :PROPERTIES:
+   :ID:       1A075300-4237-4889-9BF8-1A93C9DA1B00
+   :END:
+   #+BEGIN_SRC java
+   import java.util.*;
+
+   public class Solution {
+       public int[] twoSum(int[] nums, int target) {
+           Map<Integer, Integer> map = new HashMap<>();
+           for(int i = 0; i < nums.length; i ++) {
+               int second = target - nums[i];
+               if(map.containsKey(second)) {
+                   return new int[]{map.get(second), i};
+               }
+               map.put(nums[i], i);
+           }
+           return new int[]{};
+       }
+   }
+   #+END_SRC
+   相比两次循环的方式，这种处理的时间复杂度为O(n), 空间复杂度也为O(n).
+* Review
+  :PROPERTIES:
+  :ID:       AFC77C08-2DBF-41B6-AE18-261A0F5395BE
+  :END:
+  [[https://medium.com/google-cloud/production-guideline-9d5d10c8f1e][Google Cloud Production Guideline]]，本文主要是针对Google的Colud平台事故进行了线上发布的总结指导（检查列表）。详细如下：
+** 设计与开发
+   :PROPERTIES:
+   :ID:       65BD7547-BF8F-41C3-A521-EABE9883F3C4
+   :END:
+   * 有可再生的构建系统，构建系统不能被外部的服务访问并且不能被一个外部的系统中断
+   * 记录服务所信赖外部服务的可用性期望
+   * 通过不信赖单个全局资源来避免单点故障，当资源不可用时，资源复制或者设置适当的回退（例如硬编码值）。
+** 配置管理 
+   :PROPERTIES:
+   :ID:       1BDB64B0-6A6C-4D92-878A-0A032B062330
+   :END:
+   * 静态的，小的和非加密配置可以是命令行标识。使用配置传送服务来完成其它任务
+   * 在配置系统不可用时，动态系统需要有一个可合理回退
+   * 开发环境的配置不应该从生产环境继承。这样可能导致从开发环境访问生产服务，并可能导致隐私问题和数据泄漏。
+   * 记录可以动态配置的内容，并且说明当服务传送服务不可达时的回退行为
+{{{TEASER_END}}}
+** 发布管理
+   :PROPERTIES:
+   :ID:       B86533A6-D8E1-44CD-9926-27191AE0C9CB
+   :END:
+   * 记录关于发布过程的所有明细。记录发布如何影响SLOs（比如由于缓存丢失导致的临时更高延迟）
+   * 记录服务的金丝雀发布过程
+   * 有一个金丝雀的分析计划，如果可能的话，设置机制支持自动化恢复金丝雀的机制
+   * 确保回退使用相同的操作来持续使用
+** 可观察性
+   :PROPERTIES:
+   :ID:       E4B3122E-4FBB-4485-80E1-FFCA6A3E3615
+   :END:
+   * 确保从二进制文件中收集并导出SLOs所需的度量集合
+   * 确保客户端与服务端的可观察性数据是分开的。这个在生产环境调试时很重要
+   * 调整报警以减少工作量，例如删除日常事件触发的报警
+   * 总是传递入参的跟踪上下文，这样对于系统调试有很大的帮助
+** 安全和保护
+   :PROPERTIES:
+   :ID:       B208E2D2-5C1A-4B1B-9903-1E3CA726F537
+   :END:
+   * 保证所有的外部请求都已加密
+   * 使用项目来完全隔离资源
+   * 在项目中使用网络来隔离VM实例组
+   * 使用云VPN来进行远程连接
+   * 记录与监听用户的数据访问，确保所有用户的数据访问是被记录与审查的
+   * 确保调试节点是被ACL限制的
+   * 处理用户的输入，为用户输入设置有效负载大小限制
+   * 确保服务可以有选择的阻塞每个用户的传入流量。这允许在不影响其它用户的情况下阻止滥用行为
+   * 避免外部节点引发大量的内部扩张
+** 容量计划
+   :PROPERTIES:
+   :ID:       A5C9DE8C-460E-4FEC-A411-9CF5A4551FFE
+   :END:
+   * 记录服务的负载。例如用户数,入口流量，入口信息量
+   * 记录服务的资源请求，例如可用的VM实例数，硬件如GPUs和TPUs
+   * 记录资源的约束：资源类型，范围等等
+   * 记录创建新资源的配额限制
+   * 在可能的情况下进行性能回归的负载测试
+* Tip
+  :PROPERTIES:
+  :ID:       3EA96741-E450-4FEC-89E1-A014DCED15FA
+  :END:
+  在Emacs的Dired中进行快速的写操作(批量修改文件名等)，操作步骤：
+  - M-x dired
+  - C-x C-q (开启dired buffer的只读模式)
+  - M-x query-replace (执行查找并替换)
+  - C-c C-c (保存修改)
+  搞定，批量重命名文件就是这么简单.
+* Share
+  :PROPERTIES:
+  :ID:       CBC3B181-88A3-4A25-BE4E-577E7BA42C54
+  :END:
+  今天分享一篇通俗易懂方式来讲解多线程的文章，在文章中作者说明了进程与线程的区别，单核CPU下的多任务方式（假多任务），多核CPU下的多任务方式（真正的并发）,也讲述了在多线程情况下产生的问题，如数据竞争与竞态条件，以及编写多线程时保证程序正确的方法，如同步，原子操作，数据不可变等等。[[https://www.internalpointers.com/post/gentle-introduction-multithreading][A gentle introduction to multithreading]]
