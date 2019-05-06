@@ -36,7 +36,61 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/" class="u-url">设计模式学习之模板模式</a></h1>
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/" class="u-url">设计模式学习之适配器</a></h1>
+        <div class="metadata">
+            <p class="dateline"><a href="posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2018-06-26T21:30:17+08:00" title="2018-06-26 21:30">2018-06-26 21:30</time></a></p>
+            <p class="byline author vcard"> <i class="fa fa-user"></i> <span class="byline-name fn" itemprop="author">
+                Tomyli
+            </span></p>
+                <p class="commentline"><i class="fa fa-comment"></i> 
+        
+    <a href="posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/#disqus_thread" data-disqus-identifier="cache/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<div id="outline-container-org4337427" class="outline-2">
+<h2 id="org4337427">
+<a id="ID-EB4962BA-C631-4716-BC9D-20C978873C77"></a>说明</h2>
+<div class="outline-text-2" id="text-org4337427">
+<p>
+在<a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi">前面</a>的文章中介绍了一些关于支付相关的功能，现在转向登录，在早些时期的系统登录就是用户使用用户名与密码进行注册，注册成功后就可以进行登录了。随着时代的发展，出现很多三方的平台，它们对外提供了获取平台用户信息的功能，例如微信、qq、微博等三方登录，在接入这些三方登录时都是遵循相应的规则，老的登录的方式需要保留，对接新的登录方式还想要使用老的登录服务，这样可以使用适配器模式来实现。
+</p>
+</div>
+</div>
+<div id="outline-container-orga7ceefc" class="outline-2">
+<h2 id="orga7ceefc">
+<a id="ID-1C175AD8-25AF-469B-82AD-6C10817DF235"></a>适配器模式</h2>
+<div class="outline-text-2" id="text-orga7ceefc">
+<p>
+比如我们平常使用的转接头一样，就是一种适配器的模式。它使两个不相关的物体很好的关联在一起。对于要接入的新的登录方式，首先定义新的三方登录的接口，定义要使用的三方登录方式，如下代码示例：
+</p>
+<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.adapter</span><span class="o">;</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Created by tomyli on 2018/6/22.</span>
+<span class="cm">   * Github: https://github.com/peng051410</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ThirdLogin</span> <span class="o">{</span>
+
+      <span class="kt">void</span> <span class="nf">wechatLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">accessToken</span><span class="o">);</span>
+
+      <span class="kt">void</span> <span class="nf">qqLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">accessToken</span><span class="o">);</span>
+
+      <span class="kt">void</span> <span class="nf">sinaLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">accessToken</span><span class="o">);</span>
+  <span class="o">}</span>
+</pre></div>
+<p>
+如上定义了微信、qq、微博三种登录方式，它们都是使用accessToken来进行认证，经用户同意后获取相应的用户的信息调用方使用。下面来进行具体的实现：
+</p>
+<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/">阅读更多…</a></p>
+</div>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/" class="u-url">设计模式学习之模板模式</a></h1>
         <div class="metadata">
             <p class="dateline"><a href="posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2018-06-25T21:06:17+08:00" title="2018-06-25 21:06">2018-06-25 21:06</time></a></p>
             <p class="byline author vcard"> <i class="fa fa-user"></i> <span class="byline-name fn" itemprop="author">

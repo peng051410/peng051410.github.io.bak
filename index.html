@@ -13,7 +13,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" hreflang="zh_cn" href="rss.xml">
 <link rel="canonical" href="http://blog.imcompany.cn/">
 <link rel="next" href="index-1.html" type="text/html">
-<!--[if lt IE 9]><script src="assets/js/html5shiv-printshiv.min.js"></script><![endif]--><link rel="prefetch" href="posts/tars-001/" type="text/html">
+<!--[if lt IE 9]><script src="assets/js/html5shiv-printshiv.min.js"></script><![endif]--><link rel="prefetch" href="posts/centos7-install-issue-collect/" type="text/html">
 </head>
 <body>
     <a href="#page-content" class="sr-only sr-only-focusable">跳到主内容</a>
@@ -36,7 +36,82 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/tars-001/" class="u-url">TARS-打卡第一天</a></h1>
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/centos7-install-issue-collect/" class="u-url">Centos7 install issue collect</a></h1>
+        <div class="metadata">
+            <p class="dateline"><a href="posts/centos7-install-issue-collect/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2019-05-06T13:00:55+08:00" title="2019-05-06 13:00">2019-05-06 13:00</time></a></p>
+            <p class="byline author vcard"> <i class="fa fa-user"></i> <span class="byline-name fn" itemprop="author">
+                Tomyli
+            </span></p>
+                <p class="commentline"><i class="fa fa-comment"></i> 
+        
+    <a href="posts/centos7-install-issue-collect/#disqus_thread" data-disqus-identifier="cache/posts/centos7-install-issue-collect.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <p>
+<code>由于工作需要，使用VMWare虚拟机安装了Centos7系统，遇到了很多问题，现在把这些问题记录下来，以备后用。</code>
+</p>
+<div id="outline-container-orge869491" class="outline-2">
+<h2 id="orge869491">
+<a id="ID-84DBB28B-510F-48F5-9400-9B7BB965276F"></a>解决Centos7 yum could not retrieve mirrorlist错误</h2>
+<div class="outline-text-2" id="text-orge869491">
+<p>
+刚安装好的VM使用ip add查看局域网的ip没有结果，这个参考<a href="https://my.oschina.net/u/2456768/blog/3011881">https://my.oschina.net/u/2456768/blog/3011881</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org94b3ed5" class="outline-2">
+<h2 id="org94b3ed5">
+<a id="ID-81DDC873-8885-41D8-86D5-45A73C6B0C56"></a>Centos7安装后配置国内仓库源</h2>
+<div class="outline-text-2" id="text-org94b3ed5">
+<p>
+  由于国内访问centos的原始源慢，需要换成163的软件源，新安装的系统执行命令都提示not found，只能从物理下载源的配置再上传到VM中，但是首先得知道VM的ip地址，使用ifconfig是不可能了，查了一下可以使用
+<code>ip address show</code>
+来查看VM的ip地址，这样配置源的的问题可以解决了，具体的配置源的方法参考<a href="https://blog.csdn.net/inslow/article/details/54177191">https://blog.csdn.net/inslow/article/details/54177191</a>
+</p>
+</div>
+<div id="outline-container-orgda88991" class="outline-3">
+<h3 id="orgda88991">
+<a id="ID-2D38E928-3C28-41CC-A3A2-D0F6F4938DA5"></a>Centos7安装VMware Tools</h3>
+<div class="outline-text-3" id="text-orgda88991">
+<p>
+想更好的让VM与物理机协同，则VMware Tools必须要安装，好久不用linux的我连挂载也忘的一干二净了。搜了一下，参考<a href="https://blog.csdn.net/WarnerWu/article/details/73718901">https://blog.csdn.net/WarnerWu/article/details/73718901</a> 完成VMware Tools的安装。这样共享目录的功能就可以正常使用了
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbd62cd9" class="outline-2">
+<h2 id="orgbd62cd9">
+<a id="ID-3C9A8FC3-06ED-45D7-9EC6-546B407BC6D6"></a>安装Jdk8</h2>
+<div class="outline-text-2" id="text-orgbd62cd9">
+<p>
+一句命令搞定：
+<code>yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel</code>
+</p>
+</div>
+</div>
+<div id="outline-container-org232ef30" class="outline-2">
+<h2 id="org232ef30">
+<a id="ID-6EE1B642-574A-4AFA-924A-F275A92A8FC5"></a>安装mysql</h2>
+<div class="outline-text-2" id="text-org232ef30">
+<p>
+使用yum安装mysql需要下载安装mysql的源，更新后就可以安装了，这个参考了<a href="https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/">https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org506b8f1" class="outline-2">
+<h2 id="org506b8f1">
+<a id="ID-557D4123-928B-459E-A11F-3BB36A91DD00"></a>安装oh-my-bash</h2>
+<div class="outline-text-2" id="text-org506b8f1">
+<p>
+由于一般服务器都自带bash为默认的shell，但是操作起来着实不方便，安装oh-my-bash可以对shell进行一些增强。<a href="https://github.com/ohmybash/oh-my-bash">https://github.com/ohmybash/oh-my-bash</a>
+</p>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/tars-001/" class="u-url">TARS-打卡第一天</a></h1>
         <div class="metadata">
             <p class="dateline"><a href="posts/tars-001/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2019-04-11T07:36:51+08:00" title="2019-04-11 07:36">2019-04-11 07:36</time></a></p>
             <p class="byline author vcard"> <i class="fa fa-user"></i> <span class="byline-name fn" itemprop="author">
@@ -729,60 +804,6 @@ ignore文件忽略，支持绝大多数的开发语言，支持直接导航到�
   <span class="o">}</span>
 </pre></div>
 <p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/">阅读更多…</a></p>
-</div>
-</div>
-</div>
-    </div>
-    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/" class="u-url">设计模式学习之适配器</a></h1>
-        <div class="metadata">
-            <p class="dateline"><a href="posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2018-06-26T21:30:17+08:00" title="2018-06-26 21:30">2018-06-26 21:30</time></a></p>
-            <p class="byline author vcard"> <i class="fa fa-user"></i> <span class="byline-name fn" itemprop="author">
-                Tomyli
-            </span></p>
-                <p class="commentline"><i class="fa fa-comment"></i> 
-        
-    <a href="posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/#disqus_thread" data-disqus-identifier="cache/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<div id="outline-container-org4337427" class="outline-2">
-<h2 id="org4337427">
-<a id="ID-EB4962BA-C631-4716-BC9D-20C978873C77"></a>说明</h2>
-<div class="outline-text-2" id="text-org4337427">
-<p>
-在<a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi">前面</a>的文章中介绍了一些关于支付相关的功能，现在转向登录，在早些时期的系统登录就是用户使用用户名与密码进行注册，注册成功后就可以进行登录了。随着时代的发展，出现很多三方的平台，它们对外提供了获取平台用户信息的功能，例如微信、qq、微博等三方登录，在接入这些三方登录时都是遵循相应的规则，老的登录的方式需要保留，对接新的登录方式还想要使用老的登录服务，这样可以使用适配器模式来实现。
-</p>
-</div>
-</div>
-<div id="outline-container-orga7ceefc" class="outline-2">
-<h2 id="orga7ceefc">
-<a id="ID-1C175AD8-25AF-469B-82AD-6C10817DF235"></a>适配器模式</h2>
-<div class="outline-text-2" id="text-orga7ceefc">
-<p>
-比如我们平常使用的转接头一样，就是一种适配器的模式。它使两个不相关的物体很好的关联在一起。对于要接入的新的登录方式，首先定义新的三方登录的接口，定义要使用的三方登录方式，如下代码示例：
-</p>
-<div class="highlight"><pre><span></span>  <span class="kn">package</span> <span class="nn">cn.imcompany.adapter</span><span class="o">;</span>
-
-  <span class="cm">/**</span>
-<span class="cm">   * Created by tomyli on 2018/6/22.</span>
-<span class="cm">   * Github: https://github.com/peng051410</span>
-<span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ThirdLogin</span> <span class="o">{</span>
-
-      <span class="kt">void</span> <span class="nf">wechatLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">accessToken</span><span class="o">);</span>
-
-      <span class="kt">void</span> <span class="nf">qqLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">accessToken</span><span class="o">);</span>
-
-      <span class="kt">void</span> <span class="nf">sinaLogin</span><span class="o">(</span><span class="n">String</span> <span class="n">accessToken</span><span class="o">);</span>
-  <span class="o">}</span>
-</pre></div>
-<p>
-如上定义了微信、qq、微博三种登录方式，它们都是使用accessToken来进行认证，经用户同意后获取相应的用户的信息调用方使用。下面来进行具体的实现：
-</p>
-<p class="more"><a href="posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/">阅读更多…</a></p>
 </div>
 </div>
 </div>

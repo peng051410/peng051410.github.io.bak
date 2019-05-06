@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company</title><link>http://blog.imcompany.cn/</link><description>把知识用起来最好的方法就是：减少关注方向，经常记录，定期思考，反复实践，不把信息当作知识，不把收藏当作学习，不把阅读当作思考，不把储存当作掌握。 不提炼总结、不应用学习、不深入思考、不实践反馈，就不会变成自己的能力。———warfalcon</description><atom:link href="http://blog.imcompany.cn/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Sat, 13 Apr 2019 03:42:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>TARS-打卡第一天</title><link>http://blog.imcompany.cn/posts/tars-001/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org4d3f57f" class="outline-2"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company</title><link>http://blog.imcompany.cn/</link><description>把知识用起来最好的方法就是：减少关注方向，经常记录，定期思考，反复实践，不把信息当作知识，不把收藏当作学习，不把阅读当作思考，不把储存当作掌握。 不提炼总结、不应用学习、不深入思考、不实践反馈，就不会变成自己的能力。———warfalcon</description><atom:link href="http://blog.imcompany.cn/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Mon, 06 May 2019 05:21:54 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Centos7 install issue collect</title><link>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</link><dc:creator>Tomyli</dc:creator><description>&lt;p&gt;
+&lt;code&gt;由于工作需要，使用VMWare虚拟机安装了Centos7系统，遇到了很多问题，现在把这些问题记录下来，以备后用。&lt;/code&gt;
+&lt;/p&gt;
+&lt;div id="outline-container-orge869491" class="outline-2"&gt;
+&lt;h2 id="orge869491"&gt;&lt;a id="ID-84DBB28B-510F-48F5-9400-9B7BB965276F"&gt;&lt;/a&gt;解决Centos7 yum could not retrieve mirrorlist错误&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orge869491"&gt;
+&lt;p&gt;
+刚安装好的VM使用ip add查看局域网的ip没有结果，这个参考&lt;a href="https://my.oschina.net/u/2456768/blog/3011881"&gt;https://my.oschina.net/u/2456768/blog/3011881&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org94b3ed5" class="outline-2"&gt;
+&lt;h2 id="org94b3ed5"&gt;&lt;a id="ID-81DDC873-8885-41D8-86D5-45A73C6B0C56"&gt;&lt;/a&gt;Centos7安装后配置国内仓库源&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org94b3ed5"&gt;
+&lt;p&gt;
+  由于国内访问centos的原始源慢，需要换成163的软件源，新安装的系统执行命令都提示not found，只能从物理下载源的配置再上传到VM中，但是首先得知道VM的ip地址，使用ifconfig是不可能了，查了一下可以使用
+&lt;code&gt;ip address show&lt;/code&gt;
+来查看VM的ip地址，这样配置源的的问题可以解决了，具体的配置源的方法参考&lt;a href="https://blog.csdn.net/inslow/article/details/54177191"&gt;https://blog.csdn.net/inslow/article/details/54177191&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgda88991" class="outline-3"&gt;
+&lt;h3 id="orgda88991"&gt;&lt;a id="ID-2D38E928-3C28-41CC-A3A2-D0F6F4938DA5"&gt;&lt;/a&gt;Centos7安装VMware Tools&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgda88991"&gt;
+&lt;p&gt;
+想更好的让VM与物理机协同，则VMware Tools必须要安装，好久不用linux的我连挂载也忘的一干二净了。搜了一下，参考&lt;a href="https://blog.csdn.net/WarnerWu/article/details/73718901"&gt;https://blog.csdn.net/WarnerWu/article/details/73718901&lt;/a&gt; 完成VMware Tools的安装。这样共享目录的功能就可以正常使用了
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgbd62cd9" class="outline-2"&gt;
+&lt;h2 id="orgbd62cd9"&gt;&lt;a id="ID-3C9A8FC3-06ED-45D7-9EC6-546B407BC6D6"&gt;&lt;/a&gt;安装Jdk8&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgbd62cd9"&gt;
+&lt;p&gt;
+一句命令搞定：
+&lt;code&gt;yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel&lt;/code&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org232ef30" class="outline-2"&gt;
+&lt;h2 id="org232ef30"&gt;&lt;a id="ID-6EE1B642-574A-4AFA-924A-F275A92A8FC5"&gt;&lt;/a&gt;安装mysql&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org232ef30"&gt;
+&lt;p&gt;
+使用yum安装mysql需要下载安装mysql的源，更新后就可以安装了，这个参考了&lt;a href="https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/"&gt;https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org506b8f1" class="outline-2"&gt;
+&lt;h2 id="org506b8f1"&gt;&lt;a id="ID-557D4123-928B-459E-A11F-3BB36A91DD00"&gt;&lt;/a&gt;安装oh-my-bash&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org506b8f1"&gt;
+&lt;p&gt;
+由于一般服务器都自带bash为默认的shell，但是操作起来着实不方便，安装oh-my-bash可以对shell进行一些增强。&lt;a href="https://github.com/ohmybash/oh-my-bash"&gt;https://github.com/ohmybash/oh-my-bash&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description><category>centos7</category><category>linux</category><guid>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</guid><pubDate>Mon, 06 May 2019 05:00:55 GMT</pubDate></item><item><title>TARS-打卡第一天</title><link>http://blog.imcompany.cn/posts/tars-001/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org4d3f57f" class="outline-2"&gt;
 &lt;h2 id="org4d3f57f"&gt;&lt;a id="ID-ED356ECB-A713-4045-AA06-606C9E7BFD88"&gt;&lt;/a&gt;Algorithm&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-org4d3f57f"&gt;
 &lt;p&gt;
@@ -469,36 +522,4 @@ ignore文件忽略，支持绝大多数的开发语言，支持直接导航到�
       &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
   &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/</guid><pubDate>Mon, 02 Jul 2018 12:09:14 GMT</pubDate></item><item><title>设计模式学习之适配器</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org4337427" class="outline-2"&gt;
-&lt;h2 id="org4337427"&gt;&lt;a id="ID-EB4962BA-C631-4716-BC9D-20C978873C77"&gt;&lt;/a&gt;说明&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org4337427"&gt;
-&lt;p&gt;
-在&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-mo-ban-mo-shi"&gt;前面&lt;/a&gt;的文章中介绍了一些关于支付相关的功能，现在转向登录，在早些时期的系统登录就是用户使用用户名与密码进行注册，注册成功后就可以进行登录了。随着时代的发展，出现很多三方的平台，它们对外提供了获取平台用户信息的功能，例如微信、qq、微博等三方登录，在接入这些三方登录时都是遵循相应的规则，老的登录的方式需要保留，对接新的登录方式还想要使用老的登录服务，这样可以使用适配器模式来实现。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orga7ceefc" class="outline-2"&gt;
-&lt;h2 id="orga7ceefc"&gt;&lt;a id="ID-1C175AD8-25AF-469B-82AD-6C10817DF235"&gt;&lt;/a&gt;适配器模式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orga7ceefc"&gt;
-&lt;p&gt;
-比如我们平常使用的转接头一样，就是一种适配器的模式。它使两个不相关的物体很好的关联在一起。对于要接入的新的登录方式，首先定义新的三方登录的接口，定义要使用的三方登录方式，如下代码示例：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.adapter&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/22.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;interface&lt;/span&gt; &lt;span class="nc"&gt;ThirdLogin&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;wechatLogin&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;accessToken&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-
-      &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;qqLogin&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;accessToken&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-
-      &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;sinaLogin&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;accessToken&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-如上定义了微信、qq、微博三种登录方式，它们都是使用accessToken来进行认证，经用户同意后获取相应的用户的信息调用方使用。下面来进行具体的实现：
-&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-gua-pei-qi/</guid><pubDate>Tue, 26 Jun 2018 13:30:17 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/</guid><pubDate>Mon, 02 Jul 2018 12:09:14 GMT</pubDate></item></channel></rss>
