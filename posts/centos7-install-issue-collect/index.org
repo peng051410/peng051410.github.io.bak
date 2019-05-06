@@ -39,6 +39,11 @@
   :ID:       6EE1B642-574A-4AFA-924A-F275A92A8FC5
   :END:
   使用yum安装mysql需要下载安装mysql的源，更新后就可以安装了，这个参考了https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/
+* 修改mysql的root密码
+  :PROPERTIES:
+  :ID:       CFFA6D73-B5D7-402B-8DDF-ACD9E2D7084D
+  :END:
+  安装完mysql后登录找不到密码了，其实在使用yum安装时会mysql会自动生成一个随机密码，这个密码可以在安装的日志中找到。此方法参考了https://blog.csdn.net/kuluzs/article/details/51924086
 * 安装oh-my-bash
   :PROPERTIES:
   :ID:       557D4123-928B-459E-A11F-3BB36A91DD00
