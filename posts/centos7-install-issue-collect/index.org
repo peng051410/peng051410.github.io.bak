@@ -48,7 +48,11 @@
   :PROPERTIES:
   :ID:       267B4B0C-66BF-4EEE-8B6C-352361631EFA
   :END:
-  为了方便mysql工具进行操作，需要开放3306端口。Centos7的防火墙还改了。这个参考了https://www.jianshu.com/p/225a853350d9
+  为了方便mysql工具进行操作，需要开放3306端口。Centos7的防火墙还改了。具体就3个命令：
+  ~systemctl start firewalld~
+  ~firewall-cmd --zone=public --add-port=3306/tcp --permanent~
+  ~firewall-cmd --reload~
+这个参考了https://www.jianshu.com/p/225a853350d9
 * 安装oh-my-bash
   :PROPERTIES:
   :ID:       557D4123-928B-459E-A11F-3BB36A91DD00
