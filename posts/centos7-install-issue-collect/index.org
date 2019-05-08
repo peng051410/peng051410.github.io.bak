@@ -16,6 +16,16 @@
   :ID:       84DBB28B-510F-48F5-9400-9B7BB965276F
   :END:
   刚安装好的VM使用ip add查看局域网的ip没有结果，这个参考https://my.oschina.net/u/2456768/blog/3011881
+* 配置静态ip
+  :PROPERTIES:
+  :ID:       34AA8C7F-F6C7-426D-B1AB-C4D02AFAD234
+  :END:
+  安装虚拟机就是模拟多个机器通讯的情况，但是目前的配置是机器ip是动态获取的，老是变，每次都得看ip，所以需要配置一下VMware来支持静态ip。主要机器上的配置信息为：
+~IPADDR=192.168.116.101~
+~NETMASK=255.255.255.0~
+~GATEWAY=192.168.116.2~
+~DNS1=192.168.116.2~
+这个参考了https://blog.csdn.net/zhishengqianjun/article/details/77046796
 * Centos7安装后配置国内仓库源
   :PROPERTIES:
   :ID:       81DDC873-8885-41D8-86D5-45A73C6B0C56
