@@ -10,7 +10,7 @@
 
 #+END_COMMENT
 
-~由于工作需要，使用VMWare虚拟机安装了Centos7系统，遇到了很多问题，现在把这些问题记录下来，以备后用。~
+*由于工作需要，使用VMWare虚拟机安装了Centos7系统，遇到了很多问题，现在把这些问题记录下来，以备后用。*
 * 解决Centos7 yum could not retrieve mirrorlist错误
   :PROPERTIES:
   :ID:       84DBB28B-510F-48F5-9400-9B7BB965276F
@@ -21,17 +21,21 @@
   :ID:       34AA8C7F-F6C7-426D-B1AB-C4D02AFAD234
   :END:
   安装虚拟机就是模拟多个机器通讯的情况，但是目前的配置是机器ip是动态获取的，老是变，每次都得看ip，所以需要配置一下VMware来支持静态ip。主要机器上的配置信息为：
-~IPADDR=192.168.116.101~
-~NETMASK=255.255.255.0~
-~GATEWAY=192.168.116.2~
-~DNS1=192.168.116.2~
+#+BEGIN_SRC shell
+IPADDR=192.168.116.101
+NETMASK=255.255.255.0
+GATEWAY=192.168.116.2
+DNS1=192.168.116.2
+#+END_SRC
 这个参考了https://blog.csdn.net/zhishengqianjun/article/details/77046796
 * Centos7安装后配置国内仓库源
   :PROPERTIES:
   :ID:       81DDC873-8885-41D8-86D5-45A73C6B0C56
   :END:
   由于国内访问centos的原始源慢，需要换成163的软件源，新安装的系统执行命令都提示not found，只能从物理下载源的配置再上传到VM中，但是首先得知道VM的ip地址，使用ifconfig是不可能了，查了一下可以使用
-~ip address show~
+#+BEGIN_SRC shell
+ip a
+#+END_SRC
 来查看VM的ip地址，这样配置源的的问题可以解决了，具体的配置源的方法参考https://blog.csdn.net/inslow/article/details/54177191
 ** Centos7安装VMware Tools
   :PROPERTIES:
@@ -43,7 +47,9 @@
   :ID:       3C9A8FC3-06ED-45D7-9EC6-546B407BC6D6
   :END:
   一句命令搞定：
-  ~yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel~
+  #+BEGIN_SRC shell
+  yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+  #+END_SRC
 * 安装mysql
   :PROPERTIES:
   :ID:       6EE1B642-574A-4AFA-924A-F275A92A8FC5
@@ -59,12 +65,45 @@
   :ID:       267B4B0C-66BF-4EEE-8B6C-352361631EFA
   :END:
   为了方便mysql工具进行操作，需要开放3306端口。Centos7的防火墙还改了。具体就3个命令：
-  ~systemctl start firewalld~
-  ~firewall-cmd --zone=public --add-port=3306/tcp --permanent~
-  ~firewall-cmd --reload~
-这个参考了https://www.jianshu.com/p/225a853350d9
+  #+BEGIN_SRC shell
+  systemctl start firewalld
+  firewall-cmd --zone=public --add-port=3306/tcp --permanent
+  firewall-cmd --reload
+  #+END_SRC
+  这个参考了https://www.jianshu.com/p/225a853350d9
 * 安装oh-my-bash
   :PROPERTIES:
   :ID:       557D4123-928B-459E-A11F-3BB36A91DD00
   :END:
   由于一般服务器都自带bash为默认的shell，但是操作起来着实不方便，安装oh-my-bash可以对shell进行一些增强。https://github.com/ohmybash/oh-my-bash
+* Centos自动登录
+  :PROPERTIES:
+  :ID:       42C1B284-6A9A-48F2-9E4E-DD8D217F8108
+  :END:
+  安装后每次启动VM都要输入密码，这个对于自己测试很麻烦，要使Centos能登录后自动登录需要做以下操作：
+  - 移除原来的getty@tty1.service软链接
+    #+BEGIN_SRC shell
+    rm /etc/systemd/system/getty.target.wants/getty@tty1.service
+    #+END_SRC
+  - 拷贝getty@.service file 并且命名为 getty@tty1.service
+    #+BEGIN_SRC shell
+    cp /lib/systemd/system/getty@.service /etc/systemd/system/getty@tty1.service
+    #+END_SRC
+  - 编辑新拷贝的getty@tty1.service，修改以下内容，最后一行必须加上
+    #+BEGIN_SRC shell
+    [Service]
+    ...
+    ExecStart=-/sbin/agetty --autologin root --noclear %I
+    ...
+    [Install]
+    ...
+    ;Alias=getty@tty1.service
+    #+END_SRC
+  - 在getty.target.wants目录做一下软链接
+    #+BEGIN_SRC shell
+    ln -s /etc/systemd/system/getty@tty1.service /etc/systemd/system/getty.target.wants/getty@tty1.service
+    #+END_SRC
+  - 重启，Done!
+
+  *以上参考https://www.centos.org/forums/viewtopic.php?t=48288
+    说明一下，网上一些修改gdm的方法试了没有作用。*

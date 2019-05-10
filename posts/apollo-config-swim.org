@@ -1,0 +1,132 @@
+#+BEGIN_COMMENT
+.. title: Apollo 配置中心畅游
+.. slug: apollo-config-swim
+.. date: 2019-05-09 17:34:09 UTC+08:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
+
+** Apollo开源配置中心分享
+   :PROPERTIES:
+   :ID:       56D30D0F-FF09-4415-B787-DE1E71B89525
+   :END:
+*** 目前市面上的开源产品
+    :PROPERTIES:
+    :ID:       24469E90-D66B-46C3-8111-273DC545ED9C
+    :END:
+**** [[https://github.com/knightliao/disconf][Disconf]]
+     :PROPERTIES:
+     :ID:       A8F19C10-24A4-462A-A278-3CC6866B6104
+     :END:
+     2014年7月百度开源的配置管理中心，同样具备配置的管理能力，目前已经不维护了，最近的一次代码提交是两年前了。
+**** [[https://github.com/spring-cloud/spring-cloud-config][Spring Cloud Config]]
+     :PROPERTIES:
+     :ID:       A1015FF2-133D-4C64-BFB3-8A9E027D1D19
+     :END:
+2014年9月开源，Spring Cloud生态组件，与Spring Cloud体系无缝整合。
+**** [[https://github.com/ctripcorp/apollo][Apollo]]
+     :PROPERTIES:
+     :ID:       09F80DD2-2794-40E6-A443-2F4868166899
+     :END:
+2016年5月，携程框架部开源的配置管理中心，具备规范的权限、流程治理等特性。
+**** [[https://github.com/alibaba/nacos][Nacos]]
+     :PROPERTIES:
+     :ID:       A38D7032-C1A2-4C94-A771-E23ACE4B13F4
+     :END:
+2018年6月，阿里开源的配置中心，可以做DNS和RPC的服务发现。
+*** 为什么选择Apollo
+    :PROPERTIES:
+    :ID:       93AD45B7-443A-4A92-8F7F-DBE208D9D995
+    :END:
+**** 社区活跃
+     :PROPERTIES:
+     :ID:       8B50A2C7-E400-4B1C-8C89-1E0FAD78C732
+     :END:
+     刚刚发布了1.4.0版本
+**** 文档齐全
+     :PROPERTIES:
+     :ID:       1F051A4F-9F86-494A-BE3D-CBF0568D9B13
+     :END:
+**** 重要的灰度发布
+     :PROPERTIES:
+     :ID:       3D3ED757-D257-4CC3-84B8-0752F4ACD983
+     :END:
+     想发布一台机器试试，可以！
+*** Apollo都有哪些重要功能
+    :PROPERTIES:
+    :ID:       0C1321E8-8D2E-495E-A1BB-65AC031794B3
+    :END:
+    以下摘自[[https://github.com/ctripcorp/apollo#features][官网说明]]
+**** 统一管理不同环境、不同集群的配置
+     :PROPERTIES:
+     :ID:       1643865B-0EF0-402F-B47E-0E21099A8FAC
+     :END:
+**** 配置修改实时生效（热发布）
+     :PROPERTIES:
+     :ID:       B7E2092D-B527-4592-A087-C74EAC86377C
+     :END:
+**** 版本发布管理
+     :PROPERTIES:
+     :ID:       90C41B7F-0B4B-4DB8-9CF2-02828BDA6DE0
+     :END:
+**** 灰度发布
+     :PROPERTIES:
+     :ID:       BAEB34A8-6C80-4BFB-8CBC-41572072A260
+     :END:
+**** 权限管理、发布审核、操作审计
+     :PROPERTIES:
+     :ID:       892929BB-D7E2-41B2-B198-D0C6F6C3B0A8
+     :END:
+**** 客户端配置信息监控
+     :PROPERTIES:
+     :ID:       0227ED14-7754-4EF9-9579-11615DDB0609
+     :END:
+**** 提供Java和.Net原生客户端
+     :PROPERTIES:
+     :ID:       35EE8191-FF3C-4778-8BFA-4AF5444B9048
+     :END:
+**** 提供开放平台API
+     :PROPERTIES:
+     :ID:       DECAE90E-1C80-44FD-B2C2-0B62A54E50FB
+     :END:
+**** 部署简单
+     :PROPERTIES:
+     :ID:       242AAC61-471F-47DB-A4F5-08372C963A92
+     :END:
+     外部依赖少，目前依赖Mysql
+**** 使用方便的后台配置系统Portal
+     :PROPERTIES:
+     :ID:       0D846262-4FC3-4ED7-9BD6-8DF85489F13C
+     :END:
+*** Apollo的组成
+    :PROPERTIES:
+    :ID:       AC32230B-1CCE-4CFC-806F-6F8FE3A70783
+    :END:
+**** Apollo 长什么样
+     :PROPERTIES:
+     :ID:       920AD4AB-F81D-4BF4-A696-4C7F730AE8B3
+     :END:
+**** Apollo Config Service
+     :PROPERTIES:
+     :ID:       EFC7B929-48E3-430E-B9D6-DDF4BB67A0A0
+     :END:
+**** Apollo Admin Service
+     :PROPERTIES:
+     :ID:       62CDB9D8-D64A-43D6-9768-900A1CDA9DCD
+     :END:
+**** Apollo Portal
+     :PROPERTIES:
+     :ID:       C54CBBC7-88AF-4A4C-A4A5-00FF7C8F3A40
+     :END:
+*** 体验部署方式
+    :PROPERTIES:
+    :ID:       9BA86A7E-AD18-4162-BFA6-8C04AE88AD9C
+    :END:
+*** 使用注意事项
+    :PROPERTIES:
+    :ID:       CED3F392-CA50-497B-8253-971664F19DBF
+    :END:
