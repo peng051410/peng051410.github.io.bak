@@ -19,7 +19,7 @@
  </url>
  <url>
   <loc>http://blog.imcompany.cn/archive.html</loc>
-  <lastmod>2019-05-06T05:18:00Z</lastmod>
+  <lastmod>2019-05-09T09:35:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/categories/</loc>
@@ -95,7 +95,11 @@
  </url>
  <url>
   <loc>http://blog.imcompany.cn/index-1.html</loc>
-  <lastmod>2019-05-06T05:18:00Z</lastmod>
+  <lastmod>2019-05-09T09:35:00Z</lastmod>
+ </url>
+ <url>
+  <loc>http://blog.imcompany.cn/posts/apollo-config-swim/</loc>
+  <lastmod>2019-05-09T09:35:00Z</lastmod>
  </url>
  <url>
   <loc>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</loc>

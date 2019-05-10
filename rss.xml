@@ -1,89 +1,303 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company</title><link>http://blog.imcompany.cn/</link><description>把知识用起来最好的方法就是：减少关注方向，经常记录，定期思考，反复实践，不把信息当作知识，不把收藏当作学习，不把阅读当作思考，不把储存当作掌握。 不提炼总结、不应用学习、不深入思考、不实践反馈，就不会变成自己的能力。———warfalcon</description><atom:link href="http://blog.imcompany.cn/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Wed, 08 May 2019 10:59:26 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Centos7 install issue collect</title><link>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</link><dc:creator>Tomyli</dc:creator><description>&lt;p&gt;
-&lt;code&gt;由于工作需要，使用VMWare虚拟机安装了Centos7系统，遇到了很多问题，现在把这些问题记录下来，以备后用。&lt;/code&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company</title><link>http://blog.imcompany.cn/</link><description>把知识用起来最好的方法就是：减少关注方向，经常记录，定期思考，反复实践，不把信息当作知识，不把收藏当作学习，不把阅读当作思考，不把储存当作掌握。 不提炼总结、不应用学习、不深入思考、不实践反馈，就不会变成自己的能力。———warfalcon</description><atom:link href="http://blog.imcompany.cn/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Fri, 10 May 2019 07:14:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Apollo 配置中心畅游</title><link>http://blog.imcompany.cn/posts/apollo-config-swim/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-orgbd09aff" class="outline-2"&gt;
+&lt;h2 id="orgbd09aff"&gt;&lt;a id="ID-56D30D0F-FF09-4415-B787-DE1E71B89525"&gt;&lt;/a&gt;Apollo开源配置中心分享&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgbd09aff"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org75127d1" class="outline-3"&gt;
+&lt;h3 id="org75127d1"&gt;&lt;a id="ID-24469E90-D66B-46C3-8111-273DC545ED9C"&gt;&lt;/a&gt;目前市面上的开源产品&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org75127d1"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orga788419" class="outline-4"&gt;
+&lt;h4 id="orga788419"&gt;&lt;a id="ID-A8F19C10-24A4-462A-A278-3CC6866B6104"&gt;&lt;/a&gt;&lt;a href="https://github.com/knightliao/disconf"&gt;Disconf&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-orga788419"&gt;
+&lt;p&gt;
+2014年7月百度开源的配置管理中心，同样具备配置的管理能力，目前已经不维护了，最近的一次代码提交是两年前了。
 &lt;/p&gt;
-&lt;div id="outline-container-orgf54256f" class="outline-2"&gt;
-&lt;h2 id="orgf54256f"&gt;&lt;a id="ID-84DBB28B-510F-48F5-9400-9B7BB965276F"&gt;&lt;/a&gt;解决Centos7 yum could not retrieve mirrorlist错误&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgf54256f"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgd7b1eed" class="outline-4"&gt;
+&lt;h4 id="orgd7b1eed"&gt;&lt;a id="ID-A1015FF2-133D-4C64-BFB3-8A9E027D1D19"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-config"&gt;Spring Cloud Config&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-orgd7b1eed"&gt;
+&lt;p&gt;
+2014年9月开源，Spring Cloud生态组件，与Spring Cloud体系无缝整合。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org44d7dff" class="outline-4"&gt;
+&lt;h4 id="org44d7dff"&gt;&lt;a id="ID-09F80DD2-2794-40E6-A443-2F4868166899"&gt;&lt;/a&gt;&lt;a href="https://github.com/ctripcorp/apollo"&gt;Apollo&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org44d7dff"&gt;
+&lt;p&gt;
+2016年5月，携程框架部开源的配置管理中心，具备规范的权限、流程治理等特性。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org25f6529" class="outline-4"&gt;
+&lt;h4 id="org25f6529"&gt;&lt;a id="ID-A38D7032-C1A2-4C94-A771-E23ACE4B13F4"&gt;&lt;/a&gt;&lt;a href="https://github.com/alibaba/nacos"&gt;Nacos&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org25f6529"&gt;
+&lt;p&gt;
+2018年6月，阿里开源的配置中心，可以做DNS和RPC的服务发现。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org75d0812" class="outline-3"&gt;
+&lt;h3 id="org75d0812"&gt;&lt;a id="ID-93AD45B7-443A-4A92-8F7F-DBE208D9D995"&gt;&lt;/a&gt;为什么选择Apollo&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org75d0812"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgaa2e70e" class="outline-4"&gt;
+&lt;h4 id="orgaa2e70e"&gt;&lt;a id="ID-8B50A2C7-E400-4B1C-8C89-1E0FAD78C732"&gt;&lt;/a&gt;社区活跃&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-orgaa2e70e"&gt;
+&lt;p&gt;
+刚刚发布了1.4.0版本
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org7e2b64d" class="outline-4"&gt;
+&lt;h4 id="org7e2b64d"&gt;&lt;a id="ID-1F051A4F-9F86-494A-BE3D-CBF0568D9B13"&gt;&lt;/a&gt;文档齐全&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org7e2b64d"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org3cd6a99" class="outline-4"&gt;
+&lt;h4 id="org3cd6a99"&gt;&lt;a id="ID-3D3ED757-D257-4CC3-84B8-0752F4ACD983"&gt;&lt;/a&gt;重要的灰度发布&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org3cd6a99"&gt;
+&lt;p&gt;
+想发布一台机器试试，可以！
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org1906e34" class="outline-3"&gt;
+&lt;h3 id="org1906e34"&gt;&lt;a id="ID-0C1321E8-8D2E-495E-A1BB-65AC031794B3"&gt;&lt;/a&gt;Apollo都有哪些重要功能&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org1906e34"&gt;
+&lt;p&gt;
+以下摘自&lt;a href="https://github.com/ctripcorp/apollo#features"&gt;官网说明&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org948f717" class="outline-4"&gt;
+&lt;h4 id="org948f717"&gt;&lt;a id="ID-1643865B-0EF0-402F-B47E-0E21099A8FAC"&gt;&lt;/a&gt;统一管理不同环境、不同集群的配置&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org948f717"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org78494d9" class="outline-4"&gt;
+&lt;h4 id="org78494d9"&gt;&lt;a id="ID-B7E2092D-B527-4592-A087-C74EAC86377C"&gt;&lt;/a&gt;配置修改实时生效（热发布）&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org78494d9"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org7271ba9" class="outline-4"&gt;
+&lt;h4 id="org7271ba9"&gt;&lt;a id="ID-90C41B7F-0B4B-4DB8-9CF2-02828BDA6DE0"&gt;&lt;/a&gt;版本发布管理&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org7271ba9"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org1944cab" class="outline-4"&gt;
+&lt;h4 id="org1944cab"&gt;&lt;a id="ID-BAEB34A8-6C80-4BFB-8CBC-41572072A260"&gt;&lt;/a&gt;灰度发布&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org1944cab"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org413456d" class="outline-4"&gt;
+&lt;h4 id="org413456d"&gt;&lt;a id="ID-892929BB-D7E2-41B2-B198-D0C6F6C3B0A8"&gt;&lt;/a&gt;权限管理、发布审核、操作审计&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org413456d"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org66abb9e" class="outline-4"&gt;
+&lt;h4 id="org66abb9e"&gt;&lt;a id="ID-0227ED14-7754-4EF9-9579-11615DDB0609"&gt;&lt;/a&gt;客户端配置信息监控&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org66abb9e"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org6ba920e" class="outline-4"&gt;
+&lt;h4 id="org6ba920e"&gt;&lt;a id="ID-35EE8191-FF3C-4778-8BFA-4AF5444B9048"&gt;&lt;/a&gt;提供Java和.Net原生客户端&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org6ba920e"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org772815b" class="outline-4"&gt;
+&lt;h4 id="org772815b"&gt;&lt;a id="ID-DECAE90E-1C80-44FD-B2C2-0B62A54E50FB"&gt;&lt;/a&gt;提供开放平台API&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org772815b"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgc367a26" class="outline-4"&gt;
+&lt;h4 id="orgc367a26"&gt;&lt;a id="ID-242AAC61-471F-47DB-A4F5-08372C963A92"&gt;&lt;/a&gt;部署简单&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-orgc367a26"&gt;
+&lt;p&gt;
+外部依赖少，目前依赖Mysql
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org393a729" class="outline-4"&gt;
+&lt;h4 id="org393a729"&gt;&lt;a id="ID-0D846262-4FC3-4ED7-9BD6-8DF85489F13C"&gt;&lt;/a&gt;使用方便的后台配置系统Portal&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org393a729"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgb9bcd05" class="outline-3"&gt;
+&lt;h3 id="orgb9bcd05"&gt;&lt;a id="ID-AC32230B-1CCE-4CFC-806F-6F8FE3A70783"&gt;&lt;/a&gt;Apollo的组成&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgb9bcd05"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org4307ae3" class="outline-4"&gt;
+&lt;h4 id="org4307ae3"&gt;&lt;a id="ID-920AD4AB-F81D-4BF4-A696-4C7F730AE8B3"&gt;&lt;/a&gt;Apollo 长什么样&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org4307ae3"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgd7a7486" class="outline-4"&gt;
+&lt;h4 id="orgd7a7486"&gt;&lt;a id="ID-EFC7B929-48E3-430E-B9D6-DDF4BB67A0A0"&gt;&lt;/a&gt;Apollo Config Service&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-orgd7a7486"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org55b23e0" class="outline-4"&gt;
+&lt;h4 id="org55b23e0"&gt;&lt;a id="ID-62CDB9D8-D64A-43D6-9768-900A1CDA9DCD"&gt;&lt;/a&gt;Apollo Admin Service&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org55b23e0"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org7f3b9c0" class="outline-4"&gt;
+&lt;h4 id="org7f3b9c0"&gt;&lt;a id="ID-C54CBBC7-88AF-4A4C-A4A5-00FF7C8F3A40"&gt;&lt;/a&gt;Apollo Portal&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-org7f3b9c0"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgd61e4c9" class="outline-3"&gt;
+&lt;h3 id="orgd61e4c9"&gt;&lt;a id="ID-9BA86A7E-AD18-4162-BFA6-8C04AE88AD9C"&gt;&lt;/a&gt;体验部署方式&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgd61e4c9"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org11dd888" class="outline-3"&gt;
+&lt;h3 id="org11dd888"&gt;&lt;a id="ID-CED3F392-CA50-497B-8253-971664F19DBF"&gt;&lt;/a&gt;使用注意事项&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org11dd888"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description><guid>http://blog.imcompany.cn/posts/apollo-config-swim/</guid><pubDate>Thu, 09 May 2019 09:34:09 GMT</pubDate></item><item><title>Centos7 install issue collect</title><link>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</link><dc:creator>Tomyli</dc:creator><description>&lt;p&gt;
+&lt;b&gt;由于工作需要，使用VMWare虚拟机安装了Centos7系统，遇到了很多问题，现在把这些问题记录下来，以备后用。&lt;/b&gt;
+&lt;/p&gt;
+&lt;div id="outline-container-org0eac843" class="outline-2"&gt;
+&lt;h2 id="org0eac843"&gt;&lt;a id="ID-84DBB28B-510F-48F5-9400-9B7BB965276F"&gt;&lt;/a&gt;解决Centos7 yum could not retrieve mirrorlist错误&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org0eac843"&gt;
 &lt;p&gt;
 刚安装好的VM使用ip add查看局域网的ip没有结果，这个参考&lt;a href="https://my.oschina.net/u/2456768/blog/3011881"&gt;https://my.oschina.net/u/2456768/blog/3011881&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org409d9ba" class="outline-2"&gt;
-&lt;h2 id="org409d9ba"&gt;&lt;a id="ID-34AA8C7F-F6C7-426D-B1AB-C4D02AFAD234"&gt;&lt;/a&gt;配置静态ip&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org409d9ba"&gt;
+&lt;div id="outline-container-org8fe468f" class="outline-2"&gt;
+&lt;h2 id="org8fe468f"&gt;&lt;a id="ID-34AA8C7F-F6C7-426D-B1AB-C4D02AFAD234"&gt;&lt;/a&gt;配置静态ip&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org8fe468f"&gt;
 &lt;p&gt;
-  安装虚拟机就是模拟多个机器通讯的情况，但是目前的配置是机器ip是动态获取的，老是变，每次都得看ip，所以需要配置一下VMware来支持静态ip。主要机器上的配置信息为：
-&lt;code&gt;IPADDR=192.168.116.101&lt;/code&gt;
-&lt;code&gt;NETMASK=255.255.255.0&lt;/code&gt;
-&lt;code&gt;GATEWAY=192.168.116.2&lt;/code&gt;
-&lt;code&gt;DNS1=192.168.116.2&lt;/code&gt;
+安装虚拟机就是模拟多个机器通讯的情况，但是目前的配置是机器ip是动态获取的，老是变，每次都得看ip，所以需要配置一下VMware来支持静态ip。主要机器上的配置信息为：
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;IPADDR=192.168.116.101
+NETMASK=255.255.255.0
+GATEWAY=192.168.116.2
+DNS1=192.168.116.2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
 这个参考了&lt;a href="https://blog.csdn.net/zhishengqianjun/article/details/77046796"&gt;https://blog.csdn.net/zhishengqianjun/article/details/77046796&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org2a4422f" class="outline-2"&gt;
-&lt;h2 id="org2a4422f"&gt;&lt;a id="ID-81DDC873-8885-41D8-86D5-45A73C6B0C56"&gt;&lt;/a&gt;Centos7安装后配置国内仓库源&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org2a4422f"&gt;
+&lt;div id="outline-container-orgeebe164" class="outline-2"&gt;
+&lt;h2 id="orgeebe164"&gt;&lt;a id="ID-81DDC873-8885-41D8-86D5-45A73C6B0C56"&gt;&lt;/a&gt;Centos7安装后配置国内仓库源&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgeebe164"&gt;
 &lt;p&gt;
-  由于国内访问centos的原始源慢，需要换成163的软件源，新安装的系统执行命令都提示not found，只能从物理下载源的配置再上传到VM中，但是首先得知道VM的ip地址，使用ifconfig是不可能了，查了一下可以使用
-&lt;code&gt;ip address show&lt;/code&gt;
+由于国内访问centos的原始源慢，需要换成163的软件源，新安装的系统执行命令都提示not found，只能从物理下载源的配置再上传到VM中，但是首先得知道VM的ip地址，使用ifconfig是不可能了，查了一下可以使用
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ip a
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
 来查看VM的ip地址，这样配置源的的问题可以解决了，具体的配置源的方法参考&lt;a href="https://blog.csdn.net/inslow/article/details/54177191"&gt;https://blog.csdn.net/inslow/article/details/54177191&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgc195ca5" class="outline-3"&gt;
-&lt;h3 id="orgc195ca5"&gt;&lt;a id="ID-2D38E928-3C28-41CC-A3A2-D0F6F4938DA5"&gt;&lt;/a&gt;Centos7安装VMware Tools&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgc195ca5"&gt;
+&lt;div id="outline-container-orgd0ccddd" class="outline-3"&gt;
+&lt;h3 id="orgd0ccddd"&gt;&lt;a id="ID-2D38E928-3C28-41CC-A3A2-D0F6F4938DA5"&gt;&lt;/a&gt;Centos7安装VMware Tools&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgd0ccddd"&gt;
 &lt;p&gt;
 想更好的让VM与物理机协同，则VMware Tools必须要安装，好久不用linux的我连挂载也忘的一干二净了。搜了一下，参考&lt;a href="https://blog.csdn.net/WarnerWu/article/details/73718901"&gt;https://blog.csdn.net/WarnerWu/article/details/73718901&lt;/a&gt; 完成VMware Tools的安装。这样共享目录的功能就可以正常使用了
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org52d9af0" class="outline-2"&gt;
-&lt;h2 id="org52d9af0"&gt;&lt;a id="ID-3C9A8FC3-06ED-45D7-9EC6-546B407BC6D6"&gt;&lt;/a&gt;安装Jdk8&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org52d9af0"&gt;
+&lt;div id="outline-container-orgb9b8a42" class="outline-2"&gt;
+&lt;h2 id="orgb9b8a42"&gt;&lt;a id="ID-3C9A8FC3-06ED-45D7-9EC6-546B407BC6D6"&gt;&lt;/a&gt;安装Jdk8&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgb9b8a42"&gt;
 &lt;p&gt;
 一句命令搞定：
-&lt;code&gt;yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel&lt;/code&gt;
 &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org9f84201" class="outline-2"&gt;
-&lt;h2 id="org9f84201"&gt;&lt;a id="ID-6EE1B642-574A-4AFA-924A-F275A92A8FC5"&gt;&lt;/a&gt;安装mysql&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org9f84201"&gt;
+&lt;div id="outline-container-org1770553" class="outline-2"&gt;
+&lt;h2 id="org1770553"&gt;&lt;a id="ID-6EE1B642-574A-4AFA-924A-F275A92A8FC5"&gt;&lt;/a&gt;安装mysql&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org1770553"&gt;
 &lt;p&gt;
 使用yum安装mysql需要下载安装mysql的源，更新后就可以安装了，这个参考了&lt;a href="https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/"&gt;https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org52c120b" class="outline-2"&gt;
-&lt;h2 id="org52c120b"&gt;&lt;a id="ID-CFFA6D73-B5D7-402B-8DDF-ACD9E2D7084D"&gt;&lt;/a&gt;修改mysql的root密码&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org52c120b"&gt;
+&lt;div id="outline-container-org53afd4a" class="outline-2"&gt;
+&lt;h2 id="org53afd4a"&gt;&lt;a id="ID-CFFA6D73-B5D7-402B-8DDF-ACD9E2D7084D"&gt;&lt;/a&gt;修改mysql的root密码&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org53afd4a"&gt;
 &lt;p&gt;
 安装完mysql后登录找不到密码了，其实在使用yum安装时会mysql会自动生成一个随机密码，这个密码可以在安装的日志中找到。此方法参考了&lt;a href="https://blog.csdn.net/kuluzs/article/details/51924086"&gt;https://blog.csdn.net/kuluzs/article/details/51924086&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org3a786ff" class="outline-2"&gt;
-&lt;h2 id="org3a786ff"&gt;&lt;a id="ID-267B4B0C-66BF-4EEE-8B6C-352361631EFA"&gt;&lt;/a&gt;开放3306端口&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org3a786ff"&gt;
+&lt;div id="outline-container-org4eaa919" class="outline-2"&gt;
+&lt;h2 id="org4eaa919"&gt;&lt;a id="ID-267B4B0C-66BF-4EEE-8B6C-352361631EFA"&gt;&lt;/a&gt;开放3306端口&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org4eaa919"&gt;
 &lt;p&gt;
-  为了方便mysql工具进行操作，需要开放3306端口。Centos7的防火墙还改了。具体就3个命令：
-  &lt;code&gt;systemctl start firewalld&lt;/code&gt;
-  &lt;code&gt;firewall-cmd --zone=public --add-port=3306/tcp --permanent&lt;/code&gt;
-  &lt;code&gt;firewall-cmd --reload&lt;/code&gt;
+为了方便mysql工具进行操作，需要开放3306端口。Centos7的防火墙还改了。具体就3个命令：
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  systemctl start firewalld
+  firewall-cmd --zone=public --add-port=3306/tcp --permanent
+  firewall-cmd --reload
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
 这个参考了&lt;a href="https://www.jianshu.com/p/225a853350d9"&gt;https://www.jianshu.com/p/225a853350d9&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org57169f9" class="outline-2"&gt;
-&lt;h2 id="org57169f9"&gt;&lt;a id="ID-557D4123-928B-459E-A11F-3BB36A91DD00"&gt;&lt;/a&gt;安装oh-my-bash&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org57169f9"&gt;
+&lt;div id="outline-container-org84fad36" class="outline-2"&gt;
+&lt;h2 id="org84fad36"&gt;&lt;a id="ID-557D4123-928B-459E-A11F-3BB36A91DD00"&gt;&lt;/a&gt;安装oh-my-bash&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org84fad36"&gt;
 &lt;p&gt;
 由于一般服务器都自带bash为默认的shell，但是操作起来着实不方便，安装oh-my-bash可以对shell进行一些增强。&lt;a href="https://github.com/ohmybash/oh-my-bash"&gt;https://github.com/ohmybash/oh-my-bash&lt;/a&gt;
 &lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgecdb923" class="outline-2"&gt;
+&lt;h2 id="orgecdb923"&gt;&lt;a id="ID-42C1B284-6A9A-48F2-9E4E-DD8D217F8108"&gt;&lt;/a&gt;Centos自动登录&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgecdb923"&gt;
+&lt;p&gt;
+安装后每次启动VM都要输入密码，这个对于自己测试很麻烦，要使Centos能登录后自动登录需要做以下操作：
+&lt;/p&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;&lt;p&gt;
+移除原来的getty@tty1.service软链接
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    rm /etc/systemd/system/getty.target.wants/getty@tty1.service
+&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+拷贝getty@.service file 并且命名为 getty@tty1.service
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    cp /lib/systemd/system/getty@.service /etc/systemd/system/getty@tty1.service
+&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+编辑新拷贝的getty@tty1.service，修改以下内容，最后一行必须加上
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    [Service]
+    ...
+    ExecStart=-/sbin/agetty --autologin root --noclear %I
+    ...
+    [Install]
+    ...
+    ;Alias=getty@tty1.service
+&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+在getty.target.wants目录做一下软链接
+&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ln -s /etc/systemd/system/getty@tty1.service /etc/systemd/system/getty.target.wants/getty@tty1.service
+&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;重启，Done!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+&lt;b&gt;以上参考&lt;a href="https://www.centos.org/forums/viewtopic.php?t=48288"&gt;https://www.centos.org/forums/viewtopic.php?t=48288&lt;/a&gt;
+  说明一下，网上一些修改gdm的方法试了没有作用。&lt;/b&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description><category>centos7</category><category>linux</category><guid>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</guid><pubDate>Mon, 06 May 2019 05:00:55 GMT</pubDate></item><item><title>TARS-打卡第一天</title><link>http://blog.imcompany.cn/posts/tars-001/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org4d3f57f" class="outline-2"&gt;
 &lt;h2 id="org4d3f57f"&gt;&lt;a id="ID-ED356ECB-A713-4045-AA06-606C9E7BFD88"&gt;&lt;/a&gt;Algorithm&lt;/h2&gt;
@@ -518,41 +732,4 @@ ignore文件忽略，支持绝大多数的开发语言，支持直接导航到�
       &lt;span class="o"&gt;}&lt;/span&gt;
   &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-guan-cha-zhe/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-guan-cha-zhe/</guid><pubDate>Wed, 04 Jul 2018 12:31:41 GMT</pubDate></item><item><title>设计模式学习之装饰器</title><link>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-orgd7e278e" class="outline-2"&gt;
-&lt;h2 id="orgd7e278e"&gt;&lt;a id="ID-9F831376-652F-49A6-81C3-04B7B7D028F9"&gt;&lt;/a&gt;说明&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgd7e278e"&gt;
-&lt;p&gt;
-装饰器设计模式是使用比较频繁的设计模式，它在不改变原物体的情况对原物体实现了功能的增加，原物体还是一个可单独使用的个体。在JAVA的类库中应该会马上想到IO类，各种的InputStrem，OutputStrem。
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgd51f8d3" class="outline-2"&gt;
-&lt;h2 id="orgd51f8d3"&gt;&lt;a id="ID-108171D7-868E-409F-986B-C1D1A9A60C82"&gt;&lt;/a&gt;装饰器模式&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgd51f8d3"&gt;
-&lt;p&gt;
-在用户登录的中过程，我们需要对用户输入的密码进行加密操作，在设计时会提供好多种加密的算法，例如简单的BASE64加密，复杂的如MD5、DSA加密。直接把用户的密码存入数据库是真的在耍流氓。在使用这些算法时，我们想灵活的使用，比如使用完简单加密还可以再进行一下MD5的加密。针对这样的需求，可以使用装饰器模式进行实现。大体思路如下：
-&lt;/p&gt;
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;加密接口，定义加密方法。&lt;/li&gt;
-&lt;li&gt;在装饰器中，最原始的被装饰者是目标实现，它们一般会实现加密定义的具体方法。&lt;/li&gt;
-&lt;li&gt;装饰者会针对目标对象进行装饰，所以它要同样实现加密接口的方法，一般情况下这个装饰器会定义为抽象的形式，在这个装饰器父类中维护着对目标对象的引用。&lt;/li&gt;
-&lt;li&gt;具体装饰器继承抽象装饰器来实现对目标对象的真正装饰操作。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;
-以上的情况在代码上体现为如下形式：
-&lt;/p&gt;
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;加密接口&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="kn"&gt;package&lt;/span&gt; &lt;span class="nn"&gt;cn.imcompany.decorator.encrypt&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-
-  &lt;span class="cm"&gt;/**&lt;/span&gt;
-&lt;span class="cm"&gt;   * Created by tomyli on 2018/6/25.&lt;/span&gt;
-&lt;span class="cm"&gt;   * Github: https://github.com/peng051410&lt;/span&gt;
-&lt;span class="cm"&gt;   */&lt;/span&gt;
-  &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;interface&lt;/span&gt; &lt;span class="nc"&gt;Encryptor&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
-
-      &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;encrypt&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-  &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-zhuang-shi-qi/</guid><pubDate>Mon, 02 Jul 2018 12:09:14 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-guan-cha-zhe/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>design pattern</category><category>java</category><guid>http://blog.imcompany.cn/posts/she-ji-mo-shi-xue-xi-zhi-guan-cha-zhe/</guid><pubDate>Wed, 04 Jul 2018 12:31:41 GMT</pubDate></item></channel></rss>
