@@ -58,6 +58,7 @@
     :ID:       7A92103D-AFF4-4204-A8FC-CC0464E298D4
     :END:
     Apache 2 license
+{{{TEASER_END}}}
 ** Apollo都有哪些重要功能
    :PROPERTIES:
    :ID:       0C1321E8-8D2E-495E-A1BB-65AC031794B3
@@ -181,7 +182,7 @@
     :PROPERTIES:
     :ID:       7999356A-1E22-424D-A577-81EE1EECCA14
     :END:
-    分机房实例，分任务功能实例，比如现在的一些实例执行job，需要增加-Dapollo.cluster=配置指定集群名
+    分机房实例，分任务功能实例，比如在一些实例执行job，需要增加-Dapollo.cluster=配置指定集群名
 ** 体验部署方式
    :PROPERTIES:
    :ID:       9BA86A7E-AD18-4162-BFA6-8C04AE88AD9C
