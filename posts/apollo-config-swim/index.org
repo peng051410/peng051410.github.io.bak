@@ -46,16 +46,22 @@
      :PROPERTIES:
      :ID:       8B50A2C7-E400-4B1C-8C89-1E0FAD78C732
      :END:
-     刚刚发布了1.4.0版本
+     刚刚发布了[[https://github.com/ctripcorp/apollo/releases/tag/v1.4.0][1.4.0]]版本，Issue处理速度快
 **** 文档齐全
      :PROPERTIES:
      :ID:       1F051A4F-9F86-494A-BE3D-CBF0568D9B13
      :END:
+     体验，部署，设计文档都齐全
 **** 重要的灰度发布
      :PROPERTIES:
      :ID:       3D3ED757-D257-4CC3-84B8-0752F4ACD983
      :END:
-     想发布一台机器试试，可以！
+     想发布一台机器试试水，可以！
+**** 开源协议友好
+     :PROPERTIES:
+     :ID:       7A92103D-AFF4-4204-A8FC-CC0464E298D4
+     :END:
+     Apache 2 license
 *** Apollo都有哪些重要功能
     :PROPERTIES:
     :ID:       0C1321E8-8D2E-495E-A1BB-65AC031794B3
@@ -73,6 +79,7 @@
      :PROPERTIES:
      :ID:       90C41B7F-0B4B-4DB8-9CF2-02828BDA6DE0
      :END:
+     目前只支持对最近版本的恢复。[[https://github.com/ctripcorp/apollo/issues/1642][https://github.com/ctripcorp/apollo/issues/1642]]
 **** 灰度发布
      :PROPERTIES:
      :ID:       BAEB34A8-6C80-4BFB-8CBC-41572072A260
@@ -81,6 +88,7 @@
      :PROPERTIES:
      :ID:       892929BB-D7E2-41B2-B198-D0C6F6C3B0A8
      :END:
+     编辑与发布是两个独立的操作。
 **** 客户端配置信息监控
      :PROPERTIES:
      :ID:       0227ED14-7754-4EF9-9579-11615DDB0609
@@ -93,7 +101,8 @@
      :PROPERTIES:
      :ID:       DECAE90E-1C80-44FD-B2C2-0B62A54E50FB
      :END:
-**** 部署简单
+     这样可以通过其它方式来查看配置信息
+**** 分布式部署相对较复杂，这是缺点
      :PROPERTIES:
      :ID:       242AAC61-471F-47DB-A4F5-08372C963A92
      :END:
@@ -106,27 +115,96 @@
     :PROPERTIES:
     :ID:       AC32230B-1CCE-4CFC-806F-6F8FE3A70783
     :END:
-**** Apollo 长什么样
+**** Apollo长什么样?
      :PROPERTIES:
      :ID:       920AD4AB-F81D-4BF4-A696-4C7F730AE8B3
      :END:
+     img-url:/images/apollo-home-screenshot.png
+     [[file:/Users/tomyli/github/blog/images/apollo-home-screenshot.png][/Users/tomyli/github/blog/images/apollo-home-screenshot.png]]
+**** Apollo整体设计 
+     :PROPERTIES:
+     :ID:       62516B1E-749F-46F5-9713-A138EACCF95B
+     :END:
+     img-url:/images/overall-architecture.png
+    [[file:/Users/tomyli/github/blog/images/overall-architecture.png][/Users/tomyli/github/blog/images/overall-architecture.png]] 
+
+     总体架构
+
+     img-url:/images/apollo-code-structure.png
+     [[file:/Users/tomyli/github/blog/images/apollo-code-structure.png][/Users/tomyli/github/blog/images/apollo-code-structure.png]]
+
+     代码结构
+
+     https://github.com/ctripcorp/apollo/wiki/Apollo配置中心设计#13-各模块概要介绍
+
 **** Apollo Config Service
      :PROPERTIES:
      :ID:       EFC7B929-48E3-430E-B9D6-DDF4BB67A0A0
      :END:
+     提供配置获取接口，服务对象为Apollo客户端
 **** Apollo Admin Service
      :PROPERTIES:
      :ID:       62CDB9D8-D64A-43D6-9768-900A1CDA9DCD
      :END:
+     提供配置管理（修改、发布）接口，服务与Portal
 **** Apollo Portal
      :PROPERTIES:
      :ID:       C54CBBC7-88AF-4A4C-A4A5-00FF7C8F3A40
      :END:
+     提供WEB界面供用户管理配置
+*** Apollo的重要设计
+    :PROPERTIES:
+    :ID:       2ECAA60E-CDEC-4156-9FFC-04A2875B3C1E
+    :END:
+**** Admin Service与Config Service的通信方式
+     :PROPERTIES:
+     :ID:       90F032EB-378F-4447-A244-0E4B9321C0F4
+     :END:
+     Apollo使用Mysql实现消息(ReleaseMessage)的处理，消息内容为AppId+Cluster+Namespace
+     [[file:~/github/apollo/doc/images/release-message-design.png][ReleaseMessage]]
+     [[https://github.com/ctripcorp/apollo/wiki/Apollo%25E9%2585%258D%25E7%25BD%25AE%25E4%25B8%25AD%25E5%25BF%2583%25E8%25AE%25BE%25E8%25AE%25A1#211-%25E5%258F%2591%25E9%2580%2581releasemessage%25E7%259A%2584%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F][https://github.com/ctripcorp/apollo/wiki/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E8%AE%BE%E8%AE%A1#211-%E5%8F%91%E9%80%81releasemessage%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F]]
+**** 客户端与服务端的通信方式
+     :PROPERTIES:
+     :ID:       BE21C115-40BE-4E4C-BC83-E444B7BEACE6
+     :END:
+     客户端与服务端保持一个长连接(通过Http Long Polling实现)
+     [[file:~/github/apollo/doc/images/client-architecture.png][Client Server]]
+**** 重要的Namespace
+     :PROPERTIES:
+     :ID:       D278B193-F25B-4C7F-A063-5C5DD2EA6041
+     :END:
+     Namespace是配置项的集合，类似于一个配置文件的概念，获取的权限分为private与public两种权限。
+***** Namespace的类型
+      :PROPERTIES:
+      :ID:       80D21C9D-25F8-48E8-A629-753757697AD9
+      :END:
+      - 私有类型
+      - 公有类型
+      - 关联类型（继承类型）
+**** Cluster能用来做什么?
+     :PROPERTIES:
+     :ID:       7999356A-1E22-424D-A577-81EE1EECCA14
+     :END:
+     分机房实例，分任务功能实例，比如现在的一些实例执行job，需要增加-Dapollo.cluster=配置指定集群名
 *** 体验部署方式
     :PROPERTIES:
     :ID:       9BA86A7E-AD18-4162-BFA6-8C04AE88AD9C
     :END:
+    Docker，本地源代码，虚拟机多环境
 *** 使用注意事项
     :PROPERTIES:
     :ID:       CED3F392-CA50-497B-8253-971664F19DBF
     :END:
+    - 在主版本有未发布的配置项时，要发布灰度后的全量则需要先把主版本中的配置发布后方可操作
+    - 使用docker运行demo测试时连接不上docker中的服务解决方法：https://github.com/ctripcorp/apollo/issues/1481#issuecomment-422057411w
+    - /opt目录要有读写权限，日志文件默认打印在此目录
+    - 线上环境配置建议配置在机器上，不建议配置在代码中，与代码解耦
+    - config与admin service要开放端口8080与8090(默认情况下)，端口可以在项目中的starup.sh中修改
+    - 如果Config Service配置开启了内存缓存数据(config-service.cache.enabled)，要提前考虑数据量的大小，调整服务的内存配置
+*** 参考文档
+    :PROPERTIES:
+    :ID:       8D01547C-7A70-4520-9E93-4820385D31CD
+    :END:
+    https://github.com/ctripcorp/apollo
+    https://github.com/alibaba/nacos 
+    http://dockone.io/article/8767
