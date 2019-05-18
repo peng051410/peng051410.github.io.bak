@@ -1,93 +1,313 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company</title><link>http://blog.imcompany.cn/</link><description>把知识用起来最好的方法就是：减少关注方向，经常记录，定期思考，反复实践，不把信息当作知识，不把收藏当作学习，不把阅读当作思考，不把储存当作掌握。 不提炼总结、不应用学习、不深入思考、不实践反馈，就不会变成自己的能力。———warfalcon</description><atom:link href="http://blog.imcompany.cn/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Sat, 18 May 2019 03:46:57 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Apollo 配置中心畅游</title><link>http://blog.imcompany.cn/posts/apollo-config-swim/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-org279068e" class="outline-2"&gt;
-&lt;h2 id="org279068e"&gt;&lt;a id="ID-56D30D0F-FF09-4415-B787-DE1E71B89525"&gt;&lt;/a&gt;Apollo开源配置中心分享&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org279068e"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company</title><link>http://blog.imcompany.cn/</link><description>把知识用起来最好的方法就是：减少关注方向，经常记录，定期思考，反复实践，不把信息当作知识，不把收藏当作学习，不把阅读当作思考，不把储存当作掌握。 不提炼总结、不应用学习、不深入思考、不实践反馈，就不会变成自己的能力。———warfalcon</description><atom:link href="http://blog.imcompany.cn/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Sat, 18 May 2019 03:53:39 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Apollo 配置中心畅游</title><link>http://blog.imcompany.cn/posts/apollo-config-swim/</link><dc:creator>Tomyli</dc:creator><description>&lt;div id="outline-container-org76e2029" class="outline-2"&gt;
+&lt;h2 id="org76e2029"&gt;&lt;a id="ID-24469E90-D66B-46C3-8111-273DC545ED9C"&gt;&lt;/a&gt;目前市面上的开源产品&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org76e2029"&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org57ab6d4" class="outline-3"&gt;
-&lt;h3 id="org57ab6d4"&gt;&lt;a id="ID-24469E90-D66B-46C3-8111-273DC545ED9C"&gt;&lt;/a&gt;目前市面上的开源产品&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-org57ab6d4"&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org308b924" class="outline-4"&gt;
-&lt;h4 id="org308b924"&gt;&lt;a id="ID-A8F19C10-24A4-462A-A278-3CC6866B6104"&gt;&lt;/a&gt;&lt;a href="https://github.com/knightliao/disconf"&gt;Disconf&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-org308b924"&gt;
+&lt;div id="outline-container-org31f6775" class="outline-3"&gt;
+&lt;h3 id="org31f6775"&gt;&lt;a id="ID-A8F19C10-24A4-462A-A278-3CC6866B6104"&gt;&lt;/a&gt;&lt;a href="https://github.com/knightliao/disconf"&gt;Disconf&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org31f6775"&gt;
 &lt;p&gt;
 2014年7月百度开源的配置管理中心，同样具备配置的管理能力，目前已经不维护了，最近的一次代码提交是两年前了。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org1ae7ef7" class="outline-4"&gt;
-&lt;h4 id="org1ae7ef7"&gt;&lt;a id="ID-A1015FF2-133D-4C64-BFB3-8A9E027D1D19"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-config"&gt;Spring Cloud Config&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-org1ae7ef7"&gt;
+&lt;div id="outline-container-orgb34b779" class="outline-3"&gt;
+&lt;h3 id="orgb34b779"&gt;&lt;a id="ID-A1015FF2-133D-4C64-BFB3-8A9E027D1D19"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-config"&gt;Spring Cloud Config&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgb34b779"&gt;
 &lt;p&gt;
 2014年9月开源，Spring Cloud生态组件，与Spring Cloud体系无缝整合。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org5d69c23" class="outline-4"&gt;
-&lt;h4 id="org5d69c23"&gt;&lt;a id="ID-09F80DD2-2794-40E6-A443-2F4868166899"&gt;&lt;/a&gt;&lt;a href="https://github.com/ctripcorp/apollo"&gt;Apollo&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-org5d69c23"&gt;
+&lt;div id="outline-container-org252af63" class="outline-3"&gt;
+&lt;h3 id="org252af63"&gt;&lt;a id="ID-09F80DD2-2794-40E6-A443-2F4868166899"&gt;&lt;/a&gt;&lt;a href="https://github.com/ctripcorp/apollo"&gt;Apollo&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org252af63"&gt;
 &lt;p&gt;
 2016年5月，携程框架部开源的配置管理中心，具备规范的权限、流程治理等特性。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orga82ccb8" class="outline-4"&gt;
-&lt;h4 id="orga82ccb8"&gt;&lt;a id="ID-A38D7032-C1A2-4C94-A771-E23ACE4B13F4"&gt;&lt;/a&gt;&lt;a href="https://github.com/alibaba/nacos"&gt;Nacos&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-orga82ccb8"&gt;
+&lt;div id="outline-container-orgdaa7ac0" class="outline-3"&gt;
+&lt;h3 id="orgdaa7ac0"&gt;&lt;a id="ID-A38D7032-C1A2-4C94-A771-E23ACE4B13F4"&gt;&lt;/a&gt;&lt;a href="https://github.com/alibaba/nacos"&gt;Nacos&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgdaa7ac0"&gt;
 &lt;p&gt;
 2018年6月，阿里开源的配置中心，可以做DNS和RPC的服务发现。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgc162361" class="outline-3"&gt;
-&lt;h3 id="orgc162361"&gt;&lt;a id="ID-93AD45B7-443A-4A92-8F7F-DBE208D9D995"&gt;&lt;/a&gt;为什么选择Apollo&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgc162361"&gt;
+&lt;div id="outline-container-orgd10394b" class="outline-2"&gt;
+&lt;h2 id="orgd10394b"&gt;&lt;a id="ID-93AD45B7-443A-4A92-8F7F-DBE208D9D995"&gt;&lt;/a&gt;为什么选择Apollo&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgd10394b"&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org2a931d6" class="outline-4"&gt;
-&lt;h4 id="org2a931d6"&gt;&lt;a id="ID-8B50A2C7-E400-4B1C-8C89-1E0FAD78C732"&gt;&lt;/a&gt;社区活跃&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-org2a931d6"&gt;
+&lt;div id="outline-container-org962c983" class="outline-3"&gt;
+&lt;h3 id="org962c983"&gt;&lt;a id="ID-8B50A2C7-E400-4B1C-8C89-1E0FAD78C732"&gt;&lt;/a&gt;社区活跃&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org962c983"&gt;
 &lt;p&gt;
 刚刚发布了&lt;a href="https://github.com/ctripcorp/apollo/releases/tag/v1.4.0"&gt;1.4.0&lt;/a&gt;版本，Issue处理速度快
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org4a1111a" class="outline-4"&gt;
-&lt;h4 id="org4a1111a"&gt;&lt;a id="ID-1F051A4F-9F86-494A-BE3D-CBF0568D9B13"&gt;&lt;/a&gt;文档齐全&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-org4a1111a"&gt;
+&lt;div id="outline-container-org54eaddd" class="outline-3"&gt;
+&lt;h3 id="org54eaddd"&gt;&lt;a id="ID-1F051A4F-9F86-494A-BE3D-CBF0568D9B13"&gt;&lt;/a&gt;文档齐全&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org54eaddd"&gt;
 &lt;p&gt;
 体验，部署，设计文档都齐全
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orga105df3" class="outline-4"&gt;
-&lt;h4 id="orga105df3"&gt;&lt;a id="ID-3D3ED757-D257-4CC3-84B8-0752F4ACD983"&gt;&lt;/a&gt;重要的灰度发布&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-orga105df3"&gt;
+&lt;div id="outline-container-orga85392f" class="outline-3"&gt;
+&lt;h3 id="orga85392f"&gt;&lt;a id="ID-3D3ED757-D257-4CC3-84B8-0752F4ACD983"&gt;&lt;/a&gt;重要的灰度发布&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orga85392f"&gt;
 &lt;p&gt;
 想发布一台机器试试水，可以！
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org333cd3b" class="outline-4"&gt;
-&lt;h4 id="org333cd3b"&gt;&lt;a id="ID-7A92103D-AFF4-4204-A8FC-CC0464E298D4"&gt;&lt;/a&gt;开源协议友好&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-org333cd3b"&gt;
+&lt;div id="outline-container-orge075ef5" class="outline-3"&gt;
+&lt;h3 id="orge075ef5"&gt;&lt;a id="ID-7A92103D-AFF4-4204-A8FC-CC0464E298D4"&gt;&lt;/a&gt;开源协议友好&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orge075ef5"&gt;
 &lt;p&gt;
 Apache 2 license
 &lt;/p&gt;
-&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/apollo-config-swim/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>http://blog.imcompany.cn/posts/apollo-config-swim/</guid><pubDate>Thu, 09 May 2019 09:34:09 GMT</pubDate></item><item><title>Centos7 install issue collect</title><link>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</link><dc:creator>Tomyli</dc:creator><description>&lt;p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org0dd984e" class="outline-2"&gt;
+&lt;h2 id="org0dd984e"&gt;&lt;a id="ID-0C1321E8-8D2E-495E-A1BB-65AC031794B3"&gt;&lt;/a&gt;Apollo都有哪些重要功能&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org0dd984e"&gt;
+&lt;p&gt;
+以下摘自&lt;a href="https://github.com/ctripcorp/apollo#features"&gt;官网说明&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org815561e" class="outline-3"&gt;
+&lt;h3 id="org815561e"&gt;&lt;a id="ID-1643865B-0EF0-402F-B47E-0E21099A8FAC"&gt;&lt;/a&gt;统一管理不同环境、不同集群的配置&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org815561e"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org49571bc" class="outline-3"&gt;
+&lt;h3 id="org49571bc"&gt;&lt;a id="ID-B7E2092D-B527-4592-A087-C74EAC86377C"&gt;&lt;/a&gt;配置修改实时生效（热发布）&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org49571bc"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgda6a9b5" class="outline-3"&gt;
+&lt;h3 id="orgda6a9b5"&gt;&lt;a id="ID-90C41B7F-0B4B-4DB8-9CF2-02828BDA6DE0"&gt;&lt;/a&gt;版本发布管理&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgda6a9b5"&gt;
+&lt;p&gt;
+目前只支持对最近版本的恢复。&lt;a href="https://github.com/ctripcorp/apollo/issues/1642"&gt;https://github.com/ctripcorp/apollo/issues/1642&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org483c294" class="outline-3"&gt;
+&lt;h3 id="org483c294"&gt;&lt;a id="ID-BAEB34A8-6C80-4BFB-8CBC-41572072A260"&gt;&lt;/a&gt;灰度发布&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org483c294"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org30b1855" class="outline-3"&gt;
+&lt;h3 id="org30b1855"&gt;&lt;a id="ID-892929BB-D7E2-41B2-B198-D0C6F6C3B0A8"&gt;&lt;/a&gt;权限管理、发布审核、操作审计&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org30b1855"&gt;
+&lt;p&gt;
+编辑与发布是两个独立的操作。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgb47c21c" class="outline-3"&gt;
+&lt;h3 id="orgb47c21c"&gt;&lt;a id="ID-0227ED14-7754-4EF9-9579-11615DDB0609"&gt;&lt;/a&gt;客户端配置信息监控&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgb47c21c"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orge6c45db" class="outline-3"&gt;
+&lt;h3 id="orge6c45db"&gt;&lt;a id="ID-35EE8191-FF3C-4778-8BFA-4AF5444B9048"&gt;&lt;/a&gt;提供Java和.Net原生客户端&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orge6c45db"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org5cf5f83" class="outline-3"&gt;
+&lt;h3 id="org5cf5f83"&gt;&lt;a id="ID-DECAE90E-1C80-44FD-B2C2-0B62A54E50FB"&gt;&lt;/a&gt;提供开放平台API&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org5cf5f83"&gt;
+&lt;p&gt;
+这样可以通过其它方式来查看配置信息
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org9ff7674" class="outline-3"&gt;
+&lt;h3 id="org9ff7674"&gt;&lt;a id="ID-242AAC61-471F-47DB-A4F5-08372C963A92"&gt;&lt;/a&gt;分布式部署相对较复杂，这是缺点&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org9ff7674"&gt;
+&lt;p&gt;
+外部依赖少，目前依赖Mysql
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org54848a7" class="outline-3"&gt;
+&lt;h3 id="org54848a7"&gt;&lt;a id="ID-0D846262-4FC3-4ED7-9BD6-8DF85489F13C"&gt;&lt;/a&gt;使用方便的后台配置系统Portal&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org54848a7"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org55d52fc" class="outline-2"&gt;
+&lt;h2 id="org55d52fc"&gt;&lt;a id="ID-AC32230B-1CCE-4CFC-806F-6F8FE3A70783"&gt;&lt;/a&gt;Apollo的组成&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org55d52fc"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org896f547" class="outline-3"&gt;
+&lt;h3 id="org896f547"&gt;&lt;a id="ID-920AD4AB-F81D-4BF4-A696-4C7F730AE8B3"&gt;&lt;/a&gt;Apollo长什么样?&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org896f547"&gt;
+&lt;p&gt;
+&lt;img src="http://blog.imcompany.cn/images/apollo-home-screenshot.png" alt="nil"&gt;
+&lt;a href="file:///Users/tomyli/github/blog/images/apollo-home-screenshot.png"&gt;/Users/tomyli/github/blog/images/apollo-home-screenshot.png&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgcbee07d" class="outline-3"&gt;
+&lt;h3 id="orgcbee07d"&gt;&lt;a id="ID-62516B1E-749F-46F5-9713-A138EACCF95B"&gt;&lt;/a&gt;Apollo整体设计&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgcbee07d"&gt;
+&lt;p&gt;
+ &lt;img src="http://blog.imcompany.cn/images/overall-architecture.png" alt="nil"&gt;
+&lt;a href="file:///Users/tomyli/github/blog/images/overall-architecture.png"&gt;/Users/tomyli/github/blog/images/overall-architecture.png&lt;/a&gt; 
+&lt;/p&gt;
+
+&lt;p&gt;
+总体架构
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;img src="http://blog.imcompany.cn/images/apollo-code-structure.png" alt="nil"&gt;
+&lt;a href="file:///Users/tomyli/github/blog/images/apollo-code-structure.png"&gt;/Users/tomyli/github/blog/images/apollo-code-structure.png&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+代码结构
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;a href="https://github.com/ctripcorp/apollo/wiki/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E8%AE%BE%E8%AE%A1#13-%E5%90%84%E6%A8%A1%E5%9D%97%E6%A6%82%E8%A6%81%E4%BB%8B%E7%BB%8D"&gt;https://github.com/ctripcorp/apollo/wiki/Apollo配置中心设计#13-各模块概要介绍&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org80209ba" class="outline-3"&gt;
+&lt;h3 id="org80209ba"&gt;&lt;a id="ID-EFC7B929-48E3-430E-B9D6-DDF4BB67A0A0"&gt;&lt;/a&gt;Apollo Config Service&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org80209ba"&gt;
+&lt;p&gt;
+提供配置获取接口，服务对象为Apollo客户端
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgcefc7b8" class="outline-3"&gt;
+&lt;h3 id="orgcefc7b8"&gt;&lt;a id="ID-62CDB9D8-D64A-43D6-9768-900A1CDA9DCD"&gt;&lt;/a&gt;Apollo Admin Service&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgcefc7b8"&gt;
+&lt;p&gt;
+提供配置管理（修改、发布）接口，服务与Portal
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org4e0dfce" class="outline-3"&gt;
+&lt;h3 id="org4e0dfce"&gt;&lt;a id="ID-C54CBBC7-88AF-4A4C-A4A5-00FF7C8F3A40"&gt;&lt;/a&gt;Apollo Portal&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org4e0dfce"&gt;
+&lt;p&gt;
+提供WEB界面供用户管理配置
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgc8f5601" class="outline-2"&gt;
+&lt;h2 id="orgc8f5601"&gt;&lt;a id="ID-2ECAA60E-CDEC-4156-9FFC-04A2875B3C1E"&gt;&lt;/a&gt;Apollo的重要设计&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgc8f5601"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orge4c8c42" class="outline-3"&gt;
+&lt;h3 id="orge4c8c42"&gt;&lt;a id="ID-90F032EB-378F-4447-A244-0E4B9321C0F4"&gt;&lt;/a&gt;Admin Service与Config Service的通信方式&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orge4c8c42"&gt;
+&lt;p&gt;
+Apollo使用Mysql实现消息(ReleaseMessage)的处理，消息内容为AppId+Cluster+Namespace
+&lt;a href="file:///Users/tomyli/github/apollo/doc/images/release-message-design.png"&gt;ReleaseMessage&lt;/a&gt;
+&lt;a href="https://github.com/ctripcorp/apollo/wiki/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E8%AE%BE%E8%AE%A1#211-%E5%8F%91%E9%80%81releasemessage%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"&gt;https://github.com/ctripcorp/apollo/wiki/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E8%AE%BE%E8%AE%A1#211-%E5%8F%91%E9%80%81releasemessage%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgdec05a7" class="outline-3"&gt;
+&lt;h3 id="orgdec05a7"&gt;&lt;a id="ID-BE21C115-40BE-4E4C-BC83-E444B7BEACE6"&gt;&lt;/a&gt;客户端与服务端的通信方式&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgdec05a7"&gt;
+&lt;p&gt;
+客户端与服务端保持一个长连接(通过Http Long Polling实现)
+&lt;a href="file:///Users/tomyli/github/apollo/doc/images/client-architecture.png"&gt;Client Server&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org714fdd3" class="outline-3"&gt;
+&lt;h3 id="org714fdd3"&gt;&lt;a id="ID-D278B193-F25B-4C7F-A063-5C5DD2EA6041"&gt;&lt;/a&gt;重要的Namespace&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org714fdd3"&gt;
+&lt;p&gt;
+Namespace是配置项的集合，类似于一个配置文件的概念，获取的权限分为private与public两种权限。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgba771c1" class="outline-4"&gt;
+&lt;h4 id="orgba771c1"&gt;&lt;a id="ID-80D21C9D-25F8-48E8-A629-753757697AD9"&gt;&lt;/a&gt;Namespace的类型&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-orgba771c1"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;私有类型&lt;/li&gt;
+&lt;li&gt;公有类型&lt;/li&gt;
+&lt;li&gt;关联类型（继承类型）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org8e1127d" class="outline-3"&gt;
+&lt;h3 id="org8e1127d"&gt;&lt;a id="ID-7999356A-1E22-424D-A577-81EE1EECCA14"&gt;&lt;/a&gt;Cluster能用来做什么?&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-org8e1127d"&gt;
+&lt;p&gt;
+分机房实例，分任务功能实例，比如现在的一些实例执行job，需要增加-Dapollo.cluster=配置指定集群名
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org3858ba1" class="outline-2"&gt;
+&lt;h2 id="org3858ba1"&gt;&lt;a id="ID-9BA86A7E-AD18-4162-BFA6-8C04AE88AD9C"&gt;&lt;/a&gt;体验部署方式&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org3858ba1"&gt;
+&lt;p&gt;
+Docker，本地源代码，虚拟机多环境
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgc6c71d1" class="outline-2"&gt;
+&lt;h2 id="orgc6c71d1"&gt;&lt;a id="ID-CED3F392-CA50-497B-8253-971664F19DBF"&gt;&lt;/a&gt;使用注意事项&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-orgc6c71d1"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;在主版本有未发布的配置项时，要发布灰度后的全量则需要先把主版本中的配置发布后方可操作&lt;/li&gt;
+&lt;li&gt;使用docker运行demo测试时连接不上docker中的服务解决方法：&lt;a href="https://github.com/ctripcorp/apollo/issues/1481#issuecomment-422057411w"&gt;https://github.com/ctripcorp/apollo/issues/1481#issuecomment-422057411w&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;/opt目录要有读写权限，日志文件默认打印在此目录&lt;/li&gt;
+&lt;li&gt;线上环境配置建议配置在机器上，不建议配置在代码中，与代码解耦&lt;/li&gt;
+&lt;li&gt;config与admin service要开放端口8080与8090(默认情况下)，端口可以在项目中的starup.sh中修改&lt;/li&gt;
+&lt;li&gt;如果Config Service配置开启了内存缓存数据(config-service.cache.enabled)，要提前考虑数据量的大小，调整服务的内存配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org6e9d69a" class="outline-2"&gt;
+&lt;h2 id="org6e9d69a"&gt;&lt;a id="ID-8D01547C-7A70-4520-9E93-4820385D31CD"&gt;&lt;/a&gt;参考文档&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org6e9d69a"&gt;
+&lt;p&gt;
+&lt;a href="https://github.com/ctripcorp/apollo"&gt;https://github.com/ctripcorp/apollo&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;a href="https://github.com/alibaba/nacos"&gt;https://github.com/alibaba/nacos&lt;/a&gt; 
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;a href="http://dockone.io/article/8767"&gt;http://dockone.io/article/8767&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description><guid>http://blog.imcompany.cn/posts/apollo-config-swim/</guid><pubDate>Thu, 09 May 2019 09:34:09 GMT</pubDate></item><item><title>Centos7 install issue collect</title><link>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;p&gt;
 &lt;b&gt;由于工作需要，使用VMWare虚拟机安装了Centos7系统，遇到了很多问题，现在把这些问题记录下来，以备后用。&lt;/b&gt;
 &lt;/p&gt;
-&lt;div id="outline-container-org0eac843" class="outline-2"&gt;
-&lt;h2 id="org0eac843"&gt;&lt;a id="ID-84DBB28B-510F-48F5-9400-9B7BB965276F"&gt;&lt;/a&gt;解决Centos7 yum could not retrieve mirrorlist错误&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org0eac843"&gt;
+&lt;div id="outline-container-org7aff081" class="outline-2"&gt;
+&lt;h2 id="org7aff081"&gt;&lt;a id="ID-84DBB28B-510F-48F5-9400-9B7BB965276F"&gt;&lt;/a&gt;解决Centos7 yum could not retrieve mirrorlist错误&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org7aff081"&gt;
 &lt;p&gt;
 刚安装好的VM使用ip add查看局域网的ip没有结果，这个参考&lt;a href="https://my.oschina.net/u/2456768/blog/3011881"&gt;https://my.oschina.net/u/2456768/blog/3011881&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org8fe468f" class="outline-2"&gt;
-&lt;h2 id="org8fe468f"&gt;&lt;a id="ID-34AA8C7F-F6C7-426D-B1AB-C4D02AFAD234"&gt;&lt;/a&gt;配置静态ip&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org8fe468f"&gt;
+&lt;div id="outline-container-org6b76c77" class="outline-2"&gt;
+&lt;h2 id="org6b76c77"&gt;&lt;a id="ID-34AA8C7F-F6C7-426D-B1AB-C4D02AFAD234"&gt;&lt;/a&gt;配置静态ip&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org6b76c77"&gt;
 &lt;p&gt;
 安装虚拟机就是模拟多个机器通讯的情况，但是目前的配置是机器ip是动态获取的，老是变，每次都得看ip，所以需要配置一下VMware来支持静态ip。主要机器上的配置信息为：
 &lt;/p&gt;
@@ -101,9 +321,9 @@ DNS1=192.168.116.2
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgeebe164" class="outline-2"&gt;
-&lt;h2 id="orgeebe164"&gt;&lt;a id="ID-81DDC873-8885-41D8-86D5-45A73C6B0C56"&gt;&lt;/a&gt;Centos7安装后配置国内仓库源&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgeebe164"&gt;
+&lt;div id="outline-container-org7c785aa" class="outline-2"&gt;
+&lt;h2 id="org7c785aa"&gt;&lt;a id="ID-81DDC873-8885-41D8-86D5-45A73C6B0C56"&gt;&lt;/a&gt;Centos7安装后配置国内仓库源&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org7c785aa"&gt;
 &lt;p&gt;
 由于国内访问centos的原始源慢，需要换成163的软件源，新安装的系统执行命令都提示not found，只能从物理下载源的配置再上传到VM中，但是首先得知道VM的ip地址，使用ifconfig是不可能了，查了一下可以使用
 &lt;/p&gt;
@@ -113,105 +333,24 @@ DNS1=192.168.116.2
 来查看VM的ip地址，这样配置源的的问题可以解决了，具体的配置源的方法参考&lt;a href="https://blog.csdn.net/inslow/article/details/54177191"&gt;https://blog.csdn.net/inslow/article/details/54177191&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgd0ccddd" class="outline-3"&gt;
-&lt;h3 id="orgd0ccddd"&gt;&lt;a id="ID-2D38E928-3C28-41CC-A3A2-D0F6F4938DA5"&gt;&lt;/a&gt;Centos7安装VMware Tools&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgd0ccddd"&gt;
+&lt;div id="outline-container-orgd3c7458" class="outline-3"&gt;
+&lt;h3 id="orgd3c7458"&gt;&lt;a id="ID-2D38E928-3C28-41CC-A3A2-D0F6F4938DA5"&gt;&lt;/a&gt;Centos7安装VMware Tools&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgd3c7458"&gt;
 &lt;p&gt;
 想更好的让VM与物理机协同，则VMware Tools必须要安装，好久不用linux的我连挂载也忘的一干二净了。搜了一下，参考&lt;a href="https://blog.csdn.net/WarnerWu/article/details/73718901"&gt;https://blog.csdn.net/WarnerWu/article/details/73718901&lt;/a&gt; 完成VMware Tools的安装。这样共享目录的功能就可以正常使用了
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgb9b8a42" class="outline-2"&gt;
-&lt;h2 id="orgb9b8a42"&gt;&lt;a id="ID-3C9A8FC3-06ED-45D7-9EC6-546B407BC6D6"&gt;&lt;/a&gt;安装Jdk8&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgb9b8a42"&gt;
+&lt;div id="outline-container-org57e5d20" class="outline-2"&gt;
+&lt;h2 id="org57e5d20"&gt;&lt;a id="ID-3C9A8FC3-06ED-45D7-9EC6-546B407BC6D6"&gt;&lt;/a&gt;安装Jdk8&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org57e5d20"&gt;
 &lt;p&gt;
 一句命令搞定：
 &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org1770553" class="outline-2"&gt;
-&lt;h2 id="org1770553"&gt;&lt;a id="ID-6EE1B642-574A-4AFA-924A-F275A92A8FC5"&gt;&lt;/a&gt;安装mysql&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org1770553"&gt;
-&lt;p&gt;
-使用yum安装mysql需要下载安装mysql的源，更新后就可以安装了，这个参考了&lt;a href="https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/"&gt;https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org53afd4a" class="outline-2"&gt;
-&lt;h2 id="org53afd4a"&gt;&lt;a id="ID-CFFA6D73-B5D7-402B-8DDF-ACD9E2D7084D"&gt;&lt;/a&gt;修改mysql的root密码&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org53afd4a"&gt;
-&lt;p&gt;
-安装完mysql后登录找不到密码了，其实在使用yum安装时会mysql会自动生成一个随机密码，这个密码可以在安装的日志中找到。此方法参考了&lt;a href="https://blog.csdn.net/kuluzs/article/details/51924086"&gt;https://blog.csdn.net/kuluzs/article/details/51924086&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org4eaa919" class="outline-2"&gt;
-&lt;h2 id="org4eaa919"&gt;&lt;a id="ID-267B4B0C-66BF-4EEE-8B6C-352361631EFA"&gt;&lt;/a&gt;开放3306端口&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org4eaa919"&gt;
-&lt;p&gt;
-为了方便mysql工具进行操作，需要开放3306端口。Centos7的防火墙还改了。具体就3个命令：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  systemctl start firewalld
-  firewall-cmd --zone=public --add-port=3306/tcp --permanent
-  firewall-cmd --reload
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-这个参考了&lt;a href="https://www.jianshu.com/p/225a853350d9"&gt;https://www.jianshu.com/p/225a853350d9&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org84fad36" class="outline-2"&gt;
-&lt;h2 id="org84fad36"&gt;&lt;a id="ID-557D4123-928B-459E-A11F-3BB36A91DD00"&gt;&lt;/a&gt;安装oh-my-bash&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org84fad36"&gt;
-&lt;p&gt;
-由于一般服务器都自带bash为默认的shell，但是操作起来着实不方便，安装oh-my-bash可以对shell进行一些增强。&lt;a href="https://github.com/ohmybash/oh-my-bash"&gt;https://github.com/ohmybash/oh-my-bash&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgecdb923" class="outline-2"&gt;
-&lt;h2 id="orgecdb923"&gt;&lt;a id="ID-42C1B284-6A9A-48F2-9E4E-DD8D217F8108"&gt;&lt;/a&gt;Centos自动登录&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgecdb923"&gt;
-&lt;p&gt;
-安装后每次启动VM都要输入密码，这个对于自己测试很麻烦，要使Centos能登录后自动登录需要做以下操作：
-&lt;/p&gt;
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;&lt;p&gt;
-移除原来的getty@tty1.service软链接
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    rm /etc/systemd/system/getty.target.wants/getty@tty1.service
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;
-拷贝getty@.service file 并且命名为 getty@tty1.service
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    cp /lib/systemd/system/getty@.service /etc/systemd/system/getty@tty1.service
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;
-编辑新拷贝的getty@tty1.service，修改以下内容，最后一行必须加上
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    [Service]
-    ...
-    ExecStart=-/sbin/agetty --autologin root --noclear %I
-    ...
-    [Install]
-    ...
-    ;Alias=getty@tty1.service
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;
-在getty.target.wants目录做一下软链接
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ln -s /etc/systemd/system/getty@tty1.service /etc/systemd/system/getty.target.wants/getty@tty1.service
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;重启，Done!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;
-&lt;b&gt;以上参考&lt;a href="https://www.centos.org/forums/viewtopic.php?t=48288"&gt;https://www.centos.org/forums/viewtopic.php?t=48288&lt;/a&gt;
-  说明一下，网上一些修改gdm的方法试了没有作用。&lt;/b&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>centos7</category><category>linux</category><guid>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</guid><pubDate>Mon, 06 May 2019 05:00:55 GMT</pubDate></item><item><title>TARS-打卡第一天</title><link>http://blog.imcompany.cn/posts/tars-001/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org4d3f57f" class="outline-2"&gt;
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/centos7-install-issue-collect/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>centos7</category><category>linux</category><guid>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</guid><pubDate>Mon, 06 May 2019 05:00:55 GMT</pubDate></item><item><title>TARS-打卡第一天</title><link>http://blog.imcompany.cn/posts/tars-001/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;div id="outline-container-org4d3f57f" class="outline-2"&gt;
 &lt;h2 id="org4d3f57f"&gt;&lt;a id="ID-ED356ECB-A713-4045-AA06-606C9E7BFD88"&gt;&lt;/a&gt;Algorithm&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-org4d3f57f"&gt;
 &lt;p&gt;

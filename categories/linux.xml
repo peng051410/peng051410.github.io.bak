@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company (关于文章 linux)</title><link>http://blog.imcompany.cn/</link><description></description><atom:link href="http://blog.imcompany.cn/categories/linux.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Fri, 10 May 2019 07:14:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Centos7 install issue collect</title><link>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</link><dc:creator>Tomyli</dc:creator><description>&lt;p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I'm company (关于文章 linux)</title><link>http://blog.imcompany.cn/</link><description></description><atom:link href="http://blog.imcompany.cn/categories/linux.xml" rel="self" type="application/rss+xml"></atom:link><language>zh_cn</language><copyright>Contents © 2019 &lt;a href="mailto:peng051410@gmail.comjoe@demo.site"&gt;Tomyli&lt;/a&gt; </copyright><lastBuildDate>Sat, 18 May 2019 03:53:39 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Centos7 install issue collect</title><link>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</link><dc:creator>Tomyli</dc:creator><description>&lt;div&gt;&lt;p&gt;
 &lt;b&gt;由于工作需要，使用VMWare虚拟机安装了Centos7系统，遇到了很多问题，现在把这些问题记录下来，以备后用。&lt;/b&gt;
 &lt;/p&gt;
-&lt;div id="outline-container-org0eac843" class="outline-2"&gt;
-&lt;h2 id="org0eac843"&gt;&lt;a id="ID-84DBB28B-510F-48F5-9400-9B7BB965276F"&gt;&lt;/a&gt;解决Centos7 yum could not retrieve mirrorlist错误&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org0eac843"&gt;
+&lt;div id="outline-container-org7aff081" class="outline-2"&gt;
+&lt;h2 id="org7aff081"&gt;&lt;a id="ID-84DBB28B-510F-48F5-9400-9B7BB965276F"&gt;&lt;/a&gt;解决Centos7 yum could not retrieve mirrorlist错误&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org7aff081"&gt;
 &lt;p&gt;
 刚安装好的VM使用ip add查看局域网的ip没有结果，这个参考&lt;a href="https://my.oschina.net/u/2456768/blog/3011881"&gt;https://my.oschina.net/u/2456768/blog/3011881&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org8fe468f" class="outline-2"&gt;
-&lt;h2 id="org8fe468f"&gt;&lt;a id="ID-34AA8C7F-F6C7-426D-B1AB-C4D02AFAD234"&gt;&lt;/a&gt;配置静态ip&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org8fe468f"&gt;
+&lt;div id="outline-container-org6b76c77" class="outline-2"&gt;
+&lt;h2 id="org6b76c77"&gt;&lt;a id="ID-34AA8C7F-F6C7-426D-B1AB-C4D02AFAD234"&gt;&lt;/a&gt;配置静态ip&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org6b76c77"&gt;
 &lt;p&gt;
 安装虚拟机就是模拟多个机器通讯的情况，但是目前的配置是机器ip是动态获取的，老是变，每次都得看ip，所以需要配置一下VMware来支持静态ip。主要机器上的配置信息为：
 &lt;/p&gt;
@@ -26,9 +26,9 @@ DNS1=192.168.116.2
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgeebe164" class="outline-2"&gt;
-&lt;h2 id="orgeebe164"&gt;&lt;a id="ID-81DDC873-8885-41D8-86D5-45A73C6B0C56"&gt;&lt;/a&gt;Centos7安装后配置国内仓库源&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgeebe164"&gt;
+&lt;div id="outline-container-org7c785aa" class="outline-2"&gt;
+&lt;h2 id="org7c785aa"&gt;&lt;a id="ID-81DDC873-8885-41D8-86D5-45A73C6B0C56"&gt;&lt;/a&gt;Centos7安装后配置国内仓库源&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org7c785aa"&gt;
 &lt;p&gt;
 由于国内访问centos的原始源慢，需要换成163的软件源，新安装的系统执行命令都提示not found，只能从物理下载源的配置再上传到VM中，但是首先得知道VM的ip地址，使用ifconfig是不可能了，查了一下可以使用
 &lt;/p&gt;
@@ -38,102 +38,21 @@ DNS1=192.168.116.2
 来查看VM的ip地址，这样配置源的的问题可以解决了，具体的配置源的方法参考&lt;a href="https://blog.csdn.net/inslow/article/details/54177191"&gt;https://blog.csdn.net/inslow/article/details/54177191&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgd0ccddd" class="outline-3"&gt;
-&lt;h3 id="orgd0ccddd"&gt;&lt;a id="ID-2D38E928-3C28-41CC-A3A2-D0F6F4938DA5"&gt;&lt;/a&gt;Centos7安装VMware Tools&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgd0ccddd"&gt;
+&lt;div id="outline-container-orgd3c7458" class="outline-3"&gt;
+&lt;h3 id="orgd3c7458"&gt;&lt;a id="ID-2D38E928-3C28-41CC-A3A2-D0F6F4938DA5"&gt;&lt;/a&gt;Centos7安装VMware Tools&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-orgd3c7458"&gt;
 &lt;p&gt;
 想更好的让VM与物理机协同，则VMware Tools必须要安装，好久不用linux的我连挂载也忘的一干二净了。搜了一下，参考&lt;a href="https://blog.csdn.net/WarnerWu/article/details/73718901"&gt;https://blog.csdn.net/WarnerWu/article/details/73718901&lt;/a&gt; 完成VMware Tools的安装。这样共享目录的功能就可以正常使用了
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgb9b8a42" class="outline-2"&gt;
-&lt;h2 id="orgb9b8a42"&gt;&lt;a id="ID-3C9A8FC3-06ED-45D7-9EC6-546B407BC6D6"&gt;&lt;/a&gt;安装Jdk8&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgb9b8a42"&gt;
+&lt;div id="outline-container-org57e5d20" class="outline-2"&gt;
+&lt;h2 id="org57e5d20"&gt;&lt;a id="ID-3C9A8FC3-06ED-45D7-9EC6-546B407BC6D6"&gt;&lt;/a&gt;安装Jdk8&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-org57e5d20"&gt;
 &lt;p&gt;
 一句命令搞定：
 &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org1770553" class="outline-2"&gt;
-&lt;h2 id="org1770553"&gt;&lt;a id="ID-6EE1B642-574A-4AFA-924A-F275A92A8FC5"&gt;&lt;/a&gt;安装mysql&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org1770553"&gt;
-&lt;p&gt;
-使用yum安装mysql需要下载安装mysql的源，更新后就可以安装了，这个参考了&lt;a href="https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/"&gt;https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7/&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org53afd4a" class="outline-2"&gt;
-&lt;h2 id="org53afd4a"&gt;&lt;a id="ID-CFFA6D73-B5D7-402B-8DDF-ACD9E2D7084D"&gt;&lt;/a&gt;修改mysql的root密码&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org53afd4a"&gt;
-&lt;p&gt;
-安装完mysql后登录找不到密码了，其实在使用yum安装时会mysql会自动生成一个随机密码，这个密码可以在安装的日志中找到。此方法参考了&lt;a href="https://blog.csdn.net/kuluzs/article/details/51924086"&gt;https://blog.csdn.net/kuluzs/article/details/51924086&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org4eaa919" class="outline-2"&gt;
-&lt;h2 id="org4eaa919"&gt;&lt;a id="ID-267B4B0C-66BF-4EEE-8B6C-352361631EFA"&gt;&lt;/a&gt;开放3306端口&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org4eaa919"&gt;
-&lt;p&gt;
-为了方便mysql工具进行操作，需要开放3306端口。Centos7的防火墙还改了。具体就3个命令：
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  systemctl start firewalld
-  firewall-cmd --zone=public --add-port=3306/tcp --permanent
-  firewall-cmd --reload
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-这个参考了&lt;a href="https://www.jianshu.com/p/225a853350d9"&gt;https://www.jianshu.com/p/225a853350d9&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-org84fad36" class="outline-2"&gt;
-&lt;h2 id="org84fad36"&gt;&lt;a id="ID-557D4123-928B-459E-A11F-3BB36A91DD00"&gt;&lt;/a&gt;安装oh-my-bash&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-org84fad36"&gt;
-&lt;p&gt;
-由于一般服务器都自带bash为默认的shell，但是操作起来着实不方便，安装oh-my-bash可以对shell进行一些增强。&lt;a href="https://github.com/ohmybash/oh-my-bash"&gt;https://github.com/ohmybash/oh-my-bash&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-orgecdb923" class="outline-2"&gt;
-&lt;h2 id="orgecdb923"&gt;&lt;a id="ID-42C1B284-6A9A-48F2-9E4E-DD8D217F8108"&gt;&lt;/a&gt;Centos自动登录&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgecdb923"&gt;
-&lt;p&gt;
-安装后每次启动VM都要输入密码，这个对于自己测试很麻烦，要使Centos能登录后自动登录需要做以下操作：
-&lt;/p&gt;
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;&lt;p&gt;
-移除原来的getty@tty1.service软链接
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    rm /etc/systemd/system/getty.target.wants/getty@tty1.service
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;
-拷贝getty@.service file 并且命名为 getty@tty1.service
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    cp /lib/systemd/system/getty@.service /etc/systemd/system/getty@tty1.service
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;
-编辑新拷贝的getty@tty1.service，修改以下内容，最后一行必须加上
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    [Service]
-    ...
-    ExecStart=-/sbin/agetty --autologin root --noclear %I
-    ...
-    [Install]
-    ...
-    ;Alias=getty@tty1.service
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;
-在getty.target.wants目录做一下软链接
-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ln -s /etc/systemd/system/getty@tty1.service /etc/systemd/system/getty.target.wants/getty@tty1.service
-&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;重启，Done!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;
-&lt;b&gt;以上参考&lt;a href="https://www.centos.org/forums/viewtopic.php?t=48288"&gt;https://www.centos.org/forums/viewtopic.php?t=48288&lt;/a&gt;
-  说明一下，网上一些修改gdm的方法试了没有作用。&lt;/b&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><category>centos7</category><category>linux</category><guid>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</guid><pubDate>Mon, 06 May 2019 05:00:55 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://blog.imcompany.cn/posts/centos7-install-issue-collect/"&gt;阅读更多…&lt;/a&gt; (剩余 1 分钟去阅读)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><category>centos7</category><category>linux</category><guid>http://blog.imcompany.cn/posts/centos7-install-issue-collect/</guid><pubDate>Mon, 06 May 2019 05:00:55 GMT</pubDate></item></channel></rss>
