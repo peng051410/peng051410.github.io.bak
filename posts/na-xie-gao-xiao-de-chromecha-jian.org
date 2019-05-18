@@ -116,6 +116,21 @@
   :ID:       8C9861DA-030F-4451-8429-550FD763C2C3
   :END:
   沉浸式阅读首选，支持大多数的网站。[[https://github.com/Kenshin/simpread][插件地址]]
+* Clearly
+  :PROPERTIES:
+  :ID:       215C3C8E-C38A-489D-BC0A-C49BEA4819DA
+  :END:
+  更好的英文网页浏览选择，带文字朗读功能。[[https://chrome.google.com/webstore/detail/clearly/odfonlkabodgbolnmmkdijkaeggofoop][插件地址]]
+* Read Aloud
+  :PROPERTIES:
+  :ID:       3D3F8B64-EEB4-42BA-867F-EC34A634F58D
+  :END:
+  朗读英文文章的更好选择，它只会朗读标题与正文。可以选择朗读语间，音调，速度。[[https://chrome.google.com/webstore/detail/read-aloud-a-text-to-spee/hdhinadidafjejdhmfkjgnolgimiaplp/related][插件地址]]
+* 彩云小译
+  :PROPERTIES:
+  :ID:       9B9F734F-69CE-4851-8544-43C4E68F5DF4
+  :END:
+  英文网页同步翻译，译文在原文的下面，方便学习。[[https://chrome.google.com/webstore/detail/lingocloud-interpreter/jmpepeebcbihafjjadogphmbgiffiajh?utm_source=chrome-ntp-icon][插件地址]]
 * 掘金
   :PROPERTIES:
   :ID:       000398B3-32C5-4E17-97AC-D76C984A47DD
