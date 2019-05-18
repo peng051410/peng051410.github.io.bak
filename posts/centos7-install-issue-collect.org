@@ -50,6 +50,7 @@ ip a
   #+BEGIN_SRC shell
   yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
   #+END_SRC
+{{{TEASER_END}}}
 * 安装mysql
   :PROPERTIES:
   :ID:       6EE1B642-574A-4AFA-924A-F275A92A8FC5
