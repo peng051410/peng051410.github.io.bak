@@ -98,16 +98,16 @@
     :PROPERTIES:
     :ID:       DECAE90E-1C80-44FD-B2C2-0B62A54E50FB
     :END:
-    这样可以通过其它方式来查看配置信息
+    这样可以通过其它方式来查看配置信息，[[https://github.com/ctripcorp/apollo/wiki/Apollo%25E5%25BC%2580%25E6%2594%25BE%25E5%25B9%25B3%25E5%258F%25B0][平台API说明]]
+*** 使用方便的后台配置系统Portal
+    :PROPERTIES:
+    :ID:       0D846262-4FC3-4ED7-9BD6-8DF85489F13C
+    :END:
 *** 分布式部署相对较复杂，这是缺点
     :PROPERTIES:
     :ID:       242AAC61-471F-47DB-A4F5-08372C963A92
     :END:
     外部依赖少，目前依赖Mysql
-*** 使用方便的后台配置系统Portal
-    :PROPERTIES:
-    :ID:       0D846262-4FC3-4ED7-9BD6-8DF85489F13C
-    :END:
 ** Apollo的组成
    :PROPERTIES:
    :ID:       AC32230B-1CCE-4CFC-806F-6F8FE3A70783
@@ -195,9 +195,14 @@
    - 在主版本有未发布的配置项时，要发布灰度后的全量则需要先把主版本中的配置发布后方可操作
    - 使用docker运行demo测试时连接不上docker中的服务解决方法：https://github.com/ctripcorp/apollo/issues/1481#issuecomment-422057411w
    - /opt目录要有读写权限，日志文件默认打印在此目录
+   - Client端要使用本地缓存配置，默认情况下确保/opt/data目录存在
    - 线上环境配置建议配置在机器上，不建议配置在代码中，与代码解耦
    - config与admin service要开放端口8080与8090(默认情况下)，端口可以在项目中的starup.sh中修改
    - 如果Config Service配置开启了内存缓存数据(config-service.cache.enabled)，要提前考虑数据量的大小，调整服务的内存配置
+   - 在配置单环境(如开发环境)高可用时配置修改点
+      + 修改config库的eureka.service.url配置项为多个开发环境的meta server地址
+      + 修改portal的apollo-env.properties文件中的开发环境指定地址
+      + 修改admin与config的连接数据库地址，都连接到开发环境的mysql地址
 ** 参考文档
    :PROPERTIES:
    :ID:       8D01547C-7A70-4520-9E93-4820385D31CD
