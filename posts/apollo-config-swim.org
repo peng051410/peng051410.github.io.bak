@@ -214,3 +214,24 @@
     
    http://dockone.io/article/8767
    #+END_QUOTE
+** 后续待确认问题
+   :PROPERTIES:
+   :ID:       F209BF01-70B7-4A5E-9595-ABD967F6443B
+   :END:
+*** 客户端的读取权限 
+    :PROPERTIES:
+    :ID:       E8AE81D5-3406-45CB-B35D-8D24A086B1BF
+    :END:
+*** docker的实例获取问题
+    :PROPERTIES:
+    :ID:       A48102F1-F9D7-45E9-8951-1126E198283D
+    :END:
+*** 本地调试读取配置问题
+    :PROPERTIES:
+    :ID:       EFF9C14D-4F0D-4EDC-9B09-307B929C39DD
+    :END:
+*** Client怎么来修改配置
+    :PROPERTIES:
+    :ID:       31E808C3-330E-40C4-AE82-CE97F541094C
+    :END:
+
