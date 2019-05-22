@@ -125,7 +125,7 @@
      :PROPERTIES:
      :ID:       11B14E61-02E5-4828-B3D9-9E67B7D69D9D
      :END:
-     img-url:/images/overall-architecture.png
+     img-url:/images/apollo-overall-architecture.png
 **** 代码结构
      :PROPERTIES:
      :ID:       D757F06D-B9D8-4FB9-A452-A763E5F84F1F
@@ -156,11 +156,9 @@
     :PROPERTIES:
     :ID:       90F032EB-378F-4447-A244-0E4B9321C0F4
     :END:
-    Apollo使用Mysql实现消息(ReleaseMessage)的处理，消息内容为AppId+Cluster+Namespace
+    Apollo使用Mysql实现消息(ReleaseMessage)的处理，消息内容为AppId+Cluster+Namespace，具体的设计思想可以参考[[https://github.com/ctripcorp/apollo/wiki/Apollo%25E9%2585%258D%25E7%25BD%25AE%25E4%25B8%25AD%25E5%25BF%2583%25E8%25AE%25BE%25E8%25AE%25A1#211-%25E5%258F%2591%25E9%2580%2581releasemessage%25E7%259A%2584%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F][这里]]
 
-    img-url:/images/release-message-design.png
-    
-    具体的设计思想可以参考[[https://github.com/ctripcorp/apollo/wiki/Apollo%25E9%2585%258D%25E7%25BD%25AE%25E4%25B8%25AD%25E5%25BF%2583%25E8%25AE%25BE%25E8%25AE%25A1#211-%25E5%258F%2591%25E9%2580%2581releasemessage%25E7%259A%2584%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F][这里]]
+    img-url:/images/apollo-release-message-design.png
 *** 客户端与服务端的通信方式
     :PROPERTIES:
     :ID:       BE21C115-40BE-4E4C-BC83-E444B7BEACE6
@@ -204,6 +202,37 @@
       + 修改config库的eureka.service.url配置项为多个开发环境的meta server地址
       + 修改portal的apollo-env.properties文件中的开发环境指定地址
       + 修改admin与config的连接数据库地址，都连接到开发环境的mysql地址
+** 后续待确认问题处理
+   :PROPERTIES:
+   :ID:       F209BF01-70B7-4A5E-9595-ABD967F6443B
+   :END:
+*** 客户端的读取权限 
+    :PROPERTIES:
+    :ID:       E8AE81D5-3406-45CB-B35D-8D24A086B1BF
+    :END:
+    目前看官方没有对这方面进行处理，维护者已将该功能加为TODO。具体的实现方案看[[https://github.com/ctripcorp/apollo/issues/2099#issuecomment-478240713][这里]]
+*** docker的实例获取问题
+    :PROPERTIES:
+    :ID:       A48102F1-F9D7-45E9-8951-1126E198283D
+    :END:
+    验证的是实例列表获取的是docker实例的ip地址，不同的docker机获取的ip是相同的
+
+    img-url:/images/apollo-docker-ip.png 
+*** 本地调试读取配置问题
+    :PROPERTIES:
+    :ID:       EFF9C14D-4F0D-4EDC-9B09-307B929C39DD
+    :END:
+    Apollo的开发模式可以解决这个问题，具体看[[https://github.com/ctripcorp/apollo/wiki/Java%25E5%25AE%25A2%25E6%2588%25B7%25E7%25AB%25AF%25E4%25BD%25BF%25E7%2594%25A8%25E6%258C%2587%25E5%258D%2597#%25E4%25BA%2594%25E6%259C%25AC%25E5%259C%25B0%25E5%25BC%2580%25E5%258F%2591%25E6%25A8%25A1%25E5%25BC%258F][这里]]
+*** Client怎么来修改配置
+    :PROPERTIES:
+    :ID:       31E808C3-330E-40C4-AE82-CE97F541094C
+    :END:
+    目前看Apllo-Client包只提供从配置中心获取配置的功能，如果想对配置进行修改，则只能通过OpenApi的方式来实现。
+*** 配置指定时间生效
+    :PROPERTIES:
+    :ID:       07B3F373-56A8-4620-9D54-C14B04240403
+    :END:
+    目前来看需要通过OpenApi实现
 ** 参考文档
    :PROPERTIES:
    :ID:       8D01547C-7A70-4520-9E93-4820385D31CD
@@ -215,24 +244,3 @@
     
    http://dockone.io/article/8767
    #+END_QUOTE
-** 后续待确认问题
-   :PROPERTIES:
-   :ID:       F209BF01-70B7-4A5E-9595-ABD967F6443B
-   :END:
-*** 客户端的读取权限 
-    :PROPERTIES:
-    :ID:       E8AE81D5-3406-45CB-B35D-8D24A086B1BF
-    :END:
-*** docker的实例获取问题
-    :PROPERTIES:
-    :ID:       A48102F1-F9D7-45E9-8951-1126E198283D
-    :END:
-*** 本地调试读取配置问题
-    :PROPERTIES:
-    :ID:       EFF9C14D-4F0D-4EDC-9B09-307B929C39DD
-    :END:
-*** Client怎么来修改配置
-    :PROPERTIES:
-    :ID:       31E808C3-330E-40C4-AE82-CE97F541094C
-    :END:
-
