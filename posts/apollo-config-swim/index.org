@@ -117,23 +117,22 @@
     :ID:       920AD4AB-F81D-4BF4-A696-4C7F730AE8B3
     :END:
     img-url:/images/apollo-home-screenshot.png
-    [[file:/Users/tomyli/github/blog/images/apollo-home-screenshot.png][/Users/tomyli/github/blog/images/apollo-home-screenshot.png]]
 *** Apollo整体设计 
     :PROPERTIES:
     :ID:       62516B1E-749F-46F5-9713-A138EACCF95B
     :END:
-    img-url:/images/overall-architecture.png
-   [[file:/Users/tomyli/github/blog/images/overall-architecture.png][/Users/tomyli/github/blog/images/overall-architecture.png]] 
+**** 总体架构
+     :PROPERTIES:
+     :ID:       11B14E61-02E5-4828-B3D9-9E67B7D69D9D
+     :END:
+     img-url:/images/overall-architecture.png
+**** 代码结构
+     :PROPERTIES:
+     :ID:       D757F06D-B9D8-4FB9-A452-A763E5F84F1F
+     :END:
+     img-url:/images/apollo-code-structure.png
 
-    总体架构
-
-    img-url:/images/apollo-code-structure.png
-    [[file:/Users/tomyli/github/blog/images/apollo-code-structure.png][/Users/tomyli/github/blog/images/apollo-code-structure.png]]
-
-    代码结构
-
-    https://github.com/ctripcorp/apollo/wiki/Apollo配置中心设计#13-各模块概要介绍
-
+     [[https://github.com/ctripcorp/apollo/wiki/Apollo%25E9%2585%258D%25E7%25BD%25AE%25E4%25B8%25AD%25E5%25BF%2583%25E8%25AE%25BE%25E8%25AE%25A1#13-%25E5%2590%2584%25E6%25A8%25A1%25E5%259D%2597%25E6%25A6%2582%25E8%25A6%2581%25E4%25BB%258B%25E7%25BB%258D][各模块概要介绍]]
 *** Apollo Config Service
     :PROPERTIES:
     :ID:       EFC7B929-48E3-430E-B9D6-DDF4BB67A0A0
@@ -158,8 +157,10 @@
     :ID:       90F032EB-378F-4447-A244-0E4B9321C0F4
     :END:
     Apollo使用Mysql实现消息(ReleaseMessage)的处理，消息内容为AppId+Cluster+Namespace
-    [[file:~/github/apollo/doc/images/release-message-design.png][ReleaseMessage]]
-    [[https://github.com/ctripcorp/apollo/wiki/Apollo%25E9%2585%258D%25E7%25BD%25AE%25E4%25B8%25AD%25E5%25BF%2583%25E8%25AE%25BE%25E8%25AE%25A1#211-%25E5%258F%2591%25E9%2580%2581releasemessage%25E7%259A%2584%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F][https://github.com/ctripcorp/apollo/wiki/Apollo%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E8%AE%BE%E8%AE%A1#211-%E5%8F%91%E9%80%81releasemessage%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F]]
+
+    img-url:/images/release-message-design.png
+    
+    具体的设计思想可以参考[[https://github.com/ctripcorp/apollo/wiki/Apollo%25E9%2585%258D%25E7%25BD%25AE%25E4%25B8%25AD%25E5%25BF%2583%25E8%25AE%25BE%25E8%25AE%25A1#211-%25E5%258F%2591%25E9%2580%2581releasemessage%25E7%259A%2584%25E5%25AE%259E%25E7%258E%25B0%25E6%2596%25B9%25E5%25BC%258F][这里]]
 *** 客户端与服务端的通信方式
     :PROPERTIES:
     :ID:       BE21C115-40BE-4E4C-BC83-E444B7BEACE6
@@ -214,3 +215,24 @@
     
    http://dockone.io/article/8767
    #+END_QUOTE
+** 后续待确认问题
+   :PROPERTIES:
+   :ID:       F209BF01-70B7-4A5E-9595-ABD967F6443B
+   :END:
+*** 客户端的读取权限 
+    :PROPERTIES:
+    :ID:       E8AE81D5-3406-45CB-B35D-8D24A086B1BF
+    :END:
+*** docker的实例获取问题
+    :PROPERTIES:
+    :ID:       A48102F1-F9D7-45E9-8951-1126E198283D
+    :END:
+*** 本地调试读取配置问题
+    :PROPERTIES:
+    :ID:       EFF9C14D-4F0D-4EDC-9B09-307B929C39DD
+    :END:
+*** Client怎么来修改配置
+    :PROPERTIES:
+    :ID:       31E808C3-330E-40C4-AE82-CE97F541094C
+    :END:
+
