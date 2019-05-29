@@ -391,3 +391,8 @@
   :ID:       F037AC6C-9307-41AE-B9FD-1D44B9345BEA
   :END:
   在调试时,显示一个"show as"的菜单显示变量值的格式化信息。[[https://plugins.jetbrains.com/plugin/7010-show-as--]]
+* Branch in Window Title
+  :PROPERTIES:
+  :ID:       72C5DA2F-1279-47C5-8A49-F40E99491E59
+  :END:
+  在Idea的window中显示当前git项目的分支名，可以使用window操作软件进行编程自动化。[[https://github.com/tom-haines/branch-window-title/]]
